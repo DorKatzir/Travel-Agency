@@ -11,10 +11,10 @@
                             <h4 class="text-center">Forget Password</h4>
                         </div>
                         <div class="card-body card-body-auth">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('admin_forget_password_submit') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
+                                    <input type="email" class="form-control" name="email" placeholder="Email Address" autocomplete="off" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-lg w_100_p">
