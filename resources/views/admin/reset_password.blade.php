@@ -8,28 +8,21 @@
                 <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                     <div class="card card-primary border-box">
                         <div class="card-header card-header-auth">
-                            <h4 class="text-center">Admin Panel Login</h4>
+                            <h4 class="text-center">Reset Password</h4>
                         </div>
                         <div class="card-body card-body-auth">
                             <form method="POST" action="">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
+                                    <input type="password" class="form-control" name="" placeholder="Password" value="" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="password"  placeholder="Password">
+                                    <input type="password" class="form-control" name="" placeholder="Retype Password" value="">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-lg w_100_p">
-                                        Login
+                                        Submit
                                     </button>
-                                </div>
-                                <div class="form-group">
-                                    <div>
-                                        <a href="{{ route('admin_forget_password') }}">
-                                            Forget Password?
-                                        </a>
-                                    </div>
                                 </div>
                             </form>
                         </div>
