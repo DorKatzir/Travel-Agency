@@ -14,6 +14,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group( function () {
     Route::get('/login', [AdminAuthController::class, 'login'])->name('admin_login');
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin_dashboard');
+    Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
 
 });
 
