@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
+Route::get('/', [FrontController::class, 'home'])->name('home');
+Route::get('/about', [FrontController::class, 'about'])->name('about');
 
 // Admin
 Route::middleware('admin')->prefix('admin')->group( function () {
