@@ -40,7 +40,7 @@ class FrontController extends Controller
         $user->token = $token;
         $user->save();
 
-        $verification_link = url('registration_verify_email/'.$token.'/'.$request->email);
+        $verification_link = url('registration-verify-email/'.$token.'/'.$request->email);
         $subject = "Registration Verification";
         $message = "To complete registration, please click on the link below:<br>";
         $message .= "<a href='".$verification_link."'>Click Here</a>";
@@ -48,6 +48,12 @@ class FrontController extends Controller
         \Mail::to($request->email)->send(new Websitemail($subject,$message));
 
         return redirect()->back()->with('success','Your registration is completed. Please check your email for verification. If you do not find the email in your inbox, please check your spam folder.');
+    }
+
+    public function registration_verify_email($token, $email) {
+
+        dd($email, $token);
+
     }
 
     public function login() {
