@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -15,7 +16,20 @@ Route::post('/registration', [FrontController::class, 'registration_submit'])->n
 Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'registration_verify'])->name('registration_verify');
 
 Route::get('/login', [FrontController::class, 'login'])->name('login');
+Route::post('/login', [FrontController::class, 'login_submit'])->name('login_submit');
+
 Route::get('/forget-password', [FrontController::class, 'forget_password'])->name('forget_password');
+
+Route::get('/logout', [FrontController::class, 'logout'])->name('logout');
+
+
+// User
+Route::middleware('auth')->prefix('user')->group(function () {
+    Route::get('/dashboard',[UserController::class,'dashboard'])->name('user_dashboard');
+
+});
+
+
 
 // Admin
 Route::middleware('admin')->prefix('admin')->group( function () {

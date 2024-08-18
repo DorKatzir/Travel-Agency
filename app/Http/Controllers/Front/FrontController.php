@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Mail\Websitemail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class FrontController extends Controller
@@ -69,7 +70,34 @@ class FrontController extends Controller
         return view('front.login');
     }
 
+    public function login_submit(Request $request) {
+
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $check = $request->all();
+        $data = [
+            'email' => $check['email'],
+            'password' => $check['password'],
+            'status' => 1,
+        ];
+
+        if(Auth::guard('web')->attempt($data)) {
+            return redirect()->route('user_dashboard')->with('success','Login is successfull');
+        } else {
+            return redirect()->route('login')->with('error','The information you entered is incorrect! Please try again!')->withInput();
+        }
+    }
+
     public function forget_password() {
         return view('front.forget-password');
     }
+
+    public function logout() {
+        Auth::guard('web')->logout();
+        return redirect()->route('login')->with('success','Logout is successful!');
+    }
+
 }
