@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{ asset('dist-front/css/select2-bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('dist-front/css/all.css') }}">
         <link rel="stylesheet" href="{{ asset('dist-front/css/meanmenu.css') }}">
+        <link rel="stylesheet" href="{{ asset('dist/css/iziToast.min.css') }}">
         <link rel="stylesheet" href="{{ asset('dist-front/css/spacing.css') }}">
         <link rel="stylesheet" href="{{ asset('dist-front/css/style.css') }}">
 
@@ -33,6 +34,7 @@
         <script src="{{ asset('dist-front/js/counterup.min.js') }}"></script>
         <script src="{{ asset('dist-front/js/multi-countdown.js') }}"></script>
         <script src="{{ asset('dist-front/js/jquery.meanmenu.js') }}"></script>
+        <script src="{{ asset('dist/js/iziToast.min.js') }}"></script>
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
     </head>
@@ -49,10 +51,10 @@
                     <div class="col-md-6 right-side">
                         <ul class="right">
                             <li class="menu">
-                                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                             </li>
                             <li class="menu">
-                                <a href="register.html"><i class="fas fa-user"></i> Sign Up</a>
+                                <a href="{{ route('registration') }}"><i class="fas fa-user"></i> Sign Up</a>
                             </li>
                         </ul>
                     </div>
@@ -166,5 +168,41 @@
         </div>
 
         <script src="{{ asset('dist-front/js/custom.js') }}"></script>
+
+        @if($errors->any())
+        @foreach ($errors->all() as $error)
+            <script>
+                iziToast.show({
+                    message: '{{ $error }}',
+                    color: 'red',
+                    position: 'topRight',
+                });
+            </script>
+        @endforeach
+        @endif
+
+
+        @if(session('success'))
+            <script>
+                iziToast.show({
+                    message: '{{ session("success") }}',
+                    color: 'green',
+                    position: 'topRight',
+                });
+            </script>
+        @endif
+
+
+        @if(session('error'))
+            <script>
+                iziToast.show({
+                    message: '{{ session("error") }}',
+                    color: 'red',
+                    position: 'topRight',
+                });
+            </script>
+        @endif
+
+
     </body>
 </html>
