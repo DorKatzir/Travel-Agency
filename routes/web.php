@@ -12,7 +12,7 @@ Route::get('/about', [FrontController::class, 'about'])->name('about');
 
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
 Route::post('/registration', [FrontController::class, 'registration_submit'])->name('registration_submit');
-Route::get('/registration-verify-email/{token}/{email}', [FrontController::class, 'registration_verify_email'])->name('registration_verify_email');
+Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'registration_verify'])->name('registration_verify');
 
 Route::get('/login', [FrontController::class, 'login'])->name('login');
 Route::get('/forget-password', [FrontController::class, 'forget_password'])->name('forget_password');

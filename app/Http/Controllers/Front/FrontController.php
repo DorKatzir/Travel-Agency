@@ -40,7 +40,7 @@ class FrontController extends Controller
         $user->token = $token;
         $user->save();
 
-        $verification_link = url('registration-verify-email/'.$token.'/'.$request->email);
+        $verification_link = url('registration-verify/'.$token.'/'.$request->email);
         $subject = "Registration Verification";
         $message = "To complete registration, please click on the link below:<br>";
         $message .= "<a href='".$verification_link."'>Click Here</a>";
@@ -50,9 +50,18 @@ class FrontController extends Controller
         return redirect()->back()->with('success','Your registration is completed. Please check your email for verification. If you do not find the email in your inbox, please check your spam folder.');
     }
 
-    public function registration_verify_email($token, $email) {
+    public function registration_verify($token, $email) {
 
-        dd($email, $token);
+        $user = User::where('token',$token)->where('email',$email)->first();
+        if(!$user) {
+            return redirect()->route('login');
+        }
+
+        $user->token = '';
+        $user->status = 1;
+        $user->update();
+
+        return redirect()->route('login')->with('success', 'Your email is verified. You can login now.');
 
     }
 
