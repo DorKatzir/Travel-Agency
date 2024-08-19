@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="confirm_password" class="form-label">Retype Password</label>
+                                <label for="confirm_password" class="form-label">Re-type Password</label>
                                 <input type="password" class="form-control" name="confirm_password">
                             </div>
 

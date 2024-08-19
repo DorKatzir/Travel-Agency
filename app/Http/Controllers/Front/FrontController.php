@@ -142,7 +142,7 @@ class FrontController extends Controller
     }
 
 
-    public function reset_password_submit(Request $request, $token, $email)
+    public function reset_password_submit(Request $request)
     {
         $request->validate([
             'password' => ['required'],
