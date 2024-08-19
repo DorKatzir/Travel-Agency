@@ -41,7 +41,6 @@
                                 <button type="submit" class="btn btn-primary bg-website">
                                     Submit
                                 </button>
-                                <a href="{{ route('login') }}" class="primary-color">Back to Login Page</a>
                             </div>
 
                         </form>
