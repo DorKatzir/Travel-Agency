@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 
@@ -44,6 +45,9 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
     Route::post('/profile', [AdminAuthController::class, 'profile_update'])->name('admin_profile_update');
+
+    Route::get('/slider/index', [AdminSliderController::class, 'index'])->name('admin_slider');
+
 });
 
 
