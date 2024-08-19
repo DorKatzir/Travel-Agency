@@ -53,7 +53,7 @@ class AdminAuthController extends Controller
 
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:admins,email'],
         ]);
 
         $admin = Admin::where('id', Auth::guard('admin')->user()->id)->first();
@@ -61,7 +61,7 @@ class AdminAuthController extends Controller
         if($request->photo){
 
             $request->validate([
-                'photo' => ['mimes:jpeg,jpg,png,webp,gif,svg', 'max:2024']
+                'photo' => ['mimes:jpeg,jpg,png,webp,gif,svg', 'max:2048']
             ]);
 
             $final_name = 'admin_'.time().'.'.$request->photo->extension();

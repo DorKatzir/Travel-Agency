@@ -27,7 +27,7 @@ class FrontController extends Controller
 
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email'],
             'password' => ['required'],
             'confirm_password' => ['required', 'same:password']
         ]);
