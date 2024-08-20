@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\User;
+use App\Models\Slider;
 use App\Mail\Websitemail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,9 @@ use Illuminate\Support\Facades\Hash;
 class FrontController extends Controller
 {
     public function home() {
-        return view('front.home');
+        $sliders = Slider::get();
+
+        return view('front.home', compact('sliders'));
     }
 
     public function about() {
