@@ -46,7 +46,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
     Route::post('/profile', [AdminAuthController::class, 'profile_update'])->name('admin_profile_update');
 
-    Route::get('/slider/index', [AdminSliderController::class, 'index'])->name('admin_slider');
+    Route::get('/slider', [AdminSliderController::class, 'index'])->name('admin_slider');
 
 });
 
