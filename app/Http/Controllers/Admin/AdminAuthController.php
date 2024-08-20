@@ -7,6 +7,7 @@ use Hash;
 use App\Models\Admin;
 use App\Mail\Websitemail;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 
 class AdminAuthController extends Controller
@@ -51,12 +52,13 @@ class AdminAuthController extends Controller
 
     public function profile_update(Request $request) {
 
+        $admin = Admin::where('id', Auth::guard('admin')->user()->id)->first();
+
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email', 'unique:admins,email'],
+            'email' => ['required', 'email', Rule::unique('admins')->ignore($admin->id)],
         ]);
 
-        $admin = Admin::where('id', Auth::guard('admin')->user()->id)->first();
 
         if($request->photo){
 

@@ -12,7 +12,7 @@
             <div class="section-header justify-content-between">
                 <h1>Sliders</h1>
                 <div class="ml-auto">
-                    <a href="" class="btn btn-primary">
+                    <a href="{{ route('admin_slider_create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Add New
                     </a>
@@ -42,8 +42,10 @@
                                                     <td>{{ $loop->iteration }}</td>
 
                                                     <td>
-                                                        <img src="{{ asset('uploads/'. $slider->photo) }}" alt="" class="w-200">
+                                                        <img src="{{ asset('uploads/'. $slider->photo) }}" alt="" class="h_100 object-cover">
                                                     </td>
+
+                                                    <td>{{ $slider->heading }}</td>
 
                                                     <td class="pt_10 pb_10">
                                                         <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>

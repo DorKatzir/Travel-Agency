@@ -18,8 +18,8 @@
                 </a>
             </li>
 
-            <li class="{{ Request::is('admin/slider') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('admin_slider') }}">
+            <li class="{{ Request::is('admin/slider') || Request::is('admin/slider/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin_slider_index') }}">
                     <i class="fas fa-hand-point-right"></i>
                     <span>Slider</span>
                 </a>
