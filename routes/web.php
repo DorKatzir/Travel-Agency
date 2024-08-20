@@ -47,8 +47,14 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/profile', [AdminAuthController::class, 'profile_update'])->name('admin_profile_update');
 
     Route::get('/slider/index', [AdminSliderController::class, 'index'])->name('admin_slider_index');
+
     Route::get('/slider/create', [AdminSliderController::class, 'create'])->name('admin_slider_create');
     Route::post('/slider/create', [AdminSliderController::class, 'create_submit'])->name('admin_slider_create_submit');
+
+    Route::get('/slider/edit/{id}', [AdminSliderController::class, 'edit'])->name('admin_slider_edit');
+    Route::post('/slider/edit/{id}', [AdminSliderController::class, 'edit_submit'])->name('admin_slider_edit_submit');
+
+    Route::get('/slider/delete/{id}', [AdminSliderController::class, 'delete'])->name('admin_slider_delete');
 
 });
 
