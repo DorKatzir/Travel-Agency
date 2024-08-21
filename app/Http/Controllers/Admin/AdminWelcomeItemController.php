@@ -21,7 +21,7 @@ class AdminWelcomeItemController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'video' => 'required', //S4DI3Bve_bQ
+            'video' => 'required',
         ]);
 
         if ( $request->hasFile('photo') ) {

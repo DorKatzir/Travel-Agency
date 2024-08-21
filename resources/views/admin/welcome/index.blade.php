@@ -27,7 +27,7 @@
 
                                                 <div class="mb-3">
                                                     <label class="form-label">Current Photo</label><br>
-                                                    <img width="300" src="{{ asset('uploads/'. $welcomeItem->photo) }}"">
+                                                    <img width="300" height="169"src="{{ asset('uploads/'. $welcomeItem->photo) }}"">
                                                 </div>
 
                                                 <div class="mb-3">
@@ -42,7 +42,7 @@
                                                 <div class="mb-2">
                                                     <label class="form-label">Current Video</label>
 
-                                                    <iframe  width="" height="200" class="iframe" src="https://www.youtube.com/embed/{{ $welcomeItem->video }}?si=bU93xTZw-vXJm10L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                                    <iframe width="300" height="169" src="https://www.youtube.com/embed/{{ $welcomeItem->video }}?si=bU93xTZw-vXJm10L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                                 </div>
 
                                                 <div class="mb-3">

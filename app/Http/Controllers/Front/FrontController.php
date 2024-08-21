@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Models\User;
 use App\Models\Slider;
 use App\Mail\Websitemail;
+use App\Models\WelcomeItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,12 +15,14 @@ class FrontController extends Controller
 {
     public function home() {
         $sliders = Slider::get();
+        $welcomeItem = WelcomeItem::where('id', 1)->first();
 
-        return view('front.home', compact('sliders'));
+        return view('front.home', compact('sliders', 'welcomeItem'));
     }
 
     public function about() {
-        return view('front.about');
+        $welcomeItem = WelcomeItem::where('id', 1)->first();
+        return view('front.about', compact('welcomeItem'));
     }
 
     public function registration() {
