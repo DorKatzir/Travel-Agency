@@ -25,6 +25,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/welcome') || Request::is('admin/welcome/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin_welcom_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Welcome Item</span>
+                </a>
+            </li>
+
             {{-- <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown Items</span></a>
                 <ul class="dropdown-menu">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminWelcomeItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -55,6 +56,9 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/slider/edit/{id}', [AdminSliderController::class, 'edit_submit'])->name('admin_slider_edit_submit');
 
     Route::get('/slider/delete/{id}', [AdminSliderController::class, 'delete'])->name('admin_slider_delete');
+
+    Route::get('/welcome/index', [AdminWelcomeItemController::class, 'index'])->name('admin_welcom_index');
+    Route::post('/welcome/update', [AdminWelcomeItemController::class, 'update'])->name('admin_welcom_update');
 
 });
 

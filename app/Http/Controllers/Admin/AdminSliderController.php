@@ -79,7 +79,7 @@ class AdminSliderController extends Controller
         $slider->button_link = $request->button_link;
         $slider->save();
 
-        return redirect()->route('admin_slider_index')->with('success', 'Slider Updated Successfully');
+        return redirect()->back()->with('success', 'Slider Updated Successfully');
 
     }
 
