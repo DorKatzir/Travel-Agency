@@ -216,7 +216,7 @@
                             </div>
                             <div class="text">
                                 <h2>{{ $feature->title }}</h2>
-                                <p>{{ $feature->description }}</p>
+                                <p>{!! $feature->description !!}</p>
                             </div>
                         </div>
                     </div>
