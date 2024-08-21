@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Feature;
 use App\Models\User;
 use App\Models\Slider;
 use App\Mail\Websitemail;
@@ -14,15 +15,20 @@ use Illuminate\Support\Facades\Hash;
 class FrontController extends Controller
 {
     public function home() {
+
         $sliders = Slider::get();
         $welcomeItem = WelcomeItem::where('id', 1)->first();
+        $features = Feature::get();
 
-        return view('front.home', compact('sliders', 'welcomeItem'));
+        return view('front.home', compact('sliders', 'welcomeItem', 'features'));
     }
 
     public function about() {
+
         $welcomeItem = WelcomeItem::where('id', 1)->first();
-        return view('front.about', compact('welcomeItem'));
+        $features = Feature::get();
+
+        return view('front.about', compact('welcomeItem', 'features'));
     }
 
     public function registration() {
