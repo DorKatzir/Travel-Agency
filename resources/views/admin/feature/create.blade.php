@@ -24,7 +24,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <form method="POST" action="{{ route('admin_feature_create_submit') }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('admin_feature_create_submit') }}">
                                     @csrf
 
                                         <div class="mb-3">
