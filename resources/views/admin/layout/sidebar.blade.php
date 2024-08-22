@@ -46,6 +46,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/testimonial') || Request::is('admin/testimonial/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin_testimonial_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Testimonials</span>
+                </a>
+            </li>
+
             {{-- <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown Items</span></a>
                 <ul class="dropdown-menu">
