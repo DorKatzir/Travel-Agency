@@ -90,19 +90,19 @@
                 <div class="row counter-items">
                     <div class="col-md-3 counter-item">
                         <div class="counter">{{ $counterItem->item1_number }}</div>
-                        <div class="text">{{ $counterItem->item1_text }}</div>
+                        <div class="text text-capitalize">{{ $counterItem->item1_text }}</div>
                     </div>
                     <div class="col-md-3 counter-item">
                         <div class="counter">{{ $counterItem->item2_number }}</div>
-                        <div class="text">{{ $counterItem->item2_text }}</div>
+                        <div class="text text-capitalize">{{ $counterItem->item2_text }}</div>
                     </div>
                     <div class="col-md-3 counter-item">
                         <div class="counter">{{ $counterItem->item3_number }}</div>
-                        <div class="text">{{ $counterItem->item3_text }}</div>
+                        <div class="text text-capitalize">{{ $counterItem->item3_text }}</div>
                     </div>
                     <div class="col-md-3 counter-item">
                         <div class="counter">{{ $counterItem->item4_number }}</div>
-                        <div class="text">{{ $counterItem->item4_text }}</div>
+                        <div class="text text-capitalize">{{ $counterItem->item4_text }}</div>
                     </div>
                 </div>
             </div>
