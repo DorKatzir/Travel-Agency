@@ -28,7 +28,7 @@
             <li class="{{ Request::is('admin/welcome') || Request::is('admin/welcome/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_welcom_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Welcome Item</span>
+                    <span>Welcome</span>
                 </a>
             </li>
 
@@ -42,7 +42,7 @@
             <li class="{{ Request::is('admin/counter') || Request::is('admin/counter/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_counter_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Counter Item</span>
+                    <span>Counter</span>
                 </a>
             </li>
 
