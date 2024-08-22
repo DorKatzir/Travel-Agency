@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminWelcomeItemController;
+use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 
 
@@ -79,6 +80,9 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/feature/delete/{id}', [AdminFeatureController::class, 'delete'])->name('admin_feature_delete');
 
 
+    //Counter Items
+    Route::get('/counter/index', [AdminCounterItemController::class, 'index'])->name('admin_counter_index');
+    Route::post('/counter/update', [AdminCounterItemController::class, 'update'])->name('admin_counter_update');
 
 
 });
