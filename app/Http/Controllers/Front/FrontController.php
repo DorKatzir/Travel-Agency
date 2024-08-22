@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Feature;
+use App\Models\Testimonial;
 use App\Models\User;
 use App\Models\Slider;
 use App\Mail\Websitemail;
@@ -20,8 +21,9 @@ class FrontController extends Controller
         $sliders = Slider::get();
         $welcomeItem = WelcomeItem::where('id', 1)->first();
         $features = Feature::get();
+        $testimonials = Testimonial::get();
 
-        return view('front.home', compact('sliders', 'welcomeItem', 'features'));
+        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials'));
     }
 
     public function about() {

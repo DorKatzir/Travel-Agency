@@ -70,9 +70,9 @@ class AdminTestimonialController extends Controller
             $final_name = 'testimonial_'.time().'.'.$request->photo->extension();
             $request->photo->move( public_path('uploads'), $final_name );
 
+            $testimonial->photo = $final_name;
         }
 
-        $testimonial->photo = $final_name;
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
         $testimonial->comment = $request->comment;
