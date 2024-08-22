@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Slider;
 use App\Mail\Websitemail;
 use App\Models\WelcomeItem;
+use App\Models\CounterItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -26,9 +27,10 @@ class FrontController extends Controller
     public function about() {
 
         $welcomeItem = WelcomeItem::where('id', 1)->first();
+        $counterItem = CounterItem::where('id', 1)->first();
         $features = Feature::get();
 
-        return view('front.about', compact('welcomeItem', 'features'));
+        return view('front.about', compact('welcomeItem', 'features', 'counterItem'));
     }
 
     public function registration() {
