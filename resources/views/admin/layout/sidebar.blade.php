@@ -21,7 +21,7 @@
             <li class="{{ Request::is('admin/slider') || Request::is('admin/slider/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_slider_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Slider</span>
+                    <span>Sliders</span>
                 </a>
             </li>
 
@@ -35,14 +35,14 @@
             <li class="{{ Request::is('admin/feature') || Request::is('admin/feature/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_feature_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Feature</span>
+                    <span>Features</span>
                 </a>
             </li>
 
             <li class="{{ Request::is('admin/counter') || Request::is('admin/counter/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_counter_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Counter</span>
+                    <span>Counter Item</span>
                 </a>
             </li>
 

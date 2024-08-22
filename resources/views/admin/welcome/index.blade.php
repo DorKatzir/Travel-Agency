@@ -10,7 +10,7 @@
 
         <section class="section">
             <div class="section-header justify-content-between">
-                <h1>Edit Welcome Items</h1>
+                <h1>Edit Welcome Item</h1>
 
             </div>
             <div class="section-body">

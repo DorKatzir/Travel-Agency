@@ -10,7 +10,7 @@
 
         <section class="section">
             <div class="section-header justify-content-between">
-                <h1>Slider</h1>
+                <h1>Sliders</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin_slider_create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i>

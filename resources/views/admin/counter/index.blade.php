@@ -10,7 +10,7 @@
 
         <section class="section">
             <div class="section-header justify-content-between">
-                <h1>Edit Counter Items</h1>
+                <h1>Edit Counter Item</h1>
 
             </div>
             <div class="section-body">
@@ -23,7 +23,6 @@
                                     @csrf
 
                                     <div class="row mb-4 border-5 border-start">
-                                        <h5>Item 1</h5>
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Number *</label>
@@ -39,7 +38,6 @@
                                     </div>
 
                                     <div class="row mb-4 border-5 border-start">
-                                        <h5>Item 2</h5>
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Number *</label>
@@ -55,7 +53,6 @@
                                     </div>
 
                                     <div class="row mb-4 border-5 border-start">
-                                        <h5>Item 3</h5>
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Number *</label>
@@ -71,7 +68,6 @@
                                     </div>
 
                                     <div class="row mb-4 border-5 border-start">
-                                        <h5>Item 4</h5>
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label class="form-label">Number *</label>
