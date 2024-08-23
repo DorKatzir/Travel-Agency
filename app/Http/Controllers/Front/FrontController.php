@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Feature;
 use App\Models\Testimonial;
+use App\Models\TeamMember;
 use App\Models\User;
 use App\Models\Slider;
 use App\Mail\Websitemail;
@@ -34,6 +35,17 @@ class FrontController extends Controller
 
         return view('front.about', compact('welcomeItem', 'features', 'counterItem'));
     }
+
+    public function team() {
+        $team = TeamMember::get();
+        return view('front.team', compact('team'));
+    }
+
+    public function team_member($slug) {
+        $member = TeamMember::where('slug', $slug)->first();
+        return view('front.team-member', compact('member'));
+    }
+
 
     public function registration() {
         return view('front.registration');
