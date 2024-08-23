@@ -65,7 +65,7 @@ class AdminTeamMemberController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|alpha_dash|unique:team_members',
+            'slug' => 'required|alpha_dash|unique:team_members,slug,'.$member->id,
             'designation' => 'required',
             'address' => 'required',
             'email' => 'required',
