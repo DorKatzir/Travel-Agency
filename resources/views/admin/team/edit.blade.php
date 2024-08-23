@@ -1,4 +1,4 @@
-{{--
+
 @extends('admin.layout.master')
 @section('main_content')
 
@@ -71,4 +71,4 @@
 @endsection
 
 
- --}}
+

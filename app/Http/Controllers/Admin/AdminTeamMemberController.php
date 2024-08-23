@@ -23,6 +23,7 @@ class AdminTeamMemberController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'slug' => 'required|alpha_dash|unique:team_members',
             'designation' => 'required',
             'address' => 'required',
             'email' => 'required',
@@ -35,6 +36,7 @@ class AdminTeamMemberController extends Controller
         $obj->photo = $final_name;
 
         $obj->name = $request->name;
+        $obj->slug = $request->slug;
         $obj->designation = $request->designation;
         $obj->address = $request->address;
         $obj->email = $request->email;
@@ -63,6 +65,7 @@ class AdminTeamMemberController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'slug' => 'required|alpha_dash|unique:team_members',
             'designation' => 'required',
             'address' => 'required',
             'email' => 'required',
@@ -84,6 +87,7 @@ class AdminTeamMemberController extends Controller
         }
 
         $member->name = $request->name;
+        $member->slug = $request->slug;
         $member->designation = $request->designation;
         $member->address = $request->address;
         $member->email = $request->email;
