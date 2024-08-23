@@ -33,22 +33,10 @@
                                 <div class="designation">{{ $member->designation }}</div>
                                 <div class="social">
                                     <ul>
-                                        @if ($member->facebook)
-                                            <li><a href="{{ $member->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
-                                        @endif
-
-                                        @if ($member->twitter)
-                                            <li><a href="{{ $member->twitter }}"><i class="fab fa-twitter"></i></a></li>
-                                        @endif
-
-                                        @if ($member->linkedin)
-                                            <li><a href="{{ $member->linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
-                                        @endif
-
-                                        @if ($member->instagram)
-                                            <li><a href="{{ $member->instagram }}"><i class="fab fa-instagram"></i></a></li>
-                                        @endif
-
+                                        <li class="{{ !$member->facebook ? 'd-none' : ''}}"><a href="{{ $member->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="{{ !$member->twitter ? 'd-none' : ''}}"><a href="{{ $member->twitter }}"><i class="fab fa-twitter"></i></a></li>
+                                        <li class="{{ !$member->linkedin ? 'd-none' : ''}}"><a href="{{ $member->linkedin }}"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li class="{{ !$member->instagram ? 'd-none' : ''}}"><a href="{{ $member->instagram }}"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
