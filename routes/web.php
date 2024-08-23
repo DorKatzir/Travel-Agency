@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminWelcomeItemController;
 use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
+use App\Http\Controllers\Admin\AdminTeamMemberController;
 
 
 
@@ -96,6 +97,18 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/testimonial/edit/{id}', [AdminTestimonialController::class, 'edit_submit'])->name('admin_testimonial_edit_submit');
 
     Route::get('/testimonial/delete/{id}', [AdminTestimonialController::class, 'delete'])->name('admin_testimonial_delete');
+
+
+    // Team
+    Route::get('/team/index', [AdminTeamMemberController::class, 'index'])->name('admin_team_index');
+
+    Route::get('/team/create', [AdminTeamMemberController::class, 'create'])->name('admin_team_create');
+    Route::post('/team/create', [AdminTeamMemberController::class, 'create_submit'])->name('admin_team_create_submit');
+
+    Route::get('/team/edit/{id}', [AdminTeamMemberController::class, 'edit'])->name('admin_team_edit');
+    Route::post('/team/edit/{id}', [AdminTeamMemberController::class, 'edit_submit'])->name('admin_team_edit_submit');
+
+    Route::get('/team/delete/{id}', [AdminTeamMemberController::class, 'delete'])->name('admin_team_delete');
 
 
 });
