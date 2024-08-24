@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
+use App\Http\Controllers\Admin\AdminFaqController;
 
 
 
@@ -111,6 +112,18 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/team/edit/{id}', [AdminTeamMemberController::class, 'edit_submit'])->name('admin_team_edit_submit');
 
     Route::get('/team/delete/{id}', [AdminTeamMemberController::class, 'delete'])->name('admin_team_delete');
+
+
+    // FAQ
+    Route::get('/faq/index', [AdminFaqController::class, 'index'])->name('admin_faq_index');
+
+    Route::get('/faq/create', [AdminFaqController::class, 'create'])->name('admin_faq_create');
+    Route::post('/faq/create', [AdminFaqController::class, 'create_submit'])->name('admin_faq_create_submit');
+
+    Route::get('/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
+    Route::post('/faq/edit/{id}', [AdminFaqController::class, 'edit_submit'])->name('admin_faq_edit_submit');
+
+    Route::get('/faq/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
 
 
 });
