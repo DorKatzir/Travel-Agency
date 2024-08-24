@@ -37,7 +37,7 @@ class FrontController extends Controller
     }
 
     public function team() {
-        $team = TeamMember::get();
+        $team = TeamMember::paginate(20);
         return view('front.team', compact('team'));
     }
 
