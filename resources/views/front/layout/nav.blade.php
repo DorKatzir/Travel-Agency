@@ -32,8 +32,8 @@
                         <li class="nav-item {{ Request::is('team') || Request::is('team-member/*') ? 'active' : '' }}">
                             <a href="{{ route('team') }}" class="nav-link">Team</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="faq.html" class="nav-link">FAQ</a>
+                        <li class="nav-item {{ Request::is('faq') ? 'active' : ''}}">
+                            <a href="{{ route('faq') }}" class="nav-link">FAQ</a>
                         </li>
                         <li class="nav-item">
                             <a href="blog.html" class="nav-link">Blog</a>

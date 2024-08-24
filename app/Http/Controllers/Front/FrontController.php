@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Testimonial;
 use App\Models\TeamMember;
@@ -44,6 +45,12 @@ class FrontController extends Controller
     public function team_member($slug) {
         $member = TeamMember::where('slug', $slug)->first();
         return view('front.team-member', compact('member'));
+    }
+
+    public function faq() {
+        $faqs = Faq::get();
+        return view('front.faq', compact('faqs'));
+
     }
 
 
