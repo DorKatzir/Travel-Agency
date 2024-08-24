@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminBlogCategoryController extends Controller
 {
@@ -24,12 +25,11 @@ class AdminBlogCategoryController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'category' => 'required',
         ]);
 
 
         $obj->name = $request->name;
-        $obj->category = $request->category;
+        $obj->slug = Str::slug($request->name);
         $obj->save();
 
         return redirect()->route('admin_blog_category_index')->with('success','Blog Category Created Successfully!');
@@ -48,11 +48,10 @@ class AdminBlogCategoryController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'category' => 'required',
         ]);
 
         $obj->name = $request->name;
-        $obj->category = $request->category;
+        $obj->slug = Str::slug($request->name);
         $obj->save();
 
         return redirect()->back()->with('success', 'Blog Category Updated Successfully');

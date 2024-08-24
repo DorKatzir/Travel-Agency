@@ -67,6 +67,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/blog-category') || Request::is('admin/blog-category/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin_blog_category_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Blog Categories</span>
+                </a>
+            </li>
+
             {{-- <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown Items</span></a>
                 <ul class="dropdown-menu">
