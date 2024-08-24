@@ -14,7 +14,7 @@
                             <form method="POST" action="{{ route('admin_login_submit') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="Email Address" autocomplete="off" autofocus>
+                                    <input type="email" class="form-control" name="email" placeholder="Email Address" autofocus value="admin@gmail.com">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" name="password"  placeholder="Password">
