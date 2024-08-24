@@ -49,12 +49,7 @@
                                                 <input type="text" class="form-control" name="name" value="{{ $member->name }}">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="form-label">Slug *</label>
-                                                <input type="text" class="form-control" name="slug" value="{{ $member->slug }}">
-                                            </div>
-                                        </div>
+
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Designation *</label>

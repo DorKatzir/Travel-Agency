@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminTeamMemberController extends Controller
 {
@@ -22,8 +23,7 @@ class AdminTeamMemberController extends Controller
         $obj = new TeamMember();
 
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required|alpha_dash|unique:team_members',
+            'name' => 'required|unique:team_members,name,'.$request->id,
             'designation' => 'required',
             'address' => 'required',
             'email' => 'required',
@@ -36,7 +36,7 @@ class AdminTeamMemberController extends Controller
         $obj->photo = $final_name;
 
         $obj->name = $request->name;
-        $obj->slug = $request->slug;
+        $obj->slug = Str::slug($request->name);
         $obj->designation = $request->designation;
         $obj->address = $request->address;
         $obj->email = $request->email;
@@ -64,8 +64,7 @@ class AdminTeamMemberController extends Controller
         $member= TeamMember::where('id', $id)->first();
 
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required|alpha_dash|unique:team_members,slug,'.$member->id,
+            'name' => 'required|unique:team_members,name,'.$member->id,
             'designation' => 'required',
             'address' => 'required',
             'email' => 'required',
@@ -87,7 +86,7 @@ class AdminTeamMemberController extends Controller
         }
 
         $member->name = $request->name;
-        $member->slug = $request->slug;
+        $member->slug = Str::slug($request->name);
         $member->designation = $request->designation;
         $member->address = $request->address;
         $member->email = $request->email;
