@@ -48,51 +48,51 @@ class AdminPostController extends Controller
     }
 
     public function edit($id) {
-
-        $testimonial = Testimonial::where('id', $id)->first();
-        return view('admin.testimonial.edit', compact('testimonial'));
+        $categories = BlogCategory::get();
+        $post = Post::where('id', $id)->first();
+        return view('admin.post.edit', compact('post', 'categories'));
     }
 
     public function edit_submit(Request $request, $id) {
 
-        $testimonial = Testimonial::where('id', $id)->first();
+        $post = Post::where('id', $id)->first();
 
         $request->validate([
-            'name' => 'required',
-            'designation' => 'required',
-            'comment' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'short_description' => 'required',
         ]);
 
-        if ( $request->hasFile('photo') ) {
 
+        if ( $request->hasFile('photo') ) {
             $request->validate([
                 'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
             ]);
 
-            unlink( public_path('uploads/' . $testimonial->photo) );
+            unlink( public_path('uploads/' . $post->photo) );
 
-            $final_name = 'testimonial_'.time().'.'.$request->photo->extension();
+            $final_name = 'post_'.time().'.'.$request->photo->extension();
             $request->photo->move( public_path('uploads'), $final_name );
-
-            $testimonial->photo = $final_name;
+            $post->photo = $final_name;
         }
 
-        $testimonial->name = $request->name;
-        $testimonial->designation = $request->designation;
-        $testimonial->comment = $request->comment;
-        $testimonial->save();
+        $post->blog_category_id = $request->blog_category_id;
+        $post->title = $request->title;
+        $post->slug = Str::slug($request->title);
+        $post->short_description = $request->short_description;
+        $post->description = $request->description;
+        $post->save();
 
-        return redirect()->back()->with('success', 'Testimonial Updated Successfully');
+        return redirect()->back()->with('success', 'Post Updated Successfully');
 
     }
 
-
     public function delete($id) {
 
-        $testimonial = Testimonial::where('id', $id)->first();
-        unlink( public_path('uploads/' . $testimonial->photo) );
-        $testimonial->delete();
+        $post = Post::where('id', $id)->first();
+        unlink( public_path('uploads/' . $post->photo) );
+        $post->delete();
 
-        return redirect()->route('admin_testimonial_index')->with('success', 'Testimonial Deleted Successfully');
+        return redirect()->route('admin_post_index')->with('success', 'Post Deleted Successfully');
     }
 }
