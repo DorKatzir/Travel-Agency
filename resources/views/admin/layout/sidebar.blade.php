@@ -67,20 +67,25 @@
                 </a>
             </li>
 
-            <li class="{{ Request::is('admin/blog-category') || Request::is('admin/blog-category/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('admin_blog_category_index') }}">
-                    <i class="fas fa-hand-point-right"></i>
-                    <span>Blog Categories</span>
-                </a>
-            </li>
 
-            {{-- <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Dropdown Items</span></a>
+            <li class="nav-item dropdown {{ Request::is('admin/blog-category/*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Blog Section</span></a>
                 <ul class="dropdown-menu">
-                    <li class="active"><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Item 1</a></li>
-                    <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Item 2</a></li>
+
+                    <li class="{{ Request::is('admin/blog-category/index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin_blog_category_index') }}">
+                            <i class="fas fa-angle-right"></i> Categories
+                        </a>
+                    </li>
+
+                    <li class="{{ Request::is('admin/blog-category/create') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin_blog_category_create') }}">
+                            <i class="fas fa-angle-right"></i>Blog
+                        </a>
+                    </li>
+
                 </ul>
-            </li> --}}
+            </li>
 
             <li class="{{ Request::is('admin/profile') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_profile') }}"><i class="fas fa-hand-point-right"></i> <span>Profile</span></a></li>
 
