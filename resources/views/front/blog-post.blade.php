@@ -30,7 +30,7 @@
                         </div>
                         <div class="sub">
                             <ul>
-                                <li><i class="fas fa-calendar-alt"></i> On: {{ $post->created_at }}</li>
+                                <li><i class="fas fa-calendar-alt"></i> On: {{ $post->created_at->format('Y M d') }}</li>
                                 <li><i class="fas fa-th-large"></i> Category: <a href="#">{{ $post->blog_category->name }}</a></li>
                             </ul>
                         </div>
@@ -42,17 +42,18 @@
                     <div class="right-item">
                         <h2>Latest Posts</h2>
                         <ul>
-                            <li><a href="post.html"><i class="fas fa-angle-right"></i> Education Material for Poor Children</a></li>
-                            <li><a href="post.html"><i class="fas fa-angle-right"></i> Partnering to create a strong community</a></li>
-                            <li><a href="post.html"><i class="fas fa-angle-right"></i> Turning your emergency donation into instant aid</a></li>
-                            <li><a href="post.html"><i class="fas fa-angle-right"></i> Charity provides educational boost for children</a></li>
-                            <li><a href="post.html"><i class="fas fa-angle-right"></i> Directly Support Individuals Charity</a></li>
+                            @foreach ($latestPosts as $latestPost)
+                                <li><a href="{{ route('blog_post', $latestPost->slug) }}">
+                                    <i class="fas fa-angle-right"></i>
+                                    {{ $latestPost->title }}
+                                </a></li>
+                            @endforeach
                         </ul>
 
                         <h2 class="mt_40">Categories</h2>
                         <ul>
                             @foreach ($categories as $category)
-                                <li><a href="#"><i class="fas fa-angle-right"></i>{{ $category->name }}</a></li>
+                                <li><a href="#"><i class="fas fa-angle-right"></i> {{ $category->name }}</a></li>
                             @endforeach
                         </ul>
 
