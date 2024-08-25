@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\BlogCategory;
 use App\Models\Faq;
 use App\Models\Feature;
+use App\Models\Post;
 use App\Models\Testimonial;
 use App\Models\TeamMember;
 use App\Models\User;
@@ -24,8 +26,9 @@ class FrontController extends Controller
         $welcomeItem = WelcomeItem::where('id', 1)->first();
         $features = Feature::get();
         $testimonials = Testimonial::get();
+        $posts = Post::orderBy('id', 'desc')->get()->take(3);
 
-        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials'));
+        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts'));
     }
 
     public function about() {
@@ -53,7 +56,21 @@ class FrontController extends Controller
 
     }
 
+    public function blog() {
+        $posts = Post::orderBy('id', 'desc')->paginate(9);
+        return view('front.blog', compact('posts'));
+    }
 
+    public function blog_post($slug) {
+        $categories = BlogCategory::get();
+        $post = Post::where('slug', $slug)->first();
+        return view('front.blog-post', compact('post', 'categories'));
+    }
+
+
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////
     public function registration() {
         return view('front.registration');
     }
@@ -131,7 +148,6 @@ class FrontController extends Controller
         Auth::guard('web')->logout();
         return redirect()->route('login')->with('success','Logout is successful!');
     }
-
 
 
     public function forget_password() {
