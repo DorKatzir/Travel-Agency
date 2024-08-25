@@ -67,6 +67,12 @@ class FrontController extends Controller
         return view('front.blog-post', compact('post', 'categories', 'latestPosts'));
     }
 
+    public function category($slug) {
+        $posts = Post::get();
+        $category = BlogCategory::where('slug', $slug)->first();
+        return view('front.category', compact('category', 'posts'));
+    }
+
 
 
 

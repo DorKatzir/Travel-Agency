@@ -31,7 +31,7 @@
                         <div class="sub">
                             <ul>
                                 <li><i class="fas fa-calendar-alt"></i> On: {{ $post->created_at->format('Y M d') }}</li>
-                                <li><i class="fas fa-th-large"></i> Category: <a href="#">{{ $post->blog_category->name }}</a></li>
+                                <li><i class="fas fa-th-large"></i> Category: <a href="{{ route('category', $post->blog_category->slug) }}">{{ $post->blog_category->name }}</a></li>
                             </ul>
                         </div>
                         <div class="description">{!! $post->description !!}</div>
@@ -53,7 +53,7 @@
                         <h2 class="mt_40">Categories</h2>
                         <ul>
                             @foreach ($categories as $category)
-                                <li><a href="#"><i class="fas fa-angle-right"></i> {{ $category->name }}</a></li>
+                                <li><a href="{{ route('category', $category->slug) }}"><i class="fas fa-angle-right"></i> {{ $category->name }}</a></li>
                             @endforeach
                         </ul>
 

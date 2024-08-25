@@ -24,6 +24,7 @@ Route::get('/team-member/{slug}', [FrontController::class, 'team_member'])->name
 Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/blog-post/{slug}', [FrontController::class, 'blog_post'])->name('blog_post');
+Route::get('/category/{slug}', [FrontController::class, 'category'])->name('category');
 
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
 Route::post('/registration', [FrontController::class, 'registration_submit'])->name('registration_submit');
