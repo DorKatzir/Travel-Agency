@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminBlogCategoryController;
+use App\Http\Controllers\Admin\AdminPostController;
 
 
 
@@ -138,6 +139,18 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/blog-category/edit/{id}', [AdminBlogCategoryController::class, 'edit_submit'])->name('admin_blog_category_edit_submit');
 
     Route::get('/blog-category/delete/{id}', [AdminBlogCategoryController::class, 'delete'])->name('admin_blog_category_delete');
+
+
+    // Posts
+    Route::get('/post/index', [AdminPostController::class, 'index'])->name('admin_post_index');
+
+    Route::get('/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
+    Route::post('/post/create', [AdminPostController::class, 'create_submit'])->name('admin_post_create_submit');
+
+    Route::get('/post/edit/{id}', [AdminPostController::class, 'edit'])->name('admin_post_edit');
+    Route::post('/post/edit/{id}', [AdminPostController::class, 'edit_submit'])->name('admin_post_edit_submit');
+
+    Route::get('/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
 
 
 });
