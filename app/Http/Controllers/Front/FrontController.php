@@ -68,8 +68,8 @@ class FrontController extends Controller
     }
 
     public function category($slug) {
-        $posts = Post::get();
         $category = BlogCategory::where('slug', $slug)->first();
+        $posts = Post::where('blog_category_id', $category->id)->orderBy('id', 'desc')->paginate(9);
         return view('front.category', compact('category', 'posts'));
     }
 

@@ -24,24 +24,22 @@
         <div class="container">
             <div class="row">
                 @foreach ($posts as $post)
-                    @if ($post->blog_category_id == $category->id)
-                        <div class="col-lg-4 col-md-6">
-                            <div class="item pb_70">
-                                <div class="photo">
-                                    <img src="{{ asset('uploads/'.$post->photo) }}" alt="" />
-                                </div>
-                                <div class="text">
-                                    <h2>
-                                        <a href="{{ route('blog_post', $post->slug) }}">{{ $post->title }}</a>
-                                    </h2>
-                                    <div class="short-des">{{ $post->short_description }}</div>
-                                    <div class="button-style-2 mt_20">
-                                        <a href="{{ route('blog_post', $post->slug) }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
-                                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="item pb_70">
+                            <div class="photo">
+                                <img src="{{ asset('uploads/'.$post->photo) }}" alt="" />
+                            </div>
+                            <div class="text">
+                                <h2>
+                                    <a href="{{ route('blog_post', $post->slug) }}">{{ $post->title }}</a>
+                                </h2>
+                                <div class="short-des">{{ $post->short_description }}</div>
+                                <div class="button-style-2 mt_20">
+                                    <a href="{{ route('blog_post', $post->slug) }}">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    </div>
                 @endforeach
             </div>
         </div>
