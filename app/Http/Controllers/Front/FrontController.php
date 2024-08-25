@@ -26,7 +26,11 @@ class FrontController extends Controller
         $welcomeItem = WelcomeItem::where('id', 1)->first();
         $features = Feature::get();
         $testimonials = Testimonial::get();
+<<<<<<< HEAD
         $posts = Post::orderBy('id', 'desc')->get()->take(3);
+=======
+        $posts = Post::get()->take(3);
+>>>>>>> 2bb210c21d99c181e43f779382b92c17b155d302
 
         return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts'));
     }
@@ -57,7 +61,11 @@ class FrontController extends Controller
     }
 
     public function blog() {
+<<<<<<< HEAD
         $posts = Post::orderBy('id', 'desc')->paginate(9);
+=======
+        $posts = Post::paginate(9);
+>>>>>>> 2bb210c21d99c181e43f779382b92c17b155d302
         return view('front.blog', compact('posts'));
     }
 
