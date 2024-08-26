@@ -75,8 +75,13 @@ class FrontController extends Controller
     }
 
     public function destinations() {
-        $destinations = Destination::orderBy('id', 'desc')->get();
+        $destinations = Destination::orderBy('id', 'desc')->paginate(12);
         return view('front.destinations', compact('destinations'));
+    }
+
+    public function destination($slug) {
+        $destination = Destination::where('slug', $slug)->first();
+        return view('front.destination', compact('destination'));
     }
 
 

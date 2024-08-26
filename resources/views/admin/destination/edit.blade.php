@@ -133,7 +133,7 @@
                                         <div class="col-md-12">
                                             <div>
                                                 <label class="form-label">Map (iframe code)</label>
-                                                <textarea name="map" class="form-control editor">{{ $destination->map }}</textarea>
+                                                <textarea name="map" class="form-control" cols="30" rows="10">{{ $destination->map }}</textarea>
                                             </div>
                                         </div>
                                     </div>
