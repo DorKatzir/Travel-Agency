@@ -47,7 +47,7 @@ class AdminDestinationController extends Controller
         $obj->best_time = $request->best_time;
         $obj->health_safety = $request->health_safety;
         $obj->map = $request->map;
-        $obj->view_count = $request->view_count;
+        $obj->view_count = 1;
         $obj->save();
 
         return redirect()->route('admin_destination_index')->with('success','Destination Created Successfully!');
