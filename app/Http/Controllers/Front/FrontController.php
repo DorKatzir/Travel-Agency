@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\BlogCategory;
+use App\Models\Destination;
 use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Post;
@@ -71,6 +72,11 @@ class FrontController extends Controller
         $category = BlogCategory::where('slug', $slug)->first();
         $posts = Post::where('blog_category_id', $category->id)->orderBy('id', 'desc')->paginate(9);
         return view('front.category', compact('category', 'posts'));
+    }
+
+    public function destinations() {
+        $destinations = Destination::orderBy('id', 'desc')->get();
+        return view('front.destinations', compact('destinations'));
     }
 
 

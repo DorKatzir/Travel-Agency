@@ -27,6 +27,10 @@ Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/blog-post/{slug}', [FrontController::class, 'blog_post'])->name('blog_post');
 Route::get('/category/{slug}', [FrontController::class, 'category'])->name('category');
 
+Route::get('/destinations', [FrontController::class, 'destinations'])->name('destinations');
+
+
+
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
 Route::post('/registration', [FrontController::class, 'registration_submit'])->name('registration_submit');
 Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'registration_verify'])->name('registration_verify');
