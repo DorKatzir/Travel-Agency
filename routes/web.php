@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminTeamMemberController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminBlogCategoryController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminDestinationController;
 
 
 
@@ -144,7 +145,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/blog-category/delete/{id}', [AdminBlogCategoryController::class, 'delete'])->name('admin_blog_category_delete');
 
 
-    // Posts
+    // Post
     Route::get('/post/index', [AdminPostController::class, 'index'])->name('admin_post_index');
 
     Route::get('/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
@@ -154,6 +155,18 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/post/edit/{id}', [AdminPostController::class, 'edit_submit'])->name('admin_post_edit_submit');
 
     Route::get('/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
+
+
+    // Destination
+    Route::get('/destination/index', [AdminDestinationController::class, 'index'])->name('admin_destination_index');
+
+    Route::get('/destination/create', [AdminDestinationController::class, 'create'])->name('admin_destination_create');
+    Route::post('/destination/create', [AdminDestinationController::class, 'create_submit'])->name('admin_destination_create_submit');
+
+    Route::get('/destination/edit/{id}', [AdminDestinationController::class, 'edit'])->name('admin_destination_edit');
+    Route::post('/destination/edit/{id}', [AdminDestinationController::class, 'edit_submit'])->name('admin_destination_edit_submit');
+
+    Route::get('/destination/delete/{id}', [AdminDestinationController::class, 'delete'])->name('admin_destination_delete');
 
 
 });

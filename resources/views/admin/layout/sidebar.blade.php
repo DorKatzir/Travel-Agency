@@ -87,8 +87,22 @@
                 </ul>
             </li>
 
-            <li class="{{ Request::is('admin/profile') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_profile') }}"><i class="fas fa-hand-point-right"></i> <span>Profile</span></a></li>
 
+            <li class="{{ Request::is('admin/destination/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_destination_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Destinations</span>
+                </a>
+            </li>
+
+
+
+            <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_profile') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
 
 
         </ul>
