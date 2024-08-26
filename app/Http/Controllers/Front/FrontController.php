@@ -28,7 +28,9 @@ class FrontController extends Controller
         $features = Feature::get();
         $testimonials = Testimonial::get();
         $posts = Post::orderBy('id', 'desc')->get()->take(3);
-        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts'));
+        $destinations = Destination::orderBy('view_count', 'desc')->get();
+
+        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations'));
     }
 
     public function about() {
@@ -75,7 +77,7 @@ class FrontController extends Controller
     }
 
     public function destinations() {
-        $destinations = Destination::orderBy('id', 'desc')->paginate(12);
+        $destinations = Destination::orderBy('id', 'desc')->paginate(8);
         return view('front.destinations', compact('destinations'));
     }
 
