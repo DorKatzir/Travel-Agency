@@ -94,7 +94,6 @@ class AdminDestinationController extends Controller
         $destination->best_time = $request->best_time;
         $destination->health_safety = $request->health_safety;
         $destination->map = $request->map;
-        $destination->view_count = $request->view_count;
         $destination->save();
 
         return redirect()->back()->with('success', 'Destination Updated Successfully');
