@@ -30,7 +30,7 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Photo</th>
-                                                <th>Delete</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -42,7 +42,7 @@
                                                     </td>
 
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_destination_photos_delete', $item->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_destination_photos_delete', $item->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
