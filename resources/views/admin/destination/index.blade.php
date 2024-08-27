@@ -31,6 +31,7 @@
                                                 <th>SL</th>
                                                 <th>Featured Photo</th>
                                                 <th>Name</th>
+                                                <th>Gallery</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -46,6 +47,11 @@
                                                     </td>
 
                                                     <td>{{ $destination->name }}</td>
+
+                                                    <td>
+                                                        <a href="{{ route('admin_destination_photos', $destination->id) }}" class="btn btn-success btn-sm">Photo Gallery</a>
+                                                        <a href="" class="btn btn-success btn-sm">Video Gallery</a>
+                                                    </td>
 
                                                     <td class="pt_10 pb_10">
                                                         <a href="{{ route('admin_destination_edit', $destination->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>

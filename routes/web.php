@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminDestinationController;
 
 
-
+// Pages
 Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/team', [FrontController::class, 'team'])->name('team');
@@ -26,7 +26,6 @@ Route::get('/faq', [FrontController::class, 'faq'])->name('faq');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/blog-post/{slug}', [FrontController::class, 'blog_post'])->name('blog_post');
 Route::get('/category/{slug}', [FrontController::class, 'category'])->name('category');
-
 Route::get('/destinations', [FrontController::class, 'destinations'])->name('destinations');
 Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name('destination');
 
@@ -172,6 +171,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/destination/edit/{id}', [AdminDestinationController::class, 'edit_submit'])->name('admin_destination_edit_submit');
 
     Route::get('/destination/delete/{id}', [AdminDestinationController::class, 'delete'])->name('admin_destination_delete');
+
+    Route::get('/destination/photos/{id}', [AdminDestinationController::class, 'destination_photos'])->name('admin_destination_photos');
+    Route::post('/destination/photos/{id}', [AdminDestinationController::class, 'destination_photos_submit'])->name('admin_destination_photos_submit');
+    Route::get('/destination/photos/delete/{id}', [AdminDestinationController::class, 'destination_photos_delete'])->name('admin_destination_photos_delete');
 
 
 });

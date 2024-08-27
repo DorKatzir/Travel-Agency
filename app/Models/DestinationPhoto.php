@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Destination extends Model
+class DestinationPhoto extends Model
 {
     use HasFactory;
 
-    public function photos() {
-        return $this->hasMany(DestinationPhoto::class);
+    public function destination() {
+        return $this->belongsTo(Destination::class);
+
     }
 }
