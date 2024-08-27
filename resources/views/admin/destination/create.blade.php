@@ -85,6 +85,11 @@
                                         </div>
 
                                         <div class="mb-4">
+                                            <label class="form-label">Activities</label>
+                                            <textarea name="activity" class="form-control editor">{{ old('activity') }}</textarea>
+                                        </div>
+
+                                        <div class="mb-4">
                                             <label class="form-label">Best Time to Visit</label>
                                             <textarea name="best_time" class="form-control editor">{{ old('best_time') }}</textarea>
                                         </div>

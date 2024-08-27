@@ -185,13 +185,6 @@
                                 <table class="table table-bordered">
 
                                     <tr>
-                                        <td><b>Destination</b></td>
-                                        <td>
-                                            {{ $destination->name }}
-                                        </td>
-                                    </tr>
-
-                                    <tr>
                                         <td><b>Country</b></td>
                                         <td>{{ $destination->country }}</td>
                                     </tr>
@@ -202,6 +195,12 @@
                                             {!! $destination->visa !!}
                                         </td>
                                     </tr>
+
+                                    <tr>
+                                        <td><b>Activities</b></td>
+                                        <td>{!! $destination->activity !!}</td>
+                                    </tr>
+
                                     <tr>
                                         <td><b>Languages Spoken</b></td>
                                         <td>{{ $destination->language }}</td>

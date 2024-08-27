@@ -28,7 +28,7 @@ Route::get('/blog-post/{slug}', [FrontController::class, 'blog_post'])->name('bl
 Route::get('/category/{slug}', [FrontController::class, 'category'])->name('category');
 
 Route::get('/destinations', [FrontController::class, 'destinations'])->name('destinations');
-Route::get('/destinations/{slug}', [FrontController::class, 'destination'])->name('destination');
+Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name('destination');
 
 
 

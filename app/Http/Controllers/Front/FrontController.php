@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Hash;
 
 class FrontController extends Controller
 {
+
     public function home() {
 
         $sliders = Slider::get();
@@ -28,7 +29,7 @@ class FrontController extends Controller
         $features = Feature::get();
         $testimonials = Testimonial::get();
         $posts = Post::orderBy('id', 'desc')->get()->take(3);
-        $destinations = Destination::orderBy('view_count', 'desc')->get();
+        $destinations = Destination::orderBy('view_count', 'desc')->get()->take(8);
 
         return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations'));
     }
@@ -83,6 +84,8 @@ class FrontController extends Controller
 
     public function destination($slug) {
         $destination = Destination::where('slug', $slug)->first();
+        $destination->view_count += 1;
+        $destination->update();
         return view('front.destination', compact('destination'));
     }
 

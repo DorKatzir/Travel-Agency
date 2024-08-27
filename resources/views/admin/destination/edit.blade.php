@@ -114,6 +114,15 @@
                                     <div class="row mb-4">
                                         <div class="col-md-12">
                                             <div>
+                                                <label class="form-label">Activities</label>
+                                                <textarea name="activity" class="form-control editor">{{ $destination->activity }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="col-md-12">
+                                            <div>
                                                 <label class="form-label">Best Time to Visit</label>
                                                 <textarea name="best_time" class="form-control editor">{{ $destination->best_time }}</textarea>
                                             </div>

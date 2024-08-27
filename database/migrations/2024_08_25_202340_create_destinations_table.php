@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('area')->nullable();
             $table->string('timezone')->nullable();
             $table->text('visa')->nullable();
+            $table->text('activity')->nullable();
             $table->text('best_time')->nullable();
             $table->text('health_safety')->nullable();
             $table->text('map')->nullable();
