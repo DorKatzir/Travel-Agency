@@ -334,9 +334,7 @@
                     {{-- Map --}}
                     <div class="main-item">
                         <h2>Map</h2>
-                        <div class="location-map">
-                            <iframe src="https://www.google.com/maps/embed?{!! $destination->map !!}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                        <div class="location-map">{!! $destination->map !!}</div>
                     </div>
 
                 </div>
