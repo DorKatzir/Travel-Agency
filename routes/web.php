@@ -172,10 +172,14 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     Route::get('/destination/delete/{id}', [AdminDestinationController::class, 'delete'])->name('admin_destination_delete');
 
+    // Destination Photos
     Route::get('/destination/photos/{id}', [AdminDestinationController::class, 'destination_photos'])->name('admin_destination_photos');
     Route::post('/destination/photos/{id}', [AdminDestinationController::class, 'destination_photos_submit'])->name('admin_destination_photos_submit');
     Route::get('/destination/photos/delete/{id}', [AdminDestinationController::class, 'destination_photos_delete'])->name('admin_destination_photos_delete');
-
+    // Destination Videos
+    Route::get('/destination/videos/{id}', [AdminDestinationController::class, 'destination_video'])->name('admin_destination_video');
+    Route::post('/destination/videos/{id}', [AdminDestinationController::class, 'destination_video_submit'])->name('admin_destination_video_submit');
+    Route::get('/destination/videos/delete/{id}', [AdminDestinationController::class, 'destination_video_delete'])->name('admin_destination_video_delete');
 
 });
 

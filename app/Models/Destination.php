@@ -12,4 +12,8 @@ class Destination extends Model
     public function photos() {
         return $this->hasMany(DestinationPhoto::class);
     }
+
+    public function videos() {
+        return $this->hasMany(DestinationPhoto::class);
+    }
 }

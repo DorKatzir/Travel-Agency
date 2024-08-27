@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Destination;
 use App\Models\DestinationPhoto;
+use App\Models\DestinationVideo;
 use Illuminate\Http\Request;
 use Str;
 
@@ -117,6 +118,7 @@ class AdminDestinationController extends Controller
         return redirect()->back()->with('success', 'Destination Deleted Successfully');
     }
 
+    // Photos
     public function destination_photos($id) {
         $destination = Destination::where('id', $id)->first();
         return view('admin.destination.photos', compact('destination'));
@@ -146,6 +148,40 @@ class AdminDestinationController extends Controller
         $destinationPhoto->delete();
 
         return redirect()->back()->with('success', 'Photo Deleted Successfully');
+    }
+
+    // Videos
+    public function destination_video($id) {
+        $destination = Destination::where('id', $id)->first();
+        $destinationVids = DestinationVideo::where('destination_id', $destination->id)->get();
+
+        return view('admin.destination.videos', compact('destination', 'destinationVids'));
+    }
+
+    public function destination_video_submit(Request $request, $id) {
+
+        // $request->validate([
+        //     'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+        // ]);
+
+        // $final_name = 'destination_photo_'.time().'.'.$request->photo->extension();
+        // $request->photo->move( public_path('uploads'), $final_name );
+
+        // $obj = new DestinationPhoto();
+        // $obj->destination_id = $id;
+        // $obj->photo = $final_name;
+        // $obj->save();
+
+        // return redirect()->back()->with('success', 'Photo Uploaded Successfully');
+    }
+
+    public function destination_video_delete($id) {
+
+        // $destinationPhoto = DestinationPhoto::where('id', $id)->first();
+        // unlink( public_path('uploads/'.$destinationPhoto->photo) );
+        // $destinationPhoto->delete();
+
+        // return redirect()->back()->with('success', 'Photo Deleted Successfully');
     }
 
 

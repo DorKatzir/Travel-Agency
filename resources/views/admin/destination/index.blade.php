@@ -50,7 +50,7 @@
 
                                                     <td>
                                                         <a href="{{ route('admin_destination_photos', $destination->id) }}" class="btn btn-success btn-sm">Photo Gallery</a>
-                                                        <a href="" class="btn btn-success btn-sm">Video Gallery</a>
+                                                        <a href="{{ route('admin_destination_video', $destination->id) }}" class="btn btn-success btn-sm">Video Gallery</a>
                                                     </td>
 
                                                     <td class="pt_10 pb_10">
