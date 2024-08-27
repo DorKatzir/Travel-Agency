@@ -29,7 +29,7 @@
                             </div>
                             <div class="text">
                                 <h2 class="text-capitalize">
-                                    <a href="{{ route('destination', $destination->slug) }}">{{ $destination->country }}</a>
+                                    <a href="{{ route('destination', $destination->slug) }}">{{ $destination->name }}</a>
                                 </h2>
                             </div>
                         </div>
