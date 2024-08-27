@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\BlogCategory;
 use App\Models\Destination;
+use App\Models\DestinationPhoto;
+use App\Models\DestinationVideo;
 use App\Models\Faq;
 use App\Models\Feature;
 use App\Models\Post;
@@ -86,7 +88,11 @@ class FrontController extends Controller
         $destination = Destination::where('slug', $slug)->first();
         $destination->view_count += 1;
         $destination->update();
-        return view('front.destination', compact('destination'));
+
+        $destination_photos = DestinationPhoto::where('destination_id', $destination->id)->get();
+        $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
+
+        return view('front.destination', compact('destination','destination_photos', 'destination_videos'));
     }
 
 

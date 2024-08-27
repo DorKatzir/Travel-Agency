@@ -238,11 +238,11 @@
                         </h2>
                         <div class="photo-all">
                             <div class="row">
-                                @foreach ($destination->photos as $item)
+                                @foreach ($destination_photos as $photo)
                                     <div class="col-md-6 col-lg-3">
                                         <div class="item">
-                                            <a href="{{ asset('uploads/'.$item->photo) }}" class="magnific rounded-md">
-                                                <img src="{{ asset('uploads/'.$item->photo) }}" alt="">
+                                            <a href="{{ asset('uploads/'.$photo->photo) }}" class="magnific rounded-md">
+                                                <img src="{{ asset('uploads/'.$photo->photo) }}" alt="">
                                             </a>
                                         </div>
                                     </div>
@@ -258,28 +258,20 @@
                         </h2>
                         <div class="video-all">
                             <div class="row">
-                                <div class="col-md-6 col-lg-6">
-                                    <div class="item">
-                                        <a class="video-button" href="http://www.youtube.com/watch?v=kLuqCtnKr_8">
-                                            <img src="http://img.youtube.com/vi/kLuqCtnKr_8/0.jpg" alt="">
-                                            <div class="icon">
-                                                <i class="far fa-play-circle"></i>
-                                            </div>
-                                            <div class="bg"></div>
-                                        </a>
+                                @foreach ($destination_videos as $video)
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="item">
+                                            <a class="video-button" href="http://www.youtube.com/watch?v={{ $video->video }}">
+                                                <img src="http://img.youtube.com/vi/{{ $video->video }}/0.jpg" alt="">
+                                                <div class="icon">
+                                                    <i class="far fa-play-circle"></i>
+                                                </div>
+                                                <div class="bg"></div>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6">
-                                    <div class="item">
-                                        <a class="video-button" href="http://www.youtube.com/watch?v=HRg1gJi6yqc">
-                                            <img src="http://img.youtube.com/vi/HRg1gJi6yqc/0.jpg" alt="">
-                                            <div class="icon">
-                                                <i class="far fa-play-circle"></i>
-                                            </div>
-                                            <div class="bg"></div>
-                                        </a>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
