@@ -176,111 +176,141 @@
                     </div>
 
                     {{-- Information --}}
-                    <div class="main-item mb_50">
-                        <h2>
-                            Information
-                        </h2>
-                        <div class="summary">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
+                    @if ( $destination->country || $destination->visa || $destination->activity || $destination->language || $destination->currency || $destination->best_time || $destination->health_safety || $destination->area || $destination->timezone )
+                        <div class="main-item mb_50">
+                            <h2>
+                                Information
+                            </h2>
+                            <div class="summary">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
 
-                                    <tr>
-                                        <td><b>Country</b></td>
-                                        <td>{{ $destination->country }}</td>
-                                    </tr>
+                                        @if ($destination->country)
+                                            <tr>
+                                                <td><b>Country</b></td>
+                                                <td>{{ $destination->country }}</td>
+                                            </tr>
+                                        @endif
 
-                                    <tr>
-                                        <td><b>Visa Requirements</b></td>
-                                        <td>
-                                            {!! $destination->visa !!}
-                                        </td>
-                                    </tr>
+                                        @if ($destination->visa)
+                                            <tr>
+                                                <td><b>Visa Requirements</b></td>
+                                                <td>
+                                                    {!! $destination->visa !!}
+                                                </td>
+                                            </tr>
+                                        @endif
 
-                                    <tr>
-                                        <td><b>Activities</b></td>
-                                        <td>{!! $destination->activity !!}</td>
-                                    </tr>
+                                        @if ($destination->activity)
+                                            <tr>
+                                                <td><b>Activities</b></td>
+                                                <td>{!! $destination->activity !!}</td>
+                                            </tr>
+                                        @endif
 
-                                    <tr>
-                                        <td><b>Languages Spoken</b></td>
-                                        <td>{{ $destination->language }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Currency Used</b></td>
-                                        <td>{{ $destination->currency }}</td>
-                                    </tr>
+                                        @if ($destination->language)
+                                            <tr>
+                                                <td><b>Languages Spoken</b></td>
+                                                <td>{{ $destination->language }}</td>
+                                            </tr>
+                                        @endif
 
-                                    <tr>
-                                        <td><b>Best Time to Visit</b></td>
-                                        <td>{!! $destination->best_time !!}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Health and Safety</b></td>
-                                        <td>{!! $destination->health_safety !!}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Area (km2)</b></td>
-                                        <td>{{ $destination->area }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Time Zone</b></td>
-                                        <td>{{ $destination->timezone }}</td>
-                                    </tr>
-                                </table>
+                                        @if ($destination->currency)
+                                            <tr>
+                                                <td><b>Currency Used</b></td>
+                                                <td>{{ $destination->currency }}</td>
+                                            </tr>
+                                        @endif
+
+                                        @if ($destination->best_time)
+                                            <tr>
+                                                <td><b>Best Time to Visit</b></td>
+                                                <td>{!! $destination->best_time !!}</td>
+                                            </tr>
+                                        @endif
+
+                                        @if ($destination->health_safety)
+                                            <tr>
+                                                <td><b>Health and Safety</b></td>
+                                                <td>{!! $destination->health_safety !!}</td>
+                                            </tr>
+                                        @endif
+
+                                        @if ($destination->area)
+                                            <tr>
+                                                <td><b>Area (km2)</b></td>
+                                                <td>{{ $destination->area }}</td>
+                                            </tr>
+                                        @endif
+
+                                        @if ($destination->timezone)
+                                            <tr>
+                                                <td><b>Time Zone</b></td>
+                                                <td>{{ $destination->timezone }}</td>
+                                            </tr>
+                                        @endif
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
 
                     {{-- Photos --}}
-                    <div class="main-item mb_50">
-                        <h2>
-                            Photos
-                        </h2>
-                        <div class="photo-all">
-                            <div class="row">
-                                @foreach ($destination_photos as $photo)
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="item">
-                                            <a href="{{ asset('uploads/'.$photo->photo) }}" class="magnific rounded-md">
-                                                <img src="{{ asset('uploads/'.$photo->photo) }}" alt="">
-                                            </a>
+                    @if ($destination_photos->count() > 0)
+                        <div class="main-item mb_50">
+                            <h2>
+                                Photos
+                            </h2>
+                            <div class="photo-all">
+                                <div class="row">
+                                    @foreach ($destination_photos as $photo)
+                                        <div class="col-md-6 col-lg-3">
+                                            <div class="item">
+                                                <a href="{{ asset('uploads/'.$photo->photo) }}" class="magnific rounded-md">
+                                                    <img src="{{ asset('uploads/'.$photo->photo) }}" alt="">
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
 
                     {{-- Videos --}}
-                    <div class="main-item mb_50">
-                        <h2>
-                            Videos
-                        </h2>
-                        <div class="video-all">
-                            <div class="row">
-                                @foreach ($destination_videos as $video)
-                                    <div class="col-md-6 col-lg-6">
-                                        <div class="item">
-                                            <a class="video-button" href="http://www.youtube.com/watch?v={{ $video->video }}">
-                                                <img src="http://img.youtube.com/vi/{{ $video->video }}/0.jpg" alt="">
-                                                <div class="icon">
-                                                    <i class="far fa-play-circle"></i>
-                                                </div>
-                                                <div class="bg"></div>
-                                            </a>
+                     @if ($destination_videos->count() > 0)
+                        <div class="main-item mb_50">
+                            <h2>
+                                Videos
+                            </h2>
+                            <div class="video-all">
+                                <div class="row">
+                                    @foreach ($destination_videos as $video)
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="item">
+                                                <a class="video-button" href="http://www.youtube.com/watch?v={{ $video->video }}">
+                                                    <img src="http://img.youtube.com/vi/{{ $video->video }}/0.jpg" alt="">
+                                                    <div class="icon">
+                                                        <i class="far fa-play-circle"></i>
+                                                    </div>
+                                                    <div class="bg"></div>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                     @endif
 
                     {{-- Map --}}
-                    <div class="main-item">
-                        <h2>Map</h2>
-                        <div class="location-map">{!! $destination->map !!}</div>
-                    </div>
+                    @if ($destination->map != '')
+                        <div class="main-item">
+                            <h2>Map</h2>
+                            <div class="location-map">{!! $destination->map !!}</div>
+                        </div>
+                    @endif
 
                 </div>
             </div>
