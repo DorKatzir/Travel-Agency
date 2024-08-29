@@ -56,49 +56,56 @@ class AdminPackageController extends Controller
 
     public function edit($id) {
         $package = Package::where('id', $id)->first();
-        return view('admin.package.edit', compact('package'));
+        $destinations = Destination::orderBy('name', 'asc')->get();
+        return view('admin.package.edit', compact('package', 'destinations'));
     }
 
-    // public function edit_submit(Request $request, $id) {
+    public function edit_submit(Request $request, $id) {
 
-    //     $destination = Destination::where('id', $id)->first();
+        $package = Package::where('id', $id)->first();
 
-    //     $request->validate([
-    //         'name' => 'required|unique:destinations,name,'.$id,
-    //         'description' => 'required',
-    //     ]);
+        $request->validate([
+            'name' => 'required|unique:packages,name,'.$id,
+            'description' => 'required',
+            'price' => 'required',
+        ]);
 
-    //     if ( $request->hasFile('featured_photo') ) {
-    //         $request->validate([
-    //             'featured_photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
-    //         ]);
+        if ( $request->hasFile('featured_photo') ) {
+            $request->validate([
+                'featured_photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            ]);
 
-    //         unlink( public_path('uploads/' . $destination->featured_photo) );
+            unlink( public_path('uploads/' . $package->featured_photo) );
 
-    //         $final_name = 'destination_featured_'.time().'.'.$request->featured_photo->extension();
-    //         $request->featured_photo->move( public_path('uploads'), $final_name );
-    //         $destination->featured_photo = $final_name;
-    //     }
+            $final_name = 'package_featured_'.time().'.'.$request->featured_photo->extension();
+            $request->featured_photo->move( public_path('uploads'), $final_name );
+            $package->featured_photo = $final_name;
+        }
 
-    //     $destination->name = $request->name;
-    //     $destination->slug = Str::slug($request->name);
-    //     $destination->description = $request->description;
+        if ( $request->hasFile('banner') ) {
+            $request->validate([
+                'banner' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            ]);
 
-    //     $destination->country = $request->country;
-    //     $destination->language = $request->language;
-    //     $destination->currency = $request->currency;
-    //     $destination->area = $request->area;
-    //     $destination->timezone = $request->timezone;
-    //     $destination->visa = $request->visa;
-    //     $destination->activity = $request->activity;
-    //     $destination->best_time = $request->best_time;
-    //     $destination->health_safety = $request->health_safety;
-    //     $destination->map = $request->map;
-    //     $destination->save();
+            unlink( public_path('uploads/' . $package->banner) );
 
-    //     return redirect()->back()->with('success', 'Destination Updated Successfully');
+            $final_banner_name = 'package_banner_'.time().'.'.$request->banner->extension();
+            $request->banner->move( public_path('uploads'), $final_banner_name );
+            $package->banner = $final_banner_name;
+        }
 
-    // }
+        $package->destination_id = $request->destination_id;
+        $package->name = $request->name;
+        $package->slug = Str::slug($request->name);
+        $package->description = $request->description;
+        $package->map = $request->map;
+        $package->price = $request->price;
+        $package->old_price = $request->old_price;
+        $package->save();
+
+        return redirect()->back()->with('success', 'Package Updated Successfully');
+
+    }
 
 
     public function delete($id) {

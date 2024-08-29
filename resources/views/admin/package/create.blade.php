@@ -57,7 +57,7 @@
                                                         <label class="form-label">Select Destination *</label>
                                                         <select name="destination_id" class="form-select">
                                                             @foreach ($destinations as $destination)
-                                                                <option value="{{ $destination->id }}" @if ( old('destination_id') == $destination->id ) selected @endif>
+                                                                <option value="{{ $destination->id }}" @if ( $destination->id == old('destination_id')) selected @endif>
                                                                     {{ $destination->name }}
                                                                 </option>
                                                             @endforeach
