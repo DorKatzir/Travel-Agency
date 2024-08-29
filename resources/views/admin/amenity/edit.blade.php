@@ -18,38 +18,33 @@
                     </a>
                 </div>
             </div>
-            {{-- <div class="section-body">
+            <div class="section-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
 
-                                <form method="POST" action="{{ route('admin_faq_edit_submit', $faq->id) }}">
+                                <form method="POST" action="{{ route('admin_amenity_edit_submit', $amenity->id) }}">
                                     @csrf
 
-
-                                    <div class="mb-3">
-                                        <label class="form-label">Question *</label>
-                                        <input type="text" class="form-control" name="question" value="{{ $faq->question }}">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label class="form-label">Name *</label>
+                                            <input type="text" class="form-control" name="name" value="{{ $amenity->name }}">
+                                        </div>
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label class="form-label">Answer *</label>
-                                        <textarea name="answer" class="form-control h_100 editor" cols="30" rows="10">{{ $faq->answer }}</textarea>
-                                    </div>
-
-                                    <div class="mb-3">
+                                    <div class="mb-4">
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
 
                                 </form>
 
-
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </section>
 
     </div>

@@ -23,7 +23,7 @@ class AdminAmenityController extends Controller
         $obj = new Amenity();
 
         $request->validate([
-            'name' => 'required|unique:amenities',
+            'name' => 'required|unique:amenities,name',
         ]);
 
         $obj->name = $request->name;
@@ -41,30 +41,28 @@ class AdminAmenityController extends Controller
         return view('admin.amenity.edit', compact('amenity'));
     }
 
-    // public function edit_submit(Request $request, $id) {
+    public function edit_submit(Request $request, $id) {
 
-    //     $obj= Faq::where('id', $id)->first();
+        $obj= Amenity::where('id', $id)->first();
 
-    //     $request->validate([
-    //         'question' => 'required',
-    //         'answer' => 'required',
-    //     ]);
+        $request->validate([
+            'name' => 'required|unique:amenities,name,'.$id,
+        ]);
 
-    //     $obj->question = $request->question;
-    //     $obj->answer = $request->answer;
-    //     $obj->save();
+        $obj->name = $request->name;
+        $obj->save();
 
-    //     return redirect()->back()->with('success', 'Faq Updated Successfully');
+        return redirect()->back()->with('success', 'Amenity Updated Successfully');
 
-    // }
+    }
 
-    // public function delete($id) {
+    public function delete($id) {
 
-    //     $obj = Faq::where('id', $id)->first();
-    //     $obj->delete();
+        $obj = Amenity::where('id', $id)->first();
+        $obj->delete();
 
-    //     return redirect()->route('admin_faq_index')->with('success', 'Faq Deleted Successfully');
-    // }
+        return redirect()->route('admin_amenity_index')->with('success', 'Amenity Deleted Successfully');
+    }
 
 
 
