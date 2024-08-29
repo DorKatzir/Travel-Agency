@@ -34,7 +34,6 @@ class AdminAmenityController extends Controller
     }
 
 
-
     public function edit($id) {
 
         $amenity = Amenity::where('id', $id)->first();

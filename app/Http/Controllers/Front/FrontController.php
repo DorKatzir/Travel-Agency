@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Amenity;
 use App\Models\Faq;
 use App\Models\Post;
 use App\Models\User;
