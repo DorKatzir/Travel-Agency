@@ -30,7 +30,7 @@
                             <a href="{{ route('destinations') }}" class="nav-link">Destinations</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item {{ Request::is('packages') || Request::is('package/*') ? 'active' : '' }}">
                             <a href="packages.html" class="nav-link">Packages</a>
                         </li>
 

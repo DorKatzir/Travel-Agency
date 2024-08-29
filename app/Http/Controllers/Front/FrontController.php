@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\BlogCategory;
-use App\Models\Destination;
-use App\Models\DestinationPhoto;
-use App\Models\DestinationVideo;
 use App\Models\Faq;
-use App\Models\Feature;
 use App\Models\Post;
-use App\Models\Testimonial;
-use App\Models\TeamMember;
 use App\Models\User;
 use App\Models\Slider;
+use App\Models\Feature;
+use App\Models\Package;
 use App\Mail\Websitemail;
-use App\Models\WelcomeItem;
+use App\Models\TeamMember;
 use App\Models\CounterItem;
+use App\Models\Destination;
+use App\Models\Testimonial;
+use App\Models\WelcomeItem;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use App\Models\DestinationPhoto;
+use App\Models\DestinationVideo;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -93,6 +94,16 @@ class FrontController extends Controller
         $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
 
         return view('front.destination', compact('destination','destination_photos', 'destination_videos'));
+    }
+
+
+    public function package($slug) {
+        $package = Package::where('slug', $slug)->first();
+
+        // $destination_photos = DestinationPhoto::where('destination_id', $destination->id)->get();
+        // $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
+
+        return view('front.package', compact('package'));
     }
 
 
