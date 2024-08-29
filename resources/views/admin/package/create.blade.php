@@ -45,25 +45,26 @@
                                                 <textarea name="description" class="form-control editor">{{ old('description') }}</textarea>
                                             </div>
 
-                                            <div class="mb-4">
-                                                <label class="form-label">Select Destination *</label>
-                                                <select name="destination_id" class="form-select">
-                                                    @foreach ($destinations as $destination)
-                                                        <option value="{{ $destination->id }}">{{ $destination->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
+                                                    <div class="mb-4">
+                                                        <label class="form-label">Select Destination *</label>
+                                                        <select name="destination_id" class="form-select">
+                                                            @foreach ($destinations as $destination)
+                                                                <option value="{{ $destination->id }}">{{ $destination->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <div class="mb-4">
                                                         <label class="form-label">Price *</label>
                                                         <input type="text" class="form-control" name="price" value="{{ old('price') }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="mb-4">
-                                                        <label class="form-label">Old Price *</label>
+                                                        <label class="form-label">Old Price</label>
                                                         <input type="text" class="form-control" name="old_price" value="{{ old('old_price') }}">
                                                     </div>
                                                 </div>
