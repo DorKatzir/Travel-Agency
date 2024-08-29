@@ -134,22 +134,21 @@ class AdminPackageController extends Controller
         return view('admin.package.amenities', compact('package', 'package_amenities', 'amenities'));
     }
 
-    // public function package_amenity_submit(Request $request, $id) {
+    public function package_amenity_submit(Request $request, $id) {
 
-    //     $request->validate([
-    //         'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
-    //     ]);
+        // $request->validate([
+            //     'amenity_id' => 'required',
+            //     'type' => 'required',
+            // ]);
 
-    //     $final_name = 'destination_photo_'.time().'.'.$request->photo->extension();
-    //     $request->photo->move( public_path('uploads'), $final_name );
+        $obj = new PackageAmenity();
+        $obj->package_id = $id;
+        $obj->amenity_id = $request->amenity_id;
+        $obj->type = $request->type;
+        $obj->save();
 
-    //     $obj = new DestinationPhoto();
-    //     $obj->destination_id = $id;
-    //     $obj->photo = $final_name;
-    //     $obj->save();
-
-    //     return redirect()->back()->with('success', 'Photo Uploaded Successfully');
-    // }
+        return redirect()->back()->with('success', 'Item is Inserted Successfully');
+    }
 
     // public function package_amenity_delete($id) {
 

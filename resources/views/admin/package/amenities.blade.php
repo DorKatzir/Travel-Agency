@@ -66,7 +66,7 @@
                                         <label class="form-label">Amenity *</label>
                                         <select name="amenity_id" class="form-select">
                                             @foreach ($amenities as $amenity)
-                                                <option value="amenity_id">{{ $amenity->name }}</option>
+                                                <option value="{{ $amenity->id }}">{{ $amenity->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

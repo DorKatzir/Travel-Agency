@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('package_amenities', function (Blueprint $table) {
             $table->id();
             $table->integer('package_id');
-            $table->integer('amenities_id');
+            $table->integer('amenity_id');
             $table->string('type')->nullable();
             $table->timestamps();
         });
