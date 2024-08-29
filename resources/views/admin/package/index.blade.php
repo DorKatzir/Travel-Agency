@@ -49,6 +49,11 @@
                                                     <td>{{ $package->name }}</td>
 
                                                     <td>
+                                                        <a href="{{ route('admin_package_amenities', $package->id) }}" class="btn btn-success">Amenities</a>
+                                                        <a href="" class="btn btn-success">Itinerary</a>
+                                                        <a href="" class="btn btn-success">Photo gallery</a>
+                                                        <a href="" class="btn btn-success">Video gallery</a>
+
                                                         {{-- <a href="{{ route('admin_package_photos', $package->id) }}" class="btn btn-success btn-sm">Photo Gallery</a>
                                                         <a href="{{ route('admin_package_video', $package->id) }}" class="btn btn-success btn-sm">Video Gallery</a> --}}
                                                     </td>
