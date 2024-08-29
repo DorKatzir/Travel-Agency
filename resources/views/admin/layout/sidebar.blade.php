@@ -103,6 +103,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/amenity/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_amenity_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Amenities</span>
+                </a>
+            </li>
+
 
 
             <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">

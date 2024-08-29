@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAmenityController;
 use App\Http\Controllers\Admin\AdminPackageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
@@ -195,6 +196,18 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/package/edit/{id}', [AdminPackageController::class, 'edit_submit'])->name('admin_package_edit_submit');
 
     Route::get('/package/delete/{id}', [AdminPackageController::class, 'delete'])->name('admin_package_delete');
+
+
+    // Amenity
+    Route::get('/amenity/index', [AdminAmenityController::class, 'index'])->name('admin_amenity_index');
+
+    Route::get('/amenity/create', [AdminAmenityController::class, 'create'])->name('admin_amenity_create');
+    Route::post('/amenity/create', [AdminAmenityController::class, 'create_submit'])->name('admin_amenity_create_submit');
+
+    Route::get('/amenity/edit/{id}', [AdminAmenityController::class, 'edit'])->name('admin_amenity_edit');
+    Route::post('/amenity/edit/{id}', [AdminAmenityController::class, 'edit_submit'])->name('admin_amenity_edit_submit');
+
+    Route::get('/amenity/delete/{id}', [AdminAmenityController::class, 'delete'])->name('admin_amenity_delete');
 
 });
 
