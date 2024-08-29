@@ -12,13 +12,13 @@
             <div class="section-header justify-content-between">
                 <h1>Packages</h1>
                 <div class="ml-auto">
-                    {{-- <a href="{{ route('admin_destination_create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin_package_create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Add New
-                    </a> --}}
+                    </a>
                 </div>
             </div>
-            {{-- <div class="section-body">
+            <div class="section-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -37,25 +37,25 @@
                                         </thead>
                                         <tbody>
 
-                                            @foreach ($destinations as $destination)
+                                            @foreach ($packages as $package)
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
 
                                                     <td>
-                                                        <img src="{{ asset('uploads/'. $destination->featured_photo) }}" alt="" class="h_100 object-cover">
+                                                        <img src="{{ asset('uploads/'. $package->featured_photo) }}" alt="" class="h_100 object-cover">
                                                     </td>
 
-                                                    <td>{{ $destination->name }}</td>
+                                                    <td>{{ $package->name }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin_destination_photos', $destination->id) }}" class="btn btn-success btn-sm">Photo Gallery</a>
-                                                        <a href="{{ route('admin_destination_video', $destination->id) }}" class="btn btn-success btn-sm">Video Gallery</a>
+                                                        {{-- <a href="{{ route('admin_package_photos', $package->id) }}" class="btn btn-success btn-sm">Photo Gallery</a>
+                                                        <a href="{{ route('admin_package_video', $package->id) }}" class="btn btn-success btn-sm">Video Gallery</a> --}}
                                                     </td>
 
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_destination_edit', $destination->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin_destination_delete', $destination->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_package_edit', $package->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin_package_delete', $package->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </section>
 
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Destination;
 use App\Models\Package;
 // use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class AdminPackageController extends Controller
     }
 
     public function create() {
-        return view('admin.package.create');
+        $destinations = Destination::get();
+        return view('admin.package.create', compact('destinations'));
     }
 
     // public function create_submit(Request $request) {
