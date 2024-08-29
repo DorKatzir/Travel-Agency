@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="text-capitalize">{{ $package->name }}</h2>
-                    <h3 class="text-capitalize"><i class="fas fa-plane-departure"></i> {{ $package->destination->name }}</h3>
+                    <h3 class="text-capitalize"><i class="fas fa-plane-departure"></i> {{ $package->destination->name }}, {{ $package->destination->country }}</h3>
                     <div class="review">
                         <div class="set">
                             <i class="fas fa-star"></i>
