@@ -30,9 +30,15 @@
                                     <div class="row">
                                         <div class="col-md-9">
 
-                                            <div class="mb-4">
-                                                <label class="form-label">Featured Photo *</label><br>
-                                                <input class="form-control" type="file" name="featured_photo" accept="image/*">
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Featured Photo *</label><br>
+                                                    <input class="form-control" type="file" name="featured_photo" accept="image/*">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Banner *</label><br>
+                                                    <input class="form-control" type="file" name="banner" accept="image/*">
+                                                </div>
                                             </div>
 
                                             <div class="mb-4">

@@ -28,14 +28,19 @@ class AdminPackageController extends Controller
             'description' => 'required',
             'price' => 'required',
             'featured_photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            'banner' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
         ]);
 
         $final_name = 'package_featured_'.time().'.'.$request->featured_photo->extension();
         $request->featured_photo->move( public_path('uploads'), $final_name );
 
+        $final_banner_name = 'package_banner_'.time().'.'.$request->banner->extension();
+        $request->banner->move( public_path('uploads'), $final_banner_name );
+
         $obj = new Package();
         $obj->destination_id = $request->destination_id;
         $obj->featured_photo = $final_name;
+        $obj->banner = $final_banner_name;
         $obj->name = $request->name;
         $obj->slug = Str::slug($request->name);
         $obj->description = $request->description;
@@ -96,19 +101,19 @@ class AdminPackageController extends Controller
     // }
 
 
-    // public function delete($id) {
+    public function delete($id) {
 
-    //     $allPhotos = DestinationPhoto::where('destination_id', $id)->count();
-    //     $allVideos = DestinationVideo::where('destination_id', $id)->count();
-    //     if ($allPhotos > 0 || $allVideos > 0) {
-    //         return redirect()->back()->with('error', 'First Delete All Photos & Videos of this Destination');
-    //     }
+        // $allPhotos = DestinationPhoto::where('destination_id', $id)->count();
+        // $allVideos = DestinationVideo::where('destination_id', $id)->count();
+        // if ($allPhotos > 0 || $allVideos > 0) {
+        //     return redirect()->back()->with('error', 'First Delete All Photos & Videos of this Destination');
+        // }
 
-    //     $destination = Destination::where('id', $id)->first();
-    //     unlink( public_path('uploads/'.$destination->featured_photo) );
-    //     $destination->delete();
+        $package = Package::where('id', $id)->first();
+        unlink( public_path('uploads/'.$package->featured_photo) );
+        $package->delete();
 
-    //     return redirect()->back()->with('success', 'Destination Deleted Successfully');
-    // }
+        return redirect()->back()->with('success', 'Package Deleted Successfully');
+    }
 
 }

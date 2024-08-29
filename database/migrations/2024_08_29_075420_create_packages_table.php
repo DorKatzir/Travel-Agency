@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('destination_id');
             $table->string('featured_photo')->nullable();
+            $table->string('banner')->nullable();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
