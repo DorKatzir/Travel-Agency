@@ -26,7 +26,7 @@ class AdminPackageController extends Controller
         $request->validate([
             'name' => 'required|unique:packages',
             'description' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'featured_photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
             'banner' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
         ]);
@@ -67,7 +67,7 @@ class AdminPackageController extends Controller
         $request->validate([
             'name' => 'required|unique:packages,name,'.$id,
             'description' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
         ]);
 
         if ( $request->hasFile('featured_photo') ) {
@@ -118,6 +118,7 @@ class AdminPackageController extends Controller
 
         $package = Package::where('id', $id)->first();
         unlink( public_path('uploads/'.$package->featured_photo) );
+        unlink( public_path('uploads/'.$package->banner) );
         $package->delete();
 
         return redirect()->back()->with('success', 'Package Deleted Successfully');
