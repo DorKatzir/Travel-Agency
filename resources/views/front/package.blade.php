@@ -2,12 +2,12 @@
 
 @section('main_content')
 
-    <div class="page-top page-top-package" style="background-image: url('uploads/package-thumb-3.jpg')">
+    <div class="page-top page-top-package" style="background-image: url({{ asset('uploads/'. $package->banner) }})">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Great Barrier Reef</h2>
-                    <h3><i class="fas fa-plane-departure"></i> Australia</h3>
+                    <h2 class="text-capitalize">{{ $package->name }}</h2>
+                    <h3 class="text-capitalize"><i class="fas fa-plane-departure"></i> {{ $package->destination->name }}</h3>
                     <div class="review">
                         <div class="set">
                             <i class="fas fa-star"></i>
@@ -19,7 +19,10 @@
                         <span>(4.2 out of 5)</span>
                     </div>
                     <div class="price">
-                        $400 <del>$700</del>
+                        ${{ $package->price }}
+                        @if ($package->old_price)
+                            <del>${{ $package->old_price }}</del>
+                        @endif
                     </div>
                     <div class="person">
                         per person
@@ -69,12 +72,7 @@
                             <div class="tab-pane fade show active" id="tab-1-pane" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
                                 <!-- Detail -->
                                 <h2 class="mt_30">Detail</h2>
-                                <p>
-                                    The Great Barrier Reef, located off the coast of Queensland, Australia, is the world's largest coral reef system, stretching over 2,300 kilometers and comprising more than 2,900 individual reefs and 900 islands. Renowned for its stunning biodiversity, the reef is home to an extraordinary variety of marine life, including over 1,500 species of fish and 400 types of coral. Its vibrant coral formations and crystal-clear waters make it a premier destination for snorkeling and diving enthusiasts.
-                                </p>
-                                <p>
-                                    Beyond its natural beauty, the Great Barrier Reef holds significant ecological and economic importance. It supports a vast array of marine life and contributes to the livelihoods of many local communities through tourism and fishing. However, the reef faces numerous threats, including climate change and coral bleaching, making conservation efforts crucial for its future.
-                                </p>
+                                {!! $package->description !!}
 
                                 <h2 class="mt_30">Includes</h2>
                                 <div class="amenity">
@@ -162,12 +160,14 @@
                             </div>
 
                             <div class="tab-pane fade" id="tab-3-pane" role="tabpanel" aria-labelledby="tab-3" tabindex="0">
-                                <!-- Location -->
-                                <h2 class="mt_30">Location Map</h2>
-                                <div class="location-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29736668.18356832!2d111.81148767494898!3d-24.521314978627814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2sbd!4v1716870853572!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                                <!-- // Location -->
+                                @if ($package->map)
+                                    <!-- Location -->
+                                    <h2 class="mt_30">Location Map</h2>
+                                    <div class="location-map">
+                                        {!! $package->map !!}
+                                    </div>
+                                    <!-- // Location -->
+                                @endif
                             </div>
 
                             <div class="tab-pane fade" id="tab-4-pane" role="tabpanel" aria-labelledby="tab-4" tabindex="0">
