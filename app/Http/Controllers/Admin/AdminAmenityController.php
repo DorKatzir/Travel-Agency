@@ -18,23 +18,20 @@ class AdminAmenityController extends Controller
         return view('admin.amenity.create');
     }
 
-    // public function create_submit(Request $request) {
+    public function create_submit(Request $request) {
 
-    //     $obj = new Faq();
+        $obj = new Amenity();
 
-    //     $request->validate([
-    //         'question' => 'required',
-    //         'answer' => 'required',
-    //     ]);
+        $request->validate([
+            'name' => 'required|unique:amenities',
+        ]);
 
+        $obj->name = $request->name;
+        $obj->save();
 
-    //     $obj->question = $request->question;
-    //     $obj->answer = $request->answer;
-    //     $obj->save();
+        return redirect()->route('admin_amenity_index')->with('success','Amenity Created Successfully!');
 
-    //     return redirect()->route('admin_faq_index')->with('success','Faq Created Successfully!');
-
-    // }
+    }
 
 
 
@@ -72,3 +69,5 @@ class AdminAmenityController extends Controller
 
 
 }
+
+
