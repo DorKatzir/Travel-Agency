@@ -13,6 +13,7 @@ use Str;
 class AdminPackageController extends Controller
 {
 
+    // Package CRUD
     public function index() {
         $packages = Package::get();
         return view('admin.package.index', compact('packages'));
@@ -54,7 +55,6 @@ class AdminPackageController extends Controller
         return redirect()->route('admin_package_index')->with('success','Package Created Successfully!');
 
     }
-
 
     public function edit($id) {
         $package = Package::where('id', $id)->first();
@@ -109,7 +109,6 @@ class AdminPackageController extends Controller
 
     }
 
-
     public function delete($id) {
 
         // $allPhotos = DestinationPhoto::where('destination_id', $id)->count();
@@ -126,8 +125,8 @@ class AdminPackageController extends Controller
         return redirect()->back()->with('success', 'Package Deleted Successfully');
     }
 
-    // Package Amenities
-    public function package_amenity($id) {
+    // Package Amenities CRUD
+    public function package_amenities($id) {
         $package = Package::where('id', $id)->first();
         $package_amenities = PackageAmenity::where('package_id', $id)->get();
         $amenities = Amenity::orderBy('name', 'asc')->get();
@@ -135,12 +134,6 @@ class AdminPackageController extends Controller
     }
 
     public function package_amenity_submit(Request $request, $id) {
-
-        // $request->validate([
-            //     'amenity_id' => 'required',
-            //     'type' => 'required',
-            // ]);
-
         $obj = new PackageAmenity();
         $obj->package_id = $id;
         $obj->amenity_id = $request->amenity_id;
