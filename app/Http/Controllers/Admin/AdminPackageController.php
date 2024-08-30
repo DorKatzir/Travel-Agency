@@ -152,13 +152,12 @@ class AdminPackageController extends Controller
         return redirect()->back()->with('success', 'Item is Inserted Successfully');
     }
 
-    // public function package_amenity_delete($id) {
+    public function package_amenity_delete($id) {
 
-    //     $destinationPhoto = DestinationPhoto::where('id', $id)->first();
-    //     unlink( public_path('uploads/'.$destinationPhoto->photo) );
-    //     $destinationPhoto->delete();
+        $obj = PackageAmenity::where('id', $id)->first();
+        $obj->delete();
 
-    //     return redirect()->back()->with('success', 'Photo Deleted Successfully');
-    // }
+        return redirect()->back()->with('success', 'Item Deleted Successfully');
+    }
 
 }
