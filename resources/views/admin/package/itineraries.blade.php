@@ -30,7 +30,7 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Itinerary Name</th>
+                                                <th>Name</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
