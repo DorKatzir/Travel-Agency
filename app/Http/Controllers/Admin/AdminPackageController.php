@@ -128,7 +128,7 @@ class AdminPackageController extends Controller
     // Package Amenities CRUD
     public function package_amenities($id) {
         $package = Package::where('id', $id)->first();
-        $package_amenities = PackageAmenity::where('package_id', $id)->get();
+        $package_amenities = PackageAmenity::with('amenity')->where('package_id', $id)->get();
         $amenities = Amenity::orderBy('name', 'asc')->get();
         return view('admin.package.amenities', compact('package', 'package_amenities', 'amenities'));
     }

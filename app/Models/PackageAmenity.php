@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class PackageAmenity extends Model
 {
     use HasFactory;
+
+    public function amenity() {
+       return $this->belongsTo(Amenity::class);
+    }
 }

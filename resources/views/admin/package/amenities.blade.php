@@ -39,7 +39,7 @@
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->amenity_id }}</td>
+                                                    <td>{{ $item->amenity->name }}</td>
                                                     <td>{{ $item->type }}</td>
 
                                                     <td class="pt_10 pb_10">
