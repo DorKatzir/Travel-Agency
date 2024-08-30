@@ -6,6 +6,7 @@ use App\Models\Amenity;
 use App\Models\Package;
 use App\Models\Destination;
 use App\Models\PackageAmenity;
+use App\Models\PackageItinerary;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Str;
@@ -164,38 +165,35 @@ class AdminPackageController extends Controller
     public function package_itineraries($id) {
 
         $package = Package::where('id', $id)->first();
-        // $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $id)->where('type', 'Include')->get();
-        // $package_amenities_exclude = PackageAmenity::with('amenity')->where('package_id', $id)->where('type', 'Exclude')->get();
-        // $amenities = Amenity::orderBy('name', 'asc')->get();
-        return view('admin.package.itineraries', compact('package'));
+        $package_itineraries = PackageItinerary::where('package_id', $id)->get();
+
+        return view('admin.package.itineraries', compact('package', 'package_itineraries'));
     }
 
-    // public function package_itinerary_submit(Request $request, $id) {
+    public function package_itinerary_submit(Request $request, $id) {
 
-    //     // checks if amenity_id already exsists in the pakage_amenities table
-    //     $total = PackageAmenity::where('package_id', $id)->where('amenity_id', $request->amenity_id)->count();
-    //     if ($total > 0) {
-    //         return redirect()->back()->with('error', 'This Item is Already Inserted');
-    //     }
+        $request->validate([
+            'name' => 'required|unique:package_itineraries',
+            'description' => 'required',
+        ]);
 
-    //     $obj = new PackageAmenity();
-    //     $obj->package_id = $id;
-    //     $obj->amenity_id = $request->amenity_id;
-    //     $obj->type = $request->type;
-    //     $obj->save();
+        $itinerary = new PackageItinerary();
+        $itinerary->package_id = $id;
+        $itinerary->name = $request->name;
+        $itinerary->description = $request->description;
+        $itinerary->save();
 
-    //     return redirect()->back()->with('success', 'Item is Inserted Successfully');
-    // }
-
+        return redirect()->back()->with('success', 'Itinerary Created Successfully');
+    }
 
 
 
-    // public function package_itinerary_delete($id) {
+    public function package_itinerary_delete($id) {
 
-    //     $obj = PackageAmenity::where('id', $id)->first();
-    //     $obj->delete();
+        $obj = PackageItinerary::where('id', $id)->first();
+        $obj->delete();
 
-    //     return redirect()->back()->with('success', 'Item Deleted Successfully');
-    // }
+        return redirect()->back()->with('success', 'Itinerary Deleted Successfully');
+    }
 
 }
