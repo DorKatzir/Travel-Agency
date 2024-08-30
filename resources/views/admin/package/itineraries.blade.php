@@ -21,7 +21,7 @@
             <div class="section-body">
 
                 <div class="row">
-                    <div class="col-md-9 pb-4">
+                    <div class="col-md-12 pb-4">
                         <div class="card">
                             <div class="card-body">
                                 <h4>Current Itineraries</h4>
@@ -31,6 +31,7 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Name</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -39,6 +40,7 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td class="text-capitalize">{{ $itinerary->name }}</td>
+                                                    <td class="text-capitalize">{!! $itinerary->description !!}</td>
                                                     <td class="pt_10 pb_10">
                                                         <a href="{{ route('admin_package_itinerary_delete', $itinerary->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
                                                     </td>
