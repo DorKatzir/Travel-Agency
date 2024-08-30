@@ -159,4 +159,43 @@ class AdminPackageController extends Controller
         return redirect()->back()->with('success', 'Item Deleted Successfully');
     }
 
+
+    // Package Itineraries CRUD
+    public function package_itineraries($id) {
+
+        $package = Package::where('id', $id)->first();
+        // $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $id)->where('type', 'Include')->get();
+        // $package_amenities_exclude = PackageAmenity::with('amenity')->where('package_id', $id)->where('type', 'Exclude')->get();
+        // $amenities = Amenity::orderBy('name', 'asc')->get();
+        return view('admin.package.itineraries', compact('package'));
+    }
+
+    // public function package_itinerary_submit(Request $request, $id) {
+
+    //     // checks if amenity_id already exsists in the pakage_amenities table
+    //     $total = PackageAmenity::where('package_id', $id)->where('amenity_id', $request->amenity_id)->count();
+    //     if ($total > 0) {
+    //         return redirect()->back()->with('error', 'This Item is Already Inserted');
+    //     }
+
+    //     $obj = new PackageAmenity();
+    //     $obj->package_id = $id;
+    //     $obj->amenity_id = $request->amenity_id;
+    //     $obj->type = $request->type;
+    //     $obj->save();
+
+    //     return redirect()->back()->with('success', 'Item is Inserted Successfully');
+    // }
+
+
+
+
+    // public function package_itinerary_delete($id) {
+
+    //     $obj = PackageAmenity::where('id', $id)->first();
+    //     $obj->delete();
+
+    //     return redirect()->back()->with('success', 'Item Deleted Successfully');
+    // }
+
 }
