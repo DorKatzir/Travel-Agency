@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Amenity;
 use App\Models\Faq;
+use App\Models\PackageAmenity;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Slider;
@@ -100,11 +101,13 @@ class FrontController extends Controller
 
     public function package($slug) {
         $package = Package::where('slug', $slug)->first();
+        $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Include')->get();
+        $package_amenities_exclude = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Exclude')->get();
 
         // $destination_photos = DestinationPhoto::where('destination_id', $destination->id)->get();
         // $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
 
-        return view('front.package', compact('package'));
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude'));
     }
 
 
