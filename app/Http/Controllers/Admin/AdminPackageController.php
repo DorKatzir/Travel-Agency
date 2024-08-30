@@ -111,11 +111,10 @@ class AdminPackageController extends Controller
 
     public function delete($id) {
 
-        // $allPhotos = DestinationPhoto::where('destination_id', $id)->count();
-        // $allVideos = DestinationVideo::where('destination_id', $id)->count();
-        // if ($allPhotos > 0 || $allVideos > 0) {
-        //     return redirect()->back()->with('error', 'First Delete All Photos & Videos of this Destination');
-        // }
+        $total_amenities = PackageAmenity::where('package_id', $id)->count();
+        if ($total_amenities) {
+            return redirect()->back()->with('error', 'First Delete All Amenities of this Package');
+        }
 
         $package = Package::where('id', $id)->first();
         unlink( public_path('uploads/'.$package->featured_photo) );
