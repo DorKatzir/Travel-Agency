@@ -127,13 +127,22 @@ class AdminPackageController extends Controller
 
     // Package Amenities CRUD
     public function package_amenities($id) {
+
         $package = Package::where('id', $id)->first();
-        $package_amenities = PackageAmenity::with('amenity')->where('package_id', $id)->get();
+        $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $id)->where('type', 'Include')->get();
+        $package_amenities_exclude = PackageAmenity::with('amenity')->where('package_id', $id)->where('type', 'Exclude')->get();
         $amenities = Amenity::orderBy('name', 'asc')->get();
-        return view('admin.package.amenities', compact('package', 'package_amenities', 'amenities'));
+        return view('admin.package.amenities', compact('package', 'amenities', 'package_amenities_include', 'package_amenities_exclude'));
     }
 
     public function package_amenity_submit(Request $request, $id) {
+
+        // checks if amenity_id already exsists in the pakage_amenities table
+        $total = PackageAmenity::where('package_id', $id)->where('amenity_id', $request->amenity_id)->count();
+        if ($total > 0) {
+            return redirect()->back()->with('error', 'This Item is Already Inserted');
+        }
+
         $obj = new PackageAmenity();
         $obj->package_id = $id;
         $obj->amenity_id = $request->amenity_id;
