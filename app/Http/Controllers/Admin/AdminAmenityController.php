@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Amenity;
+use App\Models\PackageAmenity;
 use Illuminate\Http\Request;
 
 class AdminAmenityController extends Controller
@@ -56,6 +57,11 @@ class AdminAmenityController extends Controller
     }
 
     public function delete($id) {
+
+        $total = PackageAmenity::where('amenity_id', $id)->count();
+        if ($total > 0) {
+            return redirect()->back()->with('error', 'Amenity is Assinged to Package(s), So it can not be deleted');
+        }
 
         $obj = Amenity::where('id', $id)->first();
         $obj->delete();
