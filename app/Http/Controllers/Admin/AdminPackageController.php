@@ -186,8 +186,6 @@ class AdminPackageController extends Controller
         return redirect()->back()->with('success', 'Itinerary Created Successfully');
     }
 
-
-
     public function package_itinerary_delete($id) {
 
         $obj = PackageItinerary::where('id', $id)->first();

@@ -19,92 +19,54 @@
                 </div>
             </div>
             <div class="section-body">
+
                 <div class="row">
-
-                    <div class="col-7">
-
+                    <div class="col-md-9 pb-4">
                         <div class="card">
                             <div class="card-body">
-                                {{-- Include Table --}}
-                                {{-- <div class="table-responsive">
-                                    <h4>Include</h4>
+                                <h4>Current Itineraries</h4>
+                                <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Amenity</th>
+                                                <th>Itinerary Name</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($package_amenities_include as $include)
-
+                                            @foreach ($package_itineraries as $itinerary)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td class="text-capitalize">{{ $include->amenity->name }}</td>
+                                                    <td class="text-capitalize">{{ $itinerary->name }}</td>
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_package_amenity_delete', $include->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
+                                                        <a href="{{ route('admin_package_itinerary_delete', $itinerary->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
                                                     </td>
                                                 </tr>
-
                                             @endforeach
                                         </tbody>
                                     </table>
-                                </div> --}}
-
-                                {{-- Exclude Table --}}
-                                {{-- <div class="table-responsive">
-                                    <h4>Exclude</h4>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>SL</th>
-                                                <th>Amenity</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($package_amenities_exclude as $exclude)
-
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td class="text-capitalize">{{ $exclude->amenity->name }}</td>
-                                                    <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_package_amenity_delete', $exclude->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
-                                                    </td>
-                                                </tr>
-
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div> --}}
-
-
+                                </div>
                             </div>
                         </div>
-
                     </div>
+                </div>
 
-                    {{-- <div class="col-5">
+                <div class="row">
+                    <div class="col-md-9 pb-4">
                         <div class="card">
                             <div class="card-body">
-                                <form method="POST" action="{{ route('admin_package_amenity_submit', $package->id) }}">
+                                <h4>Add Itinerary</h4>
+                                <form method="POST" action="{{ route('admin_package_itinerary_submit', $package->id) }}">
                                     @csrf
                                     <div class="mb-4">
-                                        <label class="form-label">Amenity *</label>
-                                        <select name="amenity_id" class="form-select">
-                                            @foreach ($amenities as $amenity)
-                                                <option class="text-capitalize" value="{{ $amenity->id }}">{{ $amenity->name }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label class="form-label">Name *</label>
+                                        <input type="text" name="name" class="form-control" value="{{ old('name') }}">
                                     </div>
-                                    <div class="mb-4">
-                                        <label class="form-label">Type *</label>
 
-                                        <select name="type" class="form-select">
-                                           <option value="Include">Include</option>
-                                           <option value="Exclude">Exclude</option>
-                                        </select>
+                                    <div class="mb-4">
+                                        <label class="form-label">Description *</label>
+                                        <textarea name="description" class="form-control editor" cols="30" rows="10">{{ old('description') }}</textarea>
                                     </div>
 
                                     <div class="mb-4">
@@ -113,9 +75,9 @@
                                 </form>
                             </div>
                         </div>
-                    </div> --}}
-
+                    </div>
                 </div>
+
             </div>
         </section>
 
