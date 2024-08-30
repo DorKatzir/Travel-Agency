@@ -107,31 +107,12 @@
 
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
-                                            <tr>
-                                                <td><b>Day 1</b></td>
-                                                <td>
-                                                    <b>Morning:</b><br>
-                                                    1. Arrive at Cairns or Port Douglas and check into your hotel.<br>
-                                                    2. Welcome meeting with the tour guide and fellow travelers.<br>
-
-                                                    <b>Afternoon</b><br>
-                                                    1. Lunch at a local restaurant.<br>
-                                                    2. Visit the Cairns Aquarium to get an introduction to the marine life of the Great Barrier Reef.<br>
-
-                                                    <b>Evening</b><br>
-                                                    1. Free time to explore the local area.<br>
-                                                    2. Welcome dinner at the hotel, with an overview of the tour itinerary and reef conservation briefing.<br>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Day 2</b></td>
-                                                <td>
-                                                    <b>Morning: </b><br>
-                                                    1. Early breakfast at the hotel.<br>
-                                                    2. Depart for the Great Barrier Reef on a comfortable catamaran.<br>
-                                                    3. Safety briefing and equipment fitting for snorkeling and diving.<br>
-                                                </td>
-                                            </tr>
+                                            @foreach ($itineraries as $itinerary)
+                                                <tr>
+                                                    <td><b>{{ $itinerary->name }}</b></td>
+                                                    <td>{!! $itinerary->description !!}</td>
+                                                </tr>
+                                            @endforeach
                                         </table>
                                     </div>
                                 </div>
