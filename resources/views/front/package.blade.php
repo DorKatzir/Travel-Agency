@@ -46,7 +46,7 @@
                                 <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#tab-1-pane" type="button" role="tab" aria-controls="tab-1-pane" aria-selected="true">Detail</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#tab-2-pane" type="button" role="tab" aria-controls="tab-2-pane" aria-selected="false">Tour Plan</button>
+                                <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#tab-2-pane" type="button" role="tab" aria-controls="tab-2-pane" aria-selected="false">Itinerary</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#tab-3-pane" type="button" role="tab" aria-controls="tab-3-pane" aria-selected="false">Location</button>
@@ -101,13 +101,13 @@
                             </div>
 
                             <div class="tab-pane fade" id="tab-2-pane" role="tabpanel" aria-labelledby="tab-2" tabindex="0">
-                                <!-- Tour Plan -->
-                                <h2 class="mt_30">Tour Plan</h2>
+                                <!-- Itinerary -->
+                                <h2 class="mt_30">Itinerary</h2>
                                 <div class="tour-plan">
 
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
-                                            @foreach ($itineraries as $itinerary)
+                                            @foreach ($package_itineraries as $itinerary)
                                                 <tr>
                                                     <td><b>{{ $itinerary->name }}</b></td>
                                                     <td>{!! $itinerary->description !!}</td>
@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
 
-                                <!-- // Tour Plan -->
+                                <!-- // Itinerary -->
                             </div>
 
                             <div class="tab-pane fade" id="tab-3-pane" role="tabpanel" aria-labelledby="tab-3" tabindex="0">

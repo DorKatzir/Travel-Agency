@@ -105,11 +105,11 @@ class FrontController extends Controller
         $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Include')->get();
         $package_amenities_exclude = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Exclude')->get();
 
-        $itineraries = PackageItinerary::where('package_id', $package->id)->get();
+        $package_itineraries = PackageItinerary::where('package_id', $package->id)->get();
         // $destination_photos = DestinationPhoto::where('destination_id', $destination->id)->get();
         // $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
 
-        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'itineraries'));
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries'));
     }
 
 
