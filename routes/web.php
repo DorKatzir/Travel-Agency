@@ -173,6 +173,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
      Route::get('/package/amenities/{id}', [AdminPackageController::class, 'package_amenities'])->name('admin_package_amenities');
      Route::post('/package/amenity/{id}', [AdminPackageController::class, 'package_amenity_submit'])->name('admin_package_amenity_submit');
      Route::get('/package/amenity/delete/{id}', [AdminPackageController::class, 'package_amenity_delete'])->name('admin_package_amenity_delete');
+     // Package Itineraries
+     Route::get('/package/itineraries/{id}', [AdminPackageController::class, 'package_itineraries'])->name('admin_package_itineraries');
+     Route::post('/package/itinerary/{id}', [AdminPackageController::class, 'package_itinerary_submit'])->name('admin_package_itinerary_submit');
+     Route::get('/package/itinerary/delete/{id}', [AdminPackageController::class, 'package_itinerary_delete'])->name('admin_package_itinerary_delete');
 
 
     // Amenity
