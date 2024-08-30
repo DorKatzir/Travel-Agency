@@ -10,7 +10,7 @@
 
         <section class="section">
             <div class="section-header justify-content-between">
-                <h1>Amenities of {{ $package->name }}</h1>
+                <h1>Amenities of {{ $package->name }} Package</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin_package_index') }}" class="btn btn-primary">
                         <i class="fas fa-arrow-left"></i>

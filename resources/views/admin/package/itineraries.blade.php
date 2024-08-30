@@ -10,7 +10,7 @@
 
         <section class="section">
             <div class="section-header justify-content-between">
-                <h1>Itineraries of {{ $package->name }}</h1>
+                <h1>Itineraries of {{ $package->name }} Package</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin_package_index') }}" class="btn btn-primary">
                         <i class="fas fa-arrow-left"></i>
@@ -85,7 +85,7 @@
 
                     </div>
 
-                    <div class="col-5">
+                    {{-- <div class="col-5">
                         <div class="card">
                             <div class="card-body">
                                 <form method="POST" action="{{ route('admin_package_amenity_submit', $package->id) }}">
@@ -113,7 +113,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
