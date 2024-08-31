@@ -241,28 +241,26 @@ class AdminPackageController extends Controller
         return view('admin.package.videos', compact('package', 'package_videos'));
     }
 
-    // public function package_video_submit(Request $request, $id) {
+    public function package_video_submit(Request $request, $package_id) {
 
-    //     $request->validate([
-    //         'name' => 'required|unique:package_itineraries',
-    //         'description' => 'required',
-    //     ]);
+        $request->validate([
+            'video' => 'required|unique:package_videos',
+        ]);
 
-    //     $itinerary = new PackageItinerary();
-    //     $itinerary->package_id = $id;
-    //     $itinerary->name = $request->name;
-    //     $itinerary->description = $request->description;
-    //     $itinerary->save();
+        $obj = new PackageVideo();
+        $obj->package_id = $package_id;
+        $obj->video = $request->video;
+        $obj->save();
 
-    //     return redirect()->back()->with('success', 'Itinerary Created Successfully');
-    // }
+        return redirect()->back()->with('success', 'Video Added Successfully');
+    }
 
-    // public function package_video_delete($id) {
+    public function package_video_delete($id) {
 
-    //     $obj = PackageItinerary::where('id', $id)->first();
-    //     $obj->delete();
+        $obj = PackageVideo::where('id', $id)->first();
+        $obj->delete();
 
-    //     return redirect()->back()->with('success', 'Itinerary Deleted Successfully');
-    // }
+        return redirect()->back()->with('success', 'Video Deleted Successfully');
+    }
 
 }

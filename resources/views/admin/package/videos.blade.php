@@ -21,7 +21,7 @@
             <div class="section-body">
                 <div class="row">
 
-                    {{-- <div class="col-7">
+                    <div class="col-7">
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -34,7 +34,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($destinationVids as $item)
+                                            @foreach ($package_videos as $item)
                                                 @if ( $item->video )
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
@@ -43,7 +43,7 @@
                                                         </td>
 
                                                         <td class="pt_10 pb_10">
-                                                            <a href="{{ route('admin_destination_video_delete', $item->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
+                                                            <a href="{{ route('admin_package_video_delete', $item->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endif
@@ -55,12 +55,12 @@
 
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
 
-                    {{-- <div class="col-5">
+                    <div class="col-5">
                         <div class="card">
                             <div class="card-body">
-                                <form method="POST" action="{{ route('admin_destination_video_submit', $destination->id) }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('admin_package_video_submit', $package->id) }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-4">
                                         <label class="form-label">Video (YouTube Id) *:</label>
@@ -73,7 +73,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
 
 
                 </div>
