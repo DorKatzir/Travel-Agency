@@ -7,6 +7,7 @@ use App\Models\Package;
 use App\Models\Destination;
 use App\Models\PackageAmenity;
 use App\Models\PackageItinerary;
+use App\Models\PackagePhoto;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Str;
@@ -193,5 +194,38 @@ class AdminPackageController extends Controller
 
         return redirect()->back()->with('success', 'Itinerary Deleted Successfully');
     }
+
+    // Package Photos
+    public function package_photos($package_id) {
+        $package = Package::where('id', $package_id)->first();
+        $package_photos = PackagePhoto::where('package_id', $package_id)->get();
+        return view('admin.package.photos', compact('package', 'package_photos'));
+    }
+
+    // public function destination_photos_submit(Request $request, $id) {
+
+    //     $request->validate([
+    //         'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+    //     ]);
+
+    //     $final_name = 'destination_photo_'.time().'.'.$request->photo->extension();
+    //     $request->photo->move( public_path('uploads'), $final_name );
+
+    //     $obj = new DestinationPhoto();
+    //     $obj->destination_id = $id;
+    //     $obj->photo = $final_name;
+    //     $obj->save();
+
+    //     return redirect()->back()->with('success', 'Photo Uploaded Successfully');
+    // }
+
+    // public function destination_photos_delete($id) {
+
+    //     $destinationPhoto = DestinationPhoto::where('id', $id)->first();
+    //     unlink( public_path('uploads/'.$destinationPhoto->photo) );
+    //     $destinationPhoto->delete();
+
+    //     return redirect()->back()->with('success', 'Photo Deleted Successfully');
+    // }
 
 }
