@@ -109,7 +109,7 @@
                                         <table class="table table-bordered">
                                             @foreach ($package_itineraries as $itinerary)
                                                 <tr>
-                                                    <td><b>{{ $itinerary->name }}</b></td>
+                                                    <td class="text-capitalize"><b>{{ $itinerary->name }}</b></td>
                                                     <td>{!! $itinerary->description !!}</td>
                                                 </tr>
                                             @endforeach
