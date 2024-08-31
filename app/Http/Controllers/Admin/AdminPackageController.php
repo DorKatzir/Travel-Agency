@@ -119,6 +119,21 @@ class AdminPackageController extends Controller
             return redirect()->back()->with('error', 'First Delete All Amenities of this Package');
         }
 
+        $total_itineraries = PackageItinerary::where('package_id', $id)->count();
+        if ($total_itineraries) {
+            return redirect()->back()->with('error', 'First Delete All Itineraries of this Package');
+        }
+
+        $total_photos = PackagePhoto::where('package_id', $id)->count();
+        if ($total_photos) {
+            return redirect()->back()->with('error', 'First Delete All Photos of this Package');
+        }
+
+        $total_videos = PackagePhoto::where('package_id', $id)->count();
+        if ($total_videos) {
+            return redirect()->back()->with('error', 'First Delete All Videos of this Package');
+        }
+
         $package = Package::where('id', $id)->first();
         unlink( public_path('uploads/'.$package->featured_photo) );
         unlink( public_path('uploads/'.$package->banner) );
@@ -257,8 +272,8 @@ class AdminPackageController extends Controller
 
     public function package_video_delete($id) {
 
-        $obj = PackageVideo::where('id', $id)->first();
-        $obj->delete();
+        $package_video = PackageVideo::where('id', $id)->first();
+        $package_video->delete();
 
         return redirect()->back()->with('success', 'Video Deleted Successfully');
     }
