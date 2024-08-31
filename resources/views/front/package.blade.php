@@ -138,62 +138,15 @@
                                 </h2>
                                 <div class="photo-all">
                                     <div class="row">
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-1.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-1.jpg" alt="">
-                                                </a>
+                                        @foreach ($package_photos as $package_photo)
+                                            <div class="col-md-6 col-lg-3">
+                                                <div class="item">
+                                                    <a href="{{ asset('uploads/'.$package_photo->photo) }}" class="magnific">
+                                                        <img src="{{ asset('uploads/'.$package_photo->photo) }}" alt="">
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-2.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-3.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-3.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-4.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-4.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-5.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-5.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-6.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-6.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-7.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-7.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-3">
-                                            <div class="item">
-                                                <a href="uploads/package-thumb-8.jpg" class="magnific">
-                                                    <img src="uploads/package-thumb-8.jpg" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 

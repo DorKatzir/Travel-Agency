@@ -126,6 +126,7 @@ class AdminPackageController extends Controller
         return redirect()->back()->with('success', 'Package Deleted Successfully');
     }
 
+
     // Package Amenities CRUD
     public function package_amenities($id) {
 
@@ -194,6 +195,7 @@ class AdminPackageController extends Controller
 
         return redirect()->back()->with('success', 'Itinerary Deleted Successfully');
     }
+
 
     // Package Photos
     public function package_photos($package_id) {
