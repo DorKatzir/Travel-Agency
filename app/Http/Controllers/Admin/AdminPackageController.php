@@ -216,16 +216,17 @@ class AdminPackageController extends Controller
         $obj->photo = $final_name;
         $obj->save();
 
-        return redirect()->back()->with('success', 'Photo Uploaded Successfully');
+        return redirect()->back()->with('success', 'Package Photo Uploaded Successfully');
     }
 
     public function package_photo_delete($id) {
 
-        $destinationPhoto = DestinationPhoto::where('id', $id)->first();
-        unlink( public_path('uploads/'.$destinationPhoto->photo) );
-        $destinationPhoto->delete();
+        $package_photo = PackagePhoto::where('id', $id)->first();
+        unlink( public_path('uploads/'.$package_photo->photo) );
 
-        return redirect()->back()->with('success', 'Photo Deleted Successfully');
+        $package_photo->delete();
+
+        return redirect()->back()->with('success', 'Package Photo Deleted Successfully');
     }
 
 }
