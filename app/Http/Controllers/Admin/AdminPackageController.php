@@ -202,30 +202,30 @@ class AdminPackageController extends Controller
         return view('admin.package.photos', compact('package', 'package_photos'));
     }
 
-    // public function destination_photos_submit(Request $request, $id) {
+    public function package_photo_submit(Request $request, $package_id) {
 
-    //     $request->validate([
-    //         'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
-    //     ]);
+        $request->validate([
+            'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+        ]);
 
-    //     $final_name = 'destination_photo_'.time().'.'.$request->photo->extension();
-    //     $request->photo->move( public_path('uploads'), $final_name );
+        $final_name = 'package_photo_'.time().'.'.$request->photo->extension();
+        $request->photo->move( public_path('uploads'), $final_name );
 
-    //     $obj = new DestinationPhoto();
-    //     $obj->destination_id = $id;
-    //     $obj->photo = $final_name;
-    //     $obj->save();
+        $obj = new PackagePhoto();
+        $obj->package_id = $package_id;
+        $obj->photo = $final_name;
+        $obj->save();
 
-    //     return redirect()->back()->with('success', 'Photo Uploaded Successfully');
-    // }
+        return redirect()->back()->with('success', 'Photo Uploaded Successfully');
+    }
 
-    // public function destination_photos_delete($id) {
+    public function package_photo_delete($id) {
 
-    //     $destinationPhoto = DestinationPhoto::where('id', $id)->first();
-    //     unlink( public_path('uploads/'.$destinationPhoto->photo) );
-    //     $destinationPhoto->delete();
+        $destinationPhoto = DestinationPhoto::where('id', $id)->first();
+        unlink( public_path('uploads/'.$destinationPhoto->photo) );
+        $destinationPhoto->delete();
 
-    //     return redirect()->back()->with('success', 'Photo Deleted Successfully');
-    // }
+        return redirect()->back()->with('success', 'Photo Deleted Successfully');
+    }
 
 }

@@ -34,15 +34,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($package_photos as $photo)
+                                            @foreach ($package_photos as $package_item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
-                                                        <img src="{{ asset('uploads/'. $photo) }}" class="w_150">
+                                                        <img src="{{ asset('uploads/'. $package_item->photo) }}" class="w_150">
                                                     </td>
 
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_package_photo_delete', $photo->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
+                                                        <a href="{{ route('admin_package_photo_delete', $package_item->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');">Delete</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

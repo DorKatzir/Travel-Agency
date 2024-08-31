@@ -179,7 +179,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
      Route::get('/package/itinerary/delete/{id}', [AdminPackageController::class, 'package_itinerary_delete'])->name('admin_package_itinerary_delete');
      // Package Photos
      Route::get('/package/photos/{package_id}', [AdminPackageController::class, 'package_photos'])->name('admin_package_photos');
-     Route::post('/package/photo/{id}', [AdminPackageController::class, 'package_photo_submit'])->name('admin_package_photo_submit');
+     Route::post('/package/photo/{package_id}', [AdminPackageController::class, 'package_photo_submit'])->name('admin_package_photo_submit');
      Route::get('/package/photo/delete/{id}', [AdminPackageController::class, 'package_photo_delete'])->name('admin_package_photo_delete');
 
 
