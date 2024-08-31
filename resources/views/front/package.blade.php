@@ -156,10 +156,11 @@
                                 </h2>
                                 <div class="video-all">
                                     <div class="row">
+                                        @foreach ($package_videos as $package_video)
                                         <div class="col-md-6 col-lg-6">
                                             <div class="item">
-                                                <a class="video-button" href="http://www.youtube.com/watch?v=kLuqCtnKr_8">
-                                                    <img src="http://img.youtube.com/vi/kLuqCtnKr_8/0.jpg" alt="">
+                                                <a class="video-button" href="http://www.youtube.com/watch?v={{ $package_video->video }}">
+                                                    <img src="http://img.youtube.com/vi/{{ $package_video->video }}/0.jpg" alt="">
                                                     <div class="icon">
                                                         <i class="far fa-play-circle"></i>
                                                     </div>
@@ -167,17 +168,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="item">
-                                                <a class="video-button" href="http://www.youtube.com/watch?v=HRg1gJi6yqc">
-                                                    <img src="http://img.youtube.com/vi/HRg1gJi6yqc/0.jpg" alt="">
-                                                    <div class="icon">
-                                                        <i class="far fa-play-circle"></i>
-                                                    </div>
-                                                    <div class="bg"></div>
-                                                </a>
-                                            </div>
-                                        </div>
+                                       @endforeach
                                     </div>
                                 </div>
                                 <!-- // Gallery -->

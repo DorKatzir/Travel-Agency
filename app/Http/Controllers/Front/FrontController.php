@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Faq;
+use App\Models\PackageVideo;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Slider;
-use App\Models\Amenity;
 use App\Models\Feature;
 use App\Models\Package;
 use App\Mail\Websitemail;
@@ -100,17 +100,15 @@ class FrontController extends Controller
         return view('front.destination', compact('destination','destination_photos', 'destination_videos'));
     }
 
-
     public function package($slug) {
         $package = Package::where('slug', $slug)->first();
         $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Include')->get();
         $package_amenities_exclude = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Exclude')->get();
         $package_itineraries = PackageItinerary::where('package_id', $package->id)->get();
         $package_photos = PackagePhoto::where('package_id', $package->id)->get();
-        // $destination_photos = DestinationPhoto::where('destination_id', $destination->id)->get();
-        // $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
+        $package_videos = PackageVideo::where('package_id', $package->id)->get();
 
-        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos'));
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos'));
     }
 
 
