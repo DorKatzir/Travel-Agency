@@ -181,6 +181,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
      Route::get('/package/photos/{package_id}', [AdminPackageController::class, 'package_photos'])->name('admin_package_photos');
      Route::post('/package/photo/{package_id}', [AdminPackageController::class, 'package_photo_submit'])->name('admin_package_photo_submit');
      Route::get('/package/photo/delete/{id}', [AdminPackageController::class, 'package_photo_delete'])->name('admin_package_photo_delete');
+     // Package Videos
+     Route::get('/package/videos/{package_id}', [AdminPackageController::class, 'package_videos'])->name('admin_package_videos');
+     Route::post('/package/video/{package_id}', [AdminPackageController::class, 'package_video_submit'])->name('admin_package_video_submit');
+     Route::get('/package/video/delete/{id}', [AdminPackageController::class, 'package_video_delete'])->name('admin_package_video_delete');
 
 
     // Amenity

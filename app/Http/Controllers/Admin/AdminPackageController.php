@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Str;
 use App\Models\Amenity;
 use App\Models\Package;
 use App\Models\Destination;
+use App\Models\PackagePhoto;
+use App\Models\PackageVideo;
+use Illuminate\Http\Request;
 use App\Models\PackageAmenity;
 use App\Models\PackageItinerary;
-use App\Models\PackagePhoto;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Str;
 
 class AdminPackageController extends Controller
 {
@@ -197,7 +198,7 @@ class AdminPackageController extends Controller
     }
 
 
-    // Package Photos
+    // Package Photos CRUD
     public function package_photos($package_id) {
         $package = Package::where('id', $package_id)->first();
         $package_photos = PackagePhoto::where('package_id', $package_id)->get();
@@ -230,5 +231,38 @@ class AdminPackageController extends Controller
 
         return redirect()->back()->with('success', 'Package Photo Deleted Successfully');
     }
+
+    // Package Videos CRUD
+    public function package_videos($package_id) {
+
+        $package = Package::where('id', $package_id)->first();
+        $package_videos = PackageVideo::where('package_id', $package_id)->get();
+
+        return view('admin.package.videos', compact('package', 'package_videos'));
+    }
+
+    // public function package_video_submit(Request $request, $id) {
+
+    //     $request->validate([
+    //         'name' => 'required|unique:package_itineraries',
+    //         'description' => 'required',
+    //     ]);
+
+    //     $itinerary = new PackageItinerary();
+    //     $itinerary->package_id = $id;
+    //     $itinerary->name = $request->name;
+    //     $itinerary->description = $request->description;
+    //     $itinerary->save();
+
+    //     return redirect()->back()->with('success', 'Itinerary Created Successfully');
+    // }
+
+    // public function package_video_delete($id) {
+
+    //     $obj = PackageItinerary::where('id', $id)->first();
+    //     $obj->delete();
+
+    //     return redirect()->back()->with('success', 'Itinerary Deleted Successfully');
+    // }
 
 }
