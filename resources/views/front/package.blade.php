@@ -57,9 +57,12 @@
                                 </li>
                             @endif
 
+                            @if ( $package_faqs->count() > 0 )
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="tab-5" data-bs-toggle="tab" data-bs-target="#tab-5-pane" type="button" role="tab" aria-controls="tab-5-pane" aria-selected="false">FAQ</button>
                             </li>
+                            @endif
+
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="tab-6" data-bs-toggle="tab" data-bs-target="#tab-6-pane" type="button" role="tab" aria-controls="tab-6-pane" aria-selected="false">Review</button>
                             </li>
@@ -182,29 +185,31 @@
                             </div>
 
 
-                            <div class="tab-pane fade" id="tab-5-pane" role="tabpanel" aria-labelledby="tab-5" tabindex="0">
-                                <!-- FAQ -->
-                                <h2 class="mt_30">Frequently Asked Questions</h2>
-                                <div class="faq-package">
-                                    <div class="accordion" id="accordionExample">
-                                        @foreach ($package_faqs as $package_faq)
-                                            <div class="accordion-item mb_30">
-                                                <h2 class="accordion-header" id="heading_1">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $loop->iteration }}" aria-expanded="false" aria-controls="collapse_{{ $loop->iteration }}">
-                                                        {{ $package_faq->question }}
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse_{{ $loop->iteration }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ $loop->iteration }}" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        {!! $package_faq->answer !!}
+                            @if ( $package_faqs->count() > 0 )
+                                <div class="tab-pane fade" id="tab-5-pane" role="tabpanel" aria-labelledby="tab-5" tabindex="0">
+                                    <!-- FAQ -->
+                                    <h2 class="mt_30">Frequently Asked Questions</h2>
+                                    <div class="faq-package">
+                                        <div class="accordion" id="accordionExample">
+                                            @foreach ($package_faqs as $package_faq)
+                                                <div class="accordion-item mb_30">
+                                                    <h2 class="accordion-header" id="heading_1">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $loop->iteration }}" aria-expanded="false" aria-controls="collapse_{{ $loop->iteration }}">
+                                                            {{ $package_faq->question }}
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapse_{{ $loop->iteration }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ $loop->iteration }}" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            {!! $package_faq->answer !!}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
                                     </div>
+                                    <!-- // FAQ -->
                                 </div>
-                                <!-- // FAQ -->
-                            </div>
+                            @endif
 
 
                             <div class="tab-pane fade" id="tab-6-pane" role="tabpanel" aria-labelledby="tab-6" tabindex="0">
