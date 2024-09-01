@@ -296,18 +296,19 @@
                                 <!-- Enquery -->
                                 <h2 class="mt_30">Ask Your Question</h2>
                                 <div class="enquery-form">
-                                    <form action="" method="post">
+                                    <form action="{{ route('enquey_form_submit', $package->id) }}" method="POST">
+                                        @csrf
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Full Name">
+                                            <input name="name" type="text" class="form-control" placeholder="Full Name">
                                         </div>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Email Address">
+                                            <input name="email" type="email" class="form-control" placeholder="Email Address">
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Phone Number">
+                                            <input name="phone" type="text" class="form-control" placeholder="Phone Number">
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control h-150" rows="3" placeholder="Message"></textarea>
+                                            <textarea name="message" class="form-control h-150" rows="3" placeholder="Message"></textarea>
                                         </div>
                                         <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">
