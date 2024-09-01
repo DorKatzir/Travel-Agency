@@ -126,7 +126,7 @@ class FrontController extends Controller
             'message' => 'required'
         ]);
 
-        $subject = "Enquiry about the packge: ". $package->name;
+        $subject = "Enquiry about: ". $package->name;
         $message = "<b>Name:</b><br> ". $request->name. "<br><br>";
         $message.= "<b>Email:</b><br> ". $request->email. "<br><br>";
         $message.= "<b>Phone:</b><br> ". $request->phone. "<br><br>";
