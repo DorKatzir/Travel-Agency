@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('package_id');
             $table->string('question')->nullable();
-            $table->string('answer')->nullable();
+            $table->text('answer')->nullable();
             $table->timestamps();
         });
     }
