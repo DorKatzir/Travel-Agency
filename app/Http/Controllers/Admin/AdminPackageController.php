@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\PackageFaq;
 use Str;
 use App\Models\Amenity;
 use App\Models\Package;
@@ -132,6 +133,11 @@ class AdminPackageController extends Controller
         $total_videos = PackagePhoto::where('package_id', $id)->count();
         if ($total_videos) {
             return redirect()->back()->with('error', 'First Delete All Videos of this Package');
+        }
+
+        $total_faqs = PackageFaq::where('package_id', $id)->count();
+        if ($total_faqs) {
+            return redirect()->back()->with('error', 'First Delete All Faqs of this Package');
         }
 
         $package = Package::where('id', $id)->first();
@@ -276,6 +282,39 @@ class AdminPackageController extends Controller
         $package_video->delete();
 
         return redirect()->back()->with('success', 'Video Deleted Successfully');
+    }
+
+    // Package  Faqs CRUD
+    public function package_faqs($package_id) {
+
+        $package = Package::where('id', $package_id)->first();
+        $package_faqs = PackageFaq::where('package_id', $package_id)->get();
+
+        return view('admin.package.faqs', compact('package', 'package_faqs'));
+    }
+
+    public function package_faq_submit(Request $request, $package_id) {
+
+        $request->validate([
+            'question' => 'required|unique:package_faqs',
+            'answer' => 'required',
+        ]);
+
+        $obj = new PackageFaq();
+        $obj->package_id = $package_id;
+        $obj->question = $request->question;
+        $obj->answer = $request->answer;
+        $obj->save();
+
+        return redirect()->back()->with('success', 'Faq Item Added Successfully');
+    }
+
+    public function package_faq_delete($id) {
+
+        $package_faq = PackageFaq::where('id', $id)->first();
+        $package_faq->delete();
+
+        return redirect()->back()->with('success', 'Faq Item Deleted Successfully');
     }
 
 }
