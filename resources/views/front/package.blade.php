@@ -187,66 +187,20 @@
                                 <h2 class="mt_30">Frequently Asked Questions</h2>
                                 <div class="faq-package">
                                     <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item mb_30">
-                                            <h2 class="accordion-header" id="heading_1">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">
-                                                    What activities are included in the tour?
-                                                </button>
-                                            </h2>
-                                            <div id="collapse_1" class="accordion-collapse collapse" aria-labelledby="heading_1" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    The Great Barrier Reef tour includes snorkeling, diving, and glass-bottom boat tours, allowing you to explore the vibrant marine life and coral formations. Additionally, the package offers guided reef tours, informative presentations by marine biologists, and leisure time on stunning beaches.
+                                        @foreach ($package_faqs as $package_faq)
+                                            <div class="accordion-item mb_30">
+                                                <h2 class="accordion-header" id="heading_1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $loop->iteration }}" aria-expanded="false" aria-controls="collapse_{{ $loop->iteration }}">
+                                                        {{ $package_faq->question }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse_{{ $loop->iteration }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ $loop->iteration }}" data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        {!! $package_faq->answer !!}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="accordion-item mb_30">
-                                            <h2 class="accordion-header" id="heading_2">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2" aria-expanded="false" aria-controls="collapse_2">
-                                                    What should I bring on the tour?
-                                                </button>
-                                            </h2>
-                                            <div id="collapse_2" class="accordion-collapse collapse" aria-labelledby="heading_2" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    We recommend bringing swimwear, sunscreen, a hat, sunglasses, and a reusable water bottle. If you plan to snorkel or dive, bring your own gear if you prefer, although equipment is provided. Don’t forget a camera to capture the incredible underwater scenery!
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item mb_30">
-                                            <h2 class="accordion-header" id="heading_3">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3" aria-expanded="false" aria-controls="collapse_3">
-                                                    Is the tour suitable for beginners?
-                                                </button>
-                                            </h2>
-                                            <div id="collapse_3" class="accordion-collapse collapse" aria-labelledby="heading_3" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Yes, the tour is designed for all experience levels. Our guides provide comprehensive instructions and safety briefings for snorkeling and diving. Beginners can enjoy glass-bottom boat tours and shallow water snorkeling, while experienced divers can explore deeper parts of the reef.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item mb_30">
-                                            <h2 class="accordion-header" id="heading_4">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                                    How long is the tour and what’s the schedule?
-                                                </button>
-                                            </h2>
-                                            <div id="collapse_4" class="accordion-collapse collapse" aria-labelledby="heading_4" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    The Great Barrier Reef tour typically lasts a full day, starting early in the morning and returning by late afternoon. The schedule includes transportation to and from the reef, several hours of water activities, lunch, and free time for relaxation and exploration.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item mb_30">
-                                            <h2 class="accordion-header" id="heading_5">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                                    What measures are in place for reef conservation?
-                                                </button>
-                                            </h2>
-                                            <div id="collapse_5" class="accordion-collapse collapse" aria-labelledby="heading_5" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Our tours adhere to strict environmental guidelines to protect the reef. We use eco-friendly boats, limit visitor numbers, and provide education on reef conservation. Our guides also ensure that all activities are conducted responsibly, minimizing impact on the marine ecosystem.
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- // FAQ -->

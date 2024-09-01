@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Faq;
 use App\Models\PackageVideo;
+use App\Models\PackageFaq;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Slider;
@@ -107,8 +108,9 @@ class FrontController extends Controller
         $package_itineraries = PackageItinerary::where('package_id', $package->id)->get();
         $package_photos = PackagePhoto::where('package_id', $package->id)->get();
         $package_videos = PackageVideo::where('package_id', $package->id)->get();
+        $package_faqs = PackageFaq::where('package_id', $package->id)->get();
 
-        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos'));
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs'));
     }
 
 
