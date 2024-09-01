@@ -30,4 +30,8 @@ class Package extends Model
         return $this->hasMany(PackageFaq::class);
     }
 
+    public function tours() {
+        return $this->hasMany(Tour::class);
+    }
+
 }
