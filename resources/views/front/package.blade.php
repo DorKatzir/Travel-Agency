@@ -326,48 +326,72 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h2 class="mt_30">Booking Information</h2>
+                                        {{-- Tour 1 --}}
+                                        <h2 class="mt_30">
+                                            <input type="radio" name="tour_id" value="tour_will_be_here" checked>
+                                            Tour 1
+                                        </h2>
                                         <div class="summary">
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <tr>
-                                                        <td><b>Price (per person)</b></td>
-                                                        <td>$400</td>
+                                                        <td><b>Tour Start Date</b></td>
+                                                        <td>12/06/2024</td>
                                                     </tr>
                                                     <tr>
-                                                        <td><b>Start Date</b></td>
-                                                        <td>
-                                                            12 Jun, 2024
-                                                        </td>
+                                                        <td><b>Tour End Date</b></td>
+                                                        <td>18/06/2024</td>
                                                     </tr>
                                                     <tr>
-                                                        <td><b>End Date</b></td>
-                                                        <td>
-                                                            28 Jun, 2024
-                                                        </td>
+                                                        <td><b>Booking End Date</b></td>
+                                                        <td class="text-danger">8/06/2024</td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Total Seat</b></td>
-                                                        <td>
-                                                            20
-                                                        </td>
+                                                        <td>20</td>
                                                     </tr>
                                                     <tr>
                                                         <td><b>Booked Seat</b></td>
-                                                        <td>
-                                                            15
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Available Seat</b></td>
-                                                        <td>
-                                                            5
-                                                        </td>
+                                                        <td>12</td>
                                                     </tr>
                                                 </table>
                                             </div>
                                         </div>
+                                        {{-- Tour 2 --}}
+                                        <h2 class="mt_30">
+                                            <input type="radio" name="tour_id" value="tour_will_be_here">
+                                            Tour 2
+                                        </h2>
+                                        <div class="summary">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td><b>Tour Start Date</b></td>
+                                                        <td>20/09/2024</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Tour End Date</b></td>
+                                                        <td>26/09/2024</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Booking End Date</b></td>
+                                                        <td class="text-danger">15/09/2024</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Total Seat</b></td>
+                                                        <td>30</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Booked Seat</b></td>
+                                                        <td>5</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
                                     </div>
+
+
                                     <div class="col-md-4">
                                         <h2 class="mt_30">Payment</h2>
                                         <div class="summary">
