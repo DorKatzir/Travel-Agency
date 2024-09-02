@@ -326,68 +326,39 @@
 
                                 <div class="row">
                                     <div class="col-md-8">
-                                        {{-- Tour 1 --}}
-                                        <h2 class="mt_30">
-                                            <input type="radio" name="tour_id" value="tour_will_be_here" checked>
-                                            Tour 1
-                                        </h2>
-                                        <div class="summary">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <td><b>Tour Start Date</b></td>
-                                                        <td>12/06/2024</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Tour End Date</b></td>
-                                                        <td>18/06/2024</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Booking End Date</b></td>
-                                                        <td class="text-danger">8/06/2024</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Total Seat</b></td>
-                                                        <td>20</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Booked Seat</b></td>
-                                                        <td>12</td>
-                                                    </tr>
-                                                </table>
+                                        @foreach ($tours as $tour)
+                                            <h2 class="mt_30">
+                                                <input type="radio" name="tour_id" value="{{ $tour->id }}" checked>
+                                                Tour {{ $loop->iteration }}
+                                            </h2>
+                                            <div class="summary">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <tr>
+                                                            <td><b>Tour Start Date</b></td>
+                                                            <td>{{ $tour->tour_start_date }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Tour End Date</b></td>
+                                                            <td>{{ $tour->tour_end_date }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Booking End Date</b></td>
+                                                            <td class="text-danger">{{ $tour->booking_end_date }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Total Seat</b></td>
+                                                            <td>{{ $tour->total_seat }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Booked Seat</b></td>
+                                                            <td>999999</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                             </div>
-                                        </div>
-                                        {{-- Tour 2 --}}
-                                        <h2 class="mt_30">
-                                            <input type="radio" name="tour_id" value="tour_will_be_here">
-                                            Tour 2
-                                        </h2>
-                                        <div class="summary">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <td><b>Tour Start Date</b></td>
-                                                        <td>20/09/2024</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Tour End Date</b></td>
-                                                        <td>26/09/2024</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Booking End Date</b></td>
-                                                        <td class="text-danger">15/09/2024</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Total Seat</b></td>
-                                                        <td>30</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Booked Seat</b></td>
-                                                        <td>5</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
+                                        @endforeach
+
 
                                     </div>
 

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Models\Admin;
 use App\Models\Faq;
-use App\Models\PackageVideo;
-use App\Models\PackageFaq;
 use App\Models\Post;
+use App\Models\Tour;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Slider;
 use App\Models\Feature;
 use App\Models\Package;
 use App\Mail\Websitemail;
+use App\Models\PackageFaq;
 use App\Models\TeamMember;
 use App\Models\CounterItem;
 use App\Models\Destination;
@@ -19,6 +19,7 @@ use App\Models\Testimonial;
 use App\Models\WelcomeItem;
 use App\Models\BlogCategory;
 use App\Models\PackagePhoto;
+use App\Models\PackageVideo;
 use Illuminate\Http\Request;
 use App\Models\PackageAmenity;
 use App\Models\DestinationPhoto;
@@ -110,8 +111,10 @@ class FrontController extends Controller
         $package_photos = PackagePhoto::where('package_id', $package->id)->get();
         $package_videos = PackageVideo::where('package_id', $package->id)->get();
         $package_faqs = PackageFaq::where('package_id', $package->id)->get();
+        $tours = Tour::where('package_id', $package->id)->get();
 
-        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs'));
+
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs', 'tours'));
     }
 
     public function enquey_form_submit(Request $request, $package_id) {
