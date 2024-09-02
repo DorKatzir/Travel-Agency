@@ -1,6 +1,6 @@
 # TripSummit - Travel Agency
 
-### Development of a Complete Dynamic Travel Agency Management Website with Laravel 11**
+### Development of a Complete Dynamic Travel Agency Management Website with Laravel 11
 
 **Why I have chosen Laravel to develop this application?**
 -   Clean and expressive syntax.
