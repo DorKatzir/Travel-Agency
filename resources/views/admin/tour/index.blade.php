@@ -32,7 +32,7 @@
                                                 <th>Package Info</th>
                                                 <th>Tour Start</th>
                                                 <th>Tour End</th>
-                                                <th>Bokking End</th>
+                                                <th>Booking End</th>
                                                 <th>Total Seat</th>
                                                 <th>Action</th>
                                             </tr>
