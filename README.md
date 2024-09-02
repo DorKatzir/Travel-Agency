@@ -29,4 +29,33 @@
 -   And many more.
 
 
+**Key Features implemented in this application:**
+-   Change home page information
+-   Change logo, favicon etc. via website settings
+-   Sending email through contact form
+-   Slider items create, edit and delete options
+-   Blog items create, edit and delete options
+-   FAQ items create, edit and delete options
+-   Testimonial items create, edit and delete options
+-   Team members create, edit and delete options
+-   Amenities create, edit and delete options
+-   Destination create, edit and delete options
+-   Package create, edit and delete options
+-   Package photo gallery and video gallery management
+-   Package tour plan management
+-   Package enquery system
+-   Package review management system
+-   Package purchase by users using paypal and stripe
+-   Package search or filtering system by price, location, reviews etc.
+-   Orders and invoices show by users
+-   Privacy policy page management
+-   Terms and conditions page management
+-   User profile management by users
+-   User registration and verifying system
+-   User forget and reset password system
+-   Admin profile management by admin
+-   Admin forget and reset password system
+-   Admin can send email to subscribers
+-   Admin can manage users
+-   Admin can see orders and invoices of users
 
