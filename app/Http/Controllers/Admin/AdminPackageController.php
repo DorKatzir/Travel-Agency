@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\PackageFaq;
+use App\Models\Tour;
 use Str;
 use App\Models\Amenity;
 use App\Models\Package;
@@ -138,6 +139,11 @@ class AdminPackageController extends Controller
         $total_faqs = PackageFaq::where('package_id', $id)->count();
         if ($total_faqs) {
             return redirect()->back()->with('error', 'First Delete All Faqs of this Package');
+        }
+
+        $total_tours = Tour::where('package_id', $id)->count();
+        if ($total_tours) {
+            return redirect()->back()->with('error', 'First Delete All Tours of this Package');
         }
 
         $package = Package::where('id', $id)->first();

@@ -32,7 +32,9 @@
                                                 <label class="form-label">Select Package *</label>
                                                 <select name="package_id" class="form-select">
                                                 @foreach ($packages as $package)
-                                                    <option value="{{ $package->id }}">{{ $package->name }}</option>
+                                                    <option value="{{ $package->id }} @if ($tour->package_id == $package->id) selected @endif">
+                                                        {{ $package->name }}
+                                                    </option>
                                                 @endforeach
                                                 </select>
                                             </div>
