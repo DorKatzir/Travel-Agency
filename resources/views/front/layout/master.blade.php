@@ -49,15 +49,26 @@
                         </ul>
                     </div>
                     <div class="col-md-6 right-side">
-                        <ul class="right">
-                            <li class="menu">
-                                <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            </li>
-                            <li class="menu">
-                                <a href="{{ route('registration') }}"><i class="fas fa-user"></i> Sign Up</a>
-                            </li>
-                        </ul>
+
+                        @if (Auth::guard('web')->check())
+                            <ul class="right">
+
+                                <li class="menu">
+                                    <i class="fas fa-sign-in-alt"></i><a class="ms-1" href="{{ route('user_dashboard') }}"> Dashboard</a>
+                                </li>
+                            </ul>
+                        @else
+                            <ul class="right">
+                                <li class="menu">
+                                    <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                                </li>
+                                <li class="menu">
+                                    <a href="{{ route('registration') }}"><i class="fas fa-user"></i> Sign Up</a>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
+
                 </div>
             </div>
         </div>
