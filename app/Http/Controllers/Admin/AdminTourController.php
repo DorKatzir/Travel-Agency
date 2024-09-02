@@ -26,9 +26,9 @@ class AdminTourController extends Controller
 
         $request->validate([
             'package_id' => 'required',
-            'tour_start_date' => 'required',
-            'tour_end_date' => 'required',
-            'booking_end_date' => 'required',
+            'tour_start_date' => 'required|date_format:Y-m-d',
+            'tour_end_date' => 'required|date_format:Y-m-d',
+            'booking_end_date' => 'required|date_format:Y-m-d',
             'total_seat' => 'required',
         ]);
 
@@ -54,9 +54,9 @@ class AdminTourController extends Controller
         $obj= Tour::where('id', $id)->first();
 
         $request->validate([
-            'tour_start_date' => 'required',
-            'tour_end_date' => 'required',
-            'booking_end_date' => 'required',
+            'tour_start_date' => 'required|date_format:Y-m-d',
+            'tour_end_date' => 'required|date_format:Y-m-d',
+            'booking_end_date' => 'required|date_format:Y-m-d',
             'total_seat' => 'required',
         ]);
 
