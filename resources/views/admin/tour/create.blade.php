@@ -27,8 +27,7 @@
                                 <form method="POST" action="{{ route('admin_tour_create_submit') }}">
                                     @csrf
                                     <div class="row">
-                                            <div class="col-md-6">
-
+                                        <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Select Package *</label>
                                                 <select name="package_id" class="form-select">
@@ -37,32 +36,41 @@
                                                 @endforeach
                                                 </select>
                                             </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Tour Start Date *</label>
-                                                <input type="text" class="form-control" name="tour_start_date" value="{{ old('tour_start_date') }}">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Tour End Date *</label>
-                                                <input type="text" class="form-control" name="tour_end_date" value="{{ old('tour_end_date') }}">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Booking End Date *</label>
-                                                <input type="text" class="form-control" name="booking_end_date" value="{{ old('booking_end_date') }}">
-                                            </div>
-
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label">Total Seat *</label>
                                                 <input type="text" class="form-control" name="total_seat" value="{{ old('total_seat') }}">
                                             </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <div class="mb-3">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <label class="form-label">Tour Start Date *</label>
+                                                <input type="text" class="form-control" id="datepicker_tour_start" name="tour_start_date" value="{{ old('tour_start_date') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Tour End Date *</label>
+                                                <input type="text" class="form-control" id="datepicker_tour_end" name="tour_end_date" value="{{ old('tour_end_date') }}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="mb-3">
+                                                <label class="form-label">Booking End Date *</label>
+                                                <input type="text" class="form-control" id="datepicker_booking_end" name="booking_end_date" value="{{ old('booking_end_date') }}">
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+
                                 </form>
 
 
