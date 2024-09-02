@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Tour;
+use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,8 @@ class AdminTourController extends Controller
     }
 
     public function create() {
-        return view('admin.tour.create');
+        $packages = Package::get();
+        return view('admin.tour.create', compact('packages'));
     }
 
     public function create_submit(Request $request) {
@@ -23,19 +25,21 @@ class AdminTourController extends Controller
         $obj = new Tour();
 
         $request->validate([
+            'package_id' => 'required',
             'tour_start_date' => 'required',
             'tour_end_date' => 'required',
             'booking_end_date' => 'required',
             'total_seat' => 'required',
         ]);
 
+        $obj->package_id = $request->package_id;
         $obj->tour_start_date = $request->tour_start_date;
         $obj->tour_end_date = $request->tour_end_date;
         $obj->booking_end_date = $request->booking_end_date;
         $obj->total_seat = $request->total_seat;
         $obj->save();
 
-        return redirect()->route('admin_tour_index')->with('success','Tour Created Successfully!');
+        return redirect()->route('admin_tours_index')->with('success','Tour Created Successfully!');
 
     }
 
