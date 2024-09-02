@@ -43,7 +43,7 @@
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $tour->package->name }}</td>
+                                                    <td>{{ $tour->package->name }} <br> <a href="{{ route('package',$tour->package->slug) }}" target="_blank"><small class="ms-1">Details Page</small></a> </td>
                                                     <td>{{ $tour->tour_start_date }}</td>
                                                     <td>{{ $tour->tour_end_date }}</td>
                                                     <td>{{ $tour->booking_end_date }}</td>
