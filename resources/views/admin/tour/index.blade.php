@@ -29,7 +29,7 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Package Info</th>
+                                                <th>Package Name</th>
                                                 <th>Tour Start</th>
                                                 <th>Tour End</th>
                                                 <th>Booking End</th>
@@ -44,8 +44,8 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $tour->package->name }}</td>
-                                                    <td>{{ $tour->start_date }}</td>
-                                                    <td>{{ $tour->end_date }}</td>
+                                                    <td>{{ $tour->tour_start_date }}</td>
+                                                    <td>{{ $tour->tour_end_date }}</td>
                                                     <td>{{ $tour->booking_end_date }}</td>
                                                     <td>{{ $tour->total_seat }}</td>
 

@@ -44,9 +44,9 @@ class AdminTourController extends Controller
     }
 
     public function edit($id) {
-
+        $packages = Package::orderBy('name', 'asc')->get();
         $tour = Tour::where('id', $id)->first();
-        return view('admin.tour.edit', compact('tour'));
+        return view('admin.tour.edit', compact('tour', 'packages'));
     }
 
     public function edit_submit(Request $request, $id) {
@@ -66,7 +66,7 @@ class AdminTourController extends Controller
         $obj->total_seat = $request->total_seat;
         $obj->save();
 
-        return redirect()->back()->with('success', 'Tour Updated Successfully');
+        return redirect()->route('admin_tours_index')->with('success', 'Tour Updated Successfully');
 
     }
 
