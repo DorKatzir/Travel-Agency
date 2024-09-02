@@ -325,6 +325,7 @@
                                 <!-- Booking -->
 
                                 <div class="row">
+
                                     <div class="col-md-8">
                                         @foreach ($tours as $tour)
                                             <h2 class="mt_30">
@@ -358,8 +359,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-
-
                                     </div>
 
 
@@ -392,7 +391,11 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <button type="submit" class="btn btn-primary">Pay Now</button>
+                                                            @if (Auth::guard('web')->check())
+                                                                <button type="submit" class="btn btn-primary">Pay Now</button>
+                                                            @else
+                                                                <a href="{{ route('login') }}" class="btn btn-primary">Login to Book</a>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -407,6 +410,7 @@
                                             }
                                         </script>
                                     </div>
+
                                 </div>
                                 <!-- // Booking -->
                             </div>
