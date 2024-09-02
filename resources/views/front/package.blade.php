@@ -328,7 +328,7 @@
                                     <div class="col-md-8">
                                         @foreach ($tours as $tour)
                                             <h2 class="mt_30">
-                                                <input type="radio" name="tour_id" value="{{ $tour->id }}" checked>
+                                                <input type="radio" name="tour_id" value="{{ $tour->id }}" @if ($loop->first) checked @endif>
                                                 Tour {{ $loop->iteration }}
                                             </h2>
                                             <div class="summary">
