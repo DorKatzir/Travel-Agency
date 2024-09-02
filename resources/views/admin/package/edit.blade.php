@@ -53,10 +53,17 @@
                                                 </div>
                                             </div>
 
-                                            <div class="mb-4">
-                                                <label class="form-label">Name *</label>
-                                                <input type="text" class="form-control" name="name" value="{{ $package->name }}">
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Name *</label>
+                                                    <input type="text" class="form-control" name="name" value="{{ $package->name }}">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Slug</label>
+                                                    <input type="text" class="form-control" disabled readonly value="{{ $package->slug }}">
+                                                </div>
                                             </div>
+
 
                                             <div class="mb-4">
                                                 <label class="form-label">Description *</label>

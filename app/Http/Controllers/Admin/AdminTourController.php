@@ -16,7 +16,7 @@ class AdminTourController extends Controller
     }
 
     public function create() {
-        $packages = Package::get();
+        $packages = Package::orderBy('name', 'asc')->get();
         return view('admin.tour.create', compact('packages'));
     }
 
