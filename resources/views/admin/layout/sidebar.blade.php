@@ -110,6 +110,12 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/tour/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_tours_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Tours</span>
+                </a>
+            </li>
 
 
             <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">
