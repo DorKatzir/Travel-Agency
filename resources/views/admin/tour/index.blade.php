@@ -18,7 +18,7 @@
                     </a>
                 </div>
             </div>
-            {{-- <div class="section-body">
+            <div class="section-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -29,22 +29,29 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Question</th>
+                                                <th>Package Info</th>
+                                                <th>Tour Start</th>
+                                                <th>Tour End</th>
+                                                <th>Bokking End</th>
+                                                <th>Total Seat</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @foreach ($faqs as $faq)
+                                            @foreach ($tours as $tour)
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-
-                                                    <td>{{ $faq->question }}</td>
+                                                    <td>{{ $tour->package->name }}</td>
+                                                    <td>{{ $tour->start_date }}</td>
+                                                    <td>{{ $tour->end_date }}</td>
+                                                    <td>{{ $tour->booking_end_date }}</td>
+                                                    <td>{{ $tour->total_seat }}</td>
 
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_faq_edit', $faq->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin_faq_delete', $faq->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_tour_edit', $tour->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin_tour_delete', $tour->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 
@@ -59,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </section>
 
     </div>
