@@ -29,7 +29,7 @@ class AdminTourController extends Controller
             'tour_start_date' => 'required|date_format:Y-m-d',
             'tour_end_date' => 'required|date_format:Y-m-d',
             'booking_end_date' => 'required|date_format:Y-m-d',
-            'total_seat' => 'required|numeric',
+            'total_seat' => 'required',
         ]);
 
         $obj->package_id = $request->package_id;
@@ -57,7 +57,7 @@ class AdminTourController extends Controller
             'tour_start_date' => 'required|date_format:Y-m-d',
             'tour_end_date' => 'required|date_format:Y-m-d',
             'booking_end_date' => 'required|date_format:Y-m-d',
-            'total_seat' => 'required|numeric',
+            'total_seat' => 'required',
         ]);
 
         $obj->tour_start_date = $request->tour_start_date;

@@ -47,7 +47,12 @@
                                                     <td>{{ $tour->tour_start_date }}</td>
                                                     <td>{{ $tour->tour_end_date }}</td>
                                                     <td>{{ $tour->booking_end_date }}</td>
-                                                    <td>{{ $tour->total_seat }}</td>
+
+                                                    @if ($tour->total_seat == -1)
+                                                        <td>Unlimited</td>
+                                                    @else
+                                                        <td>{{ $tour->total_seat }}</td>
+                                                    @endif
 
                                                     <td class="pt_10 pb_10">
                                                         <a href="{{ route('admin_tour_edit', $tour->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>

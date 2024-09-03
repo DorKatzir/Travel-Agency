@@ -349,7 +349,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td><b>Total Seat</b></td>
-                                                            <td>{{ $tour->total_seat }}</td>
+                                                            @if ($tour->total_seat == -1)
+                                                                <td>Unlimited</td>
+                                                            @else
+                                                                <td>{{ $tour->total_seat }}</td>
+                                                            @endif
                                                         </tr>
                                                         <tr>
                                                             <td><b>Booked Seat</b></td>
