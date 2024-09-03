@@ -34,6 +34,7 @@ Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name
 
 Route::get('/package/{slug}', [FrontController::class, 'package'])->name('package');
 Route::post('/enquey/submit/{package_id}', [FrontController::class, 'enquey_form_submit'])->name('enquey_form_submit');
+Route::post('/payment', [FrontController::class, 'payment'])->name('payment');
 
 
 

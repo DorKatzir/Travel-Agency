@@ -141,6 +141,10 @@ class FrontController extends Controller
 
     }
 
+    public function payment(Request $request) {
+        dd($request->all());
+    }
+
 
 
 
