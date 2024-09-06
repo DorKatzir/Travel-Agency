@@ -34,7 +34,10 @@ Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name
 
 Route::get('/package/{slug}', [FrontController::class, 'package'])->name('package');
 Route::post('/enquey/submit/{package_id}', [FrontController::class, 'enquey_form_submit'])->name('enquey_form_submit');
+
 Route::post('/payment', [FrontController::class, 'payment'])->name('payment');
+Route::get('paypal/success', [FrontController::class, 'paypal_success'])->name('paypal_success');
+Route::get('paypal/cancel', [FrontController::class, 'paypal_cancel'])->name('paypal_cancel');
 
 
 

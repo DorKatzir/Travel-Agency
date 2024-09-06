@@ -326,6 +326,7 @@
 
                                 <form action="{{ route('payment') }}" method="POST">
                                     @csrf
+                                    <input type="hidden" name="package_id" value="{{ $package->id }}">
                                     <div class="row">
                                         <div class="col-md-8">
                                             @foreach ($tours as $tour)
@@ -387,9 +388,9 @@
                                                             <tr>
                                                                 <td>
                                                                     <label for=""><b>Select Payment Method</b></label>
-                                                                    <select name="" class="form-select">
-                                                                        <option value="">PayPal</option>
-                                                                        <option value="">Stripe</option>
+                                                                    <select name="payment_method" class="form-select">
+                                                                        <option value=Paypal">PayPal</option>
+                                                                        <option value="Stripe">Stripe</option>
                                                                     </select>
                                                                 </td>
                                                             </tr>

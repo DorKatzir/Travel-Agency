@@ -8,6 +8,7 @@ use App\Models\Tour;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Slider;
+use App\Models\Booking;
 use App\Models\Feature;
 use App\Models\Package;
 use App\Mail\Websitemail;
@@ -28,6 +29,7 @@ use App\Models\PackageItinerary;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class FrontController extends Controller
 {
@@ -142,7 +144,85 @@ class FrontController extends Controller
     }
 
     public function payment(Request $request) {
-        dd($request->all());
+
+        $user_id = Auth::guard('web')->user()->id;
+        $package = Package::where('id', $request->package_id)->first();
+        $total_price = $request->ticket_price * $request->total_person;
+
+        if ($request->payment_method == 'Paypal') {
+
+            $provider = new PayPalClient;
+            $provider->setApiCredentials(config('paypal'));
+            $paypalToken = $provider->getAccessToken();
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('paypal_success'),
+                    "cancel_url" => route('paypal_cancel')
+                ],
+                "purchase_units" => [
+                    [
+                        "amount" => [
+                            "currency_code" => "USD",
+                            "value" => $total_price
+                        ]
+                    ]
+                ]
+            ]);
+            //dd($response);
+            if(isset($response['id']) && $response['id'] != null) {
+                foreach($response['links'] as $link) {
+                    if($link['rel'] == 'approve') {
+                        session()->put('total_person', $request->total_person);
+                        session()->put('tour_id', $request->tour_id);
+                        session()->put('package_id', $request->package_id);
+                        session()->put('user_id', $user_id);
+                        return redirect()->away($link['href']);
+                    }
+                }
+            } else {
+                return redirect()->route('paypal_cancel');
+            }
+        }
+
+    }
+
+    public function paypal_success(Request $request) {
+
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $paypalToken = $provider->getAccessToken();
+        $response = $provider->capturePaymentOrder($request->token);
+        //dd($response);
+        if (isset($response['status']) && $response['status'] == 'COMPLETED') {
+
+            // Insert data into database
+            $obj = new Booking;
+            $obj->tour_id = session()->get('tour_id');
+            $obj->package_id = session()->get('package_id');
+            $obj->user_id = session()->get('user_id');
+            $obj->total_person = session()->get('total_person');
+            $obj->paid_amount = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
+            $obj->payment_method = 'PayPal';
+            $obj->payment_status = $response['status'];
+            $obj->invoice_no = time();
+            $obj->save();
+
+            // Clear session data
+            session()->forget(['tour_id', 'package_id', 'user_id', 'total_person']);
+
+            return redirect()->back()->with('success', 'Payment successful!');
+
+        } else {
+            return redirect()->route('cancel');
+        }
+
+    }
+
+
+    public function paypal_cancel() {
+        return redirect()->back()->with('error', 'Payment failed!');
+
     }
 
 
