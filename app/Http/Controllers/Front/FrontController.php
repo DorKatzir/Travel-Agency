@@ -143,10 +143,9 @@ class FrontController extends Controller
 
     }
 
-    public function payment(Request $request) {
+    public function payment( Request $request ) {
 
         $user_id = Auth::guard('web')->user()->id;
-        $package = Package::where('id', $request->package_id)->first();
         $total_price = $request->ticket_price * $request->total_person;
 
         if ($request->payment_method == 'Paypal') {
@@ -170,13 +169,17 @@ class FrontController extends Controller
                 ]
             ]);
             //dd($response);
-            if(isset($response['id']) && $response['id'] != null) {
+            if (isset($response['id']) && $response['id'] != null) {
+
                 foreach($response['links'] as $link) {
+
                     if($link['rel'] == 'approve') {
+
                         session()->put('total_person', $request->total_person);
                         session()->put('tour_id', $request->tour_id);
                         session()->put('package_id', $request->package_id);
                         session()->put('user_id', $user_id);
+
                         return redirect()->away($link['href']);
                     }
                 }
@@ -185,9 +188,10 @@ class FrontController extends Controller
             }
         }
 
+
     }
 
-    public function paypal_success(Request $request) {
+    public function paypal_success( Request $request ) {
 
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
@@ -203,7 +207,7 @@ class FrontController extends Controller
             $obj->user_id = session()->get('user_id');
             $obj->total_person = session()->get('total_person');
             $obj->paid_amount = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
-            $obj->payment_method = 'PayPal';
+            $obj->payment_method = 'Paypal';
             $obj->payment_status = $response['status'];
             $obj->invoice_no = time();
             $obj->save();

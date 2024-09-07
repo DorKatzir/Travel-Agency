@@ -324,7 +324,7 @@
                             <div class="tab-pane fade" id="tab-8-pane" role="tabpanel" aria-labelledby="tab-8" tabindex="0">
                                 <!-- Booking -->
 
-                                <form action="{{ route('payment') }}" method="POST">
+                                <form method="POST" action="{{ route('payment') }}">
                                     @csrf
                                     <input type="hidden" name="package_id" value="{{ $package->id }}">
                                     <div class="row">
@@ -389,7 +389,7 @@
                                                                 <td>
                                                                     <label for=""><b>Select Payment Method</b></label>
                                                                     <select name="payment_method" class="form-select">
-                                                                        <option value=Paypal">PayPal</option>
+                                                                        <option value="Paypal">Paypal</option>
                                                                         <option value="Stripe">Stripe</option>
                                                                     </select>
                                                                 </td>
