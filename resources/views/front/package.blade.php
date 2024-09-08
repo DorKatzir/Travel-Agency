@@ -337,7 +337,14 @@
                                                    @continue
                                                @endif
 
-                                               @php $i++; @endphp
+                                               @php
+                                                $i++;
+                                                $totalBookedSeats = 0;
+                                                $allData = App\Models\Booking::where('tour_id', $tour->id)->where('package_id', $package->id)->get();
+                                                foreach ($allData as $data) {
+                                                    $totalBookedSeats += $data->total_person;
+                                                }
+                                               @endphp
 
                                                 <h2 class="mt_30">
                                                     <input type="radio" name="tour_id" value="{{ $tour->id }}" @if ($i == 1) checked @endif>
@@ -368,7 +375,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td><b>Booked Seat</b></td>
-                                                                <td>999999</td>
+                                                                <td>{{ $totalBookedSeats }}</td>
                                                             </tr>
                                                         </table>
                                                     </div>
