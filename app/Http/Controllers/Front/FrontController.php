@@ -233,6 +233,7 @@ class FrontController extends Controller
 
 
  //////////////////////////////////////////////////////////////////////////////////////////
+
     public function registration() {
         return view('front.registration');
     }

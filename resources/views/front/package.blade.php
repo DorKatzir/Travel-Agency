@@ -330,6 +330,11 @@
                                     <div class="row">
                                         <div class="col-md-8">
                                             @foreach ($tours as $tour)
+
+                                               @if ($tour->booking_end_date < now('Asia/Jerusalem')->format('Y-m-d'))
+                                                   @continue
+                                               @endif
+
                                                 <h2 class="mt_30">
                                                     <input type="radio" name="tour_id" value="{{ $tour->id }}" @if ($loop->first) checked @endif>
                                                     Tour {{ $loop->iteration }}
