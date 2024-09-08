@@ -329,15 +329,19 @@
                                     <input type="hidden" name="package_id" value="{{ $package->id }}">
                                     <div class="row">
                                         <div class="col-md-8">
+                                            @php $i = 0; @endphp
+
                                             @foreach ($tours as $tour)
 
                                                @if ($tour->booking_end_date < now('Asia/Jerusalem')->format('Y-m-d'))
                                                    @continue
                                                @endif
 
+                                               @php $i++; @endphp
+
                                                 <h2 class="mt_30">
-                                                    <input type="radio" name="tour_id" value="{{ $tour->id }}" @if ($loop->first) checked @endif>
-                                                    Tour {{ $loop->iteration }}
+                                                    <input type="radio" name="tour_id" value="{{ $tour->id }}" @if ($i == 1) checked @endif>
+                                                    Tour {{ $i }}
                                                 </h2>
                                                 <div class="summary">
                                                     <div class="table-responsive">
