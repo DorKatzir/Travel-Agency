@@ -144,6 +144,11 @@ class FrontController extends Controller
     }
 
     public function payment( Request $request ) {
+        //dd($request->all());
+
+        if (!$request->tour_id) {
+           return redirect()->back()->with('error', 'Please select a tour first!.');
+        }
 
         $user_id = Auth::guard('web')->user()->id;
         $total_price = $request->ticket_price * $request->total_person;
