@@ -150,24 +150,22 @@ class FrontController extends Controller
            return redirect()->back()->with('error', 'Please select a tour first!.');
         }
 
-
         $tour = Tour::where('id', $request->tour_id)->first();
-        $boobkings = Booking::where('tour_id', $request->tour_id)->where('package_id', $request->package_id)->get();
-        $booked_seats = 0;
-        foreach ($boobkings as $booking) {
-            $booked_seats += $booking->total_person;
-        }
-
 
         if ( $tour->total_seat != -1 ) {
+
+            $boobkings = Booking::where('tour_id', $request->tour_id)->where('package_id', $request->package_id)->get();
+            $booked_seats = 0;
+
+            foreach ($boobkings as $booking) {
+                $booked_seats += $booking->total_person;
+            }
 
             if (($request->total_person + $booked_seats) > $tour->total_seat ) {
                 return redirect()->back()->with('error', "Sorry! Only " . ($tour->total_seat - $booked_seats) . " seats are available now.");
             }
 
         }
-
-
 
 
         $user_id = Auth::guard('web')->user()->id;
