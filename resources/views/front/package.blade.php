@@ -338,12 +338,14 @@
                                                @endif
 
                                                @php
-                                                $i++;
-                                                $totalBookedSeats = 0;
-                                                $allData = App\Models\Booking::where('tour_id', $tour->id)->where('package_id', $package->id)->get();
-                                                foreach ($allData as $data) {
-                                                    $totalBookedSeats += $data->total_person;
-                                                }
+                                                    $i++;
+
+                                                    $total_booked_seats = 0;
+                                                    $bookings = App\Models\Booking::where('tour_id', $tour->id)->where('package_id', $package->id)->get();
+                                                        foreach ($bookings as $booking) {
+                                                            $total_booked_seats += $booking->total_person;
+                                                        }
+                                                    $remaining_seats = $tour->total_seat - $total_booked_seats;
                                                @endphp
 
                                                 <h2 class="mt_30">
@@ -366,7 +368,7 @@
                                                                 <td class="text-danger">{{ $tour->booking_end_date }}</td>
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Total Seat</b></td>
+                                                                <td><b>Total Seats</b></td>
                                                                 @if ($tour->total_seat == -1)
                                                                     <td>Unlimited</td>
                                                                 @else
@@ -374,9 +376,17 @@
                                                                 @endif
                                                             </tr>
                                                             <tr>
-                                                                <td><b>Booked Seat</b></td>
-                                                                <td>{{ $totalBookedSeats }}</td>
+                                                                <td><b>Booked Seats</b></td>
+                                                                <td>{{ $total_booked_seats }}</td>
                                                             </tr>
+
+                                                            @if ($tour->total_seat != -1)
+                                                            <tr>
+                                                                <td><b>Availiable Seats</b></td>
+                                                                <td>{{ $remaining_seats }}</td>
+                                                            </tr>
+                                                            @endif
+
                                                         </table>
                                                     </div>
                                                 </div>
@@ -406,7 +416,7 @@
                                                                     <label for=""><b>Select Payment Method</b></label>
                                                                     <select name="payment_method" class="form-select">
                                                                         <option value="Paypal">Paypal</option>
-                                                                        <option value="Stripe">Stripe</option>
+                                                                        <option disabled value="Stripe">Stripe - will be soon availiable</option>
                                                                     </select>
                                                                 </td>
                                                             </tr>
