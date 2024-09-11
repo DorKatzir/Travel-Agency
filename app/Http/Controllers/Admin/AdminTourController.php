@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Tour;
+use App\Models\Booking;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -83,7 +84,8 @@ class AdminTourController extends Controller
 
     public function booking($tour_id, $package_id) {
 
-        dd($tour_id, $package_id);
+        $booking_data = Booking::with('user')->where('tour_id', $tour_id)->where('package_id', $package_id)->get();
+        return view('admin.tour.booking', compact('booking_data'));
 
     }
 
