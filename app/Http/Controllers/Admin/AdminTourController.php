@@ -81,4 +81,10 @@ class AdminTourController extends Controller
         return redirect()->back()->with('success', 'Tour Deleted Successfully');
     }
 
+    public function booking($tour_id, $package_id) {
+
+        dd($tour_id, $package_id);
+
+    }
+
 }
