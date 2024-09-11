@@ -11,7 +11,9 @@ class AdminTourController extends Controller
 {
 
     public function index() {
+
         $tours = Tour::get();
+
         return view('admin.tour.index', compact('tours'));
     }
 
