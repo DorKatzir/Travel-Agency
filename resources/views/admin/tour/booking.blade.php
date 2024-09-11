@@ -25,7 +25,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="example1">
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
