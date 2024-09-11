@@ -25,12 +25,34 @@
                             <div class="card-body">
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <tbody>
+                                    <table class="table table-bordered" id="example1">
+                                        <thead>
                                             <tr>
-                                                <th class="w_200">User Name</th>
-                                                <td>{{ $booking_data->user->name }}</td>
+                                                <th>SL</th>
+                                                <th>Invoice No</th>
+                                                <th>User Info</th>
+                                                <th>Total Persons</th>
+                                                <th>Paid Amount</th>
+                                                <th>Payment Method</th>
+                                                <th>Payment Status</th>
                                             </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @foreach ($booking_data as $booking)
+
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $booking->invoice_no }}</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

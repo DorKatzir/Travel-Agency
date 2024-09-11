@@ -84,7 +84,7 @@ class AdminTourController extends Controller
 
     public function booking($tour_id, $package_id) {
 
-        $booking_data = Booking::with('user')->where('tour_id', $tour_id)->where('package_id', $package_id)->first();
+        $booking_data = Booking::with('user')->where('tour_id', $tour_id)->where('package_id', $package_id)->get();
         return view('admin.tour.booking', compact('booking_data'));
 
     }
