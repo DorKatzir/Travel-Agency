@@ -231,7 +231,7 @@ class FrontController extends Controller
             $obj->total_person = session()->get('total_person');
             $obj->paid_amount = $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'];
             $obj->payment_method = 'Paypal';
-            $obj->payment_status = $response['status'];
+            $obj->payment_status = 'Completed';
             $obj->invoice_no = time();
             $obj->save();
 
