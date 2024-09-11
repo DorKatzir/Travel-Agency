@@ -25,35 +25,57 @@
                             <div class="card-body">
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="example1">
-                                        <thead>
+                                    <table class="table table-bordered">
+
+                                        @foreach ($booking_data as $booking)
+
                                             <tr>
-                                                <th>SL</th>
-                                                <th>Invoice No</th>
-                                                <th>User Info</th>
-                                                <th>Total Persons</th>
-                                                <th>Paid Amount</th>
-                                                <th>Payment Method</th>
-                                                <th>Payment Status</th>
+                                                <th class="w_200">Invoice No</th>
+                                                <td>{{ $booking->invoice_no }}</td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
 
-                                            @foreach ($booking_data as $booking)
+                                            <tr>
+                                                <th class="w_200">Package Name</th>
+                                                <td>{{ $booking->package->name }}</td>
+                                            </tr>
 
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $booking->invoice_no }}</td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                            <tr>
+                                                <th class="w_200">User Name</th>
+                                                <td>{{ $booking->user->name }}</td>
+                                            </tr>
 
-                                            @endforeach
+                                            <tr>
+                                                <th class="w_200">User Email</th>
+                                                <td>{{ $booking->user->email }}</td>
+                                            </tr>
 
-                                        </tbody>
+                                            <tr>
+                                                <th class="w_200">User Phone</th>
+                                                <td>{{ $booking->user->phone }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th class="w_200">Total Persons</th>
+                                                <td>{{ $booking->total_person }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th class="w_200">Paid Amount</th>
+                                                <td>{{ $booking->paid_amount }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th class="w_200">Payment Method</th>
+                                                <td>{{ $booking->payment_method }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <th class="w_200">Payment Status</th>
+                                                <td>{{ $booking->payment_status }}</td>
+                                            </tr>
+
+                                        @endforeach
+
                                     </table>
                                 </div>
 
