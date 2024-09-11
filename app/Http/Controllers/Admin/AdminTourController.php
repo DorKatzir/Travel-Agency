@@ -60,6 +60,7 @@ class AdminTourController extends Controller
             'total_seat' => 'required',
         ]);
 
+        $obj->package_id = $request->package_id;
         $obj->tour_start_date = $request->tour_start_date;
         $obj->tour_end_date = $request->tour_end_date;
         $obj->booking_end_date = $request->booking_end_date;
