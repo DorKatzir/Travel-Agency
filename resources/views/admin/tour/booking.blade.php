@@ -28,12 +28,13 @@
                                     <table class="table table-bordered">
                                         <tbody>
                                             <tr>
-                                                <th></th>
-                                                <td></td>
+                                                <th class="w_200">User Name</th>
+                                                <td>{{ $booking_data->user->name }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
+
 
                             </div>
                         </div>
