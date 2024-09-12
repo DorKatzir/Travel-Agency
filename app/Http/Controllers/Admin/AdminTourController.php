@@ -82,11 +82,17 @@ class AdminTourController extends Controller
         return redirect()->back()->with('success', 'Tour Deleted Successfully');
     }
 
-    public function booking($tour_id, $package_id) {
+    public function tour_booking($tour_id, $package_id) {
 
         $booking_data = Booking::with('user')->where('tour_id', $tour_id)->where('package_id', $package_id)->get();
         return view('admin.tour.booking', compact('booking_data'));
+    }
 
+
+    public function tour_booking_delete($id) {
+        $obj = Booking::where('id', $id)->first();
+        $obj->delete();
+        return redirect()->back()->with('success', 'Booking Deleted Successfully');
     }
 
 }

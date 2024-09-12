@@ -62,13 +62,9 @@
                                                         <td><span class="badge badge-danger">Pending</span></td>
                                                     @endif
 
-
-
-
-
                                                     <td class="pt_10 pb_10">
 
-                                                        <a href="#" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_tour_booking_delete', $booking->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 
