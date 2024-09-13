@@ -216,8 +216,8 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/tour/edit/{id}', [AdminTourController::class, 'edit_submit'])->name('admin_tour_edit_submit');
     Route::get('/tour/delete/{id}', [AdminTourController::class, 'delete'])->name('admin_tour_delete');
     Route::get('/tour/booking/{tour_id}/{package_id}', [AdminTourController::class, 'tour_booking'])->name('admin_tour_booking');
-
     Route::get('/tour/booking-delete/{id}', [AdminTourController::class, 'tour_booking_delete'])->name('admin_tour_booking_delete');
+    Route::get('/tour/invoice/{invoice_no}', [AdminTourController::class, 'tour_invoice'])->name('admin_tour_invoice');
 
 });
 

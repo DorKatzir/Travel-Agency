@@ -33,10 +33,10 @@
                                                 <th>SL</th>
                                                 <th>Invoice No</th>
                                                 <th>User Info</th>
-                                                <th class="w_50">Total Persons</th>
-                                                <th>Paid Amount</th>
-                                                <th>Payment Method</th>
-                                                <th>Payment Status</th>
+                                                <th class="w_50">Persons</th>
+                                                <th>Amount</th>
+                                                <th>Payment</th>
+                                                <th>Status</th>
                                                 <th>Invoice</th>
                                                 <th>Action</th>
                                             </tr>
@@ -59,7 +59,7 @@
 
                                                     @if ($booking->payment_status == 'Completed')
                                                         <td><span class="badge badge-success">Completed</span></td>
-                                                        <td><a href="" class="badge badge-info text-decoration-none">Show Invoice</a></td>
+                                                        <td><a href="{{ route('admin_tour_invoice', $booking->invoice_no) }}" class="badge badge-info text-decoration-none">Show</a></td>
                                                         @else
                                                         <td><span class="badge badge-danger">Pending</span></td>
                                                         <td></td>
