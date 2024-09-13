@@ -14,10 +14,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="invoice-title mb-4 d-flex align-items-center gap-2">
-                                    <h1>Invoice
-
-                                    </h1>
-                                    <span class="text-slate-900 lead">#{{ $booking->invoice_no }}</span>
+                                    <h1>Booking Invoice </h1>
+                                    <h3 class="m-0">
+                                        #{{ $booking->invoice_no }}
+                                    </h3>
                                 </div>
                                 {{-- <hr> --}}
                                 <div class="table-responsive mb-4">
