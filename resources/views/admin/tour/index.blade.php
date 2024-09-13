@@ -55,7 +55,11 @@
                                                         <td>{{ $tour->total_seat }}</td>
                                                     @endif
 
-                                                    <td><a href="{{ route('admin_tour_booking', [$tour->id, $tour->package->id]) }}" class="btn btn-success btn-sm">Booking Information</a></td>
+                                                    <td>
+                                                        @if ($tour->bookings->count() != 0)
+                                                            <a href="{{ route('admin_tour_booking', [$tour->id, $tour->package->id]) }}" class="btn btn-success btn-sm">Booking Information</a>
+                                                        @endif
+                                                    </td>
 
                                                     <td class="pt_10 pb_10">
                                                         <a href="{{ route('admin_tour_edit', $tour->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
