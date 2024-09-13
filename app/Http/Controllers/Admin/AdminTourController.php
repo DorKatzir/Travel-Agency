@@ -29,9 +29,9 @@ class AdminTourController extends Controller
 
         $request->validate([
             'package_id' => 'required',
-            'tour_start_date' => 'required|date_format:Y-m-d',
-            'tour_end_date' => 'required|date_format:Y-m-d',
-            'booking_end_date' => 'required|date_format:Y-m-d',
+            'tour_start_date' => 'required|date_format:d M, Y',
+            'tour_end_date' => 'required|date_format:d M, Y',
+            'booking_end_date' => 'required|date_format:d M, Y',
             'total_seat' => 'required',
         ]);
 
@@ -57,9 +57,9 @@ class AdminTourController extends Controller
         $obj= Tour::where('id', $id)->first();
 
         $request->validate([
-            'tour_start_date' => 'required|date_format:Y-m-d',
-            'tour_end_date' => 'required|date_format:Y-m-d',
-            'booking_end_date' => 'required|date_format:Y-m-d',
+            'tour_start_date' => 'required|date_format:d M, Y',
+            'tour_end_date' => 'required|date_format:d M, Y',
+            'booking_end_date' => 'required|date_format:d M, Y',
             'total_seat' => 'required',
         ]);
 
@@ -96,7 +96,7 @@ class AdminTourController extends Controller
     }
 
     public function tour_invoice($invoice_no) {
-       $booking = Booking::with('user')->where('invoice_no', $invoice_no)->first();
+       $booking = Booking::with(['user','tour', 'package'])->where('invoice_no', $invoice_no)->first();
         return view('admin.tour.invoice', compact('booking'));
 
     }

@@ -26,69 +26,69 @@
 
                                             <tr>
                                                 <th class="w_200">Booking Date: </th>
-                                                <td colspan="3">
-                                                    <span>{{ $booking->created_at->format('d M, Y') }}</span><br>
+                                                <td>
+                                                    <span>{{ $booking->created_at->format('d M, Y') }}</span>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">To: </th>
-                                                <td>{{ $booking->user->name }}</td>
-                                                <td colspan="2">
-                                                    <span>Email: {{ $booking->user->email }}</span><br>
+                                                <th>To: </th>
+                                                <td class="d-flex align-items-center gap-3">
+                                                    <span>Name: {{ $booking->user->name }}</span>
+                                                    <span>Email: {{ $booking->user->email }}</span>
                                                     <span>Phone: {{ $booking->user->phone }}</span>
                                                 </td>
 
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">From: </th>
-                                                <td>
-                                                    <span>{{ Auth::guard('admin')->user()->name }}</span>
-                                                </td>
-                                                <td colspan="2">
+                                                <th>From: </th>
+                                                <td class="d-flex align-items-center gap-3">
+                                                    <span>Name: {{ Auth::guard('admin')->user()->name }}</span>
                                                     <span>Email: {{ Auth::guard('admin')->user()->email }}</span>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">Tour Information: </th>
-                                                <td colspan="3">
-                                                    <span></span><br>
+                                                <th>Tour Information: </th>
+                                                <td class="d-flex align-items-center gap-3">
+                                                    <span>Start date: {{ $booking->tour->tour_start_date }}</span>
+                                                    <span>End date: {{ $booking->tour->tour_end_date }}</span>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <th>Package Information: </th>
+                                                <td class="d-flex align-items-center gap-3">
+                                                    <span>{{ $booking->package->name }}</span><br>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">Package Information: </th>
-                                                <td colspan="3">
-                                                    <span></span><br>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="w_200">Payment Method: </th>
-                                                <td colspan="3">
+                                                <th>Payment Method: </th>
+                                                <td>
                                                     <span>{{ $booking->payment_method }}</span><br>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">Payment Status: </th>
-                                                <td colspan="3">
+                                                <th>Payment Status: </th>
+                                                <td>
                                                     <span>{{ $booking->payment_status }}</span><br>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">Total Persons: </th>
-                                                <td colspan="3">
+                                                <th>Total Persons: </th>
+                                                <td>
                                                     <span>{{ $booking->total_person }}</span><br>
                                                 </td>
                                             </tr>
 
                                             <tr>
-                                                <th class="w_200">Paid Amount: </th>
-                                                <td colspan="3">
+                                                <th>Paid Amount: </th>
+                                                <td>
                                                     <span>${{ $booking->paid_amount }}</span><br>
                                                 </td>
                                             </tr>
