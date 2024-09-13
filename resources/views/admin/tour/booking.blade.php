@@ -59,7 +59,7 @@
 
                                                     @if ($booking->payment_status == 'Completed')
                                                         <td><span class="badge badge-success">Completed</span></td>
-                                                        <td><a href="{{ route('admin_tour_invoice', $booking->invoice_no) }}" class="badge badge-info text-decoration-none">Show</a></td>
+                                                        <td><a href="{{ route('admin_tour_invoice', $booking->invoice_no) }}" target="_blank" class="badge badge-info text-decoration-none">Show</a></td>
                                                         @else
                                                         <td><span class="badge badge-danger">Pending</span></td>
                                                         <td></td>
