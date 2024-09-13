@@ -37,6 +37,7 @@
                                                 <th>Paid Amount</th>
                                                 <th>Payment Method</th>
                                                 <th>Payment Status</th>
+                                                <th>Invoice</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -58,9 +59,12 @@
 
                                                     @if ($booking->payment_status == 'Completed')
                                                         <td><span class="badge badge-success">Completed</span></td>
-                                                    @else
+                                                        <td><a href="" class="badge badge-info text-decoration-none">Show Invoice</a></td>
+                                                        @else
                                                         <td><span class="badge badge-danger">Pending</span></td>
+                                                        <td></td>
                                                     @endif
+
 
                                                     <td class="pt_10 pb_10">
 
