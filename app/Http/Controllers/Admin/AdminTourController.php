@@ -96,8 +96,8 @@ class AdminTourController extends Controller
     }
 
     public function tour_invoice($invoice_no) {
-       $booking_data = Booking::with('user')->where('invoice_no', $invoice_no)->first();
-        return view('admin.tour.invoice', compact('booking_data'));
+       $invoice_data = Booking::with('user')->where('invoice_no', $invoice_no)->first();
+        return view('admin.tour.invoice', compact('invoice_data'));
 
     }
 
