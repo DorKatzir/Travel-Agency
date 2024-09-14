@@ -49,7 +49,7 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $booking->invoice_no }}</td>
                                                     <td>
-                                                        <strong>Name: </strong>{{ $booking->user->name }}<br>
+                                                        <strong>Name: </strong><span class="text-capitalize">{{ $booking->user->name }}</span><br>
                                                         <strong>Email: </strong>{{ $booking->user->email }}<br>
                                                         <strong>Phone: </strong>{{ $booking->user->phone }}<br>
                                                     </td>

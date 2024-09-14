@@ -34,7 +34,7 @@
                                             <tr>
                                                 <th>To: </th>
                                                 <td class="d-flex align-items-center gap-3">
-                                                    <span>Name: {{ $booking->user->name }}</span>
+                                                    <span class="text-capitalize">Name: {{ $booking->user->name }}</span>
                                                     <span>Email: {{ $booking->user->email }}</span>
                                                     <span>Phone: {{ $booking->user->phone }}</span>
                                                 </td>
