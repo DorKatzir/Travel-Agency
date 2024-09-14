@@ -8,7 +8,7 @@
 
 
     $('#datepicker').datepicker({
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'd M yyyy',
         language: {
             today: 'Today',
             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -20,7 +20,7 @@
     });
 
     $('#datepicker_tour_start').datepicker({
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'd M yyyy',
         language: {
             today: 'Today',
             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -32,7 +32,7 @@
     });
 
     $('#datepicker_tour_end').datepicker({
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'd M yyyy',
         language: {
             today: 'Today',
             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -44,7 +44,7 @@
     });
 
     $('#datepicker_booking_end').datepicker({
-        dateFormat: 'yyyy-mm-dd',
+        dateFormat: 'd M yyyy',
         language: {
             today: 'Today',
             days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

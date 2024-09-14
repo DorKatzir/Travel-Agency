@@ -127,7 +127,7 @@
     });
 
     $(".datepicker").datepicker({
-        format: "yyyy-mm-dd",
+        format: "d M yyyy",
         todayHighlight: true
     });
 

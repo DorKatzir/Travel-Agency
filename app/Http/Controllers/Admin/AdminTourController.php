@@ -29,9 +29,9 @@ class AdminTourController extends Controller
 
         $request->validate([
             'package_id' => 'required',
-            'tour_start_date' => 'required|date_format:d M, Y',
-            'tour_end_date' => 'required|date_format:d M, Y',
-            'booking_end_date' => 'required|date_format:d M, Y',
+            'tour_start_date' => 'required|date_format:d M Y',
+            'tour_end_date' => 'required|date_format:d M Y',
+            'booking_end_date' => 'required|date_format:d M Y',
             'total_seat' => 'required',
         ]);
 
@@ -52,14 +52,14 @@ class AdminTourController extends Controller
         return view('admin.tour.edit', compact('tour', 'packages'));
     }
 
-    public function edit_submit(Request $request, $id) {
+    public function edit_submit(Request $request, $tour_id) {
 
-        $obj= Tour::where('id', $id)->first();
+        $obj= Tour::where('id', $tour_id)->first();
 
         $request->validate([
-            'tour_start_date' => 'required|date_format:d M, Y',
-            'tour_end_date' => 'required|date_format:d M, Y',
-            'booking_end_date' => 'required|date_format:d M, Y',
+            'tour_start_date' => 'required|date_format:d M Y',
+            'tour_end_date' => 'required|date_format:d M Y',
+            'booking_end_date' => 'required|date_format:d M Y',
             'total_seat' => 'required',
         ]);
 
@@ -68,7 +68,7 @@ class AdminTourController extends Controller
         $obj->tour_end_date = $request->tour_end_date;
         $obj->booking_end_date = $request->booking_end_date;
         $obj->total_seat = $request->total_seat;
-        $obj->save();
+        $obj->update();
 
         return redirect()->route('admin_tours_index')->with('success', 'Tour Updated Successfully');
 

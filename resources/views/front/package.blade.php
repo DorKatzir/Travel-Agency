@@ -333,7 +333,7 @@
 
                                             @foreach ($tours as $tour)
 
-                                               @if ($tour->booking_end_date < now('Asia/Jerusalem')->format('Y-m-d'))
+                                               @if ($tour->booking_end_date < now('Asia/Jerusalem')->format('d M Y'))
                                                    @continue
                                                @endif
 
