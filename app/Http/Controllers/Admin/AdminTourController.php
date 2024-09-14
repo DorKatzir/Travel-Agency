@@ -76,6 +76,11 @@ class AdminTourController extends Controller
 
     public function delete($id) {
 
+        $total = Booking::where('tour_id', $id)->count();
+        if($total > 0) {
+            return redirect()->back()->with('error', 'This tour has booking, so you can not delete this tour');
+        }
+
         $obj = Tour::where('id', $id)->first();
         $obj->delete();
 
