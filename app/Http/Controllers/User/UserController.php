@@ -69,4 +69,8 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Profile is updated!');
 
     }
+
+    public function booking() {
+        return view('user.booking');
+    }
 }
