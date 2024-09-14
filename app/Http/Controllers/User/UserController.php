@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Booking;
 use Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -71,6 +72,8 @@ class UserController extends Controller
     }
 
     public function booking() {
-        return view('user.booking');
+        $bookings = Booking::where('user_id', Auth::guard('web')->user()->id)->get();
+
+        return view('user.booking', compact('bookings'));
     }
 }
