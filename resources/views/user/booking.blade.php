@@ -62,13 +62,15 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-secondary btn-sm mb-1 w-100-p" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</a>
-                                            <a href="user-order-invoice.html" class="btn btn-secondary btn-sm w-100-p">Invoice</a>
+                                            <a href="" class="btn btn-secondary btn-sm mb-1 w-100-p" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $loop->iteration }}">Detail</a>
+                                            @if($booking->payment_status == 'Completed')
+                                            <a href="#" class="btn btn-secondary btn-sm w-100-p">Invoice</a>
+                                            @endif
                                         </td>
                                     </tr>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal{{ $loop->iteration }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -105,7 +107,7 @@
                                                             <b>Total Persons:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            {{ $booking->total_persons }}
+                                                            {{ $booking->total_person }}
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
@@ -153,7 +155,11 @@
                                                             <b>Payment Status:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            <div class="badge bg-success">Completed</div>
+                                                            @if ($booking->payment_status == 'Completed')
+                                                                <div class="badge bg-success">Completed</div>
+                                                            @else
+                                                                <div class="badge bg-danger">Pending</div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
