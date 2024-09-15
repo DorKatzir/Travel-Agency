@@ -43,124 +43,125 @@
                                     </th>
                                 </tr>
                                 @foreach ($bookings as $booking)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <a href="" class="text-decoration-underline">{{ $booking->package->name }}</a>
-                                    </td>
-                                    <td>
-                                        <a href="" class="text-decoration-underline">{{ $booking->package->destination->name }}</a>
-                                    </td>
-                                    <td>${{ $booking->paid_amount }}</td>
-                                    <td>{{ $booking->payment_method }}</td>
-                                    <td>{{ $booking->created_at->format('d M, Y') }}</td>
-                                    <td>
-                                        @if ($booking->payment_status == 'Completed')
-                                        <div class="badge bg-success">Completed</div>
-                                        @else
-                                        <div class="badge bg-danger">Pending</div>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="" class="btn btn-secondary btn-sm mb-1 w-100-p" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</a>
-                                        <a href="user-order-invoice.html" class="btn btn-secondary btn-sm w-100-p">Invoice</a>
-                                    </td>
-                                </tr>
-                               @endforeach
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Order No:</b>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        ORD-123443
-                                                    </div>
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <a href="" class="text-decoration-underline">{{ $booking->package->name }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="" class="text-decoration-underline">{{ $booking->package->destination->name }}</a>
+                                        </td>
+                                        <td>${{ $booking->paid_amount }}</td>
+                                        <td>{{ $booking->payment_method }}</td>
+                                        <td>{{ $booking->created_at->format('d M, Y') }}</td>
+                                        <td>
+                                            @if ($booking->payment_status == 'Completed')
+                                            <div class="badge bg-success">Completed</div>
+                                            @else
+                                            <div class="badge bg-danger">Pending</div>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="" class="btn btn-secondary btn-sm mb-1 w-100-p" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</a>
+                                            <a href="user-order-invoice.html" class="btn btn-secondary btn-sm w-100-p">Invoice</a>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Package Name:</b>
+                                                <div class="modal-body">
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Order No:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->invoice_no }}
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-7">
-                                                        Royal Ontario Museum
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Package Name:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->package->name }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Destination:</b>
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Destination:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->package->destination->name }}
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-7">
-                                                        Canada
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Total Persons:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->total_persons }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Total Persons:</b>
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Per Person Cost:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->package->price }}
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-7">
-                                                        3
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Total Cost:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->paid_amount }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Per Person Cost:</b>
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Payment Method:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->payment_method }}
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-7">
-                                                        $300
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Travel Start Date:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->tour->tour_start_date }}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Total Cost:</b>
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Travel End Date:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            {{ $booking->tour->tour_end_date }}
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-7">
-                                                        $900
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Payment Method:</b>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        PayPal
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Travel Start Date:</b>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        2024-09-10
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Travel End Date:</b>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        2024-09-20
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3 row modal-seperator">
-                                                    <div class="col-md-5">
-                                                        <b>Payment Status:</b>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <div class="badge bg-success">Completed</div>
+                                                    <div class="mb-3 row modal-seperator">
+                                                        <div class="col-md-5">
+                                                            <b>Payment Status:</b>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div class="badge bg-success">Completed</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- // Modal -->
+                                    <!-- // Modal -->
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
