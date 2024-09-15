@@ -90,7 +90,7 @@
                                                             <b>Package Details:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            {{ $booking->package->name }} <br>
+                                                            <strong>Name: </strong> {{ $booking->package->name }} <br>
                                                             <a href="{{ route('package', $booking->package->slug ) }}" target="_blank">Show Details</a>
                                                         </div>
                                                     </div>
@@ -99,7 +99,8 @@
                                                             <b>Tour Details:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            tour details
+                                                            <strong>Start: </strong> {{ $booking->tour->tour_start_date }} <br>
+                                                            <strong>End: </strong> {{ $booking->tour->tour_end_date }}
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
