@@ -6,7 +6,7 @@
             <a href="{{ route('user_dashboard') }}">Dashboard</a>
         </li>
 
-        <li class="list-group-item {{ Route::is('user_booking') ? 'active' : '' }}">
+        <li class="list-group-item {{ Route::is('user_booking') || Route::is('user_invoice') ? 'active' : '' }}">
             <a href="{{ route('user_booking') }}">Booking</a>
         </li>
 
