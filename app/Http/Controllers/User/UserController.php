@@ -73,7 +73,12 @@ class UserController extends Controller
 
     public function booking() {
         $bookings = Booking::where('user_id', Auth::guard('web')->user()->id)->get();
-
         return view('user.booking', compact('bookings'));
+    }
+
+    public function invoice($invoice_no) {
+        $booking = Booking::where('invoice_no', $invoice_no)->first();
+        return view('user.invoice', compact('booking'));
+
     }
 }

@@ -1,0 +1,1 @@
+{{ $booking->invoice_no }}

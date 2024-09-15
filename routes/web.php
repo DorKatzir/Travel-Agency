@@ -63,6 +63,7 @@ Route::get('/logout', [FrontController::class, 'logout'])->name('logout');
 Route::middleware('auth')->prefix('user')->group(function () {
     Route::get('/dashboard',[UserController::class,'dashboard'])->name('user_dashboard');
     Route::get('/booking', [UserController::class, 'booking'])->name('user_booking');
+    Route::get('/invoice/{invoice_no}', [UserController::class, 'invoice'])->name('user_invoice');
 
     Route::get('/profile', [UserController::class, 'profile'])->name('user_profile');
     Route::post('/profile', [UserController::class, 'profile_update'])->name('user_profile_update');

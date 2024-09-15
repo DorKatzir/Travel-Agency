@@ -51,7 +51,7 @@
                                             {{ $booking->total_person }}
                                         </td>
                                         <td>${{ $booking->paid_amount }}</td>
-                                        <td>${{ $booking->payment_method }}</td>
+                                        <td>{{ $booking->payment_method }}</td>
 
                                         <td>
                                             @if ($booking->payment_status == 'Completed')
@@ -63,7 +63,7 @@
                                         <td>
                                             <a href="" class="btn btn-secondary btn-sm mb-1 w-100-p" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $loop->iteration }}">Detail</a>
                                             @if($booking->payment_status == 'Completed')
-                                            <a href="#" class="btn btn-secondary btn-sm w-100-p">Invoice</a>
+                                            <a href="{{ route('user_invoice', $booking->invoice_no) }}" class="btn btn-info btn-sm w-100-p">Invoice</a>
                                             @endif
                                         </td>
                                     </tr>
