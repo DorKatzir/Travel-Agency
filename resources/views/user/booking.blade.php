@@ -55,7 +55,11 @@
                                     <td>{{ $booking->payment_method }}</td>
                                     <td>{{ $booking->created_at->format('d M, Y') }}</td>
                                     <td>
-                                        <div class="badge {{ $booking->payment_status == 'Completed' ? 'bg-success' : 'bg-danger' }}">{{ $booking->payment_status }}</div>
+                                        @if ($booking->payment_status == 'Completed')
+                                        <div class="badge bg-success">Completed</div>
+                                        @else
+                                        <div class="badge bg-danger">Pending</div>
+                                        @endif
                                     </td>
                                     <td>
                                         <a href="" class="btn btn-secondary btn-sm mb-1 w-100-p" data-bs-toggle="modal" data-bs-target="#exampleModal">Detail</a>
