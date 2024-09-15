@@ -90,7 +90,8 @@
                                                             <b>Package Details:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            package details
+                                                            {{ $booking->package->name }} <br>
+                                                            <a href="{{ route('package', $booking->package->slug ) }}" target="_blank">Show Details</a>
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
