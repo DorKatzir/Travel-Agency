@@ -37,13 +37,13 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="w-50">
-                                                        <img src="uploads/logo.png" alt="" class="h-60">
+                                                        <img src="{{ asset('uploads/logo.png') }}" alt="logo" class="h-60">
                                                     </td>
                                                     <td class="w-50">
                                                         <div class="invoice-top-right">
                                                             <h4>Invoice</h4>
-                                                            <h5>Order No: ORD-123</h5>
-                                                            <h5>Date: 2024-07-03</h5>
+                                                            <h5>Invoice No: {{ $booking->invoice_no }}</h5>
+                                                            <h5>Date: {{ $booking->created_at->format('d M, Y') }}</h5>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -63,11 +63,11 @@
                                                     <td class="w-50">
                                                         <div class="invoice-middle-left">
                                                             <h4>Invoice To:</h4>
-                                                            <p class="mb_0">Smith Brent</p>
-                                                            <p class="mb_0">smith@gmail.com</p>
-                                                            <p class="mb_0">773-532-2540</p>
-                                                            <p class="mb_0">4049 Cherry Camp Road</p>
-                                                            <p class="mb_0">Chicago, IL 60605</p>
+                                                            <p class="mb_0">{{ $booking->user->name }}</p>
+                                                            <p class="mb_0">{{ $booking->user->email }}</p>
+                                                            <p class="mb_0">{{ $booking->user->phone }}</p>
+                                                            <p class="mb_0">{{ $booking->user->address }}</p>
+                                                            <p class="mb_0">{{ $booking->user->city }}, {{ $booking->user->country }}</p>
                                                         </div>
                                                     </td>
                                                     <td class="w-50">
@@ -102,10 +102,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td>Royal Ontario Museum</td>
-                                                    <td>$300</td>
-                                                    <td>3</td>
-                                                    <td>$900</td>
+                                                    <td>{{ $booking->package->name }}</td>
+                                                    <td>${{ $booking->package->price }}</td>
+                                                    <td>{{ $booking->total_person }}</td>
+                                                    <td>${{ $booking->paid_amount }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -121,12 +121,19 @@
                                             <tbody>
                                                 <td class="w-70 invoice-bottom-payment">
                                                     <h4>Payment Method</h4>
-                                                    <p>Paypal</p>
+                                                    <p>{{ $booking->payment_method }}</p>
                                                 </td>
                                                 <td class="w-30 tar invoice-bottom-total-box">
-                                                    <p class="mb_0">Subtotal: <span>$900</span></p>
-                                                    <p class="mb_0">Discount: <span>$0</span></p>
-                                                    <p class="mb_0">Total: <span>$990</span></p>
+                                                    @php
+                                                        $old_price = $booking->package->old_price;
+                                                        $price = $booking->package->price;
+                                                        $total_person = $booking->total_person;
+                                                        $subtotal = $old_price * $total_person;
+                                                        $discount = ($old_price - $price) * $total_person;
+                                                    @endphp
+                                                    <p class="mb_0">Subtotal: <span>${{ $subtotal }}</span></p>
+                                                    <p class="mb_0">Discount: <span>${{ $discount }}</span></p>
+                                                    <p class="mb_0">Total: <span>${{ $booking->paid_amount }}</span></p>
                                                 </td>
                                             </tbody>
                                         </table>
