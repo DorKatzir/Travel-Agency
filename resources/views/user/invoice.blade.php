@@ -73,8 +73,12 @@
                                                     <td class="w-50">
                                                         <div class="invoice-middle-right">
                                                             <h4>Invoice From:</h4>
-                                                            <p class="mb_0">TripSummit</p>
-                                                            <p class="mb_0 color_6d6d6d">support@website.com</p>
+                                                            @php
+                                                                $company_name = env('APP_NAME');
+                                                                $company_email = env('MAIL_FROM_ADDRESS');
+                                                            @endphp
+                                                            <p class="mb_0">{{ $company_name }}</p>
+                                                            <p class="mb_0 color_6d6d6d">{{ $company_email }}</p>
                                                             <p class="mb_0">215-899-5780</p>
                                                             <p class="mb_0">3145 Glen Falls Road</p>
                                                             <p class="mb_0">Bensalem, PA 19020</p>
