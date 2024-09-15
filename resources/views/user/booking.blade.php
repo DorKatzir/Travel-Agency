@@ -32,11 +32,10 @@
                             <tbody>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Package</th>
-                                    <th>Destination</th>
+                                    <th>Invoice No</th>
+                                    <th>Total Persons</th>
                                     <th>Paid Amount</th>
                                     <th>Payment Method</th>
-                                    <th>Payment Date</th>
                                     <th>Status</th>
                                     <th class="w-100">
                                         Action
@@ -46,14 +45,14 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
-                                            <a href="" class="text-decoration-underline">{{ $booking->package->name }}</a>
+                                            {{ $booking->invoice_no }}
                                         </td>
                                         <td>
-                                            <a href="" class="text-decoration-underline">{{ $booking->package->destination->name }}</a>
+                                            {{ $booking->total_person }}
                                         </td>
                                         <td>${{ $booking->paid_amount }}</td>
-                                        <td>{{ $booking->payment_method }}</td>
-                                        <td>{{ $booking->created_at->format('d M, Y') }}</td>
+                                        <td>${{ $booking->payment_method }}</td>
+
                                         <td>
                                             @if ($booking->payment_status == 'Completed')
                                             <div class="badge bg-success">Completed</div>
@@ -74,13 +73,13 @@
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detail</h1>
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Booking Details</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="mb-3 row modal-seperator">
                                                         <div class="col-md-5">
-                                                            <b>Order No:</b>
+                                                            <b>Invoice No:</b>
                                                         </div>
                                                         <div class="col-md-7">
                                                             {{ $booking->invoice_no }}
@@ -88,18 +87,18 @@
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
                                                         <div class="col-md-5">
-                                                            <b>Package Name:</b>
+                                                            <b>Package Details:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            {{ $booking->package->name }}
+                                                            package details
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
                                                         <div class="col-md-5">
-                                                            <b>Destination:</b>
+                                                            <b>Tour Details:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            {{ $booking->package->destination->name }}
+                                                            tour details
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
@@ -110,20 +109,13 @@
                                                             {{ $booking->total_person }}
                                                         </div>
                                                     </div>
+
                                                     <div class="mb-3 row modal-seperator">
                                                         <div class="col-md-5">
-                                                            <b>Per Person Cost:</b>
+                                                            <b>Paid Amount:</b>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            {{ $booking->package->price }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3 row modal-seperator">
-                                                        <div class="col-md-5">
-                                                            <b>Total Cost:</b>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            {{ $booking->paid_amount }}
+                                                            ${{ $booking->paid_amount }}
                                                         </div>
                                                     </div>
                                                     <div class="mb-3 row modal-seperator">
@@ -134,22 +126,7 @@
                                                             {{ $booking->payment_method }}
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3 row modal-seperator">
-                                                        <div class="col-md-5">
-                                                            <b>Travel Start Date:</b>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            {{ $booking->tour->tour_start_date }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-3 row modal-seperator">
-                                                        <div class="col-md-5">
-                                                            <b>Travel End Date:</b>
-                                                        </div>
-                                                        <div class="col-md-7">
-                                                            {{ $booking->tour->tour_end_date }}
-                                                        </div>
-                                                    </div>
+
                                                     <div class="mb-3 row modal-seperator">
                                                         <div class="col-md-5">
                                                             <b>Payment Status:</b>
