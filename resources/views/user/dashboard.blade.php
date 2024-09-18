@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="box2">
+                            <div class="box2 ">
                                 <h4>{{ $pending }}</h4>
                                 <p>Pending Orders</p>
                             </div>
