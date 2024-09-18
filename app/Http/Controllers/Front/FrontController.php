@@ -211,6 +211,20 @@ class FrontController extends Controller
             }
         }
 
+        if ($request->payment_method == 'Cash') {
+
+            $obj = new Booking;
+            $obj->tour_id = $request->tour_id;
+            $obj->package_id = $request->package_id;
+            $obj->user_id = $user_id;
+            $obj->total_person = $request->total_person;
+            $obj->paid_amount = $total_price;
+            $obj->payment_method = $request->payment_method;
+            $obj->payment_status = 'Pending';
+            $obj->save();
+            return redirect()->back()->with('success', 'Your payment is Pending and will be successfull after Admin approval.');
+        }
+
 
     }
 

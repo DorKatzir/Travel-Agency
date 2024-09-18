@@ -416,6 +416,7 @@
                                                                     <label for=""><b>Select Payment Method</b></label>
                                                                     <select name="payment_method" class="form-select">
                                                                         <option value="Paypal">Paypal</option>
+                                                                        <option value="Cash">Cash</option>
                                                                         <option disabled value="Stripe">Stripe - will be soon availiable</option>
                                                                     </select>
                                                                 </td>
