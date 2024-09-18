@@ -100,13 +100,17 @@
                                                 <tr>
                                                     <th>SL</th>
                                                     <th>Package</th>
+                                                    <th>Tour Start Date</th>
+                                                    <th>Tour End Date</th>
                                                     <th>Ticket Price</th>
                                                     <th>Tickets</th>
-                                                    <th>Total Price</th>
+                                                    <th>Price</th>
                                                 </tr>
                                                 <tr>
                                                     <td>1</td>
                                                     <td>{{ $booking->package->name }}</td>
+                                                    <td>{{ $booking->tour->tour_start_date }}</td>
+                                                    <td>{{ $booking->tour->tour_end_date }}</td>
                                                     <td>${{ $booking->package->price }}</td>
                                                     <td>{{ $booking->total_person }}</td>
                                                     <td>${{ $booking->paid_amount }}</td>
@@ -135,9 +139,13 @@
                                                         $subtotal = $old_price * $total_person;
                                                         $discount = ($old_price - $price) * $total_person;
                                                     @endphp
-                                                    <p class="mb_0">Subtotal: <span>${{ $subtotal }}</span></p>
-                                                    <p class="mb_0">Discount: <span>${{ $discount }}</span></p>
-                                                    <p class="mb_0">Total: <span>${{ $booking->paid_amount }}</span></p>
+                                                    <p class="mb_0 d-flex gap-3 align-items-center justify-content-end">
+                                                        <small>Subtotal: ${{ $subtotal }}</small>
+                                                        <small>Discount: ${{ $discount }}</small>
+                                                        <strong>Total: ${{ $booking->paid_amount }}</strong>
+                                                    </p>
+
+
                                                 </td>
                                             </tbody>
                                         </table>
