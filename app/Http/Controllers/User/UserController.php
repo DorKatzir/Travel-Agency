@@ -13,21 +13,9 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function dashboard() {
-        $bookings = Booking::where('user_id', Auth::guard('web')->user()->id)->get();
+        $completed = Booking::where('user_id', Auth::guard('web')->user()->id)->where('payment_status', 'Completed')->count();
+        $pending = Booking::where('user_id', Auth::guard('web')->user()->id)->where('payment_status', 'Pending')->count();
 
-        $completed = 0;
-        $pending = 0;
-
-        foreach($bookings as $booking) {
-
-            if($booking->payment_status == 'Completed') {
-                $completed++;
-            }
-
-            if($booking->payment_status == 'Pending') {
-                $pending++;
-            }
-        }
 
         return view('user.dashboard', compact('completed', 'pending'));
     }
