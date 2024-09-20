@@ -115,9 +115,10 @@ class FrontController extends Controller
         $package_videos = PackageVideo::where('package_id', $package->id)->get();
         $package_faqs = PackageFaq::where('package_id', $package->id)->get();
         $tours = Tour::where('package_id', $package->id)->get();
+        $reviews = Review::where('package_id', $package->id)->get();
 
 
-        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs', 'tours'));
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs', 'tours', 'reviews'));
     }
 
     public function enquey_form_submit(Request $request, $package_id) {

@@ -218,35 +218,27 @@
 
                                     <h2>Reviews (2)</h2>
 
-                                    <div class="review-package-section">
-                                        <div class="review-package-box d-flex justify-content-start">
-                                            <div class="left">
-                                                <img src="uploads/team-2.jpg" alt="">
-                                            </div>
-                                            <div class="right">
-                                                <div class="name">John Doe</div>
-                                                <div class="date">September 25, 2022</div>
-                                                <div class="text">
-                                                    Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud invenire.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @foreach ($reviews as $review)
+                                        <div class="review-package-section">
+                                            <div class="review-package-box d-flex justify-content-start">
+                                                <div class="left">
+                                                    @if ($review->user->photo)
+                                                        <img src="{{ asset('uploads/' . $review->user->photo) }}" alt="">
+                                                    @else
+                                                        <img src="{{ asset('uploads/default.png') }}" alt="">
+                                                    @endif
 
-                                    <div class="review-package-section">
-                                        <div class="review-package-box d-flex justify-content-start">
-                                            <div class="left">
-                                                <img src="uploads/team-1.jpg" alt="">
-                                            </div>
-                                            <div class="right">
-                                                <div class="name">John Doe</div>
-                                                <div class="date">September 25, 2022</div>
-                                                <div class="text">
-                                                    Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud invenire.
+                                                </div>
+                                                <div class="right">
+                                                    <div class="name">{{ $review->user->name }}</div>
+                                                    <div class="date">{{ $review->created_at->format('d M, Y') }}</div>
+                                                    <div class="text">
+                                                        {!! $review->comment !!}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
 
 
                                     <div class="mt_40"></div>
