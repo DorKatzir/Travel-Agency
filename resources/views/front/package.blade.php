@@ -233,7 +233,7 @@
                                                     <div class="name">{{ $review->user->name }}</div>
                                                     <div class="date">{{ $review->created_at->format('d M Y') }}</div>
 
-                                                    <div class="review">
+                                                    <div class="review mb-2">
                                                         <div class="set">
 
                                                             @for ($i = 1; $i <= 5; $i++)

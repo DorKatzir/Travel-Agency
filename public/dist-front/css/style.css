@@ -1080,7 +1080,7 @@ select {
 .review-package .review-package-box .right .date {
     font-size: 14px;
     color: #515151;
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 .review-package .review-package-box .right .text {
     font-size: 16px;
