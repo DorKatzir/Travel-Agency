@@ -294,8 +294,8 @@
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         @else
-                                            <div class="mb-3">
-                                                <p>You have to book this package to give review.</p>
+                                            <div class="alert alert-danger">
+                                                You have to book this package to give review.
                                             </div>
                                         @endif
 
