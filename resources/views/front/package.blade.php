@@ -251,9 +251,9 @@
 
                                     <div class="mt_40"></div>
 
+                                    <h2>Leave Your Review</h2>
                                     @if (Auth::guard('web')->check())
 
-                                        <h2>Leave Your Review</h2>
 
                                         <div class="mb-3">
                                             <div class="give-review-auto-select">
@@ -290,7 +290,7 @@
                                         </div>
                                     @else
                                         <div class="mb-3">
-                                            <a href="{{ route('login') }}" class="btn btn-primary">Login to Review</a>
+                                            <a href="{{ route('login') }}" class="btn btn-danger">Login to Review</a>
                                         </div>
                                     @endif
                                 </div>
