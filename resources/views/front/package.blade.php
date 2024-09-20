@@ -260,39 +260,53 @@
 
                                         @if ($allowed_review > 0)
 
-                                            <div class="mb-3">
-                                                <div class="give-review-auto-select">
-                                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
-                                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                                            @php
+                                                App\Models\Review::where('user_id', Auth::guard('web')->user()->id)->where('package_id', $package->id)->count() > 0 ? $reviewed = true : $reviewed = false;
+                                            @endphp
+
+                                            @if (!$reviewed)
+                                                <form method="POST" action="">
+                                                    @csrf
+                                                        <div class="mb-3">
+                                                            <div class="give-review-auto-select">
+                                                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                                                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                                                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                                                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                                                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                                                            </div>
+                                                            <script>
+                                                                document.addEventListener('DOMContentLoaded', (event) => {
+                                                                    const stars = document.querySelectorAll('.star-rating label');
+                                                                    stars.forEach(star => {
+                                                                        star.addEventListener('click', function() {
+                                                                            stars.forEach(s => s.style.color = '#ccc');
+                                                                            this.style.color = '#f5b301';
+                                                                            let previousStar = this.previousElementSibling;
+                                                                            while(previousStar) {
+                                                                                if (previousStar.tagName === 'LABEL') {
+                                                                                    previousStar.style.color = '#f5b301';
+                                                                                }
+                                                                                previousStar = previousStar.previousElementSibling;
+                                                                            }
+                                                                        });
+                                                                    });
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                </form>
+                                            @else
+                                                <div class="alert alert-danger">
+                                                    You have already given review.
                                                 </div>
-                                                <script>
-                                                    document.addEventListener('DOMContentLoaded', (event) => {
-                                                        const stars = document.querySelectorAll('.star-rating label');
-                                                        stars.forEach(star => {
-                                                            star.addEventListener('click', function() {
-                                                                stars.forEach(s => s.style.color = '#ccc');
-                                                                this.style.color = '#f5b301';
-                                                                let previousStar = this.previousElementSibling;
-                                                                while(previousStar) {
-                                                                    if (previousStar.tagName === 'LABEL') {
-                                                                        previousStar.style.color = '#f5b301';
-                                                                    }
-                                                                    previousStar = previousStar.previousElementSibling;
-                                                                }
-                                                            });
-                                                        });
-                                                    });
-                                                </script>
-                                            </div>
-                                            <div class="mb-3">
-                                                <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
+                                            @endif
+
                                         @else
                                             <div class="alert alert-danger">
                                                 You have to book this package to give review.
