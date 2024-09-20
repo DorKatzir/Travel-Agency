@@ -231,7 +231,23 @@
                                                 </div>
                                                 <div class="right">
                                                     <div class="name">{{ $review->user->name }}</div>
-                                                    <div class="date">{{ $review->created_at->format('d M, Y') }}</div>
+                                                    <div class="date">{{ $review->created_at->format('d M Y') }}</div>
+
+                                                    <div class="review">
+                                                        <div class="set">
+
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= $review->rating)
+                                                                    <i class="fas fa-star"></i>
+                                                                @else
+                                                                    <i class="far fa-star"></i>
+                                                                @endif
+                                                            @endfor
+
+                                                        </div>
+
+                                                    </div>
+
                                                     <div class="text">
                                                         {!! $review->comment !!}
                                                     </div>
