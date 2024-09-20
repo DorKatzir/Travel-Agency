@@ -100,6 +100,15 @@ class AdminTourController extends Controller
         return redirect()->back()->with('success', 'Booking Deleted Successfully');
     }
 
+    public function tour_booking_approve($booking_id) {
+        $obj = Booking::where('id', $booking_id)->first();
+        $obj->payment_status = 'Completed';
+        $obj->invoice_no = time();
+        $obj->update();
+
+        return redirect()->back()->with('success', 'Booking Approved Successfully');
+    }
+
     public function tour_invoice($invoice_no) {
        $booking = Booking::with(['user','tour', 'package'])->where('invoice_no', $invoice_no)->first();
         return view('admin.tour.invoice', compact('booking'));

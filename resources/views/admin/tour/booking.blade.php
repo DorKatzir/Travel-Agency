@@ -61,7 +61,10 @@
                                                         <td><span class="badge badge-success">Completed</span></td>
                                                         <td><a href="{{ route('admin_tour_invoice', $booking->invoice_no) }}" target="_blank" class="badge badge-info text-decoration-none">Show</a></td>
                                                         @else
-                                                        <td><span class="badge badge-danger">Pending</span></td>
+                                                        <td class="">
+                                                            <span class="badge badge-danger">Pending</span>
+                                                            <span class="d-flex badge"><a href="{{ route('admin_tour_booking_approve', $booking->id) }}" class="text-primary text-decoration-none">Approve</a></span>
+                                                        </td>
                                                         <td></td>
                                                     @endif
 
