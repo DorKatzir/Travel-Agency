@@ -265,8 +265,9 @@
                                             @endphp
 
                                             @if (!$reviewed)
-                                                <form method="POST" action="{{ route('review_submit', $package->id) }}">
+                                                <form method="POST" action="{{ route('review_submit') }}">
                                                     @csrf
+                                                    <input type="hidden" name="package_id" value="{{ $package->id }}">
                                                         <div class="mb-3">
                                                             <div class="give-review-auto-select">
                                                                 <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
