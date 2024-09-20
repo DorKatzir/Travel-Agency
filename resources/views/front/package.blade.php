@@ -265,7 +265,7 @@
                                             @endphp
 
                                             @if (!$reviewed)
-                                                <form method="POST" action="{{ route('review_submit') }}">
+                                                <form method="POST" action="{{ route('review_submit', $package->id) }}">
                                                     @csrf
                                                         <div class="mb-3">
                                                             <div class="give-review-auto-select">
