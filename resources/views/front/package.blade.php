@@ -265,7 +265,7 @@
                                             @endphp
 
                                             @if (!$reviewed)
-                                                <form method="POST" action="">
+                                                <form method="POST" action="{{ route('review_submit') }}">
                                                     @csrf
                                                         <div class="mb-3">
                                                             <div class="give-review-auto-select">
@@ -295,7 +295,7 @@
                                                             </script>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
+                                                            <textarea class="form-control" rows="3" placeholder="Comment" name="comment"></textarea>
                                                         </div>
                                                         <div class="mb-3">
                                                             <button type="submit" class="btn btn-primary">Submit</button>

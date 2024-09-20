@@ -266,6 +266,9 @@ class FrontController extends Controller
 
     }
 
+    public function review_submit(Request $request, $package_id) {
+        dd($request->all());
+    }
 
 
 
