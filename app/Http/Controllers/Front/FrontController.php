@@ -281,6 +281,11 @@ class FrontController extends Controller
         $obj->comment = $request->comment;
         $obj->save();
 
+        $package_data = Package::where('id', $request->package_id)->first();
+        $package_data->total_rating += 1;
+        $package_data->total_score += $request->rating;
+        $package_data->update();
+
         return redirect()->back()->with('success', 'Review submitted successfully.');
     }
 
