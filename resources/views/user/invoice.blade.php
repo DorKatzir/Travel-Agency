@@ -37,7 +37,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="w-50">
-                                                        <img src="{{ asset('uploads/logo.png') }}" alt="logo" class="h-60">
+                                                        <img src="{{ asset('uploads/logo.svg') }}" alt="logo" class="h-60">
                                                     </td>
                                                     <td class="w-50">
                                                         <div class="invoice-top-right">
