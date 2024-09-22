@@ -31,7 +31,7 @@
                         </li>
 
                         <li class="nav-item {{ Request::is('packages') || Request::is('package/*') ? 'active' : '' }}">
-                            <a href="packages.html" class="nav-link">Packages</a>
+                            <a href="{{ route('packages') }}" class="nav-link">Packages</a>
                         </li>
 
                         <li class="nav-item {{ Request::is('team') || Request::is('team-member/*') ? 'active' : '' }}">

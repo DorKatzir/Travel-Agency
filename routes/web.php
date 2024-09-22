@@ -33,6 +33,8 @@ Route::get('/category/{slug}', [FrontController::class, 'category'])->name('cate
 Route::get('/destinations', [FrontController::class, 'destinations'])->name('destinations');
 Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name('destination');
 
+Route::get('/packages', [FrontController::class, 'packages'])->name('packages');
+
 Route::get('/package/{slug}', [FrontController::class, 'package'])->name('package');
 Route::post('/enquey/submit/{package_id}', [FrontController::class, 'enquey_form_submit'])->name('enquey_form_submit');
 
