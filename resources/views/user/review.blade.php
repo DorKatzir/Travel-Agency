@@ -42,10 +42,10 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <img src="{{ asset('uploads/'.$review->package->featured_photo) }}" alt="" class="w-200 rounded">
+                                        <img src="{{ asset('uploads/'.$review->package->featured_photo) }}" alt="" class="w-150 rounded">
                                     </td>
                                     <td>
-                                        {{ $review->package->name }}
+                                        <a href="{{ route('package', $review->package->slug) }}" target="_blank">{{ $review->package->name }}</a>
                                     </td>
                                     <td>
                                         {{ $review->package->destination->name }}
