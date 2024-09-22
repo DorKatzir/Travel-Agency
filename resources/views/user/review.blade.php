@@ -36,13 +36,13 @@
                                 <th>Destination</th>
                                 <th>My Review</th>
                                 <th>My Comment</th>
-                                <th class="w-100">Action</th>
+
                             </tr>
                             @foreach ($reviews as $review)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <img src="{{ asset('uploads/'.$review->package->featured_photo) }}" alt="" class="w-100 rounded">
+                                        <img src="{{ asset('uploads/'.$review->package->featured_photo) }}" alt="" class="w-200 rounded">
                                     </td>
                                     <td>
                                         {{ $review->package->name }}
@@ -51,23 +51,12 @@
                                         {{ $review->package->destination->name }}
                                     </td>
                                     <td>
-                                        <div class="review">
-                                            @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $review->rating)
-                                                    <i class="fas fa-star"></i>
-                                                @else
-                                                    <i class="far fa-star"></i>
-                                                @endif
-                                            @endfor
-
-                                        </div>
+                                        {{ $review->rating }}
                                     </td>
                                     <td>
                                         <a href="" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $loop->iteration }}">Comment</a>
                                     </td>
-                                    <td>
-                                        <a href="package.html" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
-                                    </td>
+
                                 </tr>
 
                                 <!-- Modal -->
