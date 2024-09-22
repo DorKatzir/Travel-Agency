@@ -135,16 +135,34 @@
                                             @endif
                                         </div>
                                         <h2>
-                                            <a href="package.html">Venice Grand Canal</a>
+                                            <a href="{{ route('package', $package->slug) }}">{{ $package->name }}</a>
                                         </h2>
-                                        <div class="review">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            (4 Reviews)
-                                        </div>
+
+                                        @if ($package->total_rating > 0)
+                                            <div class="review">
+                                                @php
+                                                    $avg = $package->total_score / $package->total_rating;
+                                                @endphp
+
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $avg)
+                                                        <i class="fas fa-star"></i>
+                                                    @elseif ($i-0.5 <= $avg)
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    @else
+                                                        <i class="far fa-star"></i>
+                                                    @endif
+                                                @endfor
+
+                                                ({{ $package->total_rating }} Reviews)
+                                            </div>
+
+                                        @else
+                                            <div class="review">
+                                                (0 Reviews)
+                                            </div>
+                                        @endif
+
                                         <div class="element">
                                             <div class="element-left">
                                                 <i class="fas fa-plane-departure"></i> Italy
