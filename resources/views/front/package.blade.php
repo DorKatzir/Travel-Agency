@@ -11,15 +11,14 @@
                     <div class="review">
                         <div class="set">
                             @php
-                                $score = $package->total_score;
-                                $rating = $package->total_rating;
-                                $avg = $score / $rating;
-                                // echo "<p>$avg</p>";
+                                $avg = $package->total_score / $package->total_rating;
                             @endphp
 
                             @for ($i = 1; $i <= 5; $i++)
                                 @if ($i <= $avg)
                                     <i class="fas fa-star"></i>
+                                @elseif ($i-0.5 <= $avg)
+                                    <i class="fas fa-star-half-alt"></i>
                                 @else
                                     <i class="far fa-star"></i>
                                 @endif
