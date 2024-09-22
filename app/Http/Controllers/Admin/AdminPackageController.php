@@ -55,6 +55,8 @@ class AdminPackageController extends Controller
         $obj->map = $request->map;
         $obj->price = $request->price;
         $obj->old_price = $request->old_price;
+        $obj->total_rating = 0;
+        $obj->total_score = 0;
 
         $obj->save();
 
