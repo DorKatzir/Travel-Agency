@@ -8,25 +8,30 @@
                 <div class="col-md-12">
                     <h2 class="text-capitalize">{{ $package->name }}</h2>
                     <h3 class="text-capitalize"><i class="fas fa-plane-departure"></i> {{ $package->destination->name }}, {{ $package->destination->country }}</h3>
-                    <div class="review">
-                        <div class="set">
-                            @php
-                                $avg = $package->total_score / $package->total_rating;
-                            @endphp
 
-                            @for ($i = 1; $i <= 5; $i++)
-                                @if ($i <= $avg)
-                                    <i class="fas fa-star"></i>
-                                @elseif ($i-0.5 <= $avg)
-                                    <i class="fas fa-star-half-alt"></i>
-                                @else
-                                    <i class="far fa-star"></i>
-                                @endif
-                            @endfor
+                    @if ($package->total_rating > 0)
+                        <div class="review">
+                            <div class="set">
 
+                                @php
+                                    $avg = $package->total_score / $package->total_rating;
+                                @endphp
+
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $avg)
+                                        <i class="fas fa-star"></i>
+                                    @elseif ($i-0.5 <= $avg)
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @else
+                                        <i class="far fa-star"></i>
+                                    @endif
+                                @endfor
+
+                            </div>
+                            <span>({{ $avg }} out of 5)</span>
                         </div>
-                        <span>({{ $avg }} out of 5)</span>
-                    </div>
+                    @endif
+
                     <div class="price">
                         ${{ $package->price }}
                         @if ($package->old_price)
@@ -244,6 +249,7 @@
 
                                                     <div class="review mb-2">
                                                         <div class="set">
+
 
                                                             @for ($i = 1; $i <= 5; $i++)
                                                                 @if ($i <= $review->rating)
