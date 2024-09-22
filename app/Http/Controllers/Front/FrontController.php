@@ -107,8 +107,8 @@ class FrontController extends Controller
     }
 
     public function packages() {
-
-        return view('front.packages');
+        $packages = Package::orderBy('id', 'desc')->paginate(4);
+        return view('front.packages', compact('packages'));
 
     }
 
