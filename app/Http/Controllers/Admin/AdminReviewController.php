@@ -12,4 +12,10 @@ class AdminReviewController extends Controller
         $reviews = Review::all();
         return view('admin.review.index', compact('reviews'));
     }
+
+    public function delete($id) {
+        $review = Review::find($id);
+        $review->delete();
+        return redirect()->back()->with('success', 'Review deleted successfully');
+    }
 }

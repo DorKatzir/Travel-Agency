@@ -117,6 +117,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/reviews') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_reviews') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Reviews</span>
+                </a>
+            </li>
+
 
             <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_profile') }}">

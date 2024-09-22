@@ -38,13 +38,15 @@
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $review->package->name }}</td>
+                                                    <td>
+                                                        <a href="{{ route('package', $review->package->slug) }}" target="_blank">{{ $review->package->name }}</a>
+                                                    </td>
                                                     <td>{{ $review->user->name }}</td>
                                                     <td>{{ $review->rating }}</td>
                                                     <td>{!! $review->comment !!}</td>
 
                                                     <td class="pt_10 pb_10">
-                                                        <a href="" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_review_delete', $review->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 
