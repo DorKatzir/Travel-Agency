@@ -122,7 +122,7 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="item pb_25">
                                     <div class="photo">
-                                        <a href="package.html"><img src="uploads/package-1.jpg" alt=""></a>
+                                        <a href="{{ route('package', $package->slug) }}"><img src="{{ asset('uploads/'. $package->featured_photo) }}" alt=""></a>
                                         <div class="wishlist">
                                             <a href=""><i class="far fa-heart"></i></a>
                                         </div>
