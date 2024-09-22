@@ -41,7 +41,10 @@
                                                     <td>
                                                         <a href="{{ route('package', $review->package->slug) }}" target="_blank">{{ $review->package->name }}</a>
                                                     </td>
-                                                    <td>{{ $review->user->name }}</td>
+                                                    <td>{{ $review->user->name }}
+                                                        <br>
+                                                        <small>{{ $review->user->email }}</small>
+                                                    </td>
                                                     <td>{{ $review->rating }}</td>
                                                     <td>{!! $review->comment !!}</td>
 
