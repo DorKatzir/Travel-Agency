@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminReviewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -138,6 +139,11 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
     Route::post('/faq/edit/{id}', [AdminFaqController::class, 'edit_submit'])->name('admin_faq_edit_submit');
     Route::get('/faq/delete/{id}', [AdminFaqController::class, 'delete'])->name('admin_faq_delete');
+
+
+    // Reviews
+    Route::get('/reviews', [AdminReviewController::class, 'index'])->name('admin_reviews');
+    Route::get('/review-delete/{id}', [AdminReviewController::class, 'delete'])->name('admin_review_delete');
 
 
     // Blog Categories
