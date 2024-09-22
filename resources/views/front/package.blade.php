@@ -10,13 +10,23 @@
                     <h3 class="text-capitalize"><i class="fas fa-plane-departure"></i> {{ $package->destination->name }}, {{ $package->destination->country }}</h3>
                     <div class="review">
                         <div class="set">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            @php
+                                $score = $package->total_score;
+                                $rating = $package->total_rating;
+                                $avg = $score / $rating;
+                                // echo "<p>$avg</p>";
+                            @endphp
+
+                            @for ($i = 1; $i <= 5; $i++)
+                                @if ($i <= $avg)
+                                    <i class="fas fa-star"></i>
+                                @else
+                                    <i class="far fa-star"></i>
+                                @endif
+                            @endfor
+
                         </div>
-                        <span>(4.2 out of 5)</span>
+                        <span>({{ $avg }} out of 5)</span>
                     </div>
                     <div class="price">
                         ${{ $package->price }}
@@ -216,7 +226,7 @@
                                 <!-- Review -->
                                 <div class="review-package">
 
-                                    <h2>Reviews (2)</h2>
+                                    <h2>Reviews ({{ $reviews->count() }})</h2>
 
                                     @foreach ($reviews as $review)
                                         <div class="review-package-section">
