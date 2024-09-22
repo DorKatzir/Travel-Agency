@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Booking;
 use Hash;
 use App\Models\User;
+use App\Models\Review;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
@@ -84,5 +85,10 @@ class UserController extends Controller
         $booking = Booking::where('invoice_no', $invoice_no)->first();
         return view('user.invoice', compact('booking'));
 
+    }
+
+    public function review() {
+        $reviews = Review::where('user_id', Auth::guard('web')->user()->id)->get();
+        return view('user.review', compact('reviews'));
     }
 }
