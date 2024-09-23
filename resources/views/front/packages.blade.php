@@ -47,16 +47,14 @@
                             </div>
                         </div>
                         <div class="widget">
-                            <h2>Filter by Country</h2>
+                            <h2>Filter by Destination</h2>
                             <div class="box">
-                                <ul>
-                                    <li><a href=""><i class="fas fa-angle-right"></i> All</a></li>
-                                    <li><a href=""><i class="fas fa-angle-right"></i> Australia</a></li>
-                                    <li><a href=""><i class="fas fa-angle-right"></i> Italy</a></li>
-                                    <li><a href=""><i class="fas fa-angle-right"></i> Thailand</a></li>
-                                    <li><a href=""><i class="fas fa-angle-right"></i> Canada</a></li>
-                                    <li><a href=""><i class="fas fa-angle-right"></i> Japan</a></li>
-                                </ul>
+                                <select class="form-control" name="destination_id">
+                                    <option value="">Select Destination</option>
+                                    @foreach ($packages as $package)
+                                        <option value="{{ $package->destination->id }}">{{ $package->destination->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="widget">
