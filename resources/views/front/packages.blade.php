@@ -170,10 +170,17 @@
                                                 <i class="fas fa-plane-departure"></i> {{ $package->destination->name }}
                                             </div>
                                             <div class="element-right">
-                                                <i class="fas fa-calendar-alt date-icon"></i> {{ $package->tours->count() }} Tours
+                                                <i class="fas fa-concierge-bell"></i> 10 Amenities
                                             </div>
                                         </div>
-
+                                        <div class="element">
+                                            <div class="element-left">
+                                                <i class="fas fa-calendar-alt"></i> {{ $package->tours->count() }} Tours
+                                            </div>
+                                            <div class="element-right">
+                                                <i class="fas fa-solid fa-route"></i> {{ $package->package_itineraries->count() }} Itineraries
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
