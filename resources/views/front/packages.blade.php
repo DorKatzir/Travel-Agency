@@ -23,14 +23,14 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="package-sidebar">
-                        <form action="" method="GET">
-                            @csrf
+                        <form action="{{ route('packages') }}" method="GET">
+                            {{-- @csrf --}}
                             <div class="widget">
                                 <h2>Search Package</h2>
                                 <div class="box">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="" class="form-control" placeholder="Package Name ...">
+                                            <input type="text" name="name" class="form-control" placeholder="Package Name ...">
                                         </div>
                                     </div>
                                 </div>
@@ -40,10 +40,10 @@
                                 <div class="box">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="" class="form-control" placeholder="Min">
+                                            <input type="text" name="min_price" class="form-control" placeholder="Min">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="" class="form-control" placeholder="Max">
+                                            <input type="text" name="max_price" class="form-control" placeholder="Max">
                                         </div>
                                     </div>
                                 </div>
@@ -53,8 +53,8 @@
                                 <div class="box">
                                     <select class="form-control" name="destination_id">
                                         <option value="">Select Destination</option>
-                                        @foreach ($packages as $package)
-                                            <option value="{{ $package->destination->id }}">{{ $package->destination->name }}</option>
+                                        @foreach ($destinations as $destination)
+                                            <option value="{{ $destination->id }}">{{ $destination->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
