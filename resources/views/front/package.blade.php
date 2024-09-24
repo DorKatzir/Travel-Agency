@@ -67,15 +67,23 @@
                     <div class="main-item mb_50">
 
                         <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#tab-1-pane" type="button" role="tab" aria-controls="tab-1-pane" aria-selected="true">Detail</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#tab-2-pane" type="button" role="tab" aria-controls="tab-2-pane" aria-selected="false">Itinerary</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#tab-3-pane" type="button" role="tab" aria-controls="tab-3-pane" aria-selected="false">Location</button>
-                            </li>
+
+                            @if ($package_itineraries->count() > 0)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#tab-2-pane" type="button" role="tab" aria-controls="tab-2-pane" aria-selected="false">Itinerary</button>
+                                </li>
+                            @endif
+
+                            @if ($package->map != null)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#tab-3-pane" type="button" role="tab" aria-controls="tab-3-pane" aria-selected="false">Location</button>
+                                </li>
+                            @endif
+
                             @if ( $package_photos->count() > 0 || $package_videos->count() > 0 )
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="tab-4" data-bs-toggle="tab" data-bs-target="#tab-4-pane" type="button" role="tab" aria-controls="tab-4-pane" aria-selected="false">Gallery</button>
@@ -245,49 +253,53 @@
                                 <!-- Review -->
                                 <div class="review-package">
 
-                                    <h2>Reviews ({{ $reviews->count() }})</h2>
+                                    @if ($reviews->count() > 0)
 
-                                    @foreach ($reviews as $review)
-                                        <div class="review-package-section">
-                                            <div class="review-package-box d-flex justify-content-start">
-                                                <div class="left">
-                                                    @if ($review->user->photo)
-                                                        <img src="{{ asset('uploads/' . $review->user->photo) }}" alt="">
-                                                    @else
-                                                        <img src="{{ asset('uploads/default.png') }}" alt="">
-                                                    @endif
+                                        <h2>Reviews ({{ $reviews->count() }})</h2>
 
-                                                </div>
-                                                <div class="right">
-                                                    <div class="name">{{ $review->user->name }}</div>
-                                                    <div class="date">{{ $review->created_at->format('d M Y') }}</div>
+                                        @foreach ($reviews as $review)
+                                            <div class="review-package-section">
+                                                <div class="review-package-box d-flex justify-content-start">
+                                                    <div class="left">
+                                                        @if ($review->user->photo)
+                                                            <img src="{{ asset('uploads/' . $review->user->photo) }}" alt="">
+                                                        @else
+                                                            <img src="{{ asset('uploads/default.png') }}" alt="">
+                                                        @endif
 
-                                                    <div class="review mb-2">
-                                                        <div class="set">
+                                                    </div>
+                                                    <div class="right">
+                                                        <div class="name">{{ $review->user->name }}</div>
+                                                        <div class="date">{{ $review->created_at->format('d M Y') }}</div>
 
+                                                        <div class="review mb-2">
+                                                            <div class="set">
 
-                                                            @for ($i = 1; $i <= 5; $i++)
-                                                                @if ($i <= $review->rating)
-                                                                    <i class="fas fa-star"></i>
-                                                                @else
-                                                                    <i class="far fa-star"></i>
-                                                                @endif
-                                                            @endfor
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    @if ($i <= $review->rating)
+                                                                        <i class="fas fa-star"></i>
+                                                                    @else
+                                                                        <i class="far fa-star"></i>
+                                                                    @endif
+                                                                @endfor
+
+                                                            </div>
 
                                                         </div>
 
-                                                    </div>
-
-                                                    <div class="text">
-                                                        {!! $review->comment !!}
+                                                        <div class="text">
+                                                            {!! $review->comment !!}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
 
 
-                                    <div class="mt_40"></div>
+                                        <div class="mt_40"></div>
+
+                                    @endif
+
 
                                     <h2>Leave Your Review</h2>
                                     @if (Auth::guard('web')->check())
