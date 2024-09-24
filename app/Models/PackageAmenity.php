@@ -12,4 +12,9 @@ class PackageAmenity extends Model
     public function amenity() {
        return $this->belongsTo(Amenity::class);
     }
+
+    public function package() {
+        return $this->belongsTo(Package::class);
+
+    }
 }
