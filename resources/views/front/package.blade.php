@@ -96,15 +96,23 @@
                             </li>
                             @endif
 
+
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="tab-6" data-bs-toggle="tab" data-bs-target="#tab-6-pane" type="button" role="tab" aria-controls="tab-6-pane" aria-selected="false">Review</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-7" data-bs-toggle="tab" data-bs-target="#tab-7-pane" type="button" role="tab" aria-controls="tab-7-pane" aria-selected="false">Enquery</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-8" data-bs-toggle="tab" data-bs-target="#tab-8-pane" type="button" role="tab" aria-controls="tab-8-pane" aria-selected="false">Booking</button>
-                            </li>
+
+                            @if(Auth::guard('web')->check() )
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tab-7" data-bs-toggle="tab" data-bs-target="#tab-7-pane" type="button" role="tab" aria-controls="tab-7-pane" aria-selected="false">Enquery</button>
+                                </li>
+                            @endif
+
+                            @if ($tours->count() > 0)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tab-8" data-bs-toggle="tab" data-bs-target="#tab-8-pane" type="button" role="tab" aria-controls="tab-8-pane" aria-selected="false">Booking</button>
+                                </li>
+                            @endif
+
                         </ul>
                         <div class="tab-content" id="myTabContent">
 
