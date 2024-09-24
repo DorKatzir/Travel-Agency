@@ -105,27 +105,31 @@
                                 <h2 class="mt_30">Detail</h2>
                                 {!! $package->description !!}
 
-                                <h2 class="mt_30">Includes</h2>
-                                <div class="amenity">
-                                    <div class="row">
-                                        @foreach ($package_amenities_include as $item_include)
-                                            <div class="col-lg-3 mb_15">
-                                                <i class="fas fa-check"></i> {{ $item_include->amenity->name }}
-                                            </div>
-                                        @endforeach
+                                @if ($package_amenities_include->count() > 0)
+                                    <h2 class="mt_30">Includes</h2>
+                                    <div class="amenity">
+                                        <div class="row">
+                                            @foreach ($package_amenities_include as $item_include)
+                                                <div class="col-lg-3 mb_15">
+                                                    <i class="fas fa-check"></i> {{ $item_include->amenity->name }}
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
 
-                                <h2 class="mt_30">Excludes</h2>
-                                <div class="amenity">
-                                    <div class="row">
-                                        @foreach ($package_amenities_exclude as $item_exclude)
-                                            <div class="col-lg-3 mb_15">
-                                                <i class="fas fa-times"></i> {{ $item_exclude->amenity->name }}
-                                            </div>
-                                        @endforeach
+                                @if ($package_amenities_exclude->count() > 0)
+                                    <h2 class="mt_30">Excludes</h2>
+                                    <div class="amenity">
+                                        <div class="row">
+                                            @foreach ($package_amenities_exclude as $item_exclude)
+                                                <div class="col-lg-3 mb_15">
+                                                    <i class="fas fa-times"></i> {{ $item_exclude->amenity->name }}
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                                 <!-- // Detail -->
 
 
