@@ -30,6 +30,17 @@
                             </div>
                             <span>({{ $avg }} out of 5)</span>
                         </div>
+                    @else
+                        <div class="review">
+                            <div class="set">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span>(No Reviews Found)</span>
+                        </div>
                     @endif
 
                     <div class="price">

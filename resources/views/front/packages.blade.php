@@ -140,30 +140,47 @@
                                             <a href="{{ route('package', $package->slug) }}">{{ $package->name }}</a>
                                         </h2>
 
-                                        @if ($package->total_rating > 0)
+                                        @if( $package->total_rating > 0 )
                                             <div class="review">
-                                                @php
-                                                    $avg = $package->total_score / $package->total_rating;
-                                                @endphp
+                                                <div class="set">
+                                                    @php
+                                                        $avg = $package->total_score / $package->total_rating;
+                                                    @endphp
 
-                                                @for ($i = 1; $i <= 5; $i++)
-                                                    @if ($i <= $avg)
-                                                        <i class="fas fa-star"></i>
-                                                    @elseif ($i-0.5 <= $avg)
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    @else
-                                                        <i class="far fa-star"></i>
-                                                    @endif
-                                                @endfor
+                                                    @for ($i = 1; $i <= 5; $i++)
 
-                                                ({{ $package->total_rating }} Reviews)
+                                                        @if ($i <= $avg)
+                                                            <i class="fas fa-star"></i>
+                                                        @elseif ($i-0.5 <= $avg)
+                                                            <i class="fas fa-star-half-alt"></i>
+                                                        @else
+                                                            <i class="far fa-star"></i>
+                                                        @endif
+
+                                                    @endfor
+                                                </div>
+                                                <span>( {{ $package->total_rating }} Reviews )</span>
                                             </div>
 
                                         @else
                                             <div class="review">
-                                                (0 Reviews)
+                                                <div class="set">
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <span>(No Reviews Found)</span>
                                             </div>
                                         @endif
+
+
+
+
+
+
+
 
                                         <div class="element">
                                             <div class="element-left">
