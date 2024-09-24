@@ -170,7 +170,7 @@
                                                 <i class="fas fa-plane-departure"></i> {{ $package->destination->name }}
                                             </div>
                                             <div class="element-right">
-                                                <i class="fas fa-check-circle"></i> 10 Amenities
+                                                <i class="fas fa-check-circle"></i> {{ $package->package_amenities->count() }} Amenities
                                             </div>
                                         </div>
                                         <div class="element">
