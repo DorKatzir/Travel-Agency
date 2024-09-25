@@ -195,7 +195,11 @@
                     </div>
 
                     {{-- Pagination --}}
-
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ $packages->appends($_GET)->links() }}
+                        </div>
+                    </div>
 
                 </div>
             </div>
