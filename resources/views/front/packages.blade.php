@@ -51,10 +51,10 @@
                             <div class="widget">
                                 <h2>Filter by Destination</h2>
                                 <div class="box">
-                                    <select class="form-control" name="destination_id">
-                                        <option value="">Select Destination</option>
+                                    <select class="form-select" name="destination_id">
+                                        <option value="">All</option>
                                         @foreach ($destinations as $destination)
-                                            <option value="{{ $destination->id }}">{{ $destination->name }}</option>
+                                            <option value="{{ $destination->id }}" {{ request()->get('destination_id') == $destination->id ? 'selected' : '' }}>{{ $destination->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -110,6 +110,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="filter-button">
                                 <button class="btn btn-primary">Filter</button>
                             </div>
