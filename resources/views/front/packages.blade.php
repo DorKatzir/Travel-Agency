@@ -30,7 +30,7 @@
                                 <div class="box">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="name" class="form-control" placeholder="Package Name ...">
+                                            <input type="text" name="name" class="form-control" placeholder="Package Name ..." value="{{ request()->get('name') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -40,10 +40,10 @@
                                 <div class="box">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="min_price" class="form-control" placeholder="Min">
+                                            <input type="text" name="min_price" class="form-control" placeholder="Min" value="{{ request()->get('min_price') }}">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="max_price" class="form-control" placeholder="Max">
+                                            <input type="text" name="max_price" class="form-control" placeholder="Max" value="{{ request()->get('max_price') }}">
                                         </div>
                                     </div>
                                 </div>
