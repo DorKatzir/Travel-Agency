@@ -142,7 +142,7 @@
 
                                         @if( $package->total_rating > 0 )
                                             <div class="review">
-                                                <div class="set">
+
                                                     @php
                                                         $avg = $package->total_score / $package->total_rating;
                                                     @endphp
@@ -158,28 +158,18 @@
                                                         @endif
 
                                                     @endfor
-                                                </div>
-                                                <span>( {{ $package->total_rating }} Reviews )</span>
+
+                                                <small>( {{ $package->total_rating }} Reviews )</small>
                                             </div>
 
                                         @else
                                             <div class="review">
-                                                <div class="set">
+                                                @for ($i = 1; $i <= 5; $i++)
                                                     <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
-                                                <span>(No Reviews Found)</span>
+                                                @endfor
+                                                <small>( {{ $package->total_rating }} Reviews )</small>
                                             </div>
                                         @endif
-
-
-
-
-
-
 
 
                                         <div class="element">
