@@ -115,7 +115,24 @@ class FrontController extends Controller
         $form_review = $request->review;
 
         $destinations = Destination::orderBy('name', 'asc')->get();
-        $packages = Package::orderBy('id', 'desc')->paginate(1);
+        $packages = Package::orderBy('id', 'desc');
+
+        if($form_name != '') {
+            $packages = $packages->where('name', 'like', '%'.$form_name.'%');
+        }
+        if($form_min_price != '') {
+            $packages = $packages->where('price', '>=', $form_min_price);
+        }
+        if($form_max_price != '') {
+            $packages = $packages->where('price', '<=', $form_max_price);
+        }
+        if($form_destination_id != '') {
+            $packages = $packages->where('destination_id', $form_destination_id);
+        }
+        if($form_review != '') {
+            $packages = $packages->where('total_rating', '=', $form_review);
+        }
+        $packages = $packages->paginate(4);
 
         return view('front.packages', compact('packages', 'destinations'));
 

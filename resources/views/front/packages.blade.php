@@ -63,14 +63,14 @@
                                 <h2>Filter by Review</h2>
                                 <div class="box">
                                     <div class="form-check form-check-review form-check-review-1">
-                                        <input name="review" class="form-check-input" type="radio" name="reviewRadios" id="reviewRadiosAll" value="all" checked>
+                                        <input name="review" class="form-check-input" type="radio" id="reviewRadiosAll" value="all" {{ request()->get('review') == 'all' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="reviewRadiosAll">
                                             All
                                         </label>
                                     </div>
                                     <div class="form-check form-check-review">
-                                        <input name="review" class="form-check-input" type="radio" name="reviewRadios" id="reviewRadios1" value="5" checked>
-                                        <label class="form-check-label" for="reviewRadios1">
+                                        <input name="review" class="form-check-input" type="radio" id="reviewRadios5" value="5" {{ request()->get('review') == '5' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="reviewRadios5">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -79,8 +79,8 @@
                                         </label>
                                     </div>
                                     <div class="form-check form-check-review">
-                                        <input name="review" class="form-check-input" type="radio" name="reviewRadios" id="reviewRadios2" value="4">
-                                        <label class="form-check-label" for="reviewRadios2">
+                                        <input name="review" class="form-check-input" type="radio" id="reviewRadios4" value="4" {{ request()->get('review') == '4' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="reviewRadios4">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -88,7 +88,7 @@
                                         </label>
                                     </div>
                                     <div class="form-check form-check-review">
-                                        <input name="review" class="form-check-input" type="radio" name="reviewRadios" id="reviewRadios3" value="3">
+                                        <input name="review" class="form-check-input" type="radio" id="reviewRadios3" value="3" {{ request()->get('review') == '3' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="reviewRadios3">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -96,15 +96,15 @@
                                         </label>
                                     </div>
                                     <div class="form-check form-check-review">
-                                        <input name="review" class="form-check-input" type="radio" name="reviewRadios" id="reviewRadios4" value="2">
-                                        <label class="form-check-label" for="reviewRadios4">
+                                        <input name="review" class="form-check-input" type="radio" id="reviewRadios2" value="2" {{ request()->get('review') == '2' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="reviewRadios2">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-review">
-                                        <input name="review" class="form-check-input" type="radio" name="reviewRadios" id="reviewRadios5" value="1">
-                                        <label class="form-check-label" for="reviewRadios5">
+                                        <input name="review" class="form-check-input" type="radio" id="reviewRadios1" value="1" {{ request()->get('review') == '1' ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="reviewRadios1">
                                             <i class="fas fa-star"></i>
                                         </label>
                                     </div>
