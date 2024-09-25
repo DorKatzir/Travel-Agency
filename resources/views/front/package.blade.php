@@ -28,18 +28,16 @@
                                 @endfor
 
                             </div>
-                            <span>({{ $avg }} out of 5)</span>
+                            <span><small>( {{ $avg }} out of 5 )</small></span>
                         </div>
                     @else
                         <div class="review">
                             <div class="set">
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
+                                @for ($i = 1; $i <= 5; $i++)
+                                    <i class="far fa-star"></i>
+                                @endfor
                             </div>
-                            <span>(No Reviews Found)</span>
+                            <span><small>( No Reviews Found )</small></span>
                         </div>
                     @endif
 
