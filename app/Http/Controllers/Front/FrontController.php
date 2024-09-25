@@ -106,9 +106,17 @@ class FrontController extends Controller
         return view('front.destination', compact('destination','destination_photos', 'destination_videos'));
     }
 
-    public function packages() {
+    public function packages(Request $request) {
+
+        $form_name = $request->name;
+        $form_min_price = $request->min_price;
+        $form_max_price = $request->max_price;
+        $form_destination = $request->destination_id;
+        $form_review = $request->review;
+
         $destinations = Destination::orderBy('name', 'asc')->get();
         $packages = Package::orderBy('id', 'desc')->paginate(4);
+
         return view('front.packages', compact('packages', 'destinations'));
 
     }
