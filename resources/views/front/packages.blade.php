@@ -62,6 +62,7 @@
                             <div class="widget">
                                 <h2>Filter by Review</h2>
                                 <div class="box">
+
                                     <div class="form-check form-check-review form-check-review-1">
                                         <input name="review" class="form-check-input" type="radio" id="reviewRadiosAll" value="all" {{ request()->get('review') == 'all' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="reviewRadiosAll">

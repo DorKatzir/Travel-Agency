@@ -129,9 +129,10 @@ class FrontController extends Controller
         if($form_destination_id != '') {
             $packages = $packages->where('destination_id', $form_destination_id);
         }
-        if($form_review != '') {
-            $packages = $packages->where('total_rating', '=', $form_review);
+        if($form_review != '' && $form_review != 'all') {
+            //
         }
+
         $packages = $packages->paginate(4);
 
         return view('front.packages', compact('packages', 'destinations'));
