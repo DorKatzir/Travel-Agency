@@ -104,7 +104,9 @@ class FrontController extends Controller
         $destination_photos = DestinationPhoto::where('destination_id', $destination->id)->get();
         $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
 
-        return view('front.destination', compact('destination','destination_photos', 'destination_videos'));
+        $packages = Package::orderBy('id', 'desc')->get()->take(3);
+
+        return view('front.destination', compact('destination','destination_photos', 'destination_videos', 'packages'));
     }
 
 
