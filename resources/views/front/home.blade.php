@@ -235,7 +235,7 @@
                 <div class="col-md-12">
                     <div class="see-more">
                         <div class="button-style-1 mt_20">
-                            <a href="packages.html">View All Packages</a>
+                            <a href="{{ route('packages') }}">View All Packages</a>
                         </div>
                     </div>
                 </div>
