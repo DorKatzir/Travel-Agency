@@ -176,30 +176,53 @@
                                     @endif
                                 </div>
                                 <h2>
-                                    <a href="package.html">Venice Grand Canal</a>
+                                    <a href="{{ route('package', $package->slug) }}">{{ $package->name }}</a>
                                 </h2>
-                                <div class="review">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    (4 Reviews)
+
+                                @if( $package->total_rating > 0 )
+                                    <div class="review">
+                                        @php
+                                            $avg = $package->total_score / $package->total_rating;
+                                        @endphp
+
+                                        @for ($i = 1; $i <= 5; $i++)
+
+                                            @if ($i <= $avg)
+                                                <i class="fas fa-star"></i>
+                                            @elseif ($i-0.5 <= $avg)
+                                                <i class="fas fa-star-half-alt"></i>
+                                            @else
+                                                <i class="far fa-star"></i>
+                                            @endif
+
+                                        @endfor
+
+                                        <small>( {{ $package->total_rating }} Reviews )</small>
+                                    </div>
+
+                                @else
+                                    <div class="review">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="far fa-star"></i>
+                                        @endfor
+                                        <small>( {{ $package->total_rating }} Reviews )</small>
+                                    </div>
+                                @endif
+
+                                <div class="element">
+                                    <div class="element-left">
+                                        <i class="fas fa-plane-departure"></i> {{ $package->destination->name }}
+                                    </div>
+                                    <div class="element-right">
+                                        <i class="fas fa-check-circle"></i> {{ $package->package_amenities->count() }} Amenities
+                                    </div>
                                 </div>
                                 <div class="element">
                                     <div class="element-left">
-                                        <i class="fas fa-plane-departure"></i> Italy
+                                        <i class="fas fa-calendar-alt"></i> {{ $package->tours->count() }} Tours
                                     </div>
                                     <div class="element-right">
-                                        <i class="fas fa-calendar-alt date-icon"></i> 14 Jun, 2024
-                                    </div>
-                                </div>
-                                <div class="element">
-                                    <div class="element-left">
-                                        <i class="fas fa-users"></i> 25 Persons
-                                    </div>
-                                    <div class="element-right">
-                                        <i class="fas fa-clock"></i> 7 Days
+                                        <i class="fas fa-clock"></i> {{ $package->package_itineraries->count() }} Itineraries
                                     </div>
                                 </div>
                             </div>
