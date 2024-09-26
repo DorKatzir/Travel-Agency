@@ -24,7 +24,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="package-sidebar">
                         <form action="{{ route('packages') }}" method="GET">
-                            {{-- @csrf --}}
+                            @csrf
                             <div class="widget">
                                 <h2>Search Package</h2>
                                 <div class="box">
