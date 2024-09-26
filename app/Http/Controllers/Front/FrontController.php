@@ -43,8 +43,9 @@ class FrontController extends Controller
         $testimonials = Testimonial::get();
         $posts = Post::orderBy('id', 'desc')->get()->take(3);
         $destinations = Destination::orderBy('view_count', 'desc')->get()->take(8);
+        $packages = Package::orderBy('id', 'desc')->get()->take(3);
 
-        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations'));
+        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations', 'packages'));
     }
 
     public function about() {
@@ -130,10 +131,6 @@ class FrontController extends Controller
         if($form_destination_id != '') {
             $packages = $packages->where('destination_id', $form_destination_id);
         }
-
-        // if($form_review != '' && $form_review != 'all') {
-        //     $packages = $packages->whereRaw('total_score/total_rating = ?', [$form_review]);
-        // }
 
         if($request->review != 'all' && $request->review != null) {
             $packages = $packages->whereRaw('total_score/total_rating = ?', [$request->review]);
