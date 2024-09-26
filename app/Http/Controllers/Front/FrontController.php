@@ -106,6 +106,7 @@ class FrontController extends Controller
         return view('front.destination', compact('destination','destination_photos', 'destination_videos'));
     }
 
+
     public function packages(Request $request) {
 
         $form_name = $request->name;
@@ -129,15 +130,23 @@ class FrontController extends Controller
         if($form_destination_id != '') {
             $packages = $packages->where('destination_id', $form_destination_id);
         }
-        if($form_review != '' && $form_review != 'all') {
-            //
+
+        // if($form_review != '' && $form_review != 'all') {
+        //     $packages = $packages->whereRaw('total_score/total_rating = ?', [$form_review]);
+        // }
+
+        if($request->review != 'all' && $request->review != null) {
+            $packages = $packages->whereRaw('total_score/total_rating = ?', [$request->review]);
         }
+
 
         $packages = $packages->paginate(4);
 
-        return view('front.packages', compact('packages', 'destinations'));
+        return view('front.packages', compact('packages', 'destinations', 'form_review'));
 
     }
+
+
 
     public function package($slug) {
         $package = Package::where('slug', $slug)->first();
