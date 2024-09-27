@@ -146,7 +146,6 @@ class FrontController extends Controller
     }
 
 
-
     public function package($slug) {
         $package = Package::where('slug', $slug)->first();
         $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Include')->get();
