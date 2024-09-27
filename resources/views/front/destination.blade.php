@@ -41,7 +41,6 @@
                     </div>
 
                     {{-- Packages --}}
-                     {{-- Packages --}}
                      @if($packages->count() > 0)
                         <div class="main-item mb_50">
                             <h2>Packages</h2>
