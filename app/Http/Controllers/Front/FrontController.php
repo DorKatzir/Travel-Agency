@@ -12,6 +12,7 @@ use App\Models\Slider;
 use App\Models\Booking;
 use App\Models\Feature;
 use App\Models\Package;
+use App\Models\Wishlist;
 use App\Mail\Websitemail;
 use App\Models\PackageFaq;
 use App\Models\TeamMember;
