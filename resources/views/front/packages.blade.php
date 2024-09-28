@@ -162,7 +162,7 @@
                                         <div class="photo">
                                             <a href="{{ route('package', $package->slug) }}"><img src="{{ asset('uploads/'. $package->featured_photo) }}" alt=""></a>
                                             <div class="wishlist">
-                                                <a href=""><i class="far fa-heart"></i></a>
+                                                <a href="{{ route('wishlist', $package->id) }}"><i class="far fa-heart"></i></a>
                                             </div>
                                         </div>
                                         <div class="text">

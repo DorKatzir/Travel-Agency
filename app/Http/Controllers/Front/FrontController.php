@@ -145,7 +145,6 @@ class FrontController extends Controller
 
     }
 
-
     public function package($slug) {
         $package = Package::where('slug', $slug)->first();
         $package_amenities_include = PackageAmenity::with('amenity')->where('package_id', $package->id)->where('type', 'Include')->get();
@@ -328,6 +327,27 @@ class FrontController extends Controller
         $package_data->update();
 
         return redirect()->back()->with('success', 'Review submitted successfully.');
+    }
+
+    public function wishlist($package_id) {
+
+        if (!Auth::guard('web')->check()) {
+            return redirect()->route('login')->with('error', 'Please login first to add this item to your Wishlist.');
+        }
+
+        $user_id = Auth::guard('web')->user()->id;
+
+        $wishlist_data = Wishlist::where('user_id', $user_id)->where('package_id', $package_id)->count();
+        if ($wishlist_data > 0) {
+            return redirect()->back()->with('error', 'This item is already in your Wishlist.');
+        }
+
+        $whishlist = new Wishlist();
+        $whishlist->user_id = $user_id;
+        $whishlist->package_id = $package_id;
+        $whishlist->save();
+        return redirect()->back()->with('success', 'Item added to your Wishlist.');
+
     }
 
 
