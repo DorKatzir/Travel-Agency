@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Wishlist extends Model
 {
     use HasFactory;
+
+    public function package() {
+        return $this->belongsTo(Package::class);
+    }
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
