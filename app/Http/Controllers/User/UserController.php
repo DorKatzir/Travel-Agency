@@ -94,7 +94,7 @@ class UserController extends Controller
     }
 
     public function wishlist() {
-        $wishlist = Wishlist::where('user_id', Auth::guard('web')->user()->id->get);
+        $wishlist = Wishlist::where('user_id', Auth::guard('web')->user()->id)->get();
         return  view('user.wishlist', compact('wishlist'));
 
     }
