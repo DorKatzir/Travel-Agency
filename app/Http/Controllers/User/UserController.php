@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Package;
 use App\Models\Wishlist;
 use Hash;
 use App\Models\User;
@@ -95,6 +96,10 @@ class UserController extends Controller
 
     public function wishlist() {
         $wishlist = Wishlist::where('user_id', Auth::guard('web')->user()->id)->get();
+        foreach($wishlist as $wish){
+            echo $wish->package_id;
+        }
+
         return  view('user.wishlist', compact('wishlist'));
     }
 }

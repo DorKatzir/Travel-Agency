@@ -36,38 +36,24 @@
                                     <th>Destination</th>
                                     <th class="w-100">Action</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <img src="uploads/package-1.jpg" alt="" class="w-200">
-                                    </td>
-                                    <td>
-                                        Royal Ontario Museum
-                                    </td>
-                                    <td>
-                                        Canada
-                                    </td>
-                                    <td>
-                                        <a href="package.html" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>
-                                        <img src="uploads/package-2.jpg" alt="" class="w-200">
-                                    </td>
-                                    <td>
-                                        Great Barrier Reef
-                                    </td>
-                                    <td>
-                                        Australia
-                                    </td>
-                                    <td>
-                                        <a href="package.html" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
-                                    </td>
-                                </tr>
+                                @foreach ($wishlist as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <img src="{{ asset('uploads/' . $item->package->featured_photo) }}" alt="" class="w-150 rounded">
+                                        </td>
+                                        <td>
+                                            {{ $item->package->name }}
+                                        </td>
+                                        <td>
+                                            {{ $item->package->destination->country }}
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('package', $item->package->slug) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                            <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
