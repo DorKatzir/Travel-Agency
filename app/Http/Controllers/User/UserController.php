@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Package;
 use App\Models\Wishlist;
 use Hash;
 use App\Models\User;
@@ -101,5 +100,14 @@ class UserController extends Controller
         }
 
         return  view('user.wishlist', compact('wishlist'));
+    }
+
+    public function wishlist_delete($id) {
+
+        $obj = Wishlist::where('id', $id)->first();
+        $obj->delete();
+
+        return redirect()->back()->with('success', 'Wishlist Item Deleted Successfully.');
+
     }
 }

@@ -49,7 +49,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
+                                                <a href="{{ route('user_wishlist_delete', $item->id) }}" class="btn btn-danger btn-sm" onClick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
