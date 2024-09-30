@@ -31,26 +31,24 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <th>SL</th>
-                                        <th>Photo</th>
+                                        <th style="width: 60px;">SL</th>
+                                        <th class="w-150">Photo</th>
                                         <th>Package</th>
-                                        <th>Destination</th>
                                         <th class="w-100">Action</th>
                                     </tr>
                                     @foreach ($wishlist as $item)
-                                        <tr>
+                                        <tr class="" style="vertical-align: middle;">
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 <img src="{{ asset('uploads/' . $item->package->featured_photo) }}" alt="" class="w-150 rounded">
                                             </td>
                                             <td>
-                                                {{ $item->package->name }}
+                                                <a href="{{ route('package', $item->package->slug) }}" style="white-space: nowrap;" class="" target="_blank">
+                                                    {{ $item->package->name }}
+                                                </a>
                                             </td>
+
                                             <td>
-                                                {{ $item->package->destination->country }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('package', $item->package->slug) }}" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-eye"></i></a>
                                                 <a href="" class="btn btn-danger btn-sm" onClick="return confirm('Are You Sure?')"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
