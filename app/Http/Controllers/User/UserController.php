@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Message;
 use App\Models\Wishlist;
 use Hash;
 use App\Models\User;
@@ -112,6 +113,7 @@ class UserController extends Controller
     }
 
     public function message() {
-        return view('user.message');
+        $message = Message::where('user_id', Auth::guard('web')->user()->id)->get();
+        return view('user.message', compact('message'));
     }
 }

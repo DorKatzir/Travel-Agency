@@ -67,7 +67,7 @@
                 <h3>Write a message</h3>
                 <form action="" method="post">
                     <div class="mb-2">
-                        <textarea name="" class="form-control h-150" cols="30" rows="10" placeholder="Write your message here"></textarea>
+                        <textarea name="comment" class="form-control h-150" cols="30" rows="10" placeholder="Write your message here"></textarea>
                     </div>
                     <div class="mb-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
