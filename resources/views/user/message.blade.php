@@ -25,7 +25,9 @@
                    @include('user.sidebar')
                 </div>
             </div>
+
             <div class="col-lg-5 col-md-12">
+            @if ($messages->count() > 0)
                 <h3>All Messages</h3>
                 <div class="message-item message-item-admin-border">
                     <div class="message-top">
@@ -58,11 +60,14 @@
                         <p>I forgot to tell one thing. Can you please allow some toys for my son in this tour? It will be very much helpful if you allow.</p>
                     </div>
                 </div>
-
-
-
+            @else
+            <div class="alert alert-info">
+                You don't have any message.
+            </div>
+            @endif
             </div>
 
+            {{-- Start Form --}}
             <div class="col-lg-4 col-md-12">
                 <h3>Write a message</h3>
                 <form action="" method="post">
@@ -74,6 +79,7 @@
                     </div>
                 </form>
             </div>
+            {{-- End Form --}}
         </div>
     </div>
     </div>

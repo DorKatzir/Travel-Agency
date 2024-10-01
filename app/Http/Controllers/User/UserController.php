@@ -113,7 +113,7 @@ class UserController extends Controller
     }
 
     public function message() {
-        $message = Message::where('user_id', Auth::guard('web')->user()->id)->get();
-        return view('user.message', compact('message'));
+        $messages = Message::where('user_id', Auth::guard('web')->user()->id)->get();
+        return view('user.message', compact('messages'));
     }
 }
