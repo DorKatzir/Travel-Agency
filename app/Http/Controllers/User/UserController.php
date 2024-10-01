@@ -110,4 +110,8 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Wishlist Item Deleted Successfully.');
 
     }
+
+    public function message() {
+        return view('user.message');
+    }
 }
