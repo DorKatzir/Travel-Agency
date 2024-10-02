@@ -76,7 +76,7 @@ Route::middleware('auth')->prefix('user')->group(function () {
     Route::get('wishlist-delete/{id}', [UserController::class, 'wishlist_delete'])->name('user_wishlist_delete');
     Route::get('/message', [UserController::class, 'message'])->name('user_message');
     Route::get('/message-start', [UserController::class, 'message_start'])->name('user_message_start');
-    Route::post('/message', [UserController::class, 'message_submit'])->name('user_message_submit');
+    Route::post('/message-submit', [UserController::class, 'message_submit'])->name('user_message_submit');
 
 
     Route::get('/profile', [UserController::class, 'profile'])->name('user_profile');

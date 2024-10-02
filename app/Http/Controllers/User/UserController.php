@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Message;
-use App\Models\Wishlist;
 use Hash;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Booking;
+use App\Models\Message;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use App\Models\MessageComment;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -115,14 +116,11 @@ class UserController extends Controller
     public function message() {
 
         $message_check = Message::where('user_id', Auth::guard('web')->user()->id)->count();
-        return view('user.message', compact('message_check'));
-
-        // if($message_check > 0){
-        //     return redirect()->back()->with('error', 'You have already started a conversation');
-        // }
+        $message = Message::where('user_id', Auth::guard('web')->user()->id)->first();
+        $message_comment = MessageComment::where('message_id', $message->id)->get();
 
 
-
+        return view('user.message', compact('message_check', 'message', 'message_comment'));
     }
 
     /**
@@ -146,10 +144,23 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    public function message_submit(Request $request) {
+
+        $request->validate([
+            'comment' => ['required']
+        ]);
+
+        $message = Message::where('user_id', Auth::guard('web')->user()->id)->first();
+
+        $obj =  new MessageComment();
+        $obj->message_id = $message->id;
+        $obj->sender_id = Auth::guard('web')->user()->id;
+        $obj->type = 'user';
+        $obj->comment = $request->comment;
+        $obj->save();
+
+        return redirect()->back()->with('success', 'Message Sent Successfully');
+    }
 
 
-    // public function message_submit(Request $request) {
-    //     dd($request->all());
-
-    // }
 }
