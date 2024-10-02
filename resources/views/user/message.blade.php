@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-lg-5 col-md-12">
-            @if ($messages->count() > 0)
+            @if ($message_check)
                 <h3>All Messages</h3>
                 <div class="message-item message-item-admin-border">
                     <div class="message-top">
@@ -60,11 +60,7 @@
                         <p>I forgot to tell one thing. Can you please allow some toys for my son in this tour? It will be very much helpful if you allow.</p>
                     </div>
                 </div>
-            @else
-            <div class="alert alert-info">
-                You don't have any message.
-            </div>
-            @endif
+
             </div>
 
             {{-- Start Form --}}
@@ -81,6 +77,16 @@
                 </form>
             </div>
             {{-- End Form --}}
+
+            @else
+            <div>
+                <div class="alert alert-danger">
+                    <p>No message found.</p>
+                    <a href="{{ route('user_message_start') }}" class="btn btn-primary">Start Messaging</a>
+                </div>
+            </div>
+            @endif
+
         </div>
     </div>
     </div>

@@ -113,7 +113,38 @@ class UserController extends Controller
     }
 
     public function message() {
-        $messages = Message::where('user_id', Auth::guard('web')->user()->id)->get();
-        return view('user.message', compact('messages'));
+
+        $message_check = Message::where('user_id', Auth::guard('web')->user()->id)->count();
+        return view('user.message', compact('message_check'));
+
+        // if($message_check > 0){
+        //     return redirect()->back()->with('error', 'You have already started a conversation');
+        // }
+
+
+
     }
+
+    /**
+     * Starts a new message conversation for the authenticated user.
+     *
+     * This method creates a new `Message` record in the database with the authenticated
+     * user's ID. This is the first step in allowing the user to start a new message
+     * conversation.
+     */
+    public function message_start() {
+
+        $obj = new Message();
+        $obj->user_id = Auth::guard('web')->user()->id;
+        $obj->save();
+
+        return redirect()->back();
+    }
+
+
+
+    // public function message_submit(Request $request) {
+    //     dd($request->all());
+
+    // }
 }
