@@ -117,10 +117,10 @@ class UserController extends Controller
 
         $message_check = Message::where('user_id', Auth::guard('web')->user()->id)->count();
         $message = Message::where('user_id', Auth::guard('web')->user()->id)->first();
-        $message_comment = MessageComment::where('message_id', $message->id)->get();
+        $message_comments = MessageComment::where('message_id', $message->id)->get();
 
 
-        return view('user.message', compact('message_check', 'message', 'message_comment'));
+        return view('user.message', compact('message_check', 'message', 'message_comments'));
     }
 
     /**
