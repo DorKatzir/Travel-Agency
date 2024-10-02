@@ -134,6 +134,11 @@ class UserController extends Controller
      */
     public function message_start() {
 
+        $message_check = Message::where('user_id', Auth::guard('web')->user()->id)->count();
+        if($message_check > 0){
+            return redirect()->back()->with('error', 'You have already started a conversation');
+        }
+
         $obj = new Message();
         $obj->user_id = Auth::guard('web')->user()->id;
         $obj->save();

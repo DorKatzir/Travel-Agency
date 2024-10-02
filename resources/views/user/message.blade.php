@@ -26,60 +26,61 @@
                 </div>
             </div>
 
-            <div class="col-lg-5 col-md-12">
             @if ($message_check)
-                <h3>All Messages</h3>
-                <div class="message-item message-item-admin-border">
-                    <div class="message-top">
-                        <div class="left">
-                            <img src="uploads/user-photo.jpg" alt="">
+                {{-- Start Messages List --}}
+                <div class="col-lg-5 col-md-12">
+                    <h3>All Messages</h3>
+                    <div class="message-item message-item-admin-border">
+                        <div class="message-top">
+                            <div class="left">
+                                <img src="uploads/user-photo.jpg" alt="">
+                            </div>
+                            <div class="right">
+                                <h4>Morshedul Arefin</h4>
+                                <h5>Admin</h5>
+                                <div class="date-time">2024-08-20 09:33:22 AM</div>
+                            </div>
                         </div>
-                        <div class="right">
-                            <h4>Morshedul Arefin</h4>
-                            <h5>Admin</h5>
-                            <div class="date-time">2024-08-20 09:33:22 AM</div>
+                        <div class="message-bottom">
+                            <p>Thank you for contacting. Sure, you can take it with you without any problem.</p>
                         </div>
                     </div>
-                    <div class="message-bottom">
-                        <p>Thank you for contacting. Sure, you can take it with you without any problem.</p>
+
+                    <div class="message-item">
+                        <div class="message-top">
+                            <div class="left">
+                                <img src="uploads/team-1.jpg" alt="">
+                            </div>
+                            <div class="right">
+                                <h4>Smith Brent</h4>
+                                <h5>Client</h5>
+                                <div class="date-time">2024-08-20 08:12:43 AM</div>
+                            </div>
+                        </div>
+                        <div class="message-bottom">
+                            <p>I forgot to tell one thing. Can you please allow some toys for my son in this tour? It will be very much helpful if you allow.</p>
+                        </div>
                     </div>
                 </div>
+                {{-- End Messages List --}}
 
-                <div class="message-item">
-                    <div class="message-top">
-                        <div class="left">
-                            <img src="uploads/team-1.jpg" alt="">
+                {{-- Start Form --}}
+                <div class="col-lg-4 col-md-12">
+                    <h3>Write a message</h3>
+                    <form action="{{ route('user_message_submit') }}" method="POST">
+                        @csrf
+                        <div class="mb-2">
+                            <textarea name="comment" class="form-control h-150" cols="30" rows="10" placeholder="Write your message here"></textarea>
                         </div>
-                        <div class="right">
-                            <h4>Smith Brent</h4>
-                            <h5>Client</h5>
-                            <div class="date-time">2024-08-20 08:12:43 AM</div>
+                        <div class="mb-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                    </div>
-                    <div class="message-bottom">
-                        <p>I forgot to tell one thing. Can you please allow some toys for my son in this tour? It will be very much helpful if you allow.</p>
-                    </div>
+                    </form>
                 </div>
-
-            </div>
-
-            {{-- Start Form --}}
-            <div class="col-lg-4 col-md-12">
-                <h3>Write a message</h3>
-                <form action="{{ route('user_message_submit') }}" method="POST">
-                    @csrf
-                    <div class="mb-2">
-                        <textarea name="comment" class="form-control h-150" cols="30" rows="10" placeholder="Write your message here"></textarea>
-                    </div>
-                    <div class="mb-2">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-            {{-- End Form --}}
+                {{-- End Form --}}
 
             @else
-            <div>
+            <div class="col-lg-5 col-md-12">
                 <div class="alert alert-danger">
                     <p>No message found.</p>
                     <a href="{{ route('user_message_start') }}" class="btn btn-primary">Start Messaging</a>
