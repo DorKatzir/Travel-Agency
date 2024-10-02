@@ -46,20 +46,20 @@
                             <div class="message-item @if ($comment->type == 'admin') message-item-admin-border @endif">
                                 <div class="message-top">
                                     <div class="left">
-                                        @if ($comment->type == 'user')
-                                            <img src="uploads/user-photo.jpg" alt="">
+                                        @if ($sender_data->photo != '')
+                                            <img src="{{ asset('uploads/' . $sender_data->photo) }}" alt="">
                                         @else
-
+                                        <img src="{{ asset('uploads/default.png') }}" alt="">
                                         @endif
                                     </div>
                                     <div class="right">
-                                        <h4></h4>
-                                        <h5>Admin</h5>
-                                        <div class="date-time">2024-08-20 09:33:22 AM</div>
+                                        <h4 class="text-capitalize">{{ $sender_data->name }}</h4>
+                                        <h5 class="text-capitalize">{{ $comment->type }}</h5>
+                                        <div class="date-time">{{ $comment->created_at->format('d M Y') }}</div>
                                     </div>
                                 </div>
                                 <div class="message-bottom">
-                                    <p>Thank you for contacting. Sure, you can take it with you without any problem.</p>
+                                    <p>{!! $comment->comment !!}</p>
                                 </div>
                             </div>
 
