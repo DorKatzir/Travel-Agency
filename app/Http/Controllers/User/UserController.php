@@ -4,10 +4,12 @@ namespace App\Http\Controllers\User;
 
 use Hash;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Review;
 use App\Models\Booking;
 use App\Models\Message;
 use App\Models\Wishlist;
+use App\Mail\Websitemail;
 use Illuminate\Http\Request;
 use App\Models\MessageComment;
 use Illuminate\Validation\Rule;
@@ -158,6 +160,15 @@ class UserController extends Controller
         $obj->type = 'user';
         $obj->comment = $request->comment;
         $obj->save();
+
+        $message_link = '';
+        $subject = "New User Message";
+        $message = "Please click on the link below to see the new message from the user:<br>";
+        $message .= "<a href='".$message_link."'>Click Here</a>";
+
+        $admin_data = Admin::where('id', 1)->first();
+
+        \Mail::to($admin_data->email)->send(new Websitemail($subject,$message));
 
         return redirect()->back()->with('success', 'Message Sent Successfully');
     }
