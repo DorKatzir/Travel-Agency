@@ -58,7 +58,7 @@
                                         <div class="date-time">
                                             <small>
                                                 <strong>
-                                                    {{ $comment->created_at->format('d M Y H:i:s A') }}
+                                                    {{ $comment->created_at->format('d M Y H:i A') }}
                                                 </strong>
                                             </small>
                                         </div>
