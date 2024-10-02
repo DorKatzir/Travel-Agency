@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="right">
                                         <h4>Smith Brent</h4>
-                                        <h5>Client</h5>
+                                        <h5>User</h5>
                                         <div class="date-time">2024-08-20 08:12:43 AM</div>
                                     </div>
                                 </div>
