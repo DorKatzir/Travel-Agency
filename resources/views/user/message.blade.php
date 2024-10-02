@@ -55,7 +55,13 @@
                                     <div class="right">
                                         <h4 class="text-capitalize">{{ $sender_data->name }}</h4>
                                         <h5 class="text-capitalize">{{ $comment->type }}</h5>
-                                        <div class="date-time">{{ $comment->created_at->format('d M Y') }}</div>
+                                        <div class="date-time">
+                                            <small>
+                                                <strong>
+                                                    {{ $comment->created_at->format('d M Y H:i:s A') }}
+                                                </strong>
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="message-bottom">
