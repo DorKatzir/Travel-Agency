@@ -70,7 +70,7 @@
             {{-- Start Form --}}
             <div class="col-lg-4 col-md-12">
                 <h3>Write a message</h3>
-                <form action="" method="post">
+                <form action="{{ route('user_message_submit') }}" method="POST">
                     @csrf
                     <div class="mb-2">
                         <textarea name="comment" class="form-control h-150" cols="30" rows="10" placeholder="Write your message here"></textarea>
