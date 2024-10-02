@@ -32,11 +32,25 @@
                     <h3>All Messages</h3>
                     @foreach ($message_comments as $comment )
 
+                       @php
+                           if ($comment->type == 'user') {
+                             $sender_data = App\Models\User::where('id', $comment->sender_id)->first();
+                           }
+
+                           if ($comment->type == 'admin') {
+                            $sender_data = App\Models\Admin::where('id', $comment->sender_id)->first();
+                           }
+                       @endphp
+
                             {{-- Admin Message --}}
                             <div class="message-item @if ($comment->type == 'admin') message-item-admin-border @endif">
                                 <div class="message-top">
                                     <div class="left">
-                                        <img src="uploads/user-photo.jpg" alt="">
+                                        @if ($comment->type == 'user')
+                                            <img src="uploads/user-photo.jpg" alt="">
+                                        @else
+
+                                        @endif
                                     </div>
                                     <div class="right">
                                         <h4></h4>
