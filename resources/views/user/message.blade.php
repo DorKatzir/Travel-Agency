@@ -31,15 +31,15 @@
                 <div class="col-lg-5 col-md-12">
                     <h3>All Messages</h3>
                     @foreach ($message_comments as $comment )
-                        @if ($comment->type == 'admin')
+
                             {{-- Admin Message --}}
-                            <div class="message-item message-item-admin-border">
+                            <div class="message-item @if ($comment->type == 'admin') message-item-admin-border @endif">
                                 <div class="message-top">
                                     <div class="left">
                                         <img src="uploads/user-photo.jpg" alt="">
                                     </div>
                                     <div class="right">
-                                        <h4>Morshedul Arefin</h4>
+                                        <h4></h4>
                                         <h5>Admin</h5>
                                         <div class="date-time">2024-08-20 09:33:22 AM</div>
                                     </div>
@@ -48,11 +48,11 @@
                                     <p>Thank you for contacting. Sure, you can take it with you without any problem.</p>
                                 </div>
                             </div>
-                        @endif
 
-                        @if ($comment->type == 'user')
+
+
                             {{-- User Message --}}
-                            <div class="message-item">
+                            {{-- <div class="message-item">
                                 <div class="message-top">
                                     <div class="left">
                                         <img src="uploads/team-1.jpg" alt="">
@@ -66,8 +66,8 @@
                                 <div class="message-bottom">
                                     <p>I forgot to tell one thing. Can you please allow some toys for my son in this tour? It will be very much helpful if you allow.</p>
                                 </div>
-                            </div>
-                        @endif
+                            </div> --}}
+
                     @endforeach
 
                 </div>
