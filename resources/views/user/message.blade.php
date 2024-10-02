@@ -30,7 +30,7 @@
                 {{-- Start Messages List --}}
                 <div class="col-lg-5 col-md-12">
                     <h3>All Messages</h3>
-                    @foreach ($message_comments as comment )
+                    @foreach ($message_comments as $comment )
                         @if ($comment->type == 'admin')
                             {{-- Admin Message --}}
                             <div class="message-item message-item-admin-border">

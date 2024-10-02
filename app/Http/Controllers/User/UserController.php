@@ -120,7 +120,7 @@ class UserController extends Controller
         $message_comments = MessageComment::where('message_id', $message->id)->get();
 
 
-        return view('user.message', compact('message_check', 'message', 'message_comments'));
+        return view('user.message', compact('message_check', 'message_comments'));
     }
 
     /**
