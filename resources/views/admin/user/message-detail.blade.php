@@ -26,9 +26,29 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <div class="message-item">
-
+                                {{-- Messages --}}
+                                <div class="rounded message-item">
+                                    <div class="message-top">
+                                        <div class="left">
+                                            <img src="{{ asset('uploads/default.png') }}" alt="">
+                                        </div>
+                                        <div class="right">
+                                            <h4 class="text-capitalize">Name</h4>
+                                            <h5 class="text-capitalize">User</h5>
+                                            <div class="date-time">
+                                                <small>
+                                                    <strong>
+                                                        Date
+                                                    </strong>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-bottom">
+                                        <p>Comment</p>
+                                    </div>
                                 </div>
+                                {{-- End Messages --}}
 
                             </div>
                         </div>
