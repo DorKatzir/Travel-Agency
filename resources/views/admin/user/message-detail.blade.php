@@ -22,7 +22,8 @@
 
             <div class="section-body">
                 <div class="row">
-                    <div class="col-12">
+
+                    <div class="col-md-7">
                         <div class="card">
                             <div class="card-body">
                                 {{-- Messages --}}
@@ -50,11 +51,12 @@
                                 {{-- End Messages --}}
                             </div>
                         </div>
+                    </div>
 
+                    <div class="col-md-5">
                         <div class="card">
                             <div class="card-body">
                                 {{-- Start Form --}}
-
                                     <h3>Write a message</h3>
                                     <form action="" method="POST">
 
@@ -65,11 +67,11 @@
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                     </form>
-
                                 {{-- End Form --}}
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
