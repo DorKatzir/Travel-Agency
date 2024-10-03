@@ -25,7 +25,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-
                                 {{-- Messages --}}
                                 <div class="rounded message-item">
                                     <div class="message-top">
@@ -49,7 +48,25 @@
                                     </div>
                                 </div>
                                 {{-- End Messages --}}
+                            </div>
+                        </div>
 
+                        <div class="card">
+                            <div class="card-body">
+                                {{-- Start Form --}}
+
+                                    <h3>Write a message</h3>
+                                    <form action="" method="POST">
+
+                                        <div class="mb-2">
+                                            <textarea name="comment" class="form-control h-150" cols="30" rows="10" placeholder="Write your message here"></textarea>
+                                        </div>
+                                        <div class="mb-2">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+
+                                {{-- End Form --}}
                             </div>
                         </div>
                     </div>

@@ -514,3 +514,7 @@ hr.invoice-above-table {
     border-left-color:#0663fc;
     border-left-width: 5px;
 }
+
+.h-150{
+    height:150px !important;
+}
