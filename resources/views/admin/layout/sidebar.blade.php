@@ -117,6 +117,27 @@
                 </a>
             </li>
 
+
+            <li class="nav-item dropdown {{ Request::is('admin/message/*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>User Section</span></a>
+                <ul class="dropdown-menu">
+
+                    <li class="">
+                        <a class="nav-link" href="">
+                            <i class="fas fa-angle-right"></i> User
+                        </a>
+                    </li>
+
+                    <li class="{{ Request::is('admin/message') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin_message') }}">
+                            <i class="fas fa-angle-right"></i>Message
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+
             <li class="{{ Request::is('admin/reviews') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_reviews') }}">
                     <i class="fas fa-hand-point-right"></i>

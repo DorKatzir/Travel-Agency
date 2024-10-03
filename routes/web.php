@@ -245,7 +245,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/tour/invoice/{invoice_no}', [AdminTourController::class, 'tour_invoice'])->name('admin_tour_invoice');
 
     // User
-    Route::get('/user/message', [AdminUserController::class, 'message'])->name('admin_message');
+    Route::get('/message', [AdminUserController::class, 'message'])->name('admin_message');
 
 });
 
