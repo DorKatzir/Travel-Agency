@@ -25,26 +25,28 @@
                                     <table class="table table-bordered" id="example1">
                                         <thead>
                                             <tr>
-                                                <th>SL</th>
-                                                <th>User</th>
+                                                <th class="w_50">SL</th>
+                                                <th>User Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            {{-- @foreach ($tours as $tour)
+                                            @foreach ($messages as $message)
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $tour->package->name }} <br> <a href="{{ route('package',$tour->package->slug) }}" target="_blank"><small class="ms-1">Details Page</small></a> </td>
-
+                                                    <td>{{ $message->user->name }}</td>
+                                                    <td>{{ $message->user->email }}</td>
+                                                    <td>{{ $message->user->phone }}</td>
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_tour_edit', $tour->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin_tour_delete', $tour->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="" class="btn btn-primary"><i class="fas fa-edit"></i>Messages</a>
                                                     </td>
                                                 </tr>
 
-                                            @endforeach --}}
+                                            @endforeach
 
                                         </tbody>
                                     </table>
