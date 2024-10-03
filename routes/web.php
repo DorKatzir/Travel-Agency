@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminReviewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -8,6 +7,8 @@ use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminTourController;
+use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminAmenityController;
 use App\Http\Controllers\Admin\AdminFeatureController;
@@ -242,6 +243,9 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/tour/booking-delete/{id}', [AdminTourController::class, 'tour_booking_delete'])->name('admin_tour_booking_delete');
     // Tour Invoice
     Route::get('/tour/invoice/{invoice_no}', [AdminTourController::class, 'tour_invoice'])->name('admin_tour_invoice');
+
+    // User
+    Route::get('/user/message', [AdminUserController::class, 'message'])->name('admin_message');
 
 });
 
