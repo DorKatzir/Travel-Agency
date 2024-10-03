@@ -246,6 +246,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     // User
     Route::get('/message', [AdminUserController::class, 'message'])->name('admin_message');
+    Route::get('/message-detail/{id}', [AdminUserController::class, 'message_detail'])->name('admin_message_detail');
 
 });
 
