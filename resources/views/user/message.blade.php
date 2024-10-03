@@ -42,51 +42,32 @@
                            }
                        @endphp
 
-                            {{-- Admin Message --}}
-                            <div class="message-item @if ($comment->type == 'admin') message-item-admin-border @endif">
-                                <div class="message-top">
-                                    <div class="left">
-                                        @if ($sender_data->photo != '')
-                                            <img src="{{ asset('uploads/' . $sender_data->photo) }}" alt="">
-                                        @else
-                                        <img src="{{ asset('uploads/default.png') }}" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="right">
-                                        <h4 class="text-capitalize">{{ $sender_data->name }}</h4>
-                                        <h5 class="text-capitalize">{{ $comment->type }}</h5>
-                                        <div class="date-time">
-                                            <small>
-                                                <strong>
-                                                    {{ $comment->created_at->format('d M Y H:i A') }}
-                                                </strong>
-                                            </small>
-                                        </div>
-                                    </div>
+                        {{-- Messages --}}
+                        <div class="rounded message-item @if ($comment->type == 'admin') message-item-admin-border @endif">
+                            <div class="message-top">
+                                <div class="left">
+                                    @if ($sender_data->photo != '')
+                                        <img src="{{ asset('uploads/' . $sender_data->photo) }}" alt="">
+                                    @else
+                                    <img src="{{ asset('uploads/default.png') }}" alt="">
+                                    @endif
                                 </div>
-                                <div class="message-bottom">
-                                    <p>{!! $comment->comment !!}</p>
+                                <div class="right">
+                                    <h4 class="text-capitalize">{{ $sender_data->name }}</h4>
+                                    <h5 class="text-capitalize">{{ $comment->type }}</h5>
+                                    <div class="date-time">
+                                        <small>
+                                            <strong>
+                                                {{ $comment->created_at->format('d M Y H:i A') }}
+                                            </strong>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
-
-
-
-                            {{-- User Message --}}
-                            {{-- <div class="message-item">
-                                <div class="message-top">
-                                    <div class="left">
-                                        <img src="uploads/team-1.jpg" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <h4>Smith Brent</h4>
-                                        <h5>User</h5>
-                                        <div class="date-time">2024-08-20 08:12:43 AM</div>
-                                    </div>
-                                </div>
-                                <div class="message-bottom">
-                                    <p>I forgot to tell one thing. Can you please allow some toys for my son in this tour? It will be very much helpful if you allow.</p>
-                                </div>
-                            </div> --}}
+                            <div class="message-bottom">
+                                <p>{!! $comment->comment !!}</p>
+                            </div>
+                        </div>
 
                     @endforeach
 
