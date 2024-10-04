@@ -41,12 +41,15 @@
                                         @if ($sender_data->photo != '')
                                             <img src="{{ asset('uploads/' . $sender_data->photo) }}" alt="">
                                         @else
-                                        <img src="{{ asset('uploads/default.png') }}" alt="">
+                                            <img src="{{ asset('uploads/default.png') }}" alt="">
                                         @endif
                                     </div>
                                     <div class="right">
-                                        <h4 class="text-capitalize">{{ $sender_data->name }}</h4>
-                                        <h5 class="text-capitalize">{{ $comment->type }}</h5>
+                                        <h4 class="text-capitalize">{{ $sender_data->name }}
+                                            @if ($comment->type == 'admin')
+                                                (Admin)
+                                            @endif
+                                        </h4>
                                         <div class="date-time">
                                             <small>
                                                 <strong>
