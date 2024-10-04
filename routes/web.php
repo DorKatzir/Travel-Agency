@@ -79,7 +79,6 @@ Route::middleware('auth')->prefix('user')->group(function () {
     Route::get('/message-start', [UserController::class, 'message_start'])->name('user_message_start');
     Route::post('/message-submit', [UserController::class, 'message_submit'])->name('user_message_submit');
 
-
     Route::get('/profile', [UserController::class, 'profile'])->name('user_profile');
     Route::post('/profile', [UserController::class, 'profile_update'])->name('user_profile_update');
 

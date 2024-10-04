@@ -30,7 +30,8 @@
                 {{-- Start Messages List --}}
                 <div class="col-lg-5 col-md-12">
                     <h3>All Messages</h3>
-                    @foreach ($message_comments as $comment)
+
+                    @forelse($message_comments as $comment)
 
                        @php
                            if ($comment->type == 'user') {
@@ -68,8 +69,12 @@
                                 <p>{!! $comment->comment !!}</p>
                             </div>
                         </div>
+                    @empty
+                    <div class="alert alert-danger">
+                        <h4>No Messages Found</h4>
+                    </div>
 
-                    @endforeach
+                    @endforelse
 
                 </div>
                 {{-- End Messages List --}}
