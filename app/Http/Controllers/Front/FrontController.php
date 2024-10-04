@@ -32,8 +32,7 @@ use App\Models\PackageItinerary;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Mail;
-use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Illuminate\Support\Facades\Mail;
 
 class FrontController extends Controller
 {
@@ -366,29 +365,31 @@ class FrontController extends Controller
         $obj->status = 'Pending';
         $obj->save();
 
-        $verification_link = route('subscriber_verify', ['email'=>$request->email, 'token'=>$token]);
+
+        $verification_link = url('subscriber-verify/'.$token.'/'.$request->email);
 
         $subject = 'Subscriber Verification';
         $message = 'Please click on the following link to verify your email address as subscriber:<br>';
         $message .= '<a href="'.$verification_link.'">Verify Email</a>';
 
-        /Mail::to($request->email)->send(new Websitemail($subject,$message));
+        \Mail::to($request->email)->send(new Websitemail($subject,$message));
 
         return redirect()->back()->with('success', 'You have successfully subscribed to our newsletter. Please check your email to verify your email address.');
 
     }
 
-    public function subscriber_verify($email, $token) {
+    public function subscriber_verify($token, $email) {
 
-        $subscriber_data = Subscriber::where('email', $email)->where('token', $token)->first();
+        $subscriber = Subscriber::where('token', $token)->where('email', $email)->first();
 
-        if (!$subscriber_data) {
-            return redirect()->route('home');
+        if (!$subscriber) {
+            return redirect()->route('home')->with('error', 'Something went wrong!');
         }
 
-        $subscriber_data->token = '';
-        $subscriber_data->status = 'Active';
-        $subscriber_data->update();
+        $subscriber->token = '';
+        $subscriber->status = 'Active';
+        $subscriber->update();
+
         return redirect()->route('home')->with('success', 'Your email address has been verified successfully.');
     }
 

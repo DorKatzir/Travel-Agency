@@ -37,7 +37,7 @@ Route::get('/wishlist/{package_id}', [FrontController::class, 'wishlist'])->name
 
 // Subscribe
 Route::post('/subscriber-submit', [FrontController::class, 'subscriber_submit'])->name('subscriber_submit');
-Route::get('/subscriber-verify/{email}/{token}', [FrontController::class, 'subscriber_verify'])->name('subscriber_verify');
+Route::get('/subscriber-verify/{token}/{email}', [FrontController::class, 'subscriber_verify'])->name('subscriber_verify');
 
 Route::get('/packages', [FrontController::class, 'packages'])->name('packages');
 Route::get('/package/{slug}', [FrontController::class, 'package'])->name('package');
