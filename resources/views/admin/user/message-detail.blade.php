@@ -68,7 +68,7 @@
                         <div class="card">
                             <div class="card-body">
                                 {{-- Start Form --}}
-                                    <h3>Write a message</h3>
+                                    <h5>Write a message</h5>
                                     <form action="{{ route('admin_message_submit', $id) }}" method="POST">
                                         @csrf
                                         <div class="mb-2">
