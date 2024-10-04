@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminAmenityController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminPackageController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
 use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminDestinationController;
@@ -248,6 +249,9 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/message', [AdminUserController::class, 'message'])->name('admin_message');
     Route::get('/message-detail/{id}', [AdminUserController::class, 'message_detail'])->name('admin_message_detail');
     Route::post('/message-submit/{id}', [AdminUserController::class, 'message_submit'])->name('admin_message_submit');
+
+    // Subscribers
+    Route::get('/subscribers', [AdminSubscriberController::class, 'subscribers'])->name('admin_subscribers');
 
 });
 

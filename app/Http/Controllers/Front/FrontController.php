@@ -390,7 +390,7 @@ class FrontController extends Controller
         $subscriber->status = 'Active';
         $subscriber->update();
 
-        return redirect()->route('home')->with('success', 'Your email address has been verified successfully.');
+        return redirect()->back()->with('success', 'Your Email address has been verified successfully.');
     }
 
 

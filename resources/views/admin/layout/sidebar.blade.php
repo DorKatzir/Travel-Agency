@@ -145,6 +145,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/subscribers') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_subscribers') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Subscribers</span>
+                </a>
+            </li>
+
 
             <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_profile') }}">
