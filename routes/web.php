@@ -252,6 +252,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     // Subscribers
     Route::get('/subscribers', [AdminSubscriberController::class, 'subscribers'])->name('admin_subscribers');
+    Route::get('/subscriber-delete/{id}', [AdminSubscriberController::class, 'subscriber_delete'])->name('admin_subscriber_delete');
 
 });
 
