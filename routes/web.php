@@ -35,13 +35,13 @@ Route::get('/destinations', [FrontController::class, 'destinations'])->name('des
 Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name('destination');
 Route::get('/wishlist/{package_id}', [FrontController::class, 'wishlist'])->name('wishlist');
 
-Route::get('/packages', [FrontController::class, 'packages'])->name('packages');
+// Subscribe
+Route::post('/subscriber-submit', [FrontController::class, 'subscriber_submit'])->name('subscriber_submit');
 
+Route::get('/packages', [FrontController::class, 'packages'])->name('packages');
 Route::get('/package/{slug}', [FrontController::class, 'package'])->name('package');
 Route::post('/enquey/submit/{package_id}', [FrontController::class, 'enquey_form_submit'])->name('enquey_form_submit');
-
 Route::post('/review/submit', [FrontController::class, 'review_submit'])->name('review_submit');
-
 
 // Payment
 Route::post('/payment',[FrontController::class,'payment'])->name('payment');
@@ -50,7 +50,7 @@ Route::get('/paypal/success', [FrontController::class, 'paypal_success'])->name(
 Route::get('/paypal/cancel', [FrontController::class, 'paypal_cancel'])->name('paypal_cancel');
 
 
-
+// Registrarion
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
 Route::post('/registration', [FrontController::class, 'registration_submit'])->name('registration_submit');
 Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'registration_verify'])->name('registration_verify');

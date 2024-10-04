@@ -141,6 +141,7 @@
                         </div>
                     </div>
 
+                    {{-- Subscribe --}}
                     <div class="col-lg-3 col-md-6">
                         <div class="item pb_50">
                             <h2 class="heading">Newsletter</h2>
@@ -148,9 +149,10 @@
                                 To get the latest news from our website, please
                                 subscribe us here:
                             </p>
-                            <form action="" method="post">
+                            <form action="{{ route('subscriber_submit') }}" method="POST">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="text" name="" class="form-control" placeholder="Email Address">
+                                    <input type="text" name="email" class="form-control" placeholder="Email Address">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" value="Subscribe Now">
@@ -158,6 +160,7 @@
                             </form>
                         </div>
                     </div>
+                    {{-- End Subscribe --}}
                 </div>
             </div>
         </div>
