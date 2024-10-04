@@ -25,8 +25,9 @@
                                     <table class="table table-bordered" id="example1">
                                         <thead>
                                             <tr>
-                                                <th class="w_50">SL</th>
-                                                <th>User Name</th>
+                                                <th>SL</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Action</th>
@@ -38,6 +39,13 @@
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
+                                                    <td>
+                                                        @if ($message->user->photo != '')
+                                                            <img src="{{ asset('uploads/' . $message->user->photo) }}" alt="" class="w_50">
+                                                        @else
+                                                            <img src="{{ asset('uploads/default.png') }}" alt="" class="w_50">
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $message->user->name }}</td>
                                                     <td>{{ $message->user->email }}</td>
                                                     <td>{{ $message->user->phone }}</td>
