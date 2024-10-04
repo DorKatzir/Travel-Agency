@@ -15,6 +15,7 @@ use App\Models\Package;
 use App\Models\Wishlist;
 use App\Mail\Websitemail;
 use App\Models\PackageFaq;
+use App\Models\Subscriber;
 use App\Models\TeamMember;
 use App\Models\CounterItem;
 use App\Models\Destination;
@@ -31,6 +32,7 @@ use App\Models\PackageItinerary;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Mail;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class FrontController extends Controller
@@ -109,7 +111,6 @@ class FrontController extends Controller
 
         return view('front.destination', compact('destination','destination_photos', 'destination_videos', 'packages'));
     }
-
 
     public function packages(Request $request) {
 
@@ -349,6 +350,46 @@ class FrontController extends Controller
         $whishlist->save();
         return redirect()->back()->with('success', 'Item added to your Wishlist.');
 
+    }
+
+    public function subscriber_submit(Request $request) {
+
+        $request->validate([
+            'email' => ['required', 'email', 'unique:subscribers,email']
+        ]);
+
+        $token = hash('sha256',time());
+
+        $obj = new Subscriber();
+        $obj->email = $request->email;
+        $obj->token = $token;
+        $obj->status = 'Pending';
+        $obj->save();
+
+        $verification_link = route('subscriber_verify', ['email'=>$request->email, 'token'=>$token]);
+
+        $subject = 'Subscriber Verification';
+        $message = 'Please click on the following link to verify your email address as subscriber:<br>';
+        $message .= '<a href="'.$verification_link.'">Verify Email</a>';
+
+        /Mail::to($request->email)->send(new Websitemail($subject,$message));
+
+        return redirect()->back()->with('success', 'You have successfully subscribed to our newsletter. Please check your email to verify your email address.');
+
+    }
+
+    public function subscriber_verify($email, $token) {
+
+        $subscriber_data = Subscriber::where('email', $email)->where('token', $token)->first();
+
+        if (!$subscriber_data) {
+            return redirect()->route('home');
+        }
+
+        $subscriber_data->token = '';
+        $subscriber_data->status = 'Active';
+        $subscriber_data->update();
+        return redirect()->route('home')->with('success', 'Your email address has been verified successfully.');
     }
 
 
