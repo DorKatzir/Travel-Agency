@@ -23,35 +23,46 @@
             <div class="section-body">
                 <div class="row">
 
+                    {{-- Start Messages --}}
                     <div class="col-md-7">
-                        <div class="card">
-                            <div class="card-body">
-                                {{-- Messages --}}
-                                <div class="rounded message-item">
-                                    <div class="message-top">
-                                        <div class="left">
-                                            <img src="{{ asset('uploads/default.png') }}" alt="">
-                                        </div>
-                                        <div class="right">
-                                            <h4 class="text-capitalize">Name</h4>
-                                            <h5 class="text-capitalize">User</h5>
-                                            <div class="date-time">
-                                                <small>
-                                                    <strong>
-                                                        Date
-                                                    </strong>
-                                                </small>
-                                            </div>
-                                        </div>
+                        @foreach ($message_comments as $comment)
+                            @php
+                                if ($comment->type == 'user') {
+                                    $sender_data = App\Models\User::where('id', $comment->sender_id)->first();
+                                }
+
+                                if ($comment->type == 'admin') {
+                                    $sender_data = App\Models\Admin::where('id', $comment->sender_id)->first();
+                                }
+                            @endphp
+                            <div class="rounded message-item @if ($comment->type == 'admin') message-item-admin-border @endif">
+                                <div class="message-top">
+                                    <div class="left">
+                                        @if ($sender_data->photo != '')
+                                            <img src="{{ asset('uploads/' . $sender_data->photo) }}" alt="">
+                                        @else
+                                        <img src="{{ asset('uploads/default.png') }}" alt="">
+                                        @endif
                                     </div>
-                                    <div class="message-bottom">
-                                        <p>Comment</p>
+                                    <div class="right">
+                                        <h4 class="text-capitalize">{{ $sender_data->name }}</h4>
+                                        <h5 class="text-capitalize">{{ $comment->type }}</h5>
+                                        <div class="date-time">
+                                            <small>
+                                                <strong>
+                                                    {{ $comment->created_at->format('d M Y H:i A') }}
+                                                </strong>
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
-                                {{-- End Messages --}}
+                                <div class="message-bottom">
+                                    <p>{!! $comment->comment !!}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
+                    {{-- End Messages --}}
 
                     <div class="col-md-5">
                         <div class="card">

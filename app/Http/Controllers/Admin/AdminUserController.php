@@ -15,8 +15,8 @@ class AdminUserController extends Controller
     }
 
     public function message_detail($id) {
-        $message = MessageComment::where('message_id', $id)->first();
-        return view('admin.user.message-detail', compact('message'));
+        $message_comments = MessageComment::where('message_id', $id)->orderBy('id', 'desc')->get();
+        return view('admin.user.message-detail', compact('message_comments'));
     }
 
 
