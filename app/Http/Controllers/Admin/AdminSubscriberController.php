@@ -10,7 +10,7 @@ class AdminSubscriberController extends Controller
 {
     public function subscribers()
     {
-        $subscribers = Subscriber::orderBy('id', 'desc')->get();
+        $subscribers = Subscriber::where('status', 'Active')->orderBy('id', 'desc')->get();
         return view('admin.subscriber.index', compact('subscribers'));
     }
 
