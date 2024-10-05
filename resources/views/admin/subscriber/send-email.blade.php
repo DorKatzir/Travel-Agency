@@ -24,7 +24,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <form method="POST" action="">
+                                <form method="POST" action="{{ route('admin_subscribers_send_email_submit') }}">
                                     @csrf
                                         <div class="mb-3">
                                             <label class="form-label">Subject *</label>
