@@ -128,7 +128,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     //Home Items
     Route::get('/home-item/index', [AdminHomeItemController::class, 'index'])->name('admin_homeItem_index');
-    //Route::post('/counter/update', [AdminCounterItemController::class, 'update'])->name('admin_counter_update');
+    Route::post('/home-item/update', [AdminHomeItemController::class, 'homeItem_update'])->name('admin_homeItem_update');
 
 
     // Testimonial

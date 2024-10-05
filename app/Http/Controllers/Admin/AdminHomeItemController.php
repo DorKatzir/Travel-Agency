@@ -13,33 +13,21 @@ class AdminHomeItemController extends Controller
         return view('admin.home-item.index', compact('homeItem'));
     }
 
-    // public function update(Request $request) {
+    public function homeItem_update(Request $request) {
 
-    //     $obj = CounterItem::where('id', 1)->first();
+        dd($request->all());
 
-    //     $request->validate([
-    //         'item1_number' => 'required',
-    //         'item1_text' => 'required',
-    //         'item2_number' => 'required',
-    //         'item2_text' => 'required',
-    //         'item3_number' => 'required',
-    //         'item3_text' => 'required',
-    //         'item4_number' => 'required',
-    //         'item4_text' => 'required',
-    //     ]);
+        // $request->validate([
+        //     'destination_heading' => 'required',
+        //     'destination_subheading' => 'required',
+        //     'destination_status' => 'required',
 
-    //     $obj->item1_number = $request->item1_number;
-    //     $obj->item1_text = $request->item1_text;
-    //     $obj->item2_number = $request->item2_number;
-    //     $obj->item2_text = $request->item2_text;
-    //     $obj->item3_number = $request->item3_number;
-    //     $obj->item3_text = $request->item3_text;
-    //     $obj->item4_number = $request->item4_number;
-    //     $obj->item4_text = $request->item4_text;
-    //     $obj->status = $request->status;
-    //     $obj->save();
+        // ]);
 
-    //     return redirect()->back()->with('success', 'Counter Updated Successfully');
+        // $obj = HomeItem::where('id', 1)->first();
 
-    // }
+
+        // return redirect()->back()->with('success', 'Home Items Updated Successfully');
+
+    }
 }
