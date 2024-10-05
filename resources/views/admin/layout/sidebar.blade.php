@@ -146,7 +146,7 @@
             </li>
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/subscribers') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/subscribers') || Request::is('admin/subscribers/*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Subscribers</span></a>
                 <ul class="dropdown-menu">
 
@@ -156,8 +156,8 @@
                         </a>
                     </li>
 
-                    <li class="">
-                        <a class="nav-link" href="#">
+                    <li class="{{ Request::is('admin/subscribers/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin_subscribers_send_email') }}">
                             <i class="fas fa-angle-right"></i> Send Email
                         </a>
                     </li>

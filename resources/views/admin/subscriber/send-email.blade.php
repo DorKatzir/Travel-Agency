@@ -10,14 +10,14 @@
 
         <section class="section">
             <div class="section-header justify-content-between">
-                <h1>Subscribers</h1>
+                <h1>Send Email to Subscribers</h1>
                 <div class="ml-auto">
-                    <a href="{{ route('admin_subscribers_send_email') }}" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Email
+                    <a href="{{ route('admin_subscribers') }}" class="btn btn-primary">
+                        <i class="fas fa-backward"></i> All Subscribers
                     </a>
                 </div>
             </div>
-            <div class="section-body">
+            {{-- <div class="section-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -62,11 +62,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </section>
 
     </div>
 
 @endsection
+
 
 

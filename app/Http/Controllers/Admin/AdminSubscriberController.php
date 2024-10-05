@@ -14,6 +14,11 @@ class AdminSubscriberController extends Controller
         return view('admin.subscriber.index', compact('subscribers'));
     }
 
+    public function subscribers_send_email() {
+
+        return view('admin.subscriber.send-email');
+    }
+
     public function subscriber_delete($id) {
         $subscriber = Subscriber::where('id', $id)->first();
         $subscriber->delete();
