@@ -50,7 +50,7 @@
             <li class="{{ Request::is('admin/home-item/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_homeItem_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Home Items</span>
+                    <span>Home Page Items</span>
                 </a>
             </li>
 
