@@ -13,7 +13,7 @@
                 <h1>Send Email to Subscribers</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin_subscribers') }}" class="btn btn-primary">
-                        <i class="fas fa-backward"></i> All Subscribers
+                        Back to Subscribers
                     </a>
                 </div>
             </div>
