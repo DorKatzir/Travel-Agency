@@ -19,7 +19,8 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <form method="POST" action="{{ route('admin_homeItem_update', $homeItem->id) }}">
+                                {{-- <form method="POST" action="{{ route('admin_homeItem_update', $homeItem->id) }}"> --}}
+                                <form method="POST" action="">
                                     @csrf
                                     {{-- Destination --}}
                                     <div class="mb-3">

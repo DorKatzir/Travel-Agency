@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminAmenityController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminPackageController;
+use App\Http\Controllers\Admin\AdminHomeItemController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
@@ -124,6 +125,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     //Counter Items
     Route::get('/counter/index', [AdminCounterItemController::class, 'index'])->name('admin_counter_index');
     Route::post('/counter/update', [AdminCounterItemController::class, 'update'])->name('admin_counter_update');
+
+    //Home Items
+    Route::get('/home-item/index', [AdminHomeItemController::class, 'index'])->name('admin_homeItem_index');
+    //Route::post('/counter/update', [AdminCounterItemController::class, 'update'])->name('admin_counter_update');
 
 
     // Testimonial
