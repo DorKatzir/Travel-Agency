@@ -13,9 +13,16 @@ class AdminAboutItemController extends Controller
         return view('admin.about-item.index', compact('aboutItem'));
     }
     public function aboutItem_update(Request $request) {
+
         $obj = AboutItem::where('id', 1)->first();
-        $obj->feature_status = $request->feature_status;
-        $obj->updte();
-        return redirect()->back()->with('success', 'About Item Updated Successfully');
+
+        if( $obj->feature_status != $request->feature_status){
+            $obj->feature_status = $request->feature_status;
+            $obj->updte();
+            return redirect()->back()->with('success', 'About Item Updated Successfully');
+        }
+
+        return redirect()->back();
+
     }
 }

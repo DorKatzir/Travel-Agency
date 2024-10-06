@@ -126,11 +126,6 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/counter/index', [AdminCounterItemController::class, 'index'])->name('admin_counter_index');
     Route::post('/counter/update', [AdminCounterItemController::class, 'update'])->name('admin_counter_update');
 
-    //Home Items
-    Route::get('/home-item/index', [AdminHomeItemController::class, 'index'])->name('admin_homeItem_index');
-    Route::post('/home-item/update', [AdminHomeItemController::class, 'homeItem_update'])->name('admin_homeItem_update');
-
-
     // Testimonial
     Route::get('/testimonial/index', [AdminTestimonialController::class, 'index'])->name('admin_testimonial_index');
     Route::get('/testimonial/create', [AdminTestimonialController::class, 'create'])->name('admin_testimonial_create');
@@ -260,6 +255,14 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/subscribers/send-email', [AdminSubscriberController::class, 'subscribers_send_email'])->name('admin_subscribers_send_email');
     Route::post('/subscribers/send-email', [AdminSubscriberController::class, 'subscribers_send_email_submit'])->name('admin_subscribers_send_email_submit');
     Route::get('/subscriber-delete/{id}', [AdminSubscriberController::class, 'subscriber_delete'])->name('admin_subscriber_delete');
+
+    //Home Items
+    Route::get('/home-item/index', [AdminHomeItemController::class, 'index'])->name('admin_homeItem_index');
+    Route::post('/home-item/update', [AdminHomeItemController::class, 'homeItem_update'])->name('admin_homeItem_update');
+
+    //About Items
+    Route::get('/about-item/index', [AdminAboutItemController::class, 'index'])->name('admin_aboutItem_index');
+    Route::post('/about-item/update', [AdminAboutItemController::class, 'aboutItem_update'])->name('admin_aboutItem_update');
 
 });
 
