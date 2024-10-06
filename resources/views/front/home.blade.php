@@ -82,16 +82,20 @@
 
     <div class="destination pt_70 pb_70">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>Popular Destinations</h2>
-                        <p>
-                            Explore our most popular travel destinations around the world
-                        </p>
+
+            @if($homeItem->destination_status == 'show')
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>{{ $homeItem->destination_heading }}</h2>
+                            <p>
+                                {{ $homeItem->destination_subheading }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
+
             <div class="row">
                 @foreach ($destinations as $destination)
                     <div class="col-lg-3 col-md-6">

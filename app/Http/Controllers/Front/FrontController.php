@@ -12,6 +12,7 @@ use App\Models\Slider;
 use App\Models\Booking;
 use App\Models\Feature;
 use App\Models\Package;
+use App\Models\HomeItem;
 use App\Models\Wishlist;
 use App\Mail\Websitemail;
 use App\Models\PackageFaq;
@@ -46,9 +47,9 @@ class FrontController extends Controller
         $posts = Post::orderBy('id', 'desc')->get()->take(3);
         $destinations = Destination::orderBy('view_count', 'desc')->get()->take(8);
         $packages = Package::orderBy('id', 'desc')->get()->take(3);
-        $homeItems = HomeItem::where('id', 1)->where('status', 'Show')->first();
+        $homeItem = HomeItem::where('id', operator: 1)->first();
 
-        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations', 'packages', 'homeItems'));
+        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations', 'packages', 'homeItem'));
     }
 
     public function about() {
