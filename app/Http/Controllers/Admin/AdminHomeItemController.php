@@ -35,7 +35,9 @@ class AdminHomeItemController extends Controller
                 'testimonial_background' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
             ]);
 
-            unlink( public_path('uploads/' . $obj->testimonial_background) );
+            if($obj->testimonial_background != ''){
+                unlink( public_path('uploads/' . $obj->testimonial_background) );
+            }
 
             $final_name = 'testimonial_background_'.time().'.'.$request->testimonial_background->extension();
             $request->testimonial_background->move( public_path('uploads'), $final_name );

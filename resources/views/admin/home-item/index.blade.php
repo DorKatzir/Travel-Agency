@@ -101,19 +101,19 @@
                                     <div class="row mb-4">
                                         <div class="col-md-auto">
                                             <div>
-                                                @if ($homeItem->testimonial_backgroud)
-                                                    <label class="form-label">Current Background Photo</label><br>
-                                                    <img src="{{ asset('uploads/'. $homeItem->testimonial_backgroud) }}" class="w_200">
-                                                @else
-                                                    <label class="form-label">Current Background Photo</label><br>
+                                                @if ($homeItem->testimonial_background == null)
+                                                    <label class="form-label">Current Background:</label><br>
                                                     <small class="text-danger" role="alert"><strong>No Background Found</strong></small>
+                                                @else
+                                                    <label class="form-label">Current Background:</label><br>
+                                                    <img src="{{ asset('uploads/'. $homeItem->testimonial_background) }}" class="w_200 rounded">
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="col-md-auto">
                                             <div>
                                                 <label class="form-label">Upload/Change Background Photo</label><br>
-                                                <input type="file" name="testimonial_backgroud" class="form-control-file" accept="image/*">
+                                                <input type="file" name="testimonial_background" class="form-control-file" accept="image/*">
                                             </div>
                                         </div>
                                     </div>
