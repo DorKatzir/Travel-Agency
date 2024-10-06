@@ -46,8 +46,9 @@ class FrontController extends Controller
         $posts = Post::orderBy('id', 'desc')->get()->take(3);
         $destinations = Destination::orderBy('view_count', 'desc')->get()->take(8);
         $packages = Package::orderBy('id', 'desc')->get()->take(3);
+        $homeItems = HomeItem::where('id', 1)->where('status', 'Show')->first();
 
-        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations', 'packages'));
+        return view('front.home', compact('sliders', 'welcomeItem', 'features', 'testimonials', 'posts', 'destinations', 'packages', 'homeItems'));
     }
 
     public function about() {
