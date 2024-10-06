@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-12">
 
-                        <form method="POST" action="{{ route('admin_homeItem_update') }}">
+                        <form method="POST" action="{{ route('admin_homeItem_update') }}" enctype="multipart/form-data">
                             @csrf
                             {{-- Destination --}}
                             <div class="card">
@@ -43,9 +43,6 @@
                             </div>
                             {{-- End Destination --}}
 
-
-
-
                             {{-- Feature --}}
                             <div class="card">
                                 <div class="card-body">
@@ -59,7 +56,6 @@
                                 </div>
                             </div>
                             {{-- End Feature --}}
-
 
                             {{-- Package --}}
                             <div class="card">
@@ -100,6 +96,26 @@
                                         <input type="text" class="form-control" name="testimonial_subheading" value="{{ $homeItem->testimonial_subheading }}">
                                     </div>
 
+                                    <div class="row mb-4">
+                                        <div class="col-md-auto">
+                                            <div>
+                                                @if ($homeItem->testimonial_backgroud)
+                                                    <label class="form-label">Current Photo</label><br>
+                                                    <img src="{{ asset('uploads/'. $homeItem->testimonial_backgroud) }}" class="w_200">
+                                                @else
+                                                    <label class="form-label">Current Background Image</label><br>
+                                                    <small class="text-danger" role="alert"><strong>* No Background Found</strong></small>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <div>
+                                                <label class="form-label">Upload/Change Background Image:</label><br>
+                                                <input type="file" name="testimonial_backgroud" class="form-control-file" accept="image/*">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="mb-3">
                                         <label class="form-label">Testimonial Status</label>
                                         <select name="testimonial_status" class="form-select">
@@ -136,19 +152,12 @@
                             </div>
                             {{-- End Blog --}}
 
-
-
-
-
-                                    <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary">Update</button>
-                                    </div>
-
-                                </form>
-
-
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
-                        </div>
+
+                        </form>
+
                     </div>
                 </div>
             </div>
