@@ -77,7 +77,7 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">Package Status</label>
-                                        <select name="destination_status" class="form-select">
+                                        <select name="package_status" class="form-select">
                                             <option value="show" {{ $homeItem->package_status == 'show' ? 'selected' : ''  }}>show</option>
                                             <option value="hide" {{ $homeItem->package_status == 'hide' ? 'selected' : ''  }}>hide</option>
                                         </select>
@@ -85,6 +85,58 @@
                                 </div>
                             </div>
                             {{-- End Package --}}
+
+                            {{-- Tesstimonial --}}
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Testimonial Heading</label>
+                                        <input type="text" class="form-control" name="testimonial_heading" value="{{ $homeItem->testimonial_heading }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Testimonial Subheading</label>
+                                        <input type="text" class="form-control" name="testimonial_subheading" value="{{ $homeItem->testimonial_subheading }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Testimonial Status</label>
+                                        <select name="testimonial_status" class="form-select">
+                                            <option value="show" {{ $homeItem->testimonial_status == 'show' ? 'selected' : ''  }}>show</option>
+                                            <option value="hide" {{ $homeItem->testimonial_status == 'hide' ? 'selected' : ''  }}>hide</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Tesstimonial --}}
+
+                            {{-- Blog --}}
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Blog Heading</label>
+                                        <input type="text" class="form-control" name="blog_heading" value="{{ $homeItem->blog_heading }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Blog Subheading</label>
+                                        <input type="text" class="form-control" name="blog_subheading" value="{{ $homeItem->blog_subheading }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Blog Status</label>
+                                        <select name="blog_status" class="form-select">
+                                            <option value="show" {{ $homeItem->blog_status == 'show' ? 'selected' : ''  }}>show</option>
+                                            <option value="hide" {{ $homeItem->blog_status == 'hide' ? 'selected' : ''  }}>hide</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Blog --}}
+
+
 
 
 
