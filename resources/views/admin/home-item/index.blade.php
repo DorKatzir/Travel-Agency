@@ -22,18 +22,19 @@
                             {{-- Destination --}}
                             <div class="card">
                                 <div class="card-body">
+                                    <h4>Destination Section</h4>
                                     <div class="mb-3">
-                                        <label class="form-label">* Destination Heading</label>
+                                        <label class="form-label">* Heading</label>
                                         <input type="text" class="form-control" name="destination_heading" value="{{ $homeItem->destination_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">* Destination Subheading</label>
+                                        <label class="form-label">* Sub Heading</label>
                                         <input type="text" class="form-control" name="destination_subheading" value="{{ $homeItem->destination_subheading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Destination Status</label>
+                                        <label class="form-label">Status</label>
                                         <select name="destination_status" class="form-select">
                                             <option value="show" {{ $homeItem->destination_status == 'show' ? 'selected' : ''  }}>show</option>
                                             <option value="hide" {{ $homeItem->destination_status == 'hide' ? 'selected' : ''  }}>hide</option>
@@ -46,8 +47,9 @@
                             {{-- Feature --}}
                             <div class="card">
                                 <div class="card-body">
+                                    <h4>Feature Section</h4>
                                     <div class="mb-3">
-                                        <label class="form-label">Features Status</label>
+                                        <label class="form-label">Status</label>
                                         <select name="feature_status" class="form-select">
                                             <option value="show" {{ $homeItem->feature_status == 'show' ? 'selected' : ''  }}>show</option>
                                             <option value="hide" {{ $homeItem->feature_status == 'hide' ? 'selected' : ''  }}>hide</option>
@@ -60,19 +62,19 @@
                             {{-- Package --}}
                             <div class="card">
                                 <div class="card-body">
-
+                                    <h4>Package Section</h4>
                                     <div class="mb-3">
-                                        <label class="form-label">* Package Heading</label>
+                                        <label class="form-label">* Heading</label>
                                         <input type="text" class="form-control" name="package_heading" value="{{ $homeItem->package_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">* Package Subheading</label>
+                                        <label class="form-label">* Sub Heading</label>
                                         <input type="text" class="form-control" name="package_subheading" value="{{ $homeItem->package_subheading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Package Status</label>
+                                        <label class="form-label">Status</label>
                                         <select name="package_status" class="form-select">
                                             <option value="show" {{ $homeItem->package_status == 'show' ? 'selected' : ''  }}>show</option>
                                             <option value="hide" {{ $homeItem->package_status == 'hide' ? 'selected' : ''  }}>hide</option>
@@ -85,14 +87,14 @@
                             {{-- Tesstimonial --}}
                             <div class="card">
                                 <div class="card-body">
-
+                                    <h4>Testimonial Section</h4>
                                     <div class="mb-3">
-                                        <label class="form-label">* Testimonial Heading</label>
+                                        <label class="form-label">* Heading</label>
                                         <input type="text" class="form-control" name="testimonial_heading" value="{{ $homeItem->testimonial_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">* Testimonial Subheading</label>
+                                        <label class="form-label">* Sub Heading</label>
                                         <input type="text" class="form-control" name="testimonial_subheading" value="{{ $homeItem->testimonial_subheading }}">
                                     </div>
 
@@ -100,24 +102,24 @@
                                         <div class="col-md-auto">
                                             <div>
                                                 @if ($homeItem->testimonial_backgroud)
-                                                    <label class="form-label">Current Photo</label><br>
+                                                    <label class="form-label">Current Background Photo</label><br>
                                                     <img src="{{ asset('uploads/'. $homeItem->testimonial_backgroud) }}" class="w_200">
                                                 @else
-                                                    <label class="form-label">Current Background Image</label><br>
-                                                    <small class="text-danger" role="alert"><strong>* No Background Found</strong></small>
+                                                    <label class="form-label">Current Background Photo</label><br>
+                                                    <small class="text-danger" role="alert"><strong>No Background Found</strong></small>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="col-md-auto">
                                             <div>
-                                                <label class="form-label">Upload/Change Background Image:</label><br>
+                                                <label class="form-label">Upload/Change Background Photo</label><br>
                                                 <input type="file" name="testimonial_backgroud" class="form-control-file" accept="image/*">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Testimonial Status</label>
+                                        <label class="form-label">Status</label>
                                         <select name="testimonial_status" class="form-select">
                                             <option value="show" {{ $homeItem->testimonial_status == 'show' ? 'selected' : ''  }}>show</option>
                                             <option value="hide" {{ $homeItem->testimonial_status == 'hide' ? 'selected' : ''  }}>hide</option>
@@ -130,19 +132,19 @@
                             {{-- Blog --}}
                             <div class="card">
                                 <div class="card-body">
-
+                                    <h4>Blog Section</h4>
                                     <div class="mb-3">
-                                        <label class="form-label">* Blog Heading</label>
+                                        <label class="form-label">* Heading</label>
                                         <input type="text" class="form-control" name="blog_heading" value="{{ $homeItem->blog_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">* Blog Subheading</label>
+                                        <label class="form-label">* Sub Heading</label>
                                         <input type="text" class="form-control" name="blog_subheading" value="{{ $homeItem->blog_subheading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Blog Status</label>
+                                        <label class="form-label">Status</label>
                                         <select name="blog_status" class="form-select">
                                             <option value="show" {{ $homeItem->blog_status == 'show' ? 'selected' : ''  }}>show</option>
                                             <option value="hide" {{ $homeItem->blog_status == 'hide' ? 'selected' : ''  }}>hide</option>
