@@ -47,13 +47,6 @@
                 </a>
             </li>
 
-            <li class="{{ Request::is('admin/home-item/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('admin_homeItem_index') }}">
-                    <i class="fas fa-hand-point-right"></i>
-                    <span>Home Page Items</span>
-                </a>
-            </li>
-
             <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_testimonial_index') }}">
                     <i class="fas fa-hand-point-right"></i>
@@ -171,6 +164,20 @@
                     </li>
 
                 </ul>
+            </li>
+
+            <li class="{{ Request::is('admin/home-item/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_homeItem_index') }}">
+                        <i class="fas fa-hand-point-right"></i>
+                        <span>Home Page Items</span>
+                    </a>
+            </li>
+
+            <li class="{{ Request::is('admin/about-item/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_aboutItem_index') }}">
+                        <i class="fas fa-hand-point-right"></i>
+                        <span>About Page Items</span>
+                    </a>
             </li>
 
 
