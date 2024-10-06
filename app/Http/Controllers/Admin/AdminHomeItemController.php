@@ -15,6 +15,8 @@ class AdminHomeItemController extends Controller
 
     public function homeItem_update(Request $request) {
 
+        // dd($request->all());
+
         $request->validate([
             'destination_heading' => 'required',
             'destination_subheading' => 'required',

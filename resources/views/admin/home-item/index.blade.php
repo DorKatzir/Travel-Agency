@@ -23,12 +23,12 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <label class="form-label">Destination Heading</label>
+                                        <label class="form-label">* Destination Heading</label>
                                         <input type="text" class="form-control" name="destination_heading" value="{{ $homeItem->destination_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Destination Subheading</label>
+                                        <label class="form-label">* Destination Subheading</label>
                                         <input type="text" class="form-control" name="destination_subheading" value="{{ $homeItem->destination_subheading }}">
                                     </div>
 
@@ -62,12 +62,12 @@
                                 <div class="card-body">
 
                                     <div class="mb-3">
-                                        <label class="form-label">Package Heading</label>
+                                        <label class="form-label">* Package Heading</label>
                                         <input type="text" class="form-control" name="package_heading" value="{{ $homeItem->package_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Package Subheading</label>
+                                        <label class="form-label">* Package Subheading</label>
                                         <input type="text" class="form-control" name="package_subheading" value="{{ $homeItem->package_subheading }}">
                                     </div>
 
@@ -87,12 +87,12 @@
                                 <div class="card-body">
 
                                     <div class="mb-3">
-                                        <label class="form-label">Testimonial Heading</label>
+                                        <label class="form-label">* Testimonial Heading</label>
                                         <input type="text" class="form-control" name="testimonial_heading" value="{{ $homeItem->testimonial_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Testimonial Subheading</label>
+                                        <label class="form-label">* Testimonial Subheading</label>
                                         <input type="text" class="form-control" name="testimonial_subheading" value="{{ $homeItem->testimonial_subheading }}">
                                     </div>
 
@@ -132,12 +132,12 @@
                                 <div class="card-body">
 
                                     <div class="mb-3">
-                                        <label class="form-label">Blog Heading</label>
+                                        <label class="form-label">* Blog Heading</label>
                                         <input type="text" class="form-control" name="blog_heading" value="{{ $homeItem->blog_heading }}">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label class="form-label">Blog Subheading</label>
+                                        <label class="form-label">* Blog Subheading</label>
                                         <input type="text" class="form-control" name="blog_subheading" value="{{ $homeItem->blog_subheading }}">
                                     </div>
 
@@ -152,8 +152,12 @@
                             </div>
                             {{-- End Blog --}}
 
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="d-grid col-4">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
                             </div>
 
                         </form>
