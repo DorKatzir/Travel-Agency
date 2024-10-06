@@ -16,12 +16,12 @@
             <div class="section-body">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
 
-                                <form method="POST" action="{{ route('admin_homeItem_update') }}">
-                                    @csrf
-                                    {{-- Destination --}}
+                        <form method="POST" action="{{ route('admin_homeItem_update') }}">
+                            @csrf
+                            {{-- Destination --}}
+                            <div class="card">
+                                <div class="card-body">
                                     <div class="mb-3">
                                         <label class="form-label">Destination Heading</label>
                                         <input type="text" class="form-control" name="destination_heading" value="{{ $homeItem->destination_heading }}">
@@ -39,7 +39,52 @@
                                             <option value="hide" {{ $homeItem->destination_status == 'hide' ? 'selected' : ''  }}>hide</option>
                                         </select>
                                     </div>
-                                    {{-- End Destination --}}
+                                </div>
+                            </div>
+                            {{-- End Destination --}}
+
+
+
+
+                            {{-- Feature --}}
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <label class="form-label">Features Status</label>
+                                        <select name="feature_status" class="form-select">
+                                            <option value="show" {{ $homeItem->feature_status == 'show' ? 'selected' : ''  }}>show</option>
+                                            <option value="hide" {{ $homeItem->feature_status == 'hide' ? 'selected' : ''  }}>hide</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Feature --}}
+
+
+                            {{-- Package --}}
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Package Heading</label>
+                                        <input type="text" class="form-control" name="package_heading" value="{{ $homeItem->package_heading }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Package Subheading</label>
+                                        <input type="text" class="form-control" name="package_subheading" value="{{ $homeItem->package_subheading }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Package Status</label>
+                                        <select name="destination_status" class="form-select">
+                                            <option value="show" {{ $homeItem->package_status == 'show' ? 'selected' : ''  }}>show</option>
+                                            <option value="hide" {{ $homeItem->package_status == 'hide' ? 'selected' : ''  }}>hide</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- End Package --}}
 
 
 
