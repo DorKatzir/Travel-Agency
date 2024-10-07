@@ -37,6 +37,7 @@ Route::get('/category/{slug}', [FrontController::class, 'category'])->name('cate
 Route::get('/destinations', [FrontController::class, 'destinations'])->name('destinations');
 Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name('destination');
 Route::get('/wishlist/{package_id}', [FrontController::class, 'wishlist'])->name('wishlist');
+Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 // Subscribe
 Route::post('/subscriber-submit', [FrontController::class, 'subscriber_submit'])->name('subscriber_submit');
@@ -166,8 +167,6 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/blog-category/edit/{id}', [AdminBlogCategoryController::class, 'edit'])->name('admin_blog_category_edit');
     Route::post('/blog-category/edit/{id}', [AdminBlogCategoryController::class, 'edit_submit'])->name('admin_blog_category_edit_submit');
     Route::get('/blog-category/delete/{id}', [AdminBlogCategoryController::class, 'delete'])->name('admin_blog_category_delete');
-
-
     // Post
     Route::get('/post/index', [AdminPostController::class, 'index'])->name('admin_post_index');
     Route::get('/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
@@ -201,26 +200,26 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/package/edit/{id}', [AdminPackageController::class, 'edit'])->name('admin_package_edit');
     Route::post('/package/edit/{id}', [AdminPackageController::class, 'edit_submit'])->name('admin_package_edit_submit');
     Route::get('/package/delete/{id}', [AdminPackageController::class, 'delete'])->name('admin_package_delete');
-     // Package Amenities
-     Route::get('/package/amenities/{id}', [AdminPackageController::class, 'package_amenities'])->name('admin_package_amenities');
-     Route::post('/package/amenity/{id}', [AdminPackageController::class, 'package_amenity_submit'])->name('admin_package_amenity_submit');
-     Route::get('/package/amenity/delete/{id}', [AdminPackageController::class, 'package_amenity_delete'])->name('admin_package_amenity_delete');
-     // Package Itineraries
-     Route::get('/package/itineraries/{id}', [AdminPackageController::class, 'package_itineraries'])->name('admin_package_itineraries');
-     Route::post('/package/itinerary/{id}', [AdminPackageController::class, 'package_itinerary_submit'])->name('admin_package_itinerary_submit');
-     Route::get('/package/itinerary/delete/{id}', [AdminPackageController::class, 'package_itinerary_delete'])->name('admin_package_itinerary_delete');
-     // Package Photos
-     Route::get('/package/photos/{package_id}', [AdminPackageController::class, 'package_photos'])->name('admin_package_photos');
-     Route::post('/package/photo/{package_id}', [AdminPackageController::class, 'package_photo_submit'])->name('admin_package_photo_submit');
-     Route::get('/package/photo/delete/{id}', [AdminPackageController::class, 'package_photo_delete'])->name('admin_package_photo_delete');
-     // Package Videos
-     Route::get('/package/videos/{package_id}', [AdminPackageController::class, 'package_videos'])->name('admin_package_videos');
-     Route::post('/package/video/{package_id}', [AdminPackageController::class, 'package_video_submit'])->name('admin_package_video_submit');
-     Route::get('/package/video/delete/{id}', [AdminPackageController::class, 'package_video_delete'])->name('admin_package_video_delete');
-     // Package Faqs
-     Route::get('/package/faqs/{package_id}', [AdminPackageController::class, 'package_faqs'])->name('admin_package_faqs');
-     Route::post('/package/faq/{package_id}', [AdminPackageController::class, 'package_faq_submit'])->name('admin_package_faq_submit');
-     Route::get('/package/faq/delete/{id}', [AdminPackageController::class, 'package_faq_delete'])->name('admin_package_faq_delete');
+    // Package Amenities
+    Route::get('/package/amenities/{id}', [AdminPackageController::class, 'package_amenities'])->name('admin_package_amenities');
+    Route::post('/package/amenity/{id}', [AdminPackageController::class, 'package_amenity_submit'])->name('admin_package_amenity_submit');
+    Route::get('/package/amenity/delete/{id}', [AdminPackageController::class, 'package_amenity_delete'])->name('admin_package_amenity_delete');
+    // Package Itineraries
+    Route::get('/package/itineraries/{id}', [AdminPackageController::class, 'package_itineraries'])->name('admin_package_itineraries');
+    Route::post('/package/itinerary/{id}', [AdminPackageController::class, 'package_itinerary_submit'])->name('admin_package_itinerary_submit');
+    Route::get('/package/itinerary/delete/{id}', [AdminPackageController::class, 'package_itinerary_delete'])->name('admin_package_itinerary_delete');
+    // Package Photos
+    Route::get('/package/photos/{package_id}', [AdminPackageController::class, 'package_photos'])->name('admin_package_photos');
+    Route::post('/package/photo/{package_id}', [AdminPackageController::class, 'package_photo_submit'])->name('admin_package_photo_submit');
+    Route::get('/package/photo/delete/{id}', [AdminPackageController::class, 'package_photo_delete'])->name('admin_package_photo_delete');
+    // Package Videos
+    Route::get('/package/videos/{package_id}', [AdminPackageController::class, 'package_videos'])->name('admin_package_videos');
+    Route::post('/package/video/{package_id}', [AdminPackageController::class, 'package_video_submit'])->name('admin_package_video_submit');
+    Route::get('/package/video/delete/{id}', [AdminPackageController::class, 'package_video_delete'])->name('admin_package_video_delete');
+    // Package Faqs
+    Route::get('/package/faqs/{package_id}', [AdminPackageController::class, 'package_faqs'])->name('admin_package_faqs');
+    Route::post('/package/faq/{package_id}', [AdminPackageController::class, 'package_faq_submit'])->name('admin_package_faq_submit');
+    Route::get('/package/faq/delete/{id}', [AdminPackageController::class, 'package_faq_delete'])->name('admin_package_faq_delete');
 
 
     // Amenity

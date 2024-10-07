@@ -46,8 +46,8 @@
                             <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Contact</a>
+                        <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
+                            <a href="{{ route('contact') }}" class="nav-link">Contact</a>
                         </li>
 
                     </ul>

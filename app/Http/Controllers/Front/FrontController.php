@@ -397,6 +397,10 @@ class FrontController extends Controller
         return redirect()->back()->with('success', 'Your Email address has been verified successfully.');
     }
 
+    public function contact() {
+        return view('front.contact');
+    }
+
 
 
  //////////////////////////////////////////////////////////////////////////////////////////
