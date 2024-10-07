@@ -15,6 +15,7 @@ use App\Models\Package;
 use App\Models\HomeItem;
 use App\Models\Wishlist;
 use App\Mail\Websitemail;
+use App\Models\AboutItem;
 use App\Models\PackageFaq;
 use App\Models\Subscriber;
 use App\Models\TeamMember;
@@ -57,8 +58,9 @@ class FrontController extends Controller
         $welcomeItem = WelcomeItem::where('id', 1)->first();
         $counterItem = CounterItem::where('id', 1)->first();
         $features = Feature::get();
+        $aboutItem = AboutItem::where('id', 1)->first();
 
-        return view('front.about', compact('welcomeItem', 'features', 'counterItem'));
+        return view('front.about', compact('welcomeItem', 'features', 'counterItem', 'aboutItem'));
     }
 
     public function team() {
