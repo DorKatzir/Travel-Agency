@@ -38,6 +38,7 @@ Route::get('/destinations', [FrontController::class, 'destinations'])->name('des
 Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name('destination');
 Route::get('/wishlist/{package_id}', [FrontController::class, 'wishlist'])->name('wishlist');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+Route::post('/contact/submit', [FrontController::class, 'contact_submit'])->name('contact_submit');
 
 // Subscribe
 Route::post('/subscriber-submit', [FrontController::class, 'subscriber_submit'])->name('subscriber_submit');

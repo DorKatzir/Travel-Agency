@@ -401,6 +401,25 @@ class FrontController extends Controller
         return view('front.contact');
     }
 
+    public function contact_submit(Request $request) {
+        dd($request->all());
+
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'message' => ['required']
+        ]);
+
+        $token = hash('sha256',time());
+        $obj = new Contact();
+        $obj->name = $request->name;
+        $obj->email = $request->email;
+        $obj->message = $request->message;
+        $obj->token = $token;
+        $obj->save();
+
+    }
+
 
 
  //////////////////////////////////////////////////////////////////////////////////////////
