@@ -26,8 +26,8 @@
                                     <div class="mb-3">
                                         <label class="form-label">Status</label>
                                         <select name="feature_status" class="form-select">
-                                            <option value="show" {{ $aboutItem->feature_status == 'Show' ? 'selected' : ''  }}>Show</option>
-                                            <option value="hide" {{ $aboutItem->feature_status == 'Hide' ? 'selected' : ''  }}>Hide</option>
+                                            <option value="Show" {{ $aboutItem->feature_status == 'Show' ? 'selected' : ''  }}>Show</option>
+                                            <option value="Hide" {{ $aboutItem->feature_status == 'Hide' ? 'selected' : ''  }}>Hide</option>
                                         </select>
                                     </div>
                                 </div>
