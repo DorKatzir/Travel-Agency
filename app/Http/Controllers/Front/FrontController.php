@@ -402,7 +402,6 @@ class FrontController extends Controller
     }
 
     public function contact_submit(Request $request) {
-        dd($request->all());
 
         $request->validate([
             'name' => ['required'],
@@ -410,13 +409,16 @@ class FrontController extends Controller
             'message' => ['required']
         ]);
 
-        $token = hash('sha256',time());
-        $obj = new Contact();
-        $obj->name = $request->name;
-        $obj->email = $request->email;
-        $obj->message = $request->message;
-        $obj->token = $token;
-        $obj->save();
+        $admin = Admin::where('id', 1)->first();
+
+        $subject = 'Contact Form Message';
+        $message = 'Visitor Message Details<br>';
+        $message .= 'Name: '.$request->name.'<br>';
+        $message .= 'Email: '.$request->email.'<br>';
+        $message .= 'Message: '.$request->message.'<br>';
+
+        \Mail::to($admin->email)->send(new Websitemail($subject,$message));
+        return redirect()->back()->with('success', 'Your message has been sent successfully. We will contact you soon');
 
     }
 
