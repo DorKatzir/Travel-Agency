@@ -19,6 +19,7 @@ use App\Models\AboutItem;
 use App\Models\PackageFaq;
 use App\Models\Subscriber;
 use App\Models\TeamMember;
+use App\Models\ContactItem;
 use App\Models\CounterItem;
 use App\Models\Destination;
 use App\Models\Testimonial;
@@ -398,7 +399,8 @@ class FrontController extends Controller
     }
 
     public function contact() {
-        return view('front.contact');
+        $contactItem = ContactItem::where('id', 1)->first();
+        return view('front.contact', compact('contactItem'));
     }
 
     public function contact_submit(Request $request) {
