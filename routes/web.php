@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminContactItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -264,6 +265,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     //About Items
     Route::get('/about-item/index', [AdminAboutItemController::class, 'index'])->name('admin_aboutItem_index');
     Route::post('/about-item/update', [AdminAboutItemController::class, 'aboutItem_update'])->name('admin_aboutItem_update');
+
+    //Contact Items
+    Route::get('/contact-item/index', [AdminContactItemController::class, 'index'])->name('admin_contactItem_index');
+    Route::post('/contact-item/update', [AdminContactItemController::class, 'contactItem_update'])->name('admin_contactItem_update');
 
 });
 
