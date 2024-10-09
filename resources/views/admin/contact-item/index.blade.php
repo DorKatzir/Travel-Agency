@@ -24,7 +24,7 @@
                                         <div class="col-md-12">
                                             <div>
                                                 <label class="form-label">Map (iframe code)</label>
-                                                <textarea name="map" class="form-control" cols="30" rows="10">{{ $contactItem->map_code }}</textarea>
+                                                <textarea name="map_code" class="form-control h_150" cols="30" rows="10">{{ $contactItem->map_code }}</textarea>
                                             </div>
                                         </div>
                                     </div>
