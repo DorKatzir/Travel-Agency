@@ -89,10 +89,10 @@
                         <div class="item pb_50">
                             <h2 class="heading">Important Pages</h2>
                             <ul class="useful-links">
-                                <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
-                                <li><a href="destinations.html"><i class="fas fa-angle-right"></i> Destinations</a></li>
-                                <li><a href="packages.html"><i class="fas fa-angle-right"></i> Packages</a></li>
-                                <li><a href="blog.html"><i class="fas fa-angle-right"></i> Blog</a></li>
+                                <li><a href="{{ route('home') }}"><i class="fas fa-angle-right"></i> Home</a></li>
+                                <li><a href="{{ route('destinations') }}"><i class="fas fa-angle-right"></i> Destinations</a></li>
+                                <li><a href="{{ route('packages') }}"><i class="fas fa-angle-right"></i> Packages</a></li>
+                                <li><a href="{{ route('blog') }}"><i class="fas fa-angle-right"></i> Blog</a></li>
                             </ul>
                         </div>
                     </div>
@@ -123,13 +123,13 @@
                                 <div class="left">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                <div class="right">contact@example.com</div>
+                                <div class="right">122-222-1212</div>
                             </div>
                             <div class="list-item">
                                 <div class="left">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <div class="right">122-222-1212</div>
+                                <div class="right">contact@example.com</div>
                             </div>
                             <ul class="social">
                                 <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
