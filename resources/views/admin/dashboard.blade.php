@@ -22,7 +22,7 @@
                                 <h4>Total News Categories</h4>
                             </div>
                             <div class="card-body">
-                                12
+                                {{ $total_categories }}
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <h4>Total News</h4>
                             </div>
                             <div class="card-body">
-                                122
+                                {{ $total_posts }}
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                 <h4>Total Users</h4>
                             </div>
                             <div class="card-body">
-                                45
+                                {{ $total_users }}
                             </div>
                         </div>
                     </div>

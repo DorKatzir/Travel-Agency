@@ -95,7 +95,6 @@ Route::middleware('auth')->prefix('user')->group(function () {
 });
 
 
-
 // Admin
 Route::middleware('admin')->prefix('admin')->group( function () {
 
