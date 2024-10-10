@@ -22,6 +22,7 @@ use App\Models\TeamMember;
 use App\Models\ContactItem;
 use App\Models\CounterItem;
 use App\Models\Destination;
+use App\Models\PrivacyTerm;
 use App\Models\Testimonial;
 use App\Models\WelcomeItem;
 use App\Models\BlogCategory;
@@ -422,6 +423,16 @@ class FrontController extends Controller
         \Mail::to($admin->email)->send(new Websitemail($subject,$message));
         return redirect()->back()->with('success', 'Your message has been sent successfully. We will contact you soon');
 
+    }
+
+    public function terms() {
+        $terms = PrivacyTerm::where('id', 1)->first();
+        return view('front.terms', compact('terms'));
+    }
+
+    public function privacy() {
+        $privacy= PrivacyTerm::where('id', 1)->first();
+        return view('front.privacy', compact('privacy'));
     }
 
 
