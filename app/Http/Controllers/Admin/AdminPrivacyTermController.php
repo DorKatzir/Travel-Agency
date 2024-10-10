@@ -10,11 +10,11 @@ class AdminPrivacyTermController extends Controller
 {
     public function index()
     {
-        $privacyTermItem = PrivacyTerm::where('id', 1)->first();
-        return view('admin.privacy-term.index', compact('privacyTermItem'));
+        $privacy_terms_item = PrivacyTerm::where('id', 1)->first();
+        return view('admin.privacy-term.index', compact('privacy_terms_item'));
     }
 
-    public function privacyTermsItem_update(Request $request) {
+    public function privacy_terms_item_update(Request $request) {
         dd($request->all());
 
         $obj = new PrivacyTerm();

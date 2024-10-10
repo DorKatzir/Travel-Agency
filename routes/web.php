@@ -272,8 +272,8 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::post('/contact-item/update', [AdminContactItemController::class, 'contactItem_update'])->name('admin_contactItem_update');
 
     //Privacy And Terms Items
-    Route::get('/privacy-terms-item/index', [AdminPrivacyTermController::class, 'index'])->name('admin_privacyTermsItem_index');
-    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacyTermsItem_update'])->name('admin_privacyTermsItem_update');
+    Route::get('/privacy-terms-item/index', [AdminPrivacyTermController::class, 'index'])->name('admin_privacy_terms_item_index');
+    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacy_terms_item_update'])->name('admin_privacy_terms_item_update');
 
 });
 
