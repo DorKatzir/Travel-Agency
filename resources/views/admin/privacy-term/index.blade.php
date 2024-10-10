@@ -25,7 +25,7 @@
                                         <div class="col-md-12">
                                             <div>
                                                 <label class="form-label">Terms of Use:</label>
-                                                <textarea name="term" class="form-control editor">{!! $privacy_terms_item->term !!}</textarea>
+                                                <textarea name="term" class="form-control editor">{{ $privacy_terms_item->term }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -33,7 +33,7 @@
                                         <div class="col-md-12">
                                             <div>
                                                 <label class="form-label">Privacy Policy</label>
-                                                <textarea name="privacy" class="form-control editor">{!! $privacy_terms_item->privacy !!}</textarea>
+                                                <textarea name="privacy" class="form-control editor">{{ $privacy_terms_item->privacy }}</textarea>
                                             </div>
                                         </div>
                                     </div>

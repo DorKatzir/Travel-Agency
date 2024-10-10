@@ -15,12 +15,12 @@ class AdminPrivacyTermController extends Controller
     }
 
     public function privacy_terms_update(Request $request) {
-        dd($request->all());
 
-        $obj = new PrivacyTerm();
-        $obj->terms = $request->terms;
+        $obj = PrivacyTerm::where('id', 1)->first();
+        $obj->term = $request->term;
         $obj->privacy = $request->privacy;
         $obj->save();
+
         return redirect()->back()->with('success', 'Privacy Terms Updated Successfully');
     }
 
