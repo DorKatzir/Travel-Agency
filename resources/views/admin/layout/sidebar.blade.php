@@ -169,21 +169,21 @@
             <li class="{{ Request::is('admin/home-item/*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_homeItem_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Home Page Items</span>
+                    <span>Home Items</span>
                 </a>
             </li>
 
             <li class="{{ Request::is('admin/about-item/*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_aboutItem_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>About Page Items</span>
+                    <span>About Items</span>
                 </a>
             </li>
 
             <li class="{{ Request::is('admin/contact-item/*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_contactItem_index') }}">
                     <i class="fas fa-hand-point-right"></i>
-                    <span>Contact Page Items</span>
+                    <span>Contact Items</span>
                 </a>
             </li>
 
