@@ -41,8 +41,8 @@ Route::get('/destination/{slug}', [FrontController::class, 'destination'])->name
 Route::get('/wishlist/{package_id}', [FrontController::class, 'wishlist'])->name('wishlist');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::post('/contact/submit', [FrontController::class, 'contact_submit'])->name('contact_submit');
-Route::get('/terms', [FrontController::class, 'terms'])->name('terms');
-Route::get('/privacy', [FrontController::class, 'privacy'])->name('privacy');
+Route::get('/terms-of-use', [FrontController::class, 'terms'])->name('terms');
+Route::get('/privacy-policy', [FrontController::class, 'privacy'])->name('privacy');
 
 // Subscribe
 Route::post('/subscriber-submit', [FrontController::class, 'subscriber_submit'])->name('subscriber_submit');
