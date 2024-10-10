@@ -14,7 +14,7 @@ class AdminPrivacyTermController extends Controller
         return view('admin.privacy-term.index', compact('privacy_terms_item'));
     }
 
-    public function privacy_terms_item_update(Request $request) {
+    public function privacy_terms_update(Request $request) {
         dd($request->all());
 
         $obj = new PrivacyTerm();

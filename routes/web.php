@@ -273,7 +273,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     //Privacy And Terms Items
     Route::get('/privacy-terms-item/index', [AdminPrivacyTermController::class, 'index'])->name('admin_privacy_terms_item_index');
-    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacy_terms_item_update'])->name('admin_privacy_terms_item_update');
+    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacy_terms_update'])->name('admin_privacy_terms_item_update');
 
 });
 
