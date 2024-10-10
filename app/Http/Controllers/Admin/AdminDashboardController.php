@@ -21,7 +21,7 @@ class AdminDashboardController extends Controller
     public function dashboard() {
 
         $total_testimonials = Testimonial::count();
-        $total_users = User::count();
+        $total_users = User::where('status', 1)->count();
         $total_posts = Post::count();
         $total_categories = BlogCategory::count();
         $total_team_members = TeamMember::count();
@@ -30,7 +30,7 @@ class AdminDashboardController extends Controller
         $total_packages = Package::count();
         $total_tours = Package::count();
         $total_revies = Review::count();
-        $total_subscribers = Subscriber::count();
+        $total_subscribers = Subscriber::where('status', 'Active')->count();
         $total_amenities = Amenity::count();
 
         return view('admin.dashboard', compact('total_categories', 'total_posts', 'total_users', 'total_testimonials', 'total_team_members', 'total_sliders', 'total_destinations', 'total_packages', 'total_tours', 'total_revies', 'total_subscribers', 'total_amenities'));
