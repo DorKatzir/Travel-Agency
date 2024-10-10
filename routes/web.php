@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminContactItemController;
+use App\Http\Controllers\Admin\AdminPrivacyTermController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -269,6 +270,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     //Contact Items
     Route::get('/contact-item/index', [AdminContactItemController::class, 'index'])->name('admin_contactItem_index');
     Route::post('/contact-item/update', [AdminContactItemController::class, 'contactItem_update'])->name('admin_contactItem_update');
+
+    //Privacy And Terms Items
+    Route::get('/privacy-terms-item/index', [AdminPrivacyTermController::class, 'index'])->name('admin_privacyTermsItem_index');
+    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacyTermsItem_update'])->name('admin_privacyTermsItem_update');
 
 });
 

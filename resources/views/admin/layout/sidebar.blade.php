@@ -187,6 +187,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/privacy-terms-item/*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_privacyTermsItem_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Privacy Terms Page Items</span>
+                </a>
+            </li>
+
 
             <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_profile') }}">
