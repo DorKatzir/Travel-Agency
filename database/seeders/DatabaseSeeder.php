@@ -2,15 +2,8 @@
 
 namespace Database\Seeders;
 
-// use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-// use Database\Seeders\HomeItemSeeder;
-// use Database\Seeders\AboutItemSeeder;
-// use Database\Seeders\ContactItemSeeder;
-use Database\Seeders\PrivacyTermSeeder;
-// use Database\Seeders\CounterItemSeeder;
-//use Database\Seeders\AdminSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,12 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        //$this->call([AdminSeeder::class]);
-        // $this->call([WelcomeItemSeeder::class]);
-        // $this->call([CounterItemSeeder::class]);
-        // $this->call([HomeItemSeeder::class]);
-        // $this->call([AboutItemSeeder::class]);
-        // $this->call([ContactItemSeeder::class]);
+        // $this->call([AdminSeeder::class, WelcomeItemSeeder::class, CounterItemSeeder::class, HomeItemSeeder::class, AboutItemSeeder::class, ContactItemSeeder::class, PrivacyTermSeeder::class]);
+
         $this->call([PrivacyTermSeeder::class]);
 
         // User::factory(10)->create();
