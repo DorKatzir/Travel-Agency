@@ -18,7 +18,15 @@
         </div>
     </div>
 
-
+    <div class="page-content pt_50 pb_50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    {!! $terms->term !!}
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 @endsection
