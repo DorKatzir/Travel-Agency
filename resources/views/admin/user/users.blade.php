@@ -25,13 +25,13 @@
                                     <table class="table table-bordered" id="example1">
                                         <thead>
                                             <tr>
-                                                <th>SL</th>
+                                                <th class="w_40">SL</th>
                                                 <th>Photo</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
-                                                <td>Status</td>
-                                                <th>Action</th>
+                                                <th>Status</th>
+                                                <th class="w_40">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,8 +63,9 @@
                                                             <span class="badge bg-danger">Suspended</span>
                                                         @endif
                                                     </td>
-                                                    <td class="pt_10 pb_10">
-                                                        <a href="" class="btn btn-danger">Delete</a>
+                                                    <td>
+                                                        {{-- <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a> --}}
+                                                        <a href="" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 
