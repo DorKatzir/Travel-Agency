@@ -252,6 +252,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     // User
     Route::get('/users', [AdminUserController::class, 'users'])->name('admin_users');
     Route::get('/users/create', [AdminUserController::class, 'user_create'])->name('admin_user_create');
+    Route::post('/users/create-submit', [AdminUserController::class, 'user_create_submit'])->name('admin_user_create_submit');
     Route::get('/messages', [AdminUserController::class, 'messages'])->name('admin_messages');
     Route::get('/message-detail/{id}', [AdminUserController::class, 'message_detail'])->name('admin_message_detail');
     Route::post('/message-submit/{id}', [AdminUserController::class, 'message_submit'])->name('admin_message_submit');

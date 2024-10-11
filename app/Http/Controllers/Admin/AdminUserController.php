@@ -58,5 +58,10 @@ class AdminUserController extends Controller
         return view('admin.user.create');
     }
 
+    public function user_create_submit(Request $request) {
+        //
+
+    }
+
 
 }
