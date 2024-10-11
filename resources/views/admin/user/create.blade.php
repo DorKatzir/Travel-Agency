@@ -28,35 +28,53 @@
                                     @csrf
 
                                         <div class="mb-3">
-                                            <label class="form-label">Photo *</label><br>
+                                            <label class="form-label">Photo</label><br>
                                             <input type="file" name="photo">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Heading *</label>
-                                            <input type="text" class="form-control" name="heading" value="{{ old('heading') }}">
+                                            <label class="form-label">Name *</label>
+                                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Text *</label>
-                                            <textarea name="text" class="form-control h_100" cols="30" rows="10">{{ old('text') }}</textarea>
+                                            <label class="form-label">Email *</label>
+                                            <input type="text" class="form-control" name="email" value="{{ old('email') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Button Text</label>
-                                            <input type="text" class="form-control" name="button_text" value="{{ old('button_text') }}">
+                                            <label class="form-label">Phone</label>
+                                            <input type="text" class="form-control" name="phone" value="{{ old('phone') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Button Link</label>
-                                            <input type="text" class="form-control" name="button_link" value="{{ old('button_link') }}">
+                                            <label class="form-label">Country</label>
+                                            <input type="text" class="form-control" name="country" value="{{ old('country') }}">
                                         </div>
 
                                         <div class="mb-3">
+                                            <label class="form-label">State</label>
+                                            <input type="text" class="form-control" name="state" value="{{ old('state') }}">
+                                        </div>
 
+                                        <div class="mb-3">
+                                            <label class="form-label">Address</label>
+                                            <input type="text" class="form-control" name="address" value="{{ old('address') }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">City</label>
+                                            <input type="text" class="form-control" name="city" value="{{ old('city') }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Zip</label>
+                                            <input type="text" class="form-control" name="zip" value="{{ old('zip') }}">
+                                        </div>
+
+                                        <div class="mb-3">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
-
                                 </form>
 
 
