@@ -78,14 +78,14 @@ class AdminUserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->photo = $final_name;
+        $user->password =  bcrypt($request->password);
         $user->phone = $request->phone;
         $user->country = $request->country;
         $user->address = $request->address;
         $user->state = $request->state;
         $user->city = $request->city;
         $user->zip = $request->zip;
-        $user->password =  \Hash::make($request->password);
-        $user->photo = $final_name;
         $user->status = $request->status;
         $user->save();
 
