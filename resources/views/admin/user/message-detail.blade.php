@@ -13,7 +13,7 @@
             <div class="section-header justify-content-between">
                 <h1>Massages from </h1>
                 <div class="ml-auto">
-                    <a href="{{ route('admin_message') }}" class="btn btn-primary">
+                    <a href="{{ route('admin_messages') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Back to Messages
                     </a>
