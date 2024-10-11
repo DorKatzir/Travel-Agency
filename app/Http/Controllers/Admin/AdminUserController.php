@@ -59,7 +59,37 @@ class AdminUserController extends Controller
     }
 
     public function user_create_submit(Request $request) {
-        //
+        $request->validate([
+            'name' =>'required',
+            'email' =>'required|email|unique:users',
+            'phone' =>'required|numeric',
+            'country' =>'required',
+            'address' =>'required',
+            'state' =>'required',
+            'city' =>'required',
+            'zip' =>'required',
+            'password' => 'required',
+            'photo' =>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $final_name = 'user_'.time().'.'.$request->photo->extension();
+        $request->photo->move(public_path('uploads'), $final_name );
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->country = $request->country;
+        $user->address = $request->address;
+        $user->state = $request->state;
+        $user->city = $request->city;
+        $user->zip = $request->zip;
+        $user->password =  \Hash::make($request->password);
+        $user->photo = $final_name;
+        $user->status = $request->status;
+        $user->save();
+
+        return redirect()->route('admin_users')->with('success', 'User added successfully!');
 
     }
 

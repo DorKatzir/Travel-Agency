@@ -27,8 +27,8 @@
                                 <form method="POST" action="{{ route('admin_user_create_submit') }}" enctype="multipart/form-data">
                                     @csrf
 
-                                        <div class="mb-3">
-                                            <label class="form-label">Photo</label><br>
+                                        <div class="mb-4">
+                                            <label class="form-label">Photo *</label><br>
                                             <input type="file" name="photo">
                                         </div>
 
@@ -43,33 +43,47 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Phone</label>
+                                            <label class="form-label">Phone *</label>
                                             <input type="text" class="form-control" name="phone" value="{{ old('phone') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Country</label>
+                                            <label class="form-label">Country *</label>
                                             <input type="text" class="form-control" name="country" value="{{ old('country') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">State</label>
+                                            <label class="form-label">State *</label>
                                             <input type="text" class="form-control" name="state" value="{{ old('state') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Address</label>
+                                            <label class="form-label">Address *</label>
                                             <input type="text" class="form-control" name="address" value="{{ old('address') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">City</label>
+                                            <label class="form-label">City *</label>
                                             <input type="text" class="form-control" name="city" value="{{ old('city') }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Zip</label>
+                                            <label class="form-label">Zip *</label>
                                             <input type="text" class="form-control" name="zip" value="{{ old('zip') }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Status</label>
+                                            <select name="status" class="form-control">
+                                                <option value="0" {{ old('status') == 0 ? 'selected' : ''  }}>Pending</option>
+                                                <option value="1" {{ old('status') == 1 ? 'selected' : ''  }}>Active</option>
+                                                <option value="2" {{ old('status') == 2 ? 'selected' : ''  }}>Suspended</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label">Password *</label>
+                                            <input type="password" class="form-control" name="password">
                                         </div>
 
                                         <div class="mb-3">
