@@ -30,6 +30,7 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
+                                                <td>Status</td>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -49,8 +50,21 @@
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->phone }}</td>
+                                                    <td>
+                                                        @if ($user->status == 0)
+                                                            <span class="badge bg-warning">Pending</span>
+                                                        @endif
+
+                                                        @if ($user->status == 1)
+                                                            <span class="badge bg-success">Active</span>
+                                                        @endif
+
+                                                        @if ($user->status == 2)
+                                                            <span class="badge bg-danger">Suspended</span>
+                                                        @endif
+                                                    </td>
                                                     <td class="pt_10 pb_10">
-                                                        {{-- <a href="{{ route('admin_user_detail', $user->id) }}" class="btn btn-primary">User</a> --}}
+                                                        <a href="" class="btn btn-danger">Delete</a>
                                                     </td>
                                                 </tr>
 
