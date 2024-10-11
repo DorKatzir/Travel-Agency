@@ -62,7 +62,7 @@ class AdminUserController extends Controller
         $request->validate([
             'name' =>'required',
             'email' =>'required|email|unique:users',
-            'phone' =>'required|numeric',
+            'phone' =>'required',
             'country' =>'required',
             'address' =>'required',
             'state' =>'required',

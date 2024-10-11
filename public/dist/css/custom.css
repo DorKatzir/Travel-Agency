@@ -520,10 +520,13 @@ hr.invoice-above-table {
 }
 
 .user-image-circle {
+    aspect-ratio: 1 / 1;
     margin: 0;
     padding: 0;
     max-width: 60px !important;
     max-height: 60px !important;
     object-fit: cover !important;
     border-radius: 50%;
+    border: 1px solid #e6e6e6;
+    object-position: top center;
 }
