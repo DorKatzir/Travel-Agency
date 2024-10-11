@@ -251,7 +251,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     // User
     Route::get('/users-list', [AdminUserController::class, 'users'])->name('admin_users');
-    Route::get('/message', [AdminUserController::class, 'message'])->name('admin_message');
+    Route::get('/messages', [AdminUserController::class, 'messages'])->name('admin_messages');
     Route::get('/message-detail/{id}', [AdminUserController::class, 'message_detail'])->name('admin_message_detail');
     Route::post('/message-submit/{id}', [AdminUserController::class, 'message_submit'])->name('admin_message_submit');
 

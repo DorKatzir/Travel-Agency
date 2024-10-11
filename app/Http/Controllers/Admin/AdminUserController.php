@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 class AdminUserController extends Controller
 {
 
-    public function message() {
+    public function messages() {
         $messages = Message::get();
-        return view('admin.user.message', compact('messages'));
+        return view('admin.user.messages', compact('messages'));
     }
 
     public function message_detail($id) {

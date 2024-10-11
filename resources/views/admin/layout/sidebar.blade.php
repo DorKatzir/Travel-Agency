@@ -119,7 +119,7 @@
             </li>
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/message') || Request::is('admin/users-list') || Request::is('admin/message-detail/*') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/messages') || Request::is('admin/users-list') || Request::is('admin/message-detail/*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Users</span></a>
                 <ul class="dropdown-menu">
 
@@ -129,8 +129,8 @@
                         </a>
                     </li>
 
-                    <li class="{{ Request::is('admin/message') || Request::is('admin/message-detail/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('admin_message') }}">
+                    <li class="{{ Request::is('admin/messages') || Request::is('admin/message-detail/*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin_messages') }}">
                             <i class="fas fa-angle-right"></i> Messages
                         </a>
                     </li>
