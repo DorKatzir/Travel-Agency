@@ -65,20 +65,27 @@
 
                                                     <td>
                                                         <div>
-                                                            <small class="m-0 p-0">Street:
-                                                                <strong> {{ $user->address }}</strong>
+                                                            <small class="m-0 p-0">Country:
+                                                                <strong> {{ $user->country }}</strong>
                                                             </small>
+                                                        <div>
                                                         <div>
                                                             <small class="m-0 p-0">City:
                                                                 <strong> {{ $user->city }}</strong>
                                                             </small>
                                                         </div>
                                                         <div>
-                                                            <small class="m-0 p-0">Country:
-                                                                <strong> {{ $user->country }}</strong>
+                                                            <small class="m-0 p-0">Street:
+                                                                <strong> {{ $user->address }}</strong>
                                                             </small>
-                                                        </div>
+                                                        <div>
+                                                        <div>
+                                                            <small class="m-0 p-0">Zip:
+                                                                <strong> {{ $user->zip }}</strong>
+                                                            </small>
+                                                        <div>
                                                     </td>
+
                                                     <td>
                                                         @if ($user->status == 0)
                                                             <span class="badge bg-warning">Pending</span>
