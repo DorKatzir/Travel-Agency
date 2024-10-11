@@ -250,7 +250,8 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     Route::get('/tour/invoice/{invoice_no}', [AdminTourController::class, 'tour_invoice'])->name('admin_tour_invoice');
 
     // User
-    Route::get('/users-list', [AdminUserController::class, 'users'])->name('admin_users');
+    Route::get('/users', [AdminUserController::class, 'users'])->name('admin_users');
+    Route::get('/users/create', [AdminUserController::class, 'user_create'])->name('admin_user_create');
     Route::get('/messages', [AdminUserController::class, 'messages'])->name('admin_messages');
     Route::get('/message-detail/{id}', [AdminUserController::class, 'message_detail'])->name('admin_message_detail');
     Route::post('/message-submit/{id}', [AdminUserController::class, 'message_submit'])->name('admin_message_submit');
