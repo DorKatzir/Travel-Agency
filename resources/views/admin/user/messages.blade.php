@@ -41,9 +41,9 @@
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         @if ($message->user->photo != '')
-                                                            <img src="{{ asset('uploads/' . $message->user->photo) }}" alt="" class="w_50">
+                                                            <img src="{{ asset('uploads/' . $message->user->photo) }}" alt="" class="user-image-circle">
                                                         @else
-                                                            <img src="{{ asset('uploads/default.png') }}" alt="" class="w_50">
+                                                            <img src="{{ asset('uploads/default.png') }}" alt="" class="user-image-circle">
                                                         @endif
                                                     </td>
                                                     <td>{{ $message->user->name }}</td>

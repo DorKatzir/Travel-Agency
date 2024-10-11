@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Models\Message;
 use App\Mail\Websitemail;
 use Illuminate\Http\Request;
@@ -49,7 +50,8 @@ class AdminUserController extends Controller
     }
 
     public function users() {
-        return view('admin.user.users');
+        $users = User::get();
+        return view('admin.user.users', compact('users'));
     }
 
 

@@ -518,3 +518,12 @@ hr.invoice-above-table {
 .h-150{
     height:150px !important;
 }
+
+.user-image-circle {
+    margin: 0;
+    padding: 0;
+    max-width: 60px !important;
+    max-height: 60px !important;
+    object-fit: cover !important;
+    border-radius: 50%;
+}

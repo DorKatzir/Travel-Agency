@@ -15,7 +15,7 @@
 
             </div>
 
-            {{-- <div class="section-body">
+            <div class="section-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -35,22 +35,22 @@
                                         </thead>
                                         <tbody>
 
-                                            @foreach ($messages as $message)
+                                            @foreach ($users as $user)
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>
-                                                        @if ($message->user->photo != '')
-                                                            <img src="{{ asset('uploads/' . $message->user->photo) }}" alt="" class="w_50">
+                                                        @if ($user->photo != '')
+                                                            <img src="{{ asset('uploads/' . $user->photo) }}" alt="" class="user-image-circle">
                                                         @else
-                                                            <img src="{{ asset('uploads/default.png') }}" alt="" class="w_50">
+                                                            <img src="{{ asset('uploads/default.png') }}" alt="" class="user-image-circle">
                                                         @endif
                                                     </td>
-                                                    <td>{{ $message->user->name }}</td>
-                                                    <td>{{ $message->user->email }}</td>
-                                                    <td>{{ $message->user->phone }}</td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->phone }}</td>
                                                     <td class="pt_10 pb_10">
-                                                        <a href="{{ route('admin_message_detail', $message->id) }}" class="btn btn-primary">Messages</a>
+                                                        {{-- <a href="{{ route('admin_user_detail', $user->id) }}" class="btn btn-primary">User</a> --}}
                                                     </td>
                                                 </tr>
 
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
         </section>
 
