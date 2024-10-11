@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
+
     public function message() {
         $messages = Message::get();
         return view('admin.user.message', compact('messages'));
@@ -45,6 +46,10 @@ class AdminUserController extends Controller
         \Mail::to($user_email)->send(new Websitemail($subject,$message));
 
         return redirect()->back()->with('success', 'Message sent successfully!');
+    }
+
+    public function users() {
+        return view('admin.user.users');
     }
 
 

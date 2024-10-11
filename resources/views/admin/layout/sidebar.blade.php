@@ -119,12 +119,12 @@
             </li>
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/message') || Request::is('admin/message-detail/*') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/message') || Request::is('admin/users-list') || Request::is('admin/message-detail/*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Users</span></a>
                 <ul class="dropdown-menu">
 
-                    <li class="">
-                        <a class="nav-link" href="#">
+                    <li class="{{ Request::is('admin/users-list') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin_users') }}">
                             <i class="fas fa-angle-right"></i> All Users
                         </a>
                     </li>
