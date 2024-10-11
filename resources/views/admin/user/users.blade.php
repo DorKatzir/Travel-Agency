@@ -27,9 +27,8 @@
                                             <tr>
                                                 <th class="w_40">SL</th>
                                                 <th>Photo</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Phone</th>
+                                                <th>User Info</th>
+                                                <th>Address Info</th>
                                                 <th>Status</th>
                                                 <th class="w_40">Action</th>
                                             </tr>
@@ -47,9 +46,39 @@
                                                             <img src="{{ asset('uploads/default.png') }}" alt="" class="user-image-circle">
                                                         @endif
                                                     </td>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email }}</td>
-                                                    <td>{{ $user->phone }}</td>
+                                                    <td>
+                                                        <div>
+                                                            <small class="m-0 p-0">Name:
+                                                                <strong> {{ $user->name }}</strong>
+                                                            </small>
+                                                        <div>
+                                                            <small class="m-0 p-0">Email:
+                                                                <strong> {{ $user->email }}</strong>
+                                                            </small>
+                                                        </div>
+                                                        <div>
+                                                            <small class="m-0 p-0">Phone:
+                                                                <strong> {{ $user->phone }}</strong>
+                                                            </small>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div>
+                                                            <small class="m-0 p-0">Street:
+                                                                <strong> {{ $user->address }}</strong>
+                                                            </small>
+                                                        <div>
+                                                            <small class="m-0 p-0">City:
+                                                                <strong> {{ $user->city }}</strong>
+                                                            </small>
+                                                        </div>
+                                                        <div>
+                                                            <small class="m-0 p-0">Country:
+                                                                <strong> {{ $user->country }}</strong>
+                                                            </small>
+                                                        </div>
+                                                    </td>
                                                     <td>
                                                         @if ($user->status == 0)
                                                             <span class="badge bg-warning">Pending</span>
