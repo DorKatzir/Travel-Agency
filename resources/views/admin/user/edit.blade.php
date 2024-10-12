@@ -97,7 +97,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Update</button>
+                                            <button type="submit" class="btn btn-primary">Update User</button>
                                         </div>
                                 </form>
 

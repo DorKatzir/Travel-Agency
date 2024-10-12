@@ -104,14 +104,13 @@ class AdminUserController extends Controller
 
         $request->validate([
             'name' =>'required',
-            'email' =>'required|email|unique:users',
+            'email' =>'required|email|unique:users,email,' .$id,
             'phone' =>'required',
             'country' =>'required',
             'address' =>'required',
             'state' =>'required',
             'city' =>'required',
             'zip' =>'required',
-            'password' => 'required',
         ]);
 
         if ( $request->hasFile('photo') ) {
@@ -127,10 +126,12 @@ class AdminUserController extends Controller
             $user->photo = $final_name;
         }
 
+        if ($request->password != '') {
+            $user->password =  bcrypt($request->password);
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->photo = $final_name;
-        $user->password =  bcrypt($request->password);
         $user->phone = $request->phone;
         $user->country = $request->country;
         $user->address = $request->address;
@@ -140,11 +141,15 @@ class AdminUserController extends Controller
         $user->status = $request->status;
         $user->save();
 
-        return redirect()->back()->with('success', 'Slider Updated Successfully');
+        return redirect()->rout('admin_users')->with('success', 'User Updated Successfully');
     }
 
     public function user_delete($id) {
-        //
+        $user = User::where('id', $id)->first();
+        unlink( public_path('uploads/'. $user->photo) );
+        $user->delete();
+
+        return redirect()->back()->with('success', 'User Deleted Successfully');
     }
 
 
