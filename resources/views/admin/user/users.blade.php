@@ -35,7 +35,7 @@
                                                 <th>User Info</th>
                                                 <th>Address Info</th>
                                                 <th>Status</th>
-                                                <th class="w_40">Action</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -105,7 +105,7 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        {{-- <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a> --}}
+                                                        <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                                         <a href="" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
