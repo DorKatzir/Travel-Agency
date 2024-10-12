@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminContactItemController;
-use App\Http\Controllers\Admin\AdminPrivacyTermController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
@@ -15,13 +13,16 @@ use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminAmenityController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminPackageController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminHomeItemController;
 use App\Http\Controllers\Admin\AdminAboutItemController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminSubscriberController;
 use App\Http\Controllers\Admin\AdminTeamMemberController;
+use App\Http\Controllers\Admin\AdminContactItemController;
 use App\Http\Controllers\Admin\AdminCounterItemController;
 use App\Http\Controllers\Admin\AdminDestinationController;
+use App\Http\Controllers\Admin\AdminPrivacyTermController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWelcomeItemController;
 use App\Http\Controllers\Admin\AdminBlogCategoryController;
@@ -282,6 +283,10 @@ Route::middleware('admin')->prefix('admin')->group( function () {
     //Privacy And Terms Items
     Route::get('/privacy-terms-item/index', [AdminPrivacyTermController::class, 'index'])->name('admin_privacy_terms_item_index');
     Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacy_terms_update'])->name('admin_privacy_terms_item_update');
+
+    //Setting Items
+    Route::get('/setting/index', [AdminSettingController::class, 'index'])->name('admin_setting_index');
+    Route::post('/setting/update', [AdminSettingController::class, 'setting_update'])->name('admin_setting_update');
 
 });
 

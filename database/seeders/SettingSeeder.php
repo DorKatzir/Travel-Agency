@@ -14,8 +14,8 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $obj = new Setting();
-        $obj->logo = '';
-        $obj->favicon = '';
+        $obj->logo = 'logoipsum.svg';
+        $obj->favicon = 'faviconipsum.svg';
         $obj->header_phone = '111-222-3333';
         $obj->header_email = 'contact@example.com';
         $obj->footer_address = '34 Antiger Lane, USA, 12937';

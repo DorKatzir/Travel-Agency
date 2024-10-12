@@ -18,6 +18,13 @@
                 </a>
             </li>
 
+            <li class="{{ Request::is('admin/setting') || Request::is('admin/setting/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin_setting_index') }}">
+                    <i class="fas fa-hand-point-right"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
             <li class="{{ Request::is('admin/slider/*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin_slider_index') }}">
                     <i class="fas fa-hand-point-right"></i>
