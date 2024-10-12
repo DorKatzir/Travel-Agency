@@ -147,8 +147,13 @@ class AdminUserController extends Controller
     }
 
     public function user_delete($id) {
+
         $user = User::where('id', $id)->first();
-        unlink( public_path('uploads/'. $user->photo) );
+
+        if($user->photo!= ''){
+            unlink(public_path('uploads/'. $user->photo));
+        }
+
         $user->delete();
 
         return redirect()->back()->with('success', 'User Deleted Successfully');
