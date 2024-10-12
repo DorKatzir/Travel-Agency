@@ -150,29 +150,31 @@ class AdminUserController extends Controller
     }
 
     public function user_delete($id) {
-        $user_booking = Booking::where('user_id', $id)->first();
-        $user_messages = Message::where('user_id', $id)->first();
-        $user_reviews = Review::where('user_id', $id)->first();
-        $user_wishlist = Wishlist::where('user_id', $id)->first();
-        if($user_booking) {
+
+        $user_booking = Booking::where('user_id', $id)->count();
+        if($user_booking > 0) {
             return redirect()->back()->with('error', 'This user has booking, so you can not delete this user');
         }
-        if($user_messages) {
+
+        $user_messages = Message::where('user_id', $id)->count();
+        if($user_messages > 0) {
             return redirect()->back()->with('error', 'This user has messages, so you can not delete this user');
         }
-        if($user_reviews){
+
+        $user_reviews = Review::where('user_id', $id)->count();
+        if($user_reviews > 0){
             return redirect()->back()->with('error', 'This user has reviews, so you can not delete this user');
         }
-        if($user_wishlist){
+
+        $user_wishlist = Wishlist::where('user_id', $id)->count();
+        if($user_wishlist > 0){
             return redirect()->back()->with('error', 'This user has wishlist, so you can not delete this user');
         }
 
         $user = User::where('id', $id)->first();
-
         if($user->photo!= ''){
             unlink(public_path('uploads/'. $user->photo));
         }
-
         $user->delete();
 
         return redirect()->route('admin_users')->with('success', 'User Deleted Successfully');
