@@ -105,8 +105,8 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_user_edit', $user->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin_user_delete', $user->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
 

@@ -93,5 +93,18 @@ class AdminUserController extends Controller
 
     }
 
+    public function user_edit($id) {
+        $user = User::where('id', $id)->first();
+        return view('admin.user.edit', compact('user'));
+    }
+
+    public function user_edit_submit(Request $request, $id) {
+        //
+    }
+
+    public function user_delete($id) {
+        //
+    }
+
 
 }
