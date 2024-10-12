@@ -27,10 +27,16 @@
                                 <form method="POST" action="{{ route('admin_user_edit_submit', $user->id) }}" enctype="multipart/form-data">
                                     @csrf
 
-                                        @if ($user->photo != null)
-                                            <label class="form-label">Photo</label><br>
-                                            <img class="w_150 rounded" src="{{ asset('uploads/' . $user->photo) }}" alt="">
-                                        @endif
+                                        <div class="mb-4">
+                                            @if ($user->photo != null)
+                                                <label class="form-label">Current Photo</label><br>
+                                                <img src="{{ asset('uploads/'. $user->photo) }}" class="rounded w_150">
+                                            @else
+                                                <label class="form-label">Current Photo</label><br>
+                                                <img src="{{ asset('uploads/default.png') }}" class="rounded w_150">
+                                            @endif
+                                        </div>
+
                                         <div class="mb-4">
                                             <label class="form-label">Change Photo *</label><br>
                                             <input type="file" name="photo">

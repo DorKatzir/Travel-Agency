@@ -99,7 +99,48 @@ class AdminUserController extends Controller
     }
 
     public function user_edit_submit(Request $request, $id) {
-        //
+
+        $user = User::where('id', $id)->first();
+
+        $request->validate([
+            'name' =>'required',
+            'email' =>'required|email|unique:users',
+            'phone' =>'required',
+            'country' =>'required',
+            'address' =>'required',
+            'state' =>'required',
+            'city' =>'required',
+            'zip' =>'required',
+            'password' => 'required',
+        ]);
+
+        if ( $request->hasFile('photo') ) {
+
+            $request->validate([
+                'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+            ]);
+
+            unlink( public_path('uploads/' . $user->photo) );
+
+            $final_name = 'user_'.time().'.'.$request->photo->extension();
+            $request->photo->move( public_path('uploads'), $final_name );
+            $user->photo = $final_name;
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->photo = $final_name;
+        $user->password =  bcrypt($request->password);
+        $user->phone = $request->phone;
+        $user->country = $request->country;
+        $user->address = $request->address;
+        $user->state = $request->state;
+        $user->city = $request->city;
+        $user->zip = $request->zip;
+        $user->status = $request->status;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Slider Updated Successfully');
     }
 
     public function user_delete($id) {
