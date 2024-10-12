@@ -38,7 +38,7 @@
                                         </div>
 
                                         <div class="mb-4">
-                                            <label class="form-label">Change Photo *</label><br>
+                                            <label class="form-label">Change Photo</label><br>
                                             <input type="file" name="photo">
                                         </div>
 
@@ -92,12 +92,12 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Password *</label>
+                                            <label class="form-label">Password</label>
                                             <input type="password" class="form-control" name="password">
                                         </div>
 
                                         <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                 </form>
 
