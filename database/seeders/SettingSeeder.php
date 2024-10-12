@@ -21,11 +21,11 @@ class SettingSeeder extends Seeder
         $obj->footer_address = '34 Antiger Lane, USA, 12937';
         $obj->footer_phone = '122-222-1212';
         $obj->footer_email = 'contact@example.com';
-        $obj->facebook = 'fab fa-facebook-f';
-        $obj->twitter = 'fab fa-twitter';
-        $obj->youtube = 'fab fa-youtube';
-        $obj->linkedin = 'fab fa-linkedin-in';
-        $obj->instagram ='fab fa-instagram';
+        $obj->facebook = '#';
+        $obj->twitter = '#';
+        $obj->youtube = '#';
+        $obj->linkedin = '#';
+        $obj->instagram = '#';
         $obj->copyright = ' Copyright © 2024, TripSummit. All Rights Reserved.';
         $obj->banner = '';
         $obj->save();
