@@ -14,7 +14,7 @@ class AdminSettingController extends Controller
     }
 
     public function setting_update(Request $request) {
-        //
+        dd($request->all());
 
     }
 }

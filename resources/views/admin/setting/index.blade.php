@@ -19,7 +19,7 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <form method="POST" action="" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('admin_setting_update') }}" enctype="multipart/form-data">
                                     @csrf
 
                                       <div class="row">
