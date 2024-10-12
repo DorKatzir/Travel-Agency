@@ -52,9 +52,12 @@ class UserController extends Controller
                 'photo' => ['mimes:jpeg,jpg,png,webp,gif,svg', 'max:2048']
             ]);
 
+            if($user->photo != ''){
+                unlink(public_path('uploads/'. $user->photo));
+            }
+
             $final_name = 'user_'.time().'.'.$request->photo->extension();
             $request->photo->move( public_path('uploads'), $final_name );
-            unlink(public_path('uploads/'.$user->photo));
 
             $user->photo = $final_name;
         }

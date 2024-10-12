@@ -100,7 +100,7 @@ class AdminUserController extends Controller
 
     public function user_edit_submit(Request $request, $id) {
 
-        $user = User::where('id', $id)->first();
+        $obj = User::where('id', $id)->first();
 
         $request->validate([
             'name' =>'required',
@@ -113,35 +113,37 @@ class AdminUserController extends Controller
             'zip' =>'required',
         ]);
 
-        if ( $request->hasFile('photo') ) {
+        if($request->photo != ''){
 
             $request->validate([
-                'photo' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+                'photo' => ['mimes:jpeg,jpg,png,webp,gif,svg', 'max:2048']
             ]);
 
-            unlink( public_path('uploads/' . $user->photo) );
+            if($obj->photo != ''){
+                unlink(public_path('uploads/'. $obj->photo));
+            }
 
             $final_name = 'user_'.time().'.'.$request->photo->extension();
             $request->photo->move( public_path('uploads'), $final_name );
-            $user->photo = $final_name;
+            $obj->photo = $final_name;
         }
 
-        if ($request->password != '') {
-            $user->password =  bcrypt($request->password);
+        if($request->password) {
+            $obj->password = bcrypt($request->password);
         }
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->country = $request->country;
-        $user->address = $request->address;
-        $user->state = $request->state;
-        $user->city = $request->city;
-        $user->zip = $request->zip;
-        $user->status = $request->status;
-        $user->save();
+        $obj->name = $request->name;
+        $obj->email = $request->email;
+        $obj->phone = $request->phone;
+        $obj->country = $request->country;
+        $obj->address = $request->address;
+        $obj->state = $request->state;
+        $obj->city = $request->city;
+        $obj->zip = $request->zip;
+        $obj->status = $request->status;
+        $obj->save();
 
-        return redirect()->rout('admin_users')->with('success', 'User Updated Successfully');
+        return redirect()->route('admin_users')->with('success', 'User Updated Successfully');
     }
 
     public function user_delete($id) {
