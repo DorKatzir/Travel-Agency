@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Review;
+use App\Models\Booking;
 use App\Models\Message;
+use App\Models\Wishlist;
 use App\Mail\Websitemail;
 use Illuminate\Http\Request;
 use App\Models\MessageComment;
@@ -147,6 +150,22 @@ class AdminUserController extends Controller
     }
 
     public function user_delete($id) {
+        $user_booking = Booking::where('user_id', $id)->first();
+        $user_messages = Message::where('user_id', $id)->first();
+        $user_reviews = Review::where('user_id', $id)->first();
+        $user_wishlist = Wishlist::where('user_id', $id)->first();
+        if($user_booking) {
+            return redirect()->back()->with('error', 'This user has booking, so you can not delete this user');
+        }
+        if($user_messages) {
+            return redirect()->back()->with('error', 'This user has messages, so you can not delete this user');
+        }
+        if($user_reviews){
+            return redirect()->back()->with('error', 'This user has reviews, so you can not delete this user');
+        }
+        if($user_wishlist){
+            return redirect()->back()->with('error', 'This user has wishlist, so you can not delete this user');
+        }
 
         $user = User::where('id', $id)->first();
 
@@ -156,7 +175,7 @@ class AdminUserController extends Controller
 
         $user->delete();
 
-        return redirect()->back()->with('success', 'User Deleted Successfully');
+        return redirect()->route('admin_users')->with('success', 'User Deleted Successfully');
     }
 
 
