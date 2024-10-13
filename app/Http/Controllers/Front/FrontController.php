@@ -12,6 +12,7 @@ use App\Models\Slider;
 use App\Models\Booking;
 use App\Models\Feature;
 use App\Models\Package;
+use App\Models\Setting;
 use App\Models\HomeItem;
 use App\Models\Wishlist;
 use App\Mail\Websitemail;
@@ -61,24 +62,28 @@ class FrontController extends Controller
         $counterItem = CounterItem::where('id', 1)->first();
         $features = Feature::get();
         $aboutItem = AboutItem::where('id', 1)->first();
+        $settingItem = Setting::where('id', 1)->first();
 
-        return view('front.about', compact('welcomeItem', 'features', 'counterItem', 'aboutItem'));
+        return view('front.about', compact('welcomeItem', 'features', 'counterItem', 'aboutItem', 'settingItem'));
     }
 
     public function team() {
         $team = TeamMember::paginate(20);
-        return view('front.team', compact('team'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.team', compact('team', 'settingItem'));
     }
 
     public function team_member($slug) {
         $member = TeamMember::where('slug', $slug)->first();
-        return view('front.team-member', compact('member'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.team-member', compact('member', 'settingItem'));
     }
 
     public function faq() {
         $faqs = Faq::get();
-        return view('front.faq', compact('faqs'));
+        $settingItem = Setting::where('id', 1)->first();
 
+        return view('front.faq', compact('faqs', 'settingItem'));
     }
 
     public function blog() {

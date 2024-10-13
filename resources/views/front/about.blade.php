@@ -2,7 +2,7 @@
 
 @section('main_content')
 
-    <div class="page-top" style="background-image: url({{ asset('uploads/banner.jpg') }})">
+    <div class="page-top" style="background-image: url({{ asset('uploads/'. $settingItem->banner) }})">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

@@ -87,9 +87,6 @@
         @yield('main_content')
 
 
-
-
-
         <div class="footer pt_70">
             <div class="container">
                 <div class="row">
