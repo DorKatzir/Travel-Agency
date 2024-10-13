@@ -15,8 +15,6 @@ class AdminSettingController extends Controller
 
     public function update(Request $request) {
 
-
-
         $obj = Setting::where('id', 1)->first();
 
         if ( $request->hasFile('logo') ) {
