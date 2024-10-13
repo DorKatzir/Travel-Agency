@@ -15,19 +15,7 @@ class AdminSettingController extends Controller
 
     public function update(Request $request) {
 
-        $request->validate([
-            'header_phone' =>'required',
-            'header_email' =>'required',
-            'footer_address' =>'required',
-            'footer_email' =>'required',
-            'footer_phone' =>'required',
-            'facebook' =>'required',
-            'twitter' =>'required',
-            'youtube' =>'required',
-            'linkedin' =>'required',
-            'instagram' =>'required',
-            'copyright' =>'required',
-        ]);
+
 
         $obj = Setting::where('id', 1)->first();
 

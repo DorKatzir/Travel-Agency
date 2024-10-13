@@ -140,19 +140,19 @@
                                 <div class="right">{{ $setting->footer_email }}</div>
                             </div>
                             <ul class="social">
-                                @if ($setting->facebook != '#')
+                                @if ($setting->facebook)
                                     <li><a href="{{ $setting->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 @endif
-                                @if ($setting->twitter != '#')
+                                @if ($setting->twitter)
                                     <li><a href="{{ $setting->twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                 @endif
-                                @if ($setting->youtube != '#')
+                                @if ($setting->youtube)
                                     <li><a href="{{ $setting->youtube }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
                                 @endif
-                                @if ($setting->linkedin != '#')
+                                @if ($setting->linkedin)
                                     <li><a href="{{ $setting->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                                 @endif
-                                @if ($setting->instagram != '#')
+                                @if ($setting->instagram)
                                     <li><a href="{{ $setting->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 @endif
                             </ul>
@@ -183,17 +183,19 @@
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="copyright">
-                            Copyright &copy; 2024, TripSummit. All Rights Reserved.
+        @if ($setting->copyright)
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="copyright">
+                                {{ $setting->copyright }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <div class="scroll-top">
             <i class="fas fa-angle-up"></i>
