@@ -100,11 +100,6 @@
                                                 </div>
 
                                                 <div class="mb-2">
-                                                    <label class="form-label">Twitter</label>
-                                                    <input type="text" class="form-control" name="twitter" value="{{ $setting->twitter }}">
-                                                </div>
-
-                                                <div class="mb-2">
                                                     <label class="form-label">Youtube</label>
                                                     <input type="text" class="form-control" name="youtube" value="{{ $setting->youtube }}">
                                                 </div>

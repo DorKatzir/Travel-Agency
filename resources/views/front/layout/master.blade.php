@@ -124,27 +124,37 @@
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div class="right">
-                                    34 Antiger Lane, USA, 12937
+                                   {{ $setting->footer_address }}
                                 </div>
                             </div>
                             <div class="list-item">
                                 <div class="left">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                <div class="right">122-222-1212</div>
+                                <div class="right">{{ $setting->footer_phone }}</div>
                             </div>
                             <div class="list-item">
                                 <div class="left">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <div class="right">contact@example.com</div>
+                                <div class="right">{{ $setting->footer_email }}</div>
                             </div>
                             <ul class="social">
-                                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                                <li><a href=""><i class="fab fa-youtube"></i></a></li>
-                                <li><a href=""><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                                @if ($setting->facebook != '#')
+                                    <li><a href="{{ $setting->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                @endif
+                                @if ($setting->twitter != '#')
+                                    <li><a href="{{ $setting->twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                @endif
+                                @if ($setting->youtube != '#')
+                                    <li><a href="{{ $setting->youtube }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                @endif
+                                @if ($setting->linkedin != '#')
+                                    <li><a href="{{ $setting->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                @endif
+                                @if ($setting->instagram != '#')
+                                    <li><a href="{{ $setting->instagram }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
