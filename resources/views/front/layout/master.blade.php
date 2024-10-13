@@ -1,3 +1,7 @@
+@php
+    $setting = App\Models\Setting::where('id', 1)->first();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>TripSummit</title>
 
-        <link rel="icon" type="image/png" href="{{ asset('uploads/favicon.svg') }}">
+        @if ($setting->favicon != '')
+            <link rel="icon" type="image/png" href="{{ asset('uploads/' . $setting->favicon) }}">
+        @else
+            <link rel="icon" type="image/png" href="{{ asset('uploads/faviconipsum.svg') }}">
+        @endif
 
         <!-- All CSS -->
         <link rel="stylesheet" href="{{ asset('dist-front/css/bootstrap.min.css') }}">

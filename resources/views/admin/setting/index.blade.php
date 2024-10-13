@@ -36,7 +36,7 @@
                                                 </div>
                                                 <div class="mb-2">
                                                     <label class="form-label">Upload\Change Logo</label><br>
-                                                    <input type="file" name="logo" accept="image/*">
+                                                    <input type="file" name="logo" accept=".png, .jpeg, .jpg, .gif, .svg">
                                                 </div>
                                             </div>
 
