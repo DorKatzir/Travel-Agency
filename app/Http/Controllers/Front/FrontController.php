@@ -88,25 +88,29 @@ class FrontController extends Controller
 
     public function blog() {
         $posts = Post::orderBy('id', 'desc')->paginate(9);
-        return view('front.blog', compact('posts'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.blog', compact('posts', 'settingItem'));
     }
 
     public function blog_post($slug) {
         $latestPosts = Post::orderBy('id', 'desc')->get()->take(5);
         $categories = BlogCategory::orderBy('name', 'asc')->get();
         $post = Post::where('slug', $slug)->first();
-        return view('front.blog-post', compact('post', 'categories', 'latestPosts'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.blog-post', compact('post', 'categories', 'latestPosts', 'settingItem'));
     }
 
     public function category($slug) {
         $category = BlogCategory::where('slug', $slug)->first();
         $posts = Post::where('blog_category_id', $category->id)->orderBy('id', 'desc')->paginate(9);
-        return view('front.category', compact('category', 'posts'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.category', compact('category', 'posts', 'settingItem'));
     }
 
     public function destinations() {
         $destinations = Destination::orderBy('id', 'desc')->paginate(8);
-        return view('front.destinations', compact('destinations'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.destinations', compact('destinations', 'settingItem'));
     }
 
     public function destination($slug) {
@@ -118,8 +122,9 @@ class FrontController extends Controller
         $destination_videos = DestinationVideo::where('destination_id', $destination->id)->get();
 
         $packages = Package::orderBy('id', 'desc')->where('destination_id', $destination->id)->get()->take(3);
+        $settingItem = Setting::where('id', 1)->first();
 
-        return view('front.destination', compact('destination','destination_photos', 'destination_videos', 'packages'));
+        return view('front.destination', compact('destination','destination_photos', 'destination_videos', 'packages', 'settingItem'));
     }
 
     public function packages(Request $request) {
@@ -153,7 +158,9 @@ class FrontController extends Controller
 
         $packages = $packages->paginate(4);
 
-        return view('front.packages', compact('packages', 'destinations', 'form_review'));
+        $settingItem = Setting::where('id', 1)->first();
+
+        return view('front.packages', compact('packages', 'destinations', 'form_review', 'settingItem'));
 
     }
 
@@ -168,8 +175,7 @@ class FrontController extends Controller
         $tours = Tour::where('package_id', $package->id)->get();
         $reviews = Review::where('package_id', $package->id)->get();
 
-
-        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs', 'tours', 'reviews'));
+        return view('front.package', compact('package', 'package_amenities_include', 'package_amenities_exclude', 'package_itineraries', 'package_photos', 'package_videos', 'package_faqs', 'tours', 'reviews' ));
     }
 
     public function enquey_form_submit(Request $request, $package_id) {
@@ -406,7 +412,8 @@ class FrontController extends Controller
 
     public function contact() {
         $contactItem = ContactItem::where('id', 1)->first();
-        return view('front.contact', compact('contactItem'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.contact', compact('contactItem', 'settingItem' ));
     }
 
     public function contact_submit(Request $request) {
@@ -432,12 +439,14 @@ class FrontController extends Controller
 
     public function terms() {
         $terms = PrivacyTerm::where('id', 1)->first();
-        return view('front.terms', compact('terms'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.terms', compact('terms', 'settingItem' ));
     }
 
     public function privacy() {
         $privacy= PrivacyTerm::where('id', 1)->first();
-        return view('front.privacy', compact('privacy'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.privacy', compact('privacy', 'settingItem' ));
     }
 
 
@@ -445,7 +454,8 @@ class FrontController extends Controller
  //////////////////////////////////////////////////////////////////////////////////////////
 
     public function registration() {
-        return view('front.registration');
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.registration', compact('settingItem' ));
     }
 
     public function registration_submit(Request $request) {
@@ -492,7 +502,8 @@ class FrontController extends Controller
     }
 
     public function login() {
-        return view('front.login');
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.login', compact('settingItem'));
     }
 
     public function login_submit(Request $request) {
@@ -524,7 +535,8 @@ class FrontController extends Controller
 
 
     public function forget_password() {
-        return view('front.forget-password');
+        $settingItem = Setting::where('id', 1)->first();
+        return view('front.forget-password', compact('settingItem'));
     }
 
 
@@ -561,8 +573,9 @@ class FrontController extends Controller
         if(!$user) {
             return redirect()->route('login')->with('error','Token or email is not correct');
         }
+        $settingItem = Setting::where('id', 1)->first();
 
-        return view('front.reset-password', compact('token','email'));
+        return view('front.reset-password', compact('token','email', 'settingItem'));
     }
 
 
