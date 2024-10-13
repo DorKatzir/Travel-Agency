@@ -132,7 +132,6 @@
                                             </div>
 
 
-
                                             <div class="mb-4">
                                                 <button type="submit" class="btn btn-primary">Update Setting</button>
                                             </div>

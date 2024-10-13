@@ -27,7 +27,7 @@ class SettingSeeder extends Seeder
         $obj->linkedin = '#';
         $obj->instagram = '#';
         $obj->copyright = ' Copyright © 2024, TripSummit. All Rights Reserved.';
-        $obj->banner = '';
+        $obj->banner = 'banner.jpg';
         $obj->save();
 
     }
