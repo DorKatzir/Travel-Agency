@@ -113,6 +113,24 @@
 
                                             </div>
 
+                                            <h5>Copyrights</h5>
+                                            <div class="row mb-4 mx-2">
+                                                <div class="mb-2 mt-2">
+                                                    <input type="text" class="form-control" name="copyright" value="{{ $setting->copyright }}">
+                                                </div>
+                                            </div>
+
+                                            <h5>Banner</h5>
+                                            <div class="row mb-4 mx-2">
+                                                <div class="mb-2 mt-2">
+                                                    <img src="{{ asset('uploads/'. $setting->banner) }}" class="rounded w_300">
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label">Change Banner</label><br>
+                                                    <input type="file" name="banner" accept="image/*">
+                                                </div>
+                                            </div>
+
 
 
                                             <div class="mb-4">
