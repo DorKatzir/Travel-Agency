@@ -31,8 +31,8 @@
                                                     <img src="{{ asset('uploads/'. $setting->logo) }}" class="w_200">
                                                 </div>
                                                 <div class="mb-2">
-                                                    <label class="form-label">Change Logo (svg only) *</label><br>
-                                                    <input type="file" name="logo" accept=".svg">
+                                                    <label class="form-label">Change Logo</label><br>
+                                                    <input type="file" name="logo" accept="image/*">
                                                 </div>
                                             </div>
 
@@ -42,8 +42,8 @@
                                                     <img src="{{ asset('uploads/'. $setting->favicon) }}" class="w_40">
                                                 </div>
                                                 <div class="mb-2">
-                                                    <label class="form-label">Change Favicon (svg only) *</label><br>
-                                                    <input type="file" name="favicon" accept=".svg">
+                                                    <label class="form-label">Change Favicon</label><br>
+                                                    <input type="file" name="favicon" accept=".svg, .ico">
                                                 </div>
                                             </div>
 

@@ -14,8 +14,8 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $obj = new Setting();
-        $obj->logo = 'logoipsum.svg';
-        $obj->favicon = 'faviconipsum.svg';
+        $obj->logo = '';
+        $obj->favicon = '';
         $obj->header_phone = '111-222-3333';
         $obj->header_email = 'contact@example.com';
         $obj->footer_address = '34 Antiger Lane, USA, 12937';
@@ -27,7 +27,7 @@ class SettingSeeder extends Seeder
         $obj->linkedin = '#';
         $obj->instagram = '#';
         $obj->copyright = ' Copyright © 2024, TripSummit. All Rights Reserved.';
-        $obj->banner = 'banner.jpg';
+        $obj->banner = '';
         $obj->save();
 
     }

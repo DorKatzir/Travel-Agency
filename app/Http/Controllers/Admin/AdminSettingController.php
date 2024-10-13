@@ -33,7 +33,7 @@ class AdminSettingController extends Controller
 
         if ( $request->hasFile('logo') ) {
             $request->validate([
-                'logo' => 'required|image|mimes:png,svg|max:2048',
+                'logo' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:1024',
             ]);
 
             if($obj->logo != ''){
@@ -47,7 +47,7 @@ class AdminSettingController extends Controller
 
         if ( $request->hasFile('favicon') ) {
             $request->validate([
-                'favicon' => 'required|image|mimes:svg|max:2048',
+                'favicon' => 'required|image|mimes:svg,ico|max:512',
             ]);
 
             if($obj->favicon != ''){
@@ -61,7 +61,7 @@ class AdminSettingController extends Controller
 
         if ( $request->hasFile('banner') ) {
             $request->validate([
-                'banner' => 'required|image|mimes:jpeg,jpg,png,gif,svg|max:2048',
+                'banner' => 'required|image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
             ]);
 
             if($obj->banner != ''){
