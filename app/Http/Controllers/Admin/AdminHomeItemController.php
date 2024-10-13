@@ -13,7 +13,7 @@ class AdminHomeItemController extends Controller
         return view('admin.home-item.index', compact('homeItem'));
     }
 
-    public function homeItem_update(Request $request) {
+    public function update(Request $request) {
 
         // dd($request->all());
 

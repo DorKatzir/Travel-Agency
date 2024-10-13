@@ -270,23 +270,23 @@ Route::middleware('admin')->prefix('admin')->group( function () {
 
     //Home Items
     Route::get('/home-item/index', [AdminHomeItemController::class, 'index'])->name('admin_homeItem_index');
-    Route::post('/home-item/update', [AdminHomeItemController::class, 'homeItem_update'])->name('admin_homeItem_update');
+    Route::post('/home-item/update', [AdminHomeItemController::class, 'update'])->name('admin_homeItem_update');
 
     //About Items
     Route::get('/about-item/index', [AdminAboutItemController::class, 'index'])->name('admin_aboutItem_index');
-    Route::post('/about-item/update', [AdminAboutItemController::class, 'aboutItem_update'])->name('admin_aboutItem_update');
+    Route::post('/about-item/update', [AdminAboutItemController::class, 'update'])->name('admin_aboutItem_update');
 
     //Contact Items
     Route::get('/contact-item/index', [AdminContactItemController::class, 'index'])->name('admin_contactItem_index');
-    Route::post('/contact-item/update', [AdminContactItemController::class, 'contactItem_update'])->name('admin_contactItem_update');
+    Route::post('/contact-item/update', [AdminContactItemController::class, 'update'])->name('admin_contactItem_update');
 
     //Privacy And Terms Items
     Route::get('/privacy-terms-item/index', [AdminPrivacyTermController::class, 'index'])->name('admin_privacy_terms_item_index');
-    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'privacy_terms_update'])->name('admin_privacy_terms_item_update');
+    Route::post('/privacy-terms-item/update', [AdminPrivacyTermController::class, 'update'])->name('admin_privacy_terms_item_update');
 
     //Setting Items
     Route::get('/setting/index', [AdminSettingController::class, 'index'])->name('admin_setting_index');
-    Route::post('/setting/update', [AdminSettingController::class, 'setting_update'])->name('admin_setting_update');
+    Route::post('/setting/update', [AdminSettingController::class, 'update'])->name('admin_setting_update');
 
 });
 

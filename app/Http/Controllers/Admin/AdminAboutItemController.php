@@ -14,7 +14,7 @@ class AdminAboutItemController extends Controller
         return view('admin.about-item.index', compact('aboutItem'));
     }
 
-    public function aboutItem_update(Request $request) {
+    public function update(Request $request) {
 
         $obj = AboutItem::where('id', 1)->first();
         $obj->feature_status = $request->feature_status;

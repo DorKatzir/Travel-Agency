@@ -15,7 +15,7 @@ class AdminContactItemController extends Controller
         return view('admin.contact-item.index', compact('contactItem'));
     }
 
-    public function contactItem_update(Request $request) {
+    public function update(Request $request) {
 
         $obj = ContactItem::where('id', 1)->first();
         $obj->map_code = $request->map_code;
