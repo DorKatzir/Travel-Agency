@@ -28,10 +28,14 @@
                                             <h5>Logo</h5>
                                             <div class="row mb-4 mx-2">
                                                 <div class="mb-2 mt-2">
-                                                    <img src="{{ asset('uploads/'. $setting->logo) }}" class="w_200">
+                                                    @if ($setting->logo != '')
+                                                        <img src="{{ asset('uploads/'. $setting->logo) }}" class="w_200">
+                                                    @else
+                                                        <div class="text-danger">No Logo Found.</div>
+                                                    @endif
                                                 </div>
                                                 <div class="mb-2">
-                                                    <label class="form-label">Change Logo</label><br>
+                                                    <label class="form-label">Upload\Change Logo</label><br>
                                                     <input type="file" name="logo" accept="image/*">
                                                 </div>
                                             </div>
@@ -39,10 +43,14 @@
                                             <h5>Favicon</h5>
                                             <div class="row mb-4 mx-2">
                                                 <div class="mb-2 mt-2">
-                                                    <img src="{{ asset('uploads/'. $setting->favicon) }}" class="w_40">
+                                                    @if ($setting->favicon != '')
+                                                        <img src="{{ asset('uploads/'. $setting->favicon) }}" class="w_40">
+                                                    @else
+                                                        <div class="text-danger">No Favicon Found.</div>
+                                                    @endif
                                                 </div>
                                                 <div class="mb-2">
-                                                    <label class="form-label">Change Favicon</label><br>
+                                                    <label class="form-label">Upload\Change Favicon</label><br>
                                                     <input type="file" name="favicon" accept=".svg, .ico">
                                                 </div>
                                             </div>
@@ -123,10 +131,14 @@
                                             <h5>Banner</h5>
                                             <div class="row mb-4 mx-2">
                                                 <div class="mb-2 mt-2">
-                                                    <img src="{{ asset('uploads/'. $setting->banner) }}" class="rounded w_300">
+                                                    @if ($setting->banner != '')
+                                                        <img src="{{ asset('uploads/'. $setting->banner) }}" class="rounded w_300">
+                                                    @else
+                                                        <div class="text-danger">No Banner Found.</div>
+                                                    @endif
                                                 </div>
                                                 <div class="mb-2">
-                                                    <label class="form-label">Change Banner</label><br>
+                                                    <label class="form-label">Upload\Change Banner</label><br>
                                                     <input type="file" name="banner" accept="image/*">
                                                 </div>
                                             </div>
