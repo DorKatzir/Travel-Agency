@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Models\Review;
 use App\Models\Booking;
 use App\Models\Message;
+use App\Models\Setting;
 use App\Models\Wishlist;
 use App\Mail\Websitemail;
 use Illuminate\Http\Request;
@@ -21,13 +22,14 @@ class UserController extends Controller
     public function dashboard() {
         $completed = Booking::where('user_id', Auth::guard('web')->user()->id)->where('payment_status', 'Completed')->count();
         $pending = Booking::where('user_id', Auth::guard('web')->user()->id)->where('payment_status', 'Pending')->count();
+        $settingItem = Setting::where('id', 1)->first();
 
-
-        return view('user.dashboard', compact('completed', 'pending'));
+        return view('user.dashboard', compact('completed', 'pending', 'settingItem'));
     }
 
     public function profile() {
-        return view('user.profile');
+        $settingItem = Setting::where('id', 1)->first();
+        return view('user.profile', compact('settingItem'));
     }
 
     public function profile_update(Request $request) {
@@ -86,27 +88,28 @@ class UserController extends Controller
 
     public function booking() {
         $bookings = Booking::where('user_id', Auth::guard('web')->user()->id)->get();
-        return view('user.booking', compact('bookings'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('user.booking', compact('bookings', 'settingItem'));
     }
 
     public function invoice($invoice_no) {
         $booking = Booking::where('invoice_no', $invoice_no)->first();
-        return view('user.invoice', compact('booking'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('user.invoice', compact('booking', 'settingItem' ));
 
     }
 
     public function review() {
         $reviews = Review::where('user_id', Auth::guard('web')->user()->id)->get();
-        return view('user.review', compact('reviews'));
+        $settingItem = Setting::where('id', 1)->first();
+        return view('user.review', compact('reviews', 'settingItem'));
     }
 
     public function wishlist() {
         $wishlist = Wishlist::where('user_id', Auth::guard('web')->user()->id)->get();
-        foreach($wishlist as $wish){
-            echo $wish->package_id;
-        }
+        $settingItem = Setting::where('id', 1)->first();
 
-        return  view('user.wishlist', compact('wishlist'));
+        return  view('user.wishlist', compact('wishlist', 'settingItem' ));
     }
 
     public function wishlist_delete($id) {
@@ -129,7 +132,9 @@ class UserController extends Controller
             $message_comments = null;
         }
 
-        return view('user.message', compact('message_check', 'message_comments'));
+        $settingItem = Setting::where('id', 1)->first();
+
+        return view('user.message', compact('message_check', 'message_comments', 'settingItem' ));
     }
 
     /**

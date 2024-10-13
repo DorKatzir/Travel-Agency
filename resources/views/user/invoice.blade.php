@@ -1,7 +1,7 @@
 @extends('front.layout.master')
 @section('main_content')
 
-    <div class="page-top" style="background-image: url({{ asset('uploads/banner.jpg') }})">
+    <div class="page-top" style="background-image: url({{ asset('uploads/' . $settingItem->banner) }})">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -37,7 +37,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="w-50">
-                                                        <img src="{{ asset('uploads/logo.svg') }}" alt="logo" class="h-60">
+                                                        <img src="{{ asset('uploads/' . $settingItem->logo) }}" alt="logo" class="h-60">
                                                     </td>
                                                     <td class="w-50">
                                                         <div class="invoice-top-right">
@@ -79,9 +79,8 @@
                                                             @endphp
                                                             <p class="mb_0">{{ $company_name }}</p>
                                                             <p class="mb_0 color_6d6d6d">{{ $company_email }}</p>
-                                                            <p class="mb_0">215-899-5780</p>
-                                                            <p class="mb_0">3145 Glen Falls Road</p>
-                                                            <p class="mb_0">Bensalem, PA 19020</p>
+                                                            <p class="mb_0">{{ $settingItem->footer_phone }}</p>
+                                                            <p class="mb_0">{{ $settingItem->footer_address }}</p>
                                                         </div>
                                                     </td>
                                                 </tr>
