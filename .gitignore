@@ -21,3 +21,4 @@ yarn-error.log
 help.txt
 paypal_laravel_11.txt
 /public/uploads/*.psd
+/production
