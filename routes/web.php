@@ -69,6 +69,9 @@ Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'reg
 Route::get('/login', [FrontController::class, 'login'])->name('login');
 Route::post('/login', [FrontController::class, 'login_submit'])->name('login_submit');
 
+Route::get('/auth/gmail', [FrontController::class, 'login_gmail'])->name('login_gmail');
+Route::get('/auth/gmail-callback', [FrontController::class, 'login_gmail_auth'])->name('login_gmail_auth');
+
 Route::get('/forget-password', [FrontController::class, 'forget_password'])->name('forget_password');
 Route::post('/forget-password', [FrontController::class, 'forget_password_submit'])->name('forget_password_submit');
 

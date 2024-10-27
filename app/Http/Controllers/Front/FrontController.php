@@ -38,6 +38,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Laravel\Socialite\Facades\Socialite;
 
 class FrontController extends Controller
 {
@@ -504,6 +505,15 @@ class FrontController extends Controller
     public function login() {
         $settingItem = Setting::where('id', 1)->first();
         return view('front.login', compact('settingItem'));
+    }
+
+    public function login_gmail() {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function login_gmail_auth() {
+        $gmaiUser = Socialite::driver('google')->user();
+        dd($gmaiUser);
     }
 
     public function login_submit(Request $request) {
