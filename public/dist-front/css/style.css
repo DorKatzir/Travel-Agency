@@ -2308,21 +2308,3 @@ select {
     display: block;
   }
 
-  /* .hr-text::before {
-      content: "";
-      background: linear-gradient(to right, transparent, white, transparent);
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 1px;
-  }
-
-  .hr-text::after {
-      content: attr(data-content);
-      position: relative;
-      padding: 0 7px;
-      line-height: 1.5em;
-      color: white;
-      background-color: #1a1a1a;
-  } */
