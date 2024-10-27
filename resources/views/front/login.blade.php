@@ -23,6 +23,17 @@
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
                     <div class="login-form">
 
+                        <div class="px-6 py-2 d-flex align-items-center gap-4">
+                            <span>Login with</span>
+                            <a href="" class="btn btn-danger flex-grow-1"> Gmail Account</a>
+                        </div>
+
+                        <div class="d-flex gap-4 align-items-center justify-content-between mt-1 mb-1">
+                           <hr class="hr">
+                           <small class="text-muted">OR</small>
+                           <hr class="hr">
+                        </div>
+
                         <form action="{{ route('login_submit') }}" method="POST">
                             @csrf
                             <div class="mb-3">
@@ -33,16 +44,21 @@
                                 <label for="" class="form-label">Password</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary bg-website">
+
+                             <div class="d-flex gap-4 align-items-center justify-content-between">
+                                <button type="submit" class="btn btn-primary flex-grow-1">
                                     Login
                                 </button>
-                                <a href="{{ route('forget_password') }}" class="primary-color">Forget Password?</a>
+
+                                <a href="{{ route('forget_password') }}" class="primary-color">Forgot Password?</a>
                             </div>
+
                         </form>
 
-                        <div class="mb-3">
-                            <a href="{{ route('registration') }}" class="primary-color">Don't have an account? Create Account</a>
+                        <hr>
+                        <div class="mb-3 d-flex gap-4 align-items-center justify-content-between">
+                            <span>Don't have an account?</span>
+                            <a href="{{ route('registration') }}" class="primary-color">Create Account</a>
                         </div>
                     </div>
                 </div>
