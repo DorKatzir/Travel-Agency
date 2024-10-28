@@ -34,7 +34,7 @@
                                 <label for="">Profile Photo</label>
                                 <div class="form-group">
                                     @if ( Auth::guard('web')->user()->photo != '' )
-                                        <img src="{{ asset( 'uploads/'. Auth::guard('web')->user()->photo ) }}" alt="" class="user-photo rounded">
+                                        <img src="{{ asset('uploads/' . Auth::guard('web')->user()->name) }}" alt="" class="user-photo rounded">
                                     @else
                                         <img src="{{ asset('uploads/default.png')}}" alt="" class="user-photo rounded">
                                     @endif
