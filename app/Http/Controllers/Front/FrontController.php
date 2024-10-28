@@ -524,11 +524,12 @@ class FrontController extends Controller
                 return redirect()->route('user_dashboard')->with('success','Login is successfull');
 
             } else {
+
                 $userData = User::create([
                     'gmail_id' => $gmailUser->id,
                     'name' => $gmailUser->name,
                     'email' => $gmailUser->email,
-                    'photo' => $gmailUser->avatar,
+                    // 'photo' => $gmailUser->avatar,
                     'password' => Hash::make('Password@1234'),
                     'status' => 1,
                 ]);
