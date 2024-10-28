@@ -512,8 +512,8 @@ class FrontController extends Controller
     }
 
     public function login_gmail_auth() {
-        $gmaiUser = Socialite::driver('google')->user();
-        dd($gmaiUser);
+        $gmailUser = Socialite::driver('google')->user();
+        dd($gmailUser);
     }
 
     public function login_submit(Request $request) {
