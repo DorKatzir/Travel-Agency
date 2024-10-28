@@ -513,7 +513,6 @@ class FrontController extends Controller
 
     public function login_gmail_auth() {
 
-
         try {
 
             $gmailUser = Socialite::driver('google')->stateless()->user();
@@ -529,7 +528,6 @@ class FrontController extends Controller
                     'gmail_id' => $gmailUser->id,
                     'name' => $gmailUser->name,
                     'email' => $gmailUser->email,
-                    // 'photo' => $gmailUser->avatar,
                     'password' => Hash::make('Password@1234'),
                     'status' => 1,
                 ]);
