@@ -512,8 +512,39 @@ class FrontController extends Controller
     }
 
     public function login_gmail_auth() {
-        $gmailUser = Socialite::driver('google')->user();
-        dd($gmailUser);
+
+
+        try {
+
+            $gmailUser = Socialite::driver('google')->stateless()->user();
+            $user = User::where('gmail_id', $gmailUser->id)->first();
+
+            if ($user) {
+                Auth::guard('web')->loginUsingId($user->id);
+                return redirect()->route('user_dashboard')->with('success','Login is successfull');
+
+            } else {
+                $userData = User::create([
+                    'gmail_id' => $gmailUser->id,
+                    'name' => $gmailUser->name,
+                    'email' => $gmailUser->email,
+                    'photo' => $gmailUser->avatar,
+                    'password' => Hash::make('Password@1234'),
+                    'status' => 1,
+                ]);
+
+                if ($userData) {
+                    Auth::guard('web')->loginUsingId($userData->id);
+                    return redirect()->route('user_dashboard')->with('success','Login is successfull');
+                }
+            }
+
+        } catch (\Exception $e) {
+            // dd($e);
+            return redirect()->route('login')->with('error','The information you entered is incorrect! Please try again!')->withInput();
+        }
+
+
     }
 
     public function login_submit(Request $request) {
@@ -605,3 +636,5 @@ class FrontController extends Controller
     }
 
 }
+
+
