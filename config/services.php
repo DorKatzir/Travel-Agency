@@ -38,7 +38,7 @@ return [
     'google' => [
         'client_id' => env('GMAIL_CLIENT_ID'),
         'client_secret' => env('GMAIL_CLIENT_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/auth/gmail-callback'
+        'redirect' => env('GMAIL_CALLBACK_URI')
     ],
 
 ];
