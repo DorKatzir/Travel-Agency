@@ -38,7 +38,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Laravel\Socialite\Facades\Socialite;
 
 class FrontController extends Controller
 {
@@ -507,44 +506,44 @@ class FrontController extends Controller
         return view('front.login', compact('settingItem'));
     }
 
-    public function login_gmail() {
-        return Socialite::driver('google')->redirect();
-    }
+    // public function login_gmail() {
+    //     return Socialite::driver('google')->redirect();
+    // }
 
-    public function login_gmail_auth() {
+    // public function login_gmail_auth() {
 
-        try {
+    //     try {
 
-            $gmailUser = Socialite::driver('google')->stateless()->user();
-            $user = User::where('gmail_id', $gmailUser->id)->first();
+    //         $gmailUser = Socialite::driver('google')->stateless()->user();
+    //         $user = User::where('gmail_id', $gmailUser->id)->first();
 
-            if ($user) {
-                Auth::guard('web')->loginUsingId($user->id);
-                return redirect()->route('user_dashboard')->with('success','Login is successfull');
+    //         if ($user) {
+    //             Auth::guard('web')->loginUsingId($user->id);
+    //             return redirect()->route('user_dashboard')->with('success','Login is successfull');
 
-            } else {
+    //         } else {
 
-                $userData = User::create([
-                    'gmail_id' => $gmailUser->id,
-                    'name' => $gmailUser->name,
-                    'email' => $gmailUser->email,
-                    'password' => Hash::make('Password@1234'),
-                    'status' => 1,
-                ]);
+    //             $userData = User::create([
+    //                 'gmail_id' => $gmailUser->id,
+    //                 'name' => $gmailUser->name,
+    //                 'email' => $gmailUser->email,
+    //                 'password' => Hash::make('Password@1234'),
+    //                 'status' => 1,
+    //             ]);
 
-                if ($userData) {
-                    Auth::guard('web')->loginUsingId($userData->id);
-                    return redirect()->route('user_dashboard')->with('success','Login is successfull');
-                }
-            }
+    //             if ($userData) {
+    //                 Auth::guard('web')->loginUsingId($userData->id);
+    //                 return redirect()->route('user_dashboard')->with('success','Login is successfull');
+    //             }
+    //         }
 
-        } catch (\Exception $e) {
-            // dd($e);
-            return redirect()->route('login')->with('error','The information you entered is incorrect! Please try again!')->withInput();
-        }
+    //     } catch (\Exception $e) {
+    //         // dd($e);
+    //         return redirect()->route('login')->with('error','The information you entered is incorrect! Please try again!')->withInput();
+    //     }
 
 
-    }
+    // }
 
     public function login_submit(Request $request) {
 

@@ -23,9 +23,10 @@
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
                     <div class="login-form">
                         {{-- Gmail Login --}}
-                        <div class="px-6 py-2 d-flex align-items-center gap-4">
-                            <span>Login with</span>
-                            <a href="{{ route('login_gmail') }}" class="btn btn-danger flex-grow-1"> Gmail Account</a>
+                        <div class="px-6 py-2 d-flex align-items-center justify-content-center">
+                            <a href="{{ route('auth.google') }}">
+                                <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png">
+                            </a>
                         </div>
 
                         <div class="d-flex gap-4 align-items-center justify-content-between mt-1 mb-1">

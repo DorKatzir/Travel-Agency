@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminFaqController;
@@ -69,8 +70,8 @@ Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'reg
 Route::get('/login', [FrontController::class, 'login'])->name('login');
 Route::post('/login', [FrontController::class, 'login_submit'])->name('login_submit');
 
-Route::get('/auth/gmail', [FrontController::class, 'login_gmail'])->name('login_gmail');
-Route::get('/auth/gmail-callback', [FrontController::class, 'login_gmail_auth'])->name('login_gmail_auth');
+// Route::get('/auth/gmail', [FrontController::class, 'login_gmail'])->name('login_gmail');
+// Route::get('/auth/gmail-callback', [FrontController::class, 'login_gmail_auth'])->name('login_gmail_auth');
 
 Route::get('/forget-password', [FrontController::class, 'forget_password'])->name('forget_password');
 Route::post('/forget-password', [FrontController::class, 'forget_password_submit'])->name('forget_password_submit');
@@ -307,3 +308,7 @@ Route::prefix('admin')->group( function () {
 });
 
 
+Route::controller(GoogleController::class)->group(function(){
+    Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('auth/google/callback', 'handleGoogleCallback');
+});
