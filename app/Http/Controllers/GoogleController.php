@@ -30,7 +30,7 @@ class GoogleController extends Controller
             if($finduser){
 
                 Auth::login($finduser);
-                return redirect()->intended('user_dashboard');
+                return redirect()->intended('/user/dashboard');
 
             }else{
                 $newUser = User::updateOrCreate(['email' => $user->email],[
@@ -41,7 +41,7 @@ class GoogleController extends Controller
 
                 Auth::login($newUser);
 
-                return redirect()->intended('user_dashboard');
+                return redirect()->intended('/user/dashboard');
             }
 
         } catch (Exception $e) {
