@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="page-content pt_70 pb_70">
+    <div class="page-content pt-4 pb-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
@@ -29,13 +29,13 @@
                             </a>
                         </div>
 
-                        <div class="d-flex gap-4 align-items-center justify-content-between mt-1 mb-1">
+                        <div class="d-flex gap-4 align-items-center justify-content-between pt-2 pb-2">
                            <hr class="hr">
                            <small class="text-muted">OR</small>
                            <hr class="hr">
                         </div>
 
-                        <form action="{{ route('login_submit') }}" method="POST">
+                        <form class="pb-4" action="{{ route('login_submit') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="" class="form-label">Email Address</label>
@@ -56,8 +56,8 @@
 
                         </form>
 
-                        <hr>
-                        <div class="mb-3 d-flex gap-4 align-items-center justify-content-between">
+                        <hr class="">
+                        <div class="pt-2 pb-5 d-flex gap-4 align-items-center justify-content-between">
                             <span>Don't have an account?</span>
                             <a href="{{ route('registration') }}" class="primary-color">Create Account</a>
                         </div>
