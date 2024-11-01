@@ -163,110 +163,47 @@ select {
     color: #f4c150;
 }
 .top {
-    min-height: 40px;
     color: #fff;
     background: #0663fc;
     font-size: 14px;
     border-bottom: 1px solid #d7d7d7;
-}
-.top ul {
-    margin-bottom: 0;
-    padding-left: 0;
-}
-.top ul li {
-    list-style-type: none;
-    line-height: 40px;
-    float: left;
-    margin-right: 20px;
-    font-weight: 400;
-    position: relative;
-    padding-left: 15px;
-}
-.top ul li a {
-    color: #fff;
-}
-.top ul.right {
-    float: right;
-}
-.top ul.right li {
-    margin-right: 0;
-    padding-left: 15px;
-    margin-left: 10px;
-}
-.top ul.right li:before {
-    content: "|";
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.top ul.right li:first-child:before {
-    display: none;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
 
-@media (max-width: 991px) {
-    .top {
-        padding-top: 3px;
-        padding-bottom: 3px;
-    }
-    .top ul li {
-        line-height: 28px;
-    }
-    .top ul.right {
-        padding-top: 12px;
-    }
-    .top .left-side,
-    .top .left-side ul {
-        width: 100%;
-    }
-    .top .left-side ul {
-        text-align: center;
-    }
-    .top .left-side ul li {
-        float: none;
-        display: inline-block;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    .top .right-side,
-    .top .right-side ul {
-        width: 100%;
-    }
-    .top .right-side ul {
-        text-align: center;
-    }
-    .top .right-side ul li {
-        float: none;
-        display: inline-block;
-    }
-    .top ul.right {
-        padding-top: 0;
-    }
+.top-container{
+    width:100%;
+    max-width: 1110px;
+    margin: 0 auto;
 }
-@media (max-width: 767px) {
-    .top ul {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
-    .top ul li {
-        float: none;
-        display: inline-block;
-    }
-    .top ul.right {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-        padding-top: 0;
-    }
-    .top ul.right li {
-        float: none;
-        display: inline-block;
-    }
-    .top ul.right li:first-child {
-        margin-left: 0;
-        padding-left: 0;
-    }
+
+.top-row-flex{
+    margin: 0 !important;
+    padding: 0 !important;
 }
+
+.top-row-flex ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    gap: 1rem;
+}
+
+.top-row-flex ul.right {
+   justify-content: space-between;
+}
+
+.top-row-flex ul li{
+    list-style-type: none;
+}
+
+.top-row-flex ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
 
 
 /* Heading Area */

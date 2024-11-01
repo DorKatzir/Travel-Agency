@@ -48,29 +48,30 @@
     </head>
     <body>
         <div class="top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 left-side">
-                        <ul>
+            <div class="top-container">
+                <div class="row top-row-flex">
+                    <div class="col-md-6 d-none d-md-block">
+                        <ul class="">
                             <li class="phone-text"><i class="fas fa-phone"></i> {{ $setting->header_phone }}</li>
                             <li class="email-text"><i class="fas fa-envelope"></i> {{ $setting->header_email }}</li>
                         </ul>
                     </div>
-                    <div class="col-md-6 right-side">
+                    <div class="col-sm-12 col-md-6">
 
                         @if (Auth::guard('web')->check())
-                            <ul class="right">
-
-                                <li class="menu">
-                                    <i class="fas fa-sign-in-alt"></i><a class="ms-1" href="{{ route('user_dashboard') }}"> Dashboard</a>
+                            <ul class="right justify-content-md-end">
+                                <li>Hello, {{ Auth::guard('web')->user()->name }}</li>
+                                <li class="">
+                                    <i class="fas fa-clipboard-check"></i>
+                                    <a class="ms-1" href="{{ route('user_dashboard') }}"> Dashboard</a>
                                 </li>
                             </ul>
                         @else
                             <ul class="right">
-                                <li class="menu">
+                                <li>
                                     <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                                 </li>
-                                <li class="menu">
+                                <li>
                                     <a href="{{ route('registration') }}"><i class="fas fa-user"></i> Sign Up</a>
                                 </li>
                             </ul>
