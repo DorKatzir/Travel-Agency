@@ -67,7 +67,7 @@
                                 </li>
                             </ul>
                         @else
-                            <ul class="right">
+                            <ul class="right justify-content-md-end">
                                 <li>
                                     <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                                 </li>
@@ -208,6 +208,7 @@
                     message: '{{ $error }}',
                     color: 'red',
                     position: 'topRight',
+                    zindex: 99999,
                 });
             </script>
         @endforeach
@@ -220,6 +221,7 @@
                     message: '{{ session("success") }}',
                     color: 'green',
                     position: 'topRight',
+                    zindex: 99999,
                 });
             </script>
         @endif
@@ -231,6 +233,7 @@
                     message: '{{ session("error") }}',
                     color: 'red',
                     position: 'topRight',
+                    zindex: 99999,
                 });
             </script>
         @endif

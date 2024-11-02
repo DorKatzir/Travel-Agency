@@ -279,7 +279,7 @@ select {
 .mean-container .mean-bar {
     background-color: #fff;
     height: 60px;
-    z-index: 999999 !important;
+    z-index: 9999 !important;
 }
 .mean-container .logo {
     top: 5px;

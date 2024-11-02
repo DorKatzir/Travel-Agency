@@ -180,8 +180,8 @@ a.meanmenu-reveal {
     margin-left: 15px;
     margin-right: 15px;
 }
-.main-nav nav .navbar-nav .nav-item a:hover, 
-.main-nav nav .navbar-nav .nav-item a:focus, 
+.main-nav nav .navbar-nav .nav-item a:hover,
+.main-nav nav .navbar-nav .nav-item a:focus,
 .main-nav nav .navbar-nav .nav-item a.active {
     color: #FF2D55;
 }
@@ -220,8 +220,8 @@ a.meanmenu-reveal {
     display: block;
     color: #ffffff;
 }
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover, 
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:focus, 
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover,
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:focus,
 .main-nav nav .navbar-nav .nav-item .dropdown-menu li a.active {
     color: #FF2D55;
 }
@@ -253,8 +253,8 @@ a.meanmenu-reveal {
     color: #ffffff;
     text-transform: capitalize;
 }
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover, 
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus, 
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:hover,
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a:focus,
 .main-nav nav .navbar-nav .nav-item .dropdown-menu li .dropdown-menu li a.active {
     color: #FF2D55;
 }
@@ -281,7 +281,7 @@ a.meanmenu-reveal {
 		text-decoration: none;
         position: absolute;
         top: 11px;
-        z-index: 999999;
+        z-index: 9999;
         left: 15px;
         color: #fff;
         font-weight: bold;
