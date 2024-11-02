@@ -168,13 +168,13 @@ select {
     background: #0663fc;
     font-size: 14px;
     border-bottom: 1px solid #d7d7d7;
-    padding-top: .5em;
-    padding-bottom: .5em;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .top-container{
     width:100%;
-    max-width: 1110px;
+    max-width: 1140px;
     margin: 0 auto;
 }
 
