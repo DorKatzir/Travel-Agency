@@ -2,7 +2,7 @@
 <div class="navbar-area" id="stickymenu">
     <!-- Menu For Mobile Device -->
     <div class="mobile-nav">
-        <a href="{{ route('home') }}" class="logo">
+        <a href="{{ route('home') }}" class="logo mt-1">
             @if ($setting->logo != '')
                 <img src="{{ asset('uploads/' . $setting->logo) }}" alt="logo">
             @else
