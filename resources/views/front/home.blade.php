@@ -2,7 +2,7 @@
 
 @section('main_content')
 
-    <div class="slider">
+    <div class="slider d-none d-md-block">
         <div class="slide-carousel owl-carousel">
 
             @foreach ($sliders as $slider)
@@ -39,7 +39,7 @@
 
 
     @if ($welcomeItem->status == 'show')
-        <div class="special pt_70 pb_70">
+        <div class="special mt-5 mt-md-0 pt_70 pb_70">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
