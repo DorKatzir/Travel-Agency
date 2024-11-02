@@ -38,7 +38,7 @@
     </div>
 
 
-    @if ($welcomeItem->status == 'show')
+    {{-- @if ($welcomeItem->status == 'show')
         <div class="special mt-5 mt-md-0 pt_70 pb_70">
             <div class="container">
                 <div class="row">
@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
 
 
     @if($homeItem->destination_status == 'show')
