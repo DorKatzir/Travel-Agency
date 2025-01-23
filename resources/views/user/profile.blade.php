@@ -31,77 +31,79 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label for="">Profile Photo</label>
+                                <label class="form-label" for="">Current Photo</label>
+
                                 <div class="form-group">
-                                    @if ( Auth::guard('web')->user()->photo != '' )
-                                        <img src="{{ asset('uploads/' . Auth::guard('web')->user()->name) }}" alt="" class="user-photo rounded">
+                                    @if ( Auth::guard('web')->user()->photo != null)
+                                        <img src="{{ asset('uploads/' . Auth::guard('web')->user()->photo) }}" alt="" class="user-photo rounded">
                                     @else
                                         <img src="{{ asset('uploads/default.png')}}" alt="" class="user-photo rounded">
                                     @endif
                                 </div>
+
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label for="photo">Change Photo</label>
+                                <label class="form-label" for="photo">Change Photo</label>
                                 <div class="form-group">
                                     <input type="file" name="photo">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="name">Name *</label>
+                                <label class="form-label" for="name">Name *</label>
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" value="{{ Auth::guard('web')->user()->name }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="email">Email Address *</label>
+                                <label class="form-label" for="email">Email Address *</label>
                                 <div class="form-group">
                                     <input type="email" name="email" class="form-control" value="{{ Auth::guard('web')->user()->email }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="phone">Phone *</label>
+                                <label class="form-label" for="phone">Phone</label>
                                 <div class="form-group">
                                     <input type="text" name="phone" class="form-control" value="{{ Auth::guard('web')->user()->phone }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="country">Country *</label>
+                                <label class="form-label" for="country">Country</label>
                                 <div class="form-group">
                                     <input type="text" name="country" class="form-control" value="{{ Auth::guard('web')->user()->country }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="address">Address *</label>
+                                <label class="form-label" for="address">Address</label>
                                 <div class="form-group">
                                     <input type="text" name="address" class="form-control" value="{{ Auth::guard('web')->user()->address }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="state">State *</label>
+                                <label class="form-label" for="state">State</label>
                                 <div class="form-group">
                                     <input type="text" name="state" class="form-control" value="{{ Auth::guard('web')->user()->state }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="city">City *</label>
+                                <label class="form-label" for="city">City</label>
                                 <div class="form-group">
                                     <input type="text" name="city" class="form-control" value="{{ Auth::guard('web')->user()->city }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="zip">Zip Code *</label>
+                                <label class="form-label" for="zip">Zip Code</label>
                                 <div class="form-group">
                                     <input type="text" name="zip" class="form-control" value="{{ Auth::guard('web')->user()->zip }}">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="password">Password</label>
+                                <label class="form-label" for="password">Password</label>
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="confirm_password">Re-type Password</label>
+                                <label class="form-label" for="confirm_password">Re-type Password</label>
                                 <div class="form-group">
                                     <input type="password" name="confirm_password" class="form-control">
                                 </div>

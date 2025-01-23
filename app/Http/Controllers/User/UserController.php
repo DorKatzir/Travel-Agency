@@ -39,12 +39,6 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
-            'phone' => ['required'],
-            'country' => ['required'],
-            'address' => ['required'],
-            'state' => ['required'],
-            'city' => ['required'],
-            'zip' => ['required'],
         ]);
 
 
