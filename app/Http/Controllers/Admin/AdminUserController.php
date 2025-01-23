@@ -108,12 +108,7 @@ class AdminUserController extends Controller
         $request->validate([
             'name' =>'required',
             'email' =>'required|email|unique:users,email,' .$id,
-            'phone' =>'required',
-            'country' =>'required',
-            'address' =>'required',
-            'state' =>'required',
-            'city' =>'required',
-            'zip' =>'required',
+
         ]);
 
         if($request->photo != ''){

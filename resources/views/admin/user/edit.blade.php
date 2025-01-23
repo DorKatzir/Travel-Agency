@@ -53,32 +53,32 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Phone *</label>
+                                            <label class="form-label">Phone</label>
                                             <input type="text" class="form-control" name="phone" value="{{ $user->phone }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Country *</label>
+                                            <label class="form-label">Country</label>
                                             <input type="text" class="form-control" name="country" value="{{ $user->country }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">State *</label>
+                                            <label class="form-label">State</label>
                                             <input type="text" class="form-control" name="state" value="{{ $user->state }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Address *</label>
+                                            <label class="form-label">Address</label>
                                             <input type="text" class="form-control" name="address" value="{{ $user->address }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">City *</label>
+                                            <label class="form-label">City</label>
                                             <input type="text" class="form-control" name="city" value="{{ $user->city }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label class="form-label">Zip *</label>
+                                            <label class="form-label">Zip</label>
                                             <input type="text" class="form-control" name="zip" value="{{ $user->zip }}">
                                         </div>
 
